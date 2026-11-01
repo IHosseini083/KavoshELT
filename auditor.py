@@ -10,13 +10,19 @@ from validator import validate_exam_text
 
 def run_curriculum_audit(conn: DbTarget) -> Dict[str, Any]:
     with session_scope(conn) as session:
-        grades_count = int(session.scalar(select(func.count(func.distinct(Lesson.grade)))) or 0)
-        lessons_count = int(session.scalar(select(func.count()).select_from(Lesson)) or 0)
+        grades_count = int(
+            session.scalar(select(func.count(func.distinct(Lesson.grade)))) or 0
+        )
+        lessons_count = int(
+            session.scalar(select(func.count()).select_from(Lesson)) or 0
+        )
         passages = list(session.scalars(select(Passage)).all())
 
     failures: List[Dict[str, Any]] = []
     for p in passages:
-        res = validate_exam_text(conn, max_grade=p.grade, max_lesson=p.lesson_num, text=p.content)
+        res = validate_exam_text(
+            conn, max_grade=p.grade, max_lesson=p.lesson_num, text=p.content
+        )
         if not res["is_valid"]:
             failures.append(
                 {

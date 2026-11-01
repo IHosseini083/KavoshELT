@@ -17,6 +17,8 @@ from exam_styler import (
     generate_exam_html,
     generate_exam_pdf,
 )
+from exam_composer import compose_exam
+from exam_rag_engine import traverse_prerequisites
 from models import DbTarget
 from rag import retrieve_rag_context
 from validator import validate_exam_text
@@ -27,7 +29,11 @@ VISION1_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "vision1.db")
 
 def get_connection(db_path: Optional[str] = None) -> sqlite3.Connection:
     if not db_path:
-        db_path = CURRICULUM_DB_PATH if os.path.exists(CURRICULUM_DB_PATH) else VISION1_DB_PATH
+        db_path = (
+            CURRICULUM_DB_PATH
+            if os.path.exists(CURRICULUM_DB_PATH)
+            else VISION1_DB_PATH
+        )
     if not os.path.exists(db_path):
         from schema import init_db
         from seed_all_grades import seed_curriculum
@@ -67,11 +73,31 @@ def cmd_context(args: argparse.Namespace) -> None:
         [args.grade] + lessons,
     )
     vocab_data = [
-        {"word": r[0], "lemma": r[1], "pos": r[2], "definition_fa": r[3], "example_en": r[4], "lesson_num": r[5]}
+        {
+            "word": r[0],
+            "lemma": r[1],
+            "pos": r[2],
+            "definition_fa": r[3],
+            "example_en": r[4],
+            "lesson_num": r[5],
+        }
         for r in cur.fetchall()
     ]
 
-    term = 1 if max(lessons) <= (4 if args.grade == 7 else 3 if args.grade == 8 else 3 if args.grade == 9 else 2) else 2
+    term = (
+        1
+        if max(lessons)
+        <= (
+            4
+            if args.grade == 7
+            else 3
+            if args.grade == 8
+            else 3
+            if args.grade == 9
+            else 2
+        )
+        else 2
+    )
     cur.execute(
         "SELECT id, exam_type, total_points, structure_json FROM rubrics WHERE grade = ? AND term = ?",
         (args.grade, term),
@@ -109,10 +135,23 @@ def cmd_search(args: argparse.Namespace) -> None:
     )
     rows = cur.fetchall()
     results = [
-        {"grade": r[0], "lesson_num": r[1], "section_type": r[2], "title": r[3], "content": r[4]} for r in rows
+        {
+            "grade": r[0],
+            "lesson_num": r[1],
+            "section_type": r[2],
+            "title": r[3],
+            "content": r[4],
+        }
+        for r in rows
     ]
     conn.close()
-    print(json.dumps({"query": query, "count": len(results), "passages": results}, ensure_ascii=False, indent=2))
+    print(
+        json.dumps(
+            {"query": query, "count": len(results), "passages": results},
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
 
 
 def cmd_validate(args: argparse.Namespace) -> None:
@@ -124,10 +163,16 @@ def cmd_validate(args: argparse.Namespace) -> None:
 
     if not text:
         conn.close()
-        print(json.dumps({"error": "No text provided. Use --text or --file."}, ensure_ascii=False))
+        print(
+            json.dumps(
+                {"error": "No text provided. Use --text or --file."}, ensure_ascii=False
+            )
+        )
         sys.exit(1)
 
-    res = validate_exam_text(conn, max_grade=args.grade, max_lesson=args.max_lesson, text=text)
+    res = validate_exam_text(
+        conn, max_grade=args.grade, max_lesson=args.max_lesson, text=text
+    )
     conn.close()
     print(json.dumps(res, ensure_ascii=False, indent=2))
 
@@ -154,11 +199,13 @@ def cmd_stats(args: argparse.Namespace) -> None:
     print(
         f"Total Grades: {grades_count:2d} | Lessons: {lessons_count:2d} | Total Vocabulary: {total_vocab:4d} | Passages: {total_passages:2d} | Rubrics: {total_rubrics:2d}\n"
     )
-    print(f"{'Grade':<8} | {'Series':<10} | {'Lessons':<8} | {'Vocabulary':<12} | {'Passages':<8}")
+    print(
+        f"{'Grade':<8} | {'Series':<10} | {'Lessons':<8} | {'Vocabulary':<12} | {'Passages':<8}"
+    )
     print("-" * 56)
 
     for g in range(7, 13):
-        series = f"Prospect {g-6}" if g <= 9 else f"Vision {g-9}"
+        series = f"Prospect {g - 6}" if g <= 9 else f"Vision {g - 9}"
         cur.execute("SELECT COUNT(*) FROM lessons WHERE grade = ?", (g,))
         l_cnt = cur.fetchone()[0]
         cur.execute("SELECT COUNT(*) FROM vocabulary WHERE grade = ?", (g,))
@@ -185,10 +232,16 @@ def cmd_adapt(args: argparse.Namespace) -> None:
             text = f.read()
     if not text:
         conn.close()
-        print(json.dumps({"error": "No text provided. Use --text or --file."}, ensure_ascii=False))
+        print(
+            json.dumps(
+                {"error": "No text provided. Use --text or --file."}, ensure_ascii=False
+            )
+        )
         sys.exit(1)
 
-    res = analyze_and_advise(conn, max_grade=args.grade, max_lesson=args.max_lesson, text=text)
+    res = analyze_and_advise(
+        conn, max_grade=args.grade, max_lesson=args.max_lesson, text=text
+    )
     conn.close()
     print(json.dumps(res, ensure_ascii=False, indent=2))
 
@@ -204,7 +257,9 @@ def cmd_blueprint(args: argparse.Namespace) -> None:
     r = cur.fetchone()
     structure = json.loads(r[3]) if r else {}
 
-    series_name = f"Prospect {args.grade-6}" if args.grade <= 9 else f"Vision {args.grade-9}"
+    series_name = (
+        f"Prospect {args.grade - 6}" if args.grade <= 9 else f"Vision {args.grade - 9}"
+    )
 
     blueprint = {
         "title": f"Official Curriculum Blueprint - Grade {args.grade} ({series_name}) Term {args.term}",
@@ -278,79 +333,207 @@ def cmd_generate(args: argparse.Namespace) -> None:
     print(json.dumps(res, ensure_ascii=False, indent=2))
 
 
+def cmd_compose_exam(args: argparse.Namespace) -> None:
+    conn = get_connection(args.db)
+    lessons = (
+        [int(x.strip()) for x in args.lessons.split(",") if x.strip()]
+        if args.lessons
+        else None
+    )
+    res = compose_exam(
+        conn,
+        mode=args.mode,
+        grade=args.grade,
+        lessons=lessons,
+        section=args.section,
+        target_points=float(args.points),
+        sourcing=args.sourcing,
+        school_name=args.school,
+        teacher_name=args.teacher,
+        out_dir=args.out_dir,
+    )
+    conn.close()
+    print(json.dumps(res, ensure_ascii=False, indent=2))
+
+
+def cmd_graph_query(args: argparse.Namespace) -> None:
+    conn = get_connection(args.db)
+    res = traverse_prerequisites(conn, concept_id=args.concept)
+    conn.close()
+    print(json.dumps(res, ensure_ascii=False, indent=2))
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Secondary English Curriculum Knowledge Base & Authoring CLI")
+    parser = argparse.ArgumentParser(
+        description="Secondary English Curriculum Knowledge Base & Authoring CLI"
+    )
     parser.add_argument("--db", default=None, help="Custom SQLite path")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # stats
-    p_stat = subparsers.add_parser("stats", help="Overview of full 6-grade curriculum database")
+    p_stat = subparsers.add_parser(
+        "stats", help="Overview of full 6-grade curriculum database"
+    )
     p_stat.set_defaults(func=cmd_stats)
 
     # audit
-    p_aud = subparsers.add_parser("audit", help="Run full self-consistency audit on all lessons")
+    p_aud = subparsers.add_parser(
+        "audit", help="Run full self-consistency audit on all lessons"
+    )
     p_aud.set_defaults(func=cmd_audit)
 
     # context
-    p_ctx = subparsers.add_parser("context", help="Extract curriculum bounds and vocabulary")
+    p_ctx = subparsers.add_parser(
+        "context", help="Extract curriculum bounds and vocabulary"
+    )
     p_ctx.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
-    p_ctx.add_argument("--lessons", default="1,2", help="Comma-separated lesson numbers")
+    p_ctx.add_argument(
+        "--lessons", default="1,2", help="Comma-separated lesson numbers"
+    )
     p_ctx.set_defaults(func=cmd_context)
 
     # search
-    p_search = subparsers.add_parser("search", help="Search canonical textbook passages")
+    p_search = subparsers.add_parser(
+        "search", help="Search canonical textbook passages"
+    )
     p_search.add_argument("--query", required=True, help="Search query (FTS5 syntax)")
     p_search.add_argument("--limit", type=int, default=5, help="Max results")
     p_search.set_defaults(func=cmd_search)
 
     # rag
-    p_rag = subparsers.add_parser("rag", help="Hybrid semantic + lexical RAG retrieval with syllabus guardrails")
+    p_rag = subparsers.add_parser(
+        "rag", help="Hybrid semantic + lexical RAG retrieval with syllabus guardrails"
+    )
     p_rag.add_argument("--query", required=True, help="Topic or text to search for")
-    p_rag.add_argument("--grade", type=int, default=10, help="Maximum grade boundary (7-12)")
-    p_rag.add_argument("--max-lesson", type=int, default=4, help="Maximum lesson boundary")
-    p_rag.add_argument("--top-passages", type=int, default=3, help="Number of passages to retrieve")
-    p_rag.add_argument("--top-vocab", type=int, default=15, help="Number of vocabulary items to retrieve")
+    p_rag.add_argument(
+        "--grade", type=int, default=10, help="Maximum grade boundary (7-12)"
+    )
+    p_rag.add_argument(
+        "--max-lesson", type=int, default=4, help="Maximum lesson boundary"
+    )
+    p_rag.add_argument(
+        "--top-passages", type=int, default=3, help="Number of passages to retrieve"
+    )
+    p_rag.add_argument(
+        "--top-vocab",
+        type=int,
+        default=15,
+        help="Number of vocabulary items to retrieve",
+    )
     p_rag.set_defaults(func=cmd_rag)
 
     # validate
-    p_val = subparsers.add_parser("validate", help="Validate exam text against syllabus bounds")
+    p_val = subparsers.add_parser(
+        "validate", help="Validate exam text against syllabus bounds"
+    )
     p_val.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
-    p_val.add_argument("--max-lesson", type=int, default=4, help="Maximum taught lesson index")
+    p_val.add_argument(
+        "--max-lesson", type=int, default=4, help="Maximum taught lesson index"
+    )
     p_val.add_argument("--text", help="Exam text to validate")
     p_val.add_argument("--file", help="Path to markdown or text file")
     p_val.set_defaults(func=cmd_validate)
 
     # adapt
-    p_adp = subparsers.add_parser("adapt", help="Validate text and provide in-syllabus replacement advice")
+    p_adp = subparsers.add_parser(
+        "adapt", help="Validate text and provide in-syllabus replacement advice"
+    )
     p_adp.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
-    p_adp.add_argument("--max-lesson", type=int, default=4, help="Maximum taught lesson index")
+    p_adp.add_argument(
+        "--max-lesson", type=int, default=4, help="Maximum taught lesson index"
+    )
     p_adp.add_argument("--text", help="Text to adapt")
     p_adp.add_argument("--file", help="Path to file")
     p_adp.set_defaults(func=cmd_adapt)
 
     # blueprint
-    p_bp = subparsers.add_parser("blueprint", help="Generate exam blueprint and TTS specs")
+    p_bp = subparsers.add_parser(
+        "blueprint", help="Generate exam blueprint and TTS specs"
+    )
     p_bp.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
-    p_bp.add_argument("--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)")
+    p_bp.add_argument(
+        "--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)"
+    )
     p_bp.add_argument("--exam-type", default="Listening", help="Listening or Written")
     p_bp.set_defaults(func=cmd_blueprint)
 
     # export
-    p_exp = subparsers.add_parser("export", help="Export exam markdown to printable PDF, Word DOCX, or HTML")
+    p_exp = subparsers.add_parser(
+        "export", help="Export exam markdown to printable PDF, Word DOCX, or HTML"
+    )
     p_exp.add_argument("--file", required=True, help="Input markdown exam file")
-    p_exp.add_argument("--format", choices=["pdf", "docx", "html"], default="pdf", help="Output format")
+    p_exp.add_argument(
+        "--format", choices=["pdf", "docx", "html"], default="pdf", help="Output format"
+    )
     p_exp.add_argument("--out", help="Output file path")
-    p_exp.add_argument("--school", default="دبیرستان نمونه دولتی", help="School name on header")
-    p_exp.add_argument("--include-key", action="store_true", help="Also generate separate Teacher Answer Key PDF")
+    p_exp.add_argument(
+        "--school", default="دبیرستان نمونه دولتی", help="School name on header"
+    )
+    p_exp.add_argument(
+        "--include-key",
+        action="store_true",
+        help="Also generate separate Teacher Answer Key PDF",
+    )
     p_exp.set_defaults(func=cmd_export)
 
     # generate
-    p_gen = subparsers.add_parser("generate", help="Generate complete exam package (MD + PDF + DOCX + HTML + Key)")
+    p_gen = subparsers.add_parser(
+        "generate", help="Generate complete exam package (MD + PDF + DOCX + HTML + Key)"
+    )
     p_gen.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
-    p_gen.add_argument("--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)")
+    p_gen.add_argument(
+        "--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)"
+    )
     p_gen.add_argument("--out-dir", default="exports", help="Output directory")
-    p_gen.add_argument("--school", default="دبیرستان نمونه دولتی", help="School name on header")
+    p_gen.add_argument(
+        "--school", default="دبیرستان نمونه دولتی", help="School name on header"
+    )
     p_gen.set_defaults(func=cmd_generate)
+
+    # compose-exam
+    p_comp = subparsers.add_parser(
+        "compose-exam", help="Compose exam via Graph-RAG engine across 4 modes"
+    )
+    p_comp.add_argument(
+        "--mode",
+        choices=["full_mock", "skill_worksheet", "custom_quiz"],
+        default="full_mock",
+        help="Composition mode",
+    )
+    p_comp.add_argument("--grade", type=int, default=12, help="Grade level (7-12)")
+    p_comp.add_argument("--lessons", help="Comma-separated lesson numbers")
+    p_comp.add_argument(
+        "--section",
+        choices=["vocabulary", "grammar", "writing", "cloze", "reading"],
+        help="Target section for worksheet",
+    )
+    p_comp.add_argument(
+        "--points",
+        type=float,
+        default=28.0,
+        help="Target total score (multiple of 0.25)",
+    )
+    p_comp.add_argument(
+        "--sourcing",
+        choices=["past_papers", "ai_twins", "hybrid"],
+        default="past_papers",
+        help="Question sourcing strategy",
+    )
+    p_comp.add_argument("--school", default="دبیرستان نمونه دولتی", help="School name")
+    p_comp.add_argument("--teacher", default="دبیر محترم", help="Teacher name")
+    p_comp.add_argument("--out-dir", help="Output directory")
+    p_comp.set_defaults(func=cmd_compose_exam)
+
+    # graph-query
+    p_gq = subparsers.add_parser(
+        "graph-query", help="Traverse prerequisite knowledge graph and L1 errors"
+    )
+    p_gq.add_argument(
+        "--concept",
+        required=True,
+        help="Concept Node ID (e.g. g12.l1.grammar.passive_voice)",
+    )
+    p_gq.set_defaults(func=cmd_graph_query)
 
     args = parser.parse_args()
     args.func(args)

@@ -8,6 +8,7 @@ from schema import init_db
 from seed_all_grades import seed_curriculum
 from advisor import analyze_and_advise
 
+
 class TestAdvisor(unittest.TestCase):
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
@@ -36,6 +37,7 @@ class TestAdvisor(unittest.TestCase):
         res12 = analyze_and_advise(self.conn, max_grade=12, max_lesson=1, text=text)
         self.assertFalse(res11["is_valid"])
         self.assertTrue(res12["is_valid"])
+
 
 if __name__ == "__main__":
     unittest.main()

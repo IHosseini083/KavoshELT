@@ -12,6 +12,15 @@ CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
     title,
     content
 );
+
+CREATE VIRTUAL TABLE IF NOT EXISTS exam_items_fts USING fts5(
+    item_id,
+    paper_id,
+    section_code,
+    stem_text,
+    canonical_answer,
+    concept_keywords
+);
 """
 
 
@@ -26,5 +35,8 @@ def init_db(target: DbTarget) -> None:
     with session_scope(target) as session:
         bind = session.get_bind()
         Base.metadata.create_all(bind)
-        session.execute(text(FTS_SQL))
+        for stmt in FTS_SQL.strip().split(";"):
+            clean_stmt = stmt.strip()
+            if clean_stmt:
+                session.execute(text(clean_stmt))
         session.commit()

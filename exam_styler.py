@@ -41,7 +41,11 @@ _FONTS_REGISTERED = False
 
 def ensure_fonts_registered() -> Tuple[str, str]:
     global _FONTS_REGISTERED
-    if not _FONTS_REGISTERED and os.path.exists(VAZIR_REG) and os.path.exists(VAZIR_BOLD):
+    if (
+        not _FONTS_REGISTERED
+        and os.path.exists(VAZIR_REG)
+        and os.path.exists(VAZIR_BOLD)
+    ):
         pdfmetrics.registerFont(TTFont("Vazirmatn", VAZIR_REG))
         pdfmetrics.registerFont(TTFont("Vazirmatn-Bold", VAZIR_BOLD))
         _FONTS_REGISTERED = True
@@ -127,7 +131,11 @@ def parse_exam_markdown(md_path: str) -> Dict[str, Any]:
     elif "دوازدهم" in title or "Grade 12" in content:
         grade_label = "پایه دوازدهم (Vision 3)"
 
-    term_label = "نوبت دوم (خردادماه)" if ("نوبت دوم" in title or "Term 2" in content) else "نوبت اول (دی‌ماه)"
+    term_label = (
+        "نوبت دوم (خردادماه)"
+        if ("نوبت دوم" in title or "Term 2" in content)
+        else "نوبت اول (دی‌ماه)"
+    )
 
     student_section = content
     script_section = ""
@@ -165,7 +173,9 @@ def parse_exam_markdown(md_path: str) -> Dict[str, Any]:
             if line_s.startswith("### ") or line_s.startswith("#### "):
                 items.append(("heading", line_s.lstrip("#").replace("**", "").strip()))
             elif line_s.startswith(">"):
-                items.append(("instruction", line_s.lstrip("> *").replace("**", "").strip()))
+                items.append(
+                    ("instruction", line_s.lstrip("> *").replace("**", "").strip())
+                )
             elif re.match(r"^(\*\*)?\d+\.", line_s):
                 items.append(("question", line_s.replace("**", "")))
             elif re.match(r"^[a-d]\)", line_s) or re.match(r"^-\s*[a-d]\)", line_s):
@@ -438,20 +448,39 @@ def generate_exam_pdf(
         [
             Paragraph(shape_persian("نمره با عدد: .......... از ۱۰"), fa_header_style),
             Paragraph(shape_persian("مدت آزمون: ۲۰ دقیقه"), fa_header_style),
-            Paragraph(shape_persian("نام درس: زبان انگلیسی (شنیداری)"), fa_header_style),
-            Paragraph(shape_persian("نام و نام خانوادگی: ................................."), fa_header_style),
+            Paragraph(
+                shape_persian("نام درس: زبان انگلیسی (شنیداری)"), fa_header_style
+            ),
+            Paragraph(
+                shape_persian("نام و نام خانوادگی: ................................."),
+                fa_header_style,
+            ),
         ],
         [
-            Paragraph(shape_persian("نمره با حروف: ........................"), fa_header_style),
-            Paragraph(shape_persian(f"نوبت: {exam_data['term_label']}"), fa_header_style),
-            Paragraph(shape_persian(f"پایه: {exam_data['grade_label']}"), fa_header_style),
-            Paragraph(shape_persian("کلاس / شعبه: ......................................"), fa_header_style),
+            Paragraph(
+                shape_persian("نمره با حروف: ........................"), fa_header_style
+            ),
+            Paragraph(
+                shape_persian(f"نوبت: {exam_data['term_label']}"), fa_header_style
+            ),
+            Paragraph(
+                shape_persian(f"پایه: {exam_data['grade_label']}"), fa_header_style
+            ),
+            Paragraph(
+                shape_persian("کلاس / شعبه: ......................................"),
+                fa_header_style,
+            ),
         ],
         [
-            Paragraph(shape_persian("امضای مصحح: ........................."), fa_header_style),
+            Paragraph(
+                shape_persian("امضای مصحح: ........................."), fa_header_style
+            ),
             Paragraph(shape_persian("تاریخ: ۱۴۰۵/..../...."), fa_header_style),
             Paragraph(shape_persian(f"آموزشگاه: {school_name}"), fa_header_style),
-            Paragraph(shape_persian("شماره داوطلب: ....................................."), fa_header_style),
+            Paragraph(
+                shape_persian("شماره داوطلب: ....................................."),
+                fa_header_style,
+            ),
         ],
     ]
 
@@ -479,16 +508,22 @@ def generate_exam_pdf(
         if item_type == "heading":
             story.append(Paragraph(rendered_text, heading_ltr))
         elif item_type == "instruction":
-            story.append(Paragraph(rendered_text, instruction_rtl if is_fa else instruction_ltr))
+            story.append(
+                Paragraph(rendered_text, instruction_rtl if is_fa else instruction_ltr)
+            )
         elif item_type == "question":
             story.append(Paragraph(rendered_text, q_style))
         elif item_type == "option":
             story.append(Paragraph(f"( )  {rendered_text}", opt_style))
         else:
-            story.append(Paragraph(rendered_text, instruction_rtl if is_fa else normal_style))
+            story.append(
+                Paragraph(rendered_text, instruction_rtl if is_fa else normal_style)
+            )
 
     story.append(Spacer(1, 8))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#CBD5E0")))
+    story.append(
+        HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#CBD5E0"))
+    )
     story.append(
         Paragraph(
             shape_persian("جمع بارم: ۱۰ نمره  |  موفق و پیروز باشید") + " — Good Luck!",
@@ -559,26 +594,38 @@ def generate_answer_key_pdf(
     story: List[Any] = []
     story.append(
         Paragraph(
-            shape_persian(f"پاسخنامه تشریحی و راهنمای معلم — {exam_data['grade_label']} ({exam_data['term_label']})"),
+            shape_persian(
+                f"پاسخنامه تشریحی و راهنمای معلم — {exam_data['grade_label']} ({exam_data['term_label']})"
+            ),
             title_style,
         )
     )
-    story.append(HRFlowable(width="100%", thickness=1.0, color=colors.HexColor("#1A365D")))
+    story.append(
+        HRFlowable(width="100%", thickness=1.0, color=colors.HexColor("#1A365D"))
+    )
     story.append(Spacer(1, 6))
 
     if exam_data["key_items"]:
         story.append(Paragraph("Answer Key & Scoring Rubric", sec_style))
         for _, val in exam_data["key_items"]:
-            clean_val = val.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            clean_val = (
+                val.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            )
             is_fa = has_persian(clean_val)
             txt = shape_persian(clean_val) if is_fa else clean_val
             story.append(Paragraph(txt, rtl_style if is_fa else normal_style))
 
     if exam_data["script_items"]:
         story.append(Spacer(1, 8))
-        story.append(Paragraph("Audio Transcripts (Teacher Read-Aloud / TTS Reference)", sec_style))
+        story.append(
+            Paragraph(
+                "Audio Transcripts (Teacher Read-Aloud / TTS Reference)", sec_style
+            )
+        )
         for _, val in exam_data["script_items"]:
-            clean_val = val.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            clean_val = (
+                val.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            )
             is_fa = has_persian(clean_val)
             txt = shape_persian(clean_val) if is_fa else clean_val
             story.append(Paragraph(txt, rtl_style if is_fa else normal_style))
@@ -614,7 +661,7 @@ def generate_exam_html(
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
-<title>{html.escape(exam_data['title'])}</title>
+<title>{html.escape(exam_data["title"])}</title>
 <style>
 @page {{ size: A4; margin: 12mm; }}
 body {{ font-family: 'Vazirmatn', 'Tahoma', 'Calibri', sans-serif; color: #1a202c; margin: 0; padding: 16px; font-size: 13px; }}
@@ -639,8 +686,8 @@ body {{ font-family: 'Vazirmatn', 'Tahoma', 'Calibri', sans-serif; color: #1a202
   </tr>
   <tr>
     <td>کلاس / شعبه: ......................................</td>
-    <td>پایه: {html.escape(exam_data['grade_label'])}</td>
-    <td>نوبت: {html.escape(exam_data['term_label'])}</td>
+    <td>پایه: {html.escape(exam_data["grade_label"])}</td>
+    <td>نوبت: {html.escape(exam_data["term_label"])}</td>
     <td>نمره با حروف: ........................</td>
   </tr>
   <tr>

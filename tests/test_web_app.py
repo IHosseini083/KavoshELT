@@ -38,12 +38,18 @@ class TestWebApp(unittest.TestCase):
 
     def test_analyze_empty_and_oversized_input(self) -> None:
         status_empty, _ = handle_api_request(
-            "POST", "/api/analyze", {"grade": 10, "max_lesson": 2, "text": "   "}, "127.0.0.1"
+            "POST",
+            "/api/analyze",
+            {"grade": 10, "max_lesson": 2, "text": "   "},
+            "127.0.0.1",
         )
         self.assertEqual(status_empty, 400)
 
         status_large, _ = handle_api_request(
-            "POST", "/api/analyze", {"grade": 10, "max_lesson": 2, "text": "a " * 6000}, "127.0.0.1"
+            "POST",
+            "/api/analyze",
+            {"grade": 10, "max_lesson": 2, "text": "a " * 6000},
+            "127.0.0.1",
         )
         self.assertEqual(status_large, 413)
 

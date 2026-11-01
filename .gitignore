@@ -6,6 +6,8 @@ __pycache__/
 # Cache and temporary files
 .cache/
 exports/generated/
+exports/composed/
+exports/cli_mock/
 *.tmp
 *.log
 
@@ -20,3 +22,4 @@ data/*.sqlite
 venv/
 .vscode/
 .idea/
+.claude/

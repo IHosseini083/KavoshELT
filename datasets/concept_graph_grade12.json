@@ -1,0 +1,219 @@
+{
+  "nodes": [
+    {
+      "id": "g12.l1.grammar.passive_voice",
+      "grade": 12,
+      "lesson_num": 1,
+      "category": "grammar",
+      "title_en": "Passive Voice (Present & Past Simple)",
+      "title_fa": "ساختار مجهول زمان‌های حال و گذشته ساده",
+      "description": "Formed with am/is/are/was/were + past participle (V3) when the receiver of action is emphasized."
+    },
+    {
+      "id": "g12.l1.grammar.tag_questions",
+      "grade": 12,
+      "lesson_num": 1,
+      "category": "grammar",
+      "title_en": "Tag Questions",
+      "title_fa": "پرسش‌های تاییدی (ضمیمه‌ای)",
+      "description": "Mini-questions added to the end of a statement for confirmation or agreement."
+    },
+    {
+      "id": "g12.l1.grammar.compound_sentences",
+      "grade": 12,
+      "lesson_num": 1,
+      "category": "grammar",
+      "title_en": "Compound Sentences (and, but, or, so)",
+      "title_fa": "جملات مرکب با حروف ربط هماهنگ‌کننده",
+      "description": "Connecting two independent clauses using comma + coordinating conjunction."
+    },
+    {
+      "id": "g12.l1.vocab.appreciation",
+      "grade": 12,
+      "lesson_num": 1,
+      "category": "vocabulary",
+      "title_en": "Appreciation, Elders and Nursing Homes",
+      "title_fa": "واژگان قدردانی، تکریم سالمندان و خانواده",
+      "description": "Core vocabulary including respect, elderly, nursing home, forgive, devotion, burst into tears."
+    },
+    {
+      "id": "g12.l1.writing.paragraph_structure",
+      "grade": 12,
+      "lesson_num": 1,
+      "category": "writing",
+      "title_en": "Paragraph Structure (Topic & Supporting Sentences)",
+      "title_fa": "ساختار بندنویسی (جمله موضوع و جملات پشتیبان)",
+      "description": "Writing clear paragraphs with a controlling idea in the topic sentence followed by supporting details."
+    },
+    {
+      "id": "g12.l2.grammar.passive_modals",
+      "grade": 12,
+      "lesson_num": 2,
+      "category": "grammar",
+      "title_en": "Passive Voice with Modals",
+      "title_fa": "ساختار مجهول با افعال معین (can, must, should)",
+      "description": "Formed with modal + be + past participle (e.g., must be protected, can be seen)."
+    },
+    {
+      "id": "g12.l2.grammar.relative_clauses",
+      "grade": 12,
+      "lesson_num": 2,
+      "category": "grammar",
+      "title_en": "Relative Clauses (who, which, that)",
+      "title_fa": "جمله‌واره‌های موصولی توصیفی",
+      "description": "Using who for persons, which for objects, and that for both to combine sentences."
+    },
+    {
+      "id": "g12.l2.grammar.conditional_type_2",
+      "grade": 12,
+      "lesson_num": 2,
+      "category": "grammar",
+      "title_en": "Conditional Sentences Type 2",
+      "title_fa": "جملات شرطی نوع دوم (فرضی و غیرواقعی)",
+      "description": "If + simple past, would/could + base verb for hypothetical present/future situations."
+    },
+    {
+      "id": "g12.l2.vocab.dictionaries",
+      "grade": 12,
+      "lesson_num": 2,
+      "category": "vocabulary",
+      "title_en": "Dictionaries, Definitions and Entries",
+      "title_fa": "واژگان فرهنگ‌لغت، تعاریف و مدخل‌ها",
+      "description": "Vocabulary such as dictionary, definition, entry, symbol, arrange, look up, bilingual, collocation."
+    },
+    {
+      "id": "g12.l2.reading.skimming_scanning",
+      "grade": 12,
+      "lesson_num": 2,
+      "category": "reading",
+      "title_en": "Reading Skills (Skimming & Scanning)",
+      "title_fa": "مهارت‌های خواندن سریع و پویش اطلاعات",
+      "description": "Techniques for rapid text overview and locating specific numbers, names, or dictionary entries."
+    },
+    {
+      "id": "g12.l3.grammar.past_perfect",
+      "grade": 12,
+      "lesson_num": 3,
+      "category": "grammar",
+      "title_en": "Past Perfect Tense (had + V3)",
+      "title_fa": "زمان گذشته کامل (ماضی بعید)",
+      "description": "Expresses an action that occurred before another action or point in the past."
+    },
+    {
+      "id": "g12.l3.grammar.passive_perfect",
+      "grade": 12,
+      "lesson_num": 3,
+      "category": "grammar",
+      "title_en": "Passive Voice Across All Tenses",
+      "title_fa": "مجهول در تمام زمان‌ها (از جمله گذشته کامل)",
+      "description": "Formed with had been + past participle or will be + past participle in environmental contexts."
+    },
+    {
+      "id": "g12.l3.vocab.renewable_energy",
+      "grade": 12,
+      "lesson_num": 3,
+      "category": "vocabulary",
+      "title_en": "Renewable Clean Energy",
+      "title_fa": "واژگان انرژی‌های تجدیدپذیر و پاک",
+      "description": "Key concepts: solar energy, wind turbine, electricity, pollution, fossil fuel, replace, generate."
+    },
+    {
+      "id": "g12.l3.writing.concluding_sentence",
+      "grade": 12,
+      "lesson_num": 3,
+      "category": "writing",
+      "title_en": "Concluding Sentence in Paragraphs",
+      "title_fa": "جمله نتیجه‌گیری در نگارش بند",
+      "description": "Summarizing main points or restating the topic sentence with concluding transition words."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "g12.l1.grammar.passive_voice",
+      "target_id": "g9.l5.grammar.simple_past",
+      "relation_type": "prerequisite_of",
+      "weight": 1.0,
+      "notes": "Past simple regular and irregular verb forms are required to build past passive."
+    },
+    {
+      "source_id": "g12.l1.grammar.passive_voice",
+      "target_id": "g11.l1.grammar.present_perfect",
+      "relation_type": "prerequisite_of",
+      "weight": 0.8,
+      "notes": "Past participle morphology (V3) introduced in Grade 11 is needed for passive voice."
+    },
+    {
+      "source_id": "g12.l1.grammar.tag_questions",
+      "target_id": "g10.l4.grammar.modals",
+      "relation_type": "prerequisite_of",
+      "weight": 0.7,
+      "notes": "Auxiliary verbs and modals are inverted in the tag."
+    },
+    {
+      "source_id": "g12.l2.grammar.passive_modals",
+      "target_id": "g12.l1.grammar.passive_voice",
+      "relation_type": "prerequisite_of",
+      "weight": 1.0,
+      "notes": "Basic passive concept must be understood before applying to modals."
+    },
+    {
+      "source_id": "g12.l2.grammar.conditional_type_2",
+      "target_id": "g11.l2.grammar.conditional_type_1",
+      "relation_type": "contrasts_with",
+      "weight": 0.9,
+      "notes": "Contrasts real present conditions with unreal hypothetical conditions."
+    },
+    {
+      "source_id": "g12.l3.grammar.past_perfect",
+      "target_id": "g9.l5.grammar.simple_past",
+      "relation_type": "prerequisite_of",
+      "weight": 1.0,
+      "notes": "Past perfect establishes a time sequence relative to simple past."
+    },
+    {
+      "source_id": "g12.l3.grammar.passive_perfect",
+      "target_id": "g12.l3.grammar.past_perfect",
+      "relation_type": "prerequisite_of",
+      "weight": 1.0,
+      "notes": "Active past perfect must precede passive past perfect."
+    }
+  ],
+  "l1_patterns": [
+    {
+      "id": "l1_passive_aux_omission",
+      "concept_id": "g12.l1.grammar.passive_voice",
+      "error_title_fa": "حذف فعل کمکی to be در ساختار مجهول",
+      "incorrect_pattern_en": "The bridge built two hundred years ago.",
+      "correct_pattern_en": "The bridge was built two hundred years ago.",
+      "l1_root_cause_fa": "در فارسی عبارت 'پل دویست سال پیش ساخته شد' فعل کمکی مجزای بودن ندارد.",
+      "remedial_drill_template": "Insert the correct form of 'be' (is/are/was/were) in: [stem]"
+    },
+    {
+      "id": "l1_tag_question_polarity",
+      "concept_id": "g12.l1.grammar.tag_questions",
+      "error_title_fa": "اشتباه در علامت مثبت و منفی (قطبیت) تگ سوالی",
+      "incorrect_pattern_en": "Ali is a student, is he?",
+      "correct_pattern_en": "Ali is a student, isn't he?",
+      "l1_root_cause_fa": "در زبان فارسی از عبارت ثابت 'مگه نه؟' یا 'درسته؟' بدون تغییر فعل استفاده می‌شود.",
+      "remedial_drill_template": "Complete the tag question with opposite polarity for: [stem]"
+    },
+    {
+      "id": "l1_relative_pronoun_resumption",
+      "concept_id": "g12.l2.grammar.relative_clauses",
+      "error_title_fa": "تکرار ضمیر مفعولی اضافی در جمله‌واره موصولی",
+      "incorrect_pattern_en": "This is the book which I read it yesterday.",
+      "correct_pattern_en": "This is the book which I read yesterday.",
+      "l1_root_cause_fa": "در فارسی ضمیر متصل مفعولی در جمله پایه تکرار می‌شود (کتابی که دیروز آن را خواندم).",
+      "remedial_drill_template": "Delete the redundant object pronoun in: [stem]"
+    },
+    {
+      "id": "l1_conditional_tense_shift",
+      "concept_id": "g12.l2.grammar.conditional_type_2",
+      "error_title_fa": "استفاده از زمان حال یا will در شرطی نوع دوم",
+      "incorrect_pattern_en": "If I have more money, I would buy that car.",
+      "correct_pattern_en": "If I had more money, I would buy that car.",
+      "l1_root_cause_fa": "ترجمه فارسی هر دو نوع شرطی گاهی با فعل مضارع التزامی بیان می‌شود.",
+      "remedial_drill_template": "Change the conditional clause verb to past simple for: [stem]"
+    }
+  ]
+}

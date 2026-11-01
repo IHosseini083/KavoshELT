@@ -4,7 +4,17 @@ import sqlite3
 from contextlib import contextmanager
 from typing import Iterator, Optional, Union
 
-from sqlalchemy import Float, Index, Integer, String, Text, UniqueConstraint, create_engine
+from sqlalchemy import (
+    Boolean,
+    Float,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+    create_engine,
+)
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.pool import StaticPool
@@ -28,7 +38,9 @@ class Lesson(Base):
 class Vocabulary(Base):
     __tablename__ = "vocabulary"
     __table_args__ = (
-        UniqueConstraint("lemma", "grade", "lesson_num", name="uq_vocab_lemma_grade_lesson"),
+        UniqueConstraint(
+            "lemma", "grade", "lesson_num", name="uq_vocab_lemma_grade_lesson"
+        ),
         Index("idx_vocab_lemma", "lemma"),
         Index("idx_vocab_scope", "grade", "lesson_num"),
     )
@@ -46,9 +58,7 @@ class Vocabulary(Base):
 
 class Passage(Base):
     __tablename__ = "passages"
-    __table_args__ = (
-        Index("idx_passages_scope", "grade", "lesson_num"),
-    )
+    __table_args__ = (Index("idx_passages_scope", "grade", "lesson_num"),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -68,6 +78,129 @@ class Rubric(Base):
     exam_type: Mapped[str] = mapped_column(String(64), nullable=False)
     total_points: Mapped[float] = mapped_column(Float, nullable=False)
     structure_json: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+# --- Unified Relational Graph-RAG Models ---
+
+
+class ConceptNode(Base):
+    __tablename__ = "concept_nodes"
+    __table_args__ = (
+        Index("idx_concept_grade_lesson", "grade", "lesson_num"),
+        Index("idx_concept_category", "category"),
+    )
+
+    id: Mapped[str] = mapped_column(String(128), primary_key=True)
+    grade: Mapped[int] = mapped_column(Integer, nullable=False)
+    lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
+    category: Mapped[str] = mapped_column(
+        String(64), nullable=False
+    )  # grammar, vocabulary, writing, reading, pronunciation
+    title_en: Mapped[str] = mapped_column(String(255), nullable=False)
+    title_fa: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str] = mapped_column(Text, nullable=False)
+    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+
+class ConceptEdge(Base):
+    __tablename__ = "concept_edges"
+    __table_args__ = (
+        Index("idx_edge_source", "source_id"),
+        Index("idx_edge_target", "target_id"),
+        Index("idx_edge_relation", "relation_type"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    source_id: Mapped[str] = mapped_column(
+        String(128), ForeignKey("concept_nodes.id", ondelete="CASCADE"), nullable=False
+    )
+    target_id: Mapped[str] = mapped_column(
+        String(128), ForeignKey("concept_nodes.id", ondelete="CASCADE"), nullable=False
+    )
+    relation_type: Mapped[str] = mapped_column(
+        String(64), nullable=False
+    )  # prerequisite_of, contrasts_with, l1_interference_with, co_occurs_with
+    weight: Mapped[float] = mapped_column(Float, default=1.0)
+    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+
+class NationalExamPaper(Base):
+    __tablename__ = "national_exam_papers"
+    __table_args__ = (Index("idx_paper_year_session", "shamsi_year", "session"),)
+
+    id: Mapped[str] = mapped_column(String(128), primary_key=True)
+    grade: Mapped[int] = mapped_column(Integer, nullable=False)
+    shamsi_year: Mapped[int] = mapped_column(Integer, nullable=False)
+    session: Mapped[str] = mapped_column(
+        String(32), nullable=False
+    )  # Khordad, Shahrivar, Dey
+    total_written_points: Mapped[float] = mapped_column(Float, nullable=False)
+    blueprint_version: Mapped[str] = mapped_column(
+        String(64), nullable=False
+    )  # 1397-1401_classic, 1402-1405_conceptual
+    source_origin: Mapped[str] = mapped_column(String(128), default="Markaz-e-Sanjesh")
+    is_verified: Mapped[bool] = mapped_column(Boolean, default=True)
+
+
+class ExamQuestionItem(Base):
+    __tablename__ = "exam_question_items"
+    __table_args__ = (
+        Index("idx_item_paper", "paper_id"),
+        Index("idx_item_scope", "grade", "lesson_num", "section_code"),
+        Index("idx_item_type", "item_type"),
+        Index("idx_item_difficulty", "difficulty"),
+    )
+
+    id: Mapped[str] = mapped_column(String(128), primary_key=True)
+    paper_id: Mapped[str] = mapped_column(
+        String(128),
+        ForeignKey("national_exam_papers.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    section_code: Mapped[str] = mapped_column(
+        String(32), nullable=False
+    )  # vocabulary, grammar, writing, cloze, reading, pronunciation
+    item_type: Mapped[str] = mapped_column(
+        String(32), nullable=False
+    )  # multiple_choice, fill_blank, unscramble, sentence_completion, paragraph_writing, matching, true_false, open_ended
+    grade: Mapped[int] = mapped_column(Integer, nullable=False)
+    lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
+    bloom_level: Mapped[str] = mapped_column(
+        String(32), default="apply"
+    )  # remember, understand, apply, analyze, evaluate, create
+    difficulty: Mapped[str] = mapped_column(
+        String(16), default="medium"
+    )  # easy, medium, hard
+    points: Mapped[float] = mapped_column(
+        Float, nullable=False
+    )  # exact multiple of 0.25
+    instruction_en: Mapped[str] = mapped_column(Text, nullable=False)
+    stem_text: Mapped[str] = mapped_column(Text, nullable=False)
+    passage_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    options_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    canonical_answer: Mapped[str] = mapped_column(Text, nullable=False)
+    acceptable_variants_json: Mapped[str] = mapped_column(Text, default="[]")
+    rubric_breakdown_json: Mapped[str] = mapped_column(Text, default="{}")
+    distractor_analysis: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    concept_ids_json: Mapped[str] = mapped_column(Text, default="[]")
+    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    is_synthetic_twin: Mapped[bool] = mapped_column(Boolean, default=False)
+    parent_item_id: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+
+
+class L1ErrorPattern(Base):
+    __tablename__ = "l1_error_patterns"
+    __table_args__ = (Index("idx_l1_concept", "concept_id"),)
+
+    id: Mapped[str] = mapped_column(String(128), primary_key=True)
+    concept_id: Mapped[str] = mapped_column(
+        String(128), ForeignKey("concept_nodes.id", ondelete="CASCADE"), nullable=False
+    )
+    error_title_fa: Mapped[str] = mapped_column(String(255), nullable=False)
+    incorrect_pattern_en: Mapped[str] = mapped_column(Text, nullable=False)
+    correct_pattern_en: Mapped[str] = mapped_column(Text, nullable=False)
+    l1_root_cause_fa: Mapped[str] = mapped_column(Text, nullable=False)
+    remedial_drill_template: Mapped[str] = mapped_column(Text, nullable=False)
 
 
 DbTarget = Union[str, Engine, Session, sqlite3.Connection]
@@ -119,7 +252,6 @@ def session_scope(target: DbTarget) -> Iterator[Session]:
             sess.commit()
         finally:
             sess.close()
-            # Do NOT dispose engine here as it closes the caller's connection
         return
 
     engine = create_engine_for_target(target)

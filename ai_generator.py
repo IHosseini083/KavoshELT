@@ -10,7 +10,12 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import httpx
 from advisor import analyze_and_advise
-from exam_styler import generate_answer_key_pdf, generate_exam_docx, generate_exam_html, generate_exam_pdf
+from exam_styler import (
+    generate_answer_key_pdf,
+    generate_exam_docx,
+    generate_exam_html,
+    generate_exam_pdf,
+)
 from models import Lesson, session_scope
 from rag import retrieve_rag_context
 from validator import validate_exam_text
@@ -19,7 +24,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "data", "curriculum.db")
 EXPORTS_DIR = os.path.join(BASE_DIR, "exports", "generated")
 FFMPEG_BIN = "/home/ubuntu/.hermes/tools/ffmpeg-9.0.1-linux-x64/bin/ffmpeg"
-GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "AQ.Ab8RN6L_bn4-za1OVc2f4wcQRuuI7w9PlDT60qmK-roKLeMf8A")
+GEMINI_KEY = os.environ.get(
+    "GEMINI_API_KEY", "AQ.Ab8RN6L_bn4-za1OVc2f4wcQRuuI7w9PlDT60qmK-roKLeMf8A"
+)
 
 VOICE_CATALOG: Dict[str, Dict[str, str]] = {
     "fola": {
@@ -61,7 +68,10 @@ def call_gemini_llm(prompt: str, timeout_sec: int = 25) -> Optional[str]:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={GEMINI_KEY}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
+        "generationConfig": {
+            "temperature": 0.2,
+            "responseMimeType": "application/json",
+        },
     }
     try:
         r = httpx.post(url, json=payload, timeout=timeout_sec)
@@ -78,7 +88,9 @@ def generate_tts_clip(text: str, voice_name: str, out_wav_path: str) -> bool:
         "contents": [{"parts": [{"text": text}]}],
         "generationConfig": {
             "responseModalities": ["AUDIO"],
-            "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice_name}}},
+            "speechConfig": {
+                "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice_name}}
+            },
         },
     }
     try:
@@ -86,7 +98,9 @@ def generate_tts_clip(text: str, voice_name: str, out_wav_path: str) -> bool:
         if r.status_code == 200:
             cands = r.json().get("candidates", [])
             if cands:
-                raw_bytes = base64.b64decode(cands[0]["content"]["parts"][0]["inlineData"]["data"])
+                raw_bytes = base64.b64decode(
+                    cands[0]["content"]["parts"][0]["inlineData"]["data"]
+                )
                 with open(out_wav_path, "wb") as f:
                     f.write(raw_bytes)
                 return True
@@ -109,7 +123,14 @@ def build_exam_markdown(
     answer_key_lines: List[str],
 ) -> str:
     series = "Prospect" if grade <= 9 else "Vision"
-    grade_fa = {7: "هفتم", 8: "هشتم", 9: "نهم", 10: "دهم", 11: "یازدهم", 12: "دوازدهم"}.get(grade, str(grade))
+    grade_fa = {
+        7: "هفتم",
+        8: "هشتم",
+        9: "نهم",
+        10: "دهم",
+        11: "یازدهم",
+        12: "دوازدهم",
+    }.get(grade, str(grade))
 
     lines = [
         f"# آزمون استاندارد زبان انگلیسی پایه {grade_fa} ({series})",
@@ -124,7 +145,9 @@ def build_exam_markdown(
     # Part A
     if part_a_questions:
         lines.append("### Part A: True / False (Questions 1 - 5)")
-        lines.append("> به مکالمه با دقت گوش دهید و مشخص کنید جملات زیر درست (True) یا نادرست (False) هستند.")
+        lines.append(
+            "> به مکالمه با دقت گوش دهید و مشخص کنید جملات زیر درست (True) یا نادرست (False) هستند."
+        )
         for q in part_a_questions:
             lines.append(f"{q['num']}. {q['text']} ( **True** / **False** )")
         lines.append("\n---\n")
@@ -151,7 +174,9 @@ def build_exam_markdown(
     # Section 2: Audio Transcripts
     lines.append("## بخش دوم: اسکریپت صوتی و متن مکالمه")
     for idx, b in enumerate(content_blocks, 1):
-        lines.append(f"* **Speaker:** `{b.get('speaker', 'Narrator')}` | **Style:** `{b.get('style', 'Clear and slow')}`")
+        lines.append(
+            f"* **Speaker:** `{b.get('speaker', 'Narrator')}` | **Style:** `{b.get('style', 'Clear and slow')}`"
+        )
         lines.append(f"  {b.get('text', '')}")
     lines.append("\n---\n")
 
@@ -179,8 +204,15 @@ def generate_exam_package_with_ai(
     os.makedirs(out_dir, exist_ok=True)
 
     # 1. Fetch exact syllabus bounds via RAG
-    rag_context = retrieve_rag_context(DB_PATH, query=f"Grade {grade} Lesson {lesson_num}", max_grade=grade, max_lesson=lesson_num)
-    allowed_vocab_preview = ", ".join([v["word"] for v in rag_context["retrieved_vocabulary"][:25]])
+    rag_context = retrieve_rag_context(
+        DB_PATH,
+        query=f"Grade {grade} Lesson {lesson_num}",
+        max_grade=grade,
+        max_lesson=lesson_num,
+    )
+    allowed_vocab_preview = ", ".join(
+        [v["word"] for v in rag_context["retrieved_vocabulary"][:25]]
+    )
     grammar_rules = json.dumps(rag_context["grammar_constraints"], ensure_ascii=False)
 
     spk1_obj = VOICE_CATALOG.get(voice1.lower(), VOICE_CATALOG["fola"])
@@ -193,15 +225,15 @@ STRICT CONSTRAINTS:
 - Use ONLY vocabulary and grammar taught up to Grade {grade}, Lesson {lesson_num}.
 - Forbidden grammar rules: {grammar_rules}
 - Allowed vocabulary sample: {allowed_vocab_preview}
-- Voice 1: {spk1_obj['name']} ({spk1_obj['tone']})
-- Voice 2: {spk2_obj['name']} ({spk2_obj['tone']})
+- Voice 1: {spk1_obj["name"]} ({spk1_obj["tone"]})
+- Voice 2: {spk2_obj["name"]} ({spk2_obj["tone"]})
 
 Generate valid JSON matching this schema:
 {{
   "title": "Exam title",
   "content_blocks": [
-    {{"speaker": "Speaker 1 - {spk1_obj['name']}", "style": "Clear and slow", "text": "English line..."}},
-    {{"speaker": "Speaker 2 - {spk2_obj['name']}", "style": "Polite and slow", "text": "English line..."}}
+    {{"speaker": "Speaker 1 - {spk1_obj["name"]}", "style": "Clear and slow", "text": "English line..."}},
+    {{"speaker": "Speaker 2 - {spk2_obj["name"]}", "style": "Polite and slow", "text": "English line..."}}
   ],
   "part_a": [
     {{"num": 1, "text": "Statement...", "answer": "True"}},
@@ -221,11 +253,24 @@ DO NOT include any commentary. Return ONLY the JSON object.
     if not llm_resp:
         # Fallback to local deterministic template
         from exam_generator import GRADE_EXAM_TEMPLATES
+
         tpl = GRADE_EXAM_TEMPLATES.get((grade, 1)) or GRADE_EXAM_TEMPLATES[(7, 1)]
-        dialogue = [{"speaker": s, "style": st, "text": t} for s, st, t in tpl["part_a"]["dialogue"][:4]]
-        part_a = [{"num": i, "text": q[0], "answer": q[1]} for i, q in enumerate(tpl["part_a"]["questions"][:3], 1)]
-        part_b = [{"num": i, "text": q[0], "options": q[1], "answer": q[2]} for i, q in enumerate(tpl["part_b"]["questions"][:2], 4)]
-        part_c = [{"num": i, "text": q[0], "answer": q[1]} for i, q in enumerate(tpl["part_c"]["questions"][:2], 6)]
+        dialogue = [
+            {"speaker": s, "style": st, "text": t}
+            for s, st, t in tpl["part_a"]["dialogue"][:4]
+        ]
+        part_a = [
+            {"num": i, "text": q[0], "answer": q[1]}
+            for i, q in enumerate(tpl["part_a"]["questions"][:3], 1)
+        ]
+        part_b = [
+            {"num": i, "text": q[0], "options": q[1], "answer": q[2]}
+            for i, q in enumerate(tpl["part_b"]["questions"][:2], 4)
+        ]
+        part_c = [
+            {"num": i, "text": q[0], "answer": q[1]}
+            for i, q in enumerate(tpl["part_c"]["questions"][:2], 6)
+        ]
     else:
         try:
             clean_json = re.sub(r"^```json\s*|\s*```$", "", llm_resp.strip())
@@ -236,16 +281,50 @@ DO NOT include any commentary. Return ONLY the JSON object.
             part_c = data.get("part_c", [])
         except Exception:
             dialogue = [
-                {"speaker": f"Speaker 1 - {spk1_obj['name']}", "style": "Clear and slow", "text": "Hello, welcome to our English class. Let's practice."},
-                {"speaker": f"Speaker 2 - {spk2_obj['name']}", "style": "Polite and slow", "text": "Good morning. I am ready for the lesson."},
+                {
+                    "speaker": f"Speaker 1 - {spk1_obj['name']}",
+                    "style": "Clear and slow",
+                    "text": "Hello, welcome to our English class. Let's practice.",
+                },
+                {
+                    "speaker": f"Speaker 2 - {spk2_obj['name']}",
+                    "style": "Polite and slow",
+                    "text": "Good morning. I am ready for the lesson.",
+                },
             ]
-            part_a = [{"num": 1, "text": "The students are in the classroom.", "answer": "True"}]
-            part_b = [{"num": 2, "text": "What are they doing?", "options": ["a) Studying", "b) Playing", "c) Traveling"], "answer": "a) Studying"}]
-            part_c = [{"num": 3, "text": "Good ..........................., teacher!", "answer": "morning"}]
+            part_a = [
+                {
+                    "num": 1,
+                    "text": "The students are in the classroom.",
+                    "answer": "True",
+                }
+            ]
+            part_b = [
+                {
+                    "num": 2,
+                    "text": "What are they doing?",
+                    "options": ["a) Studying", "b) Playing", "c) Traveling"],
+                    "answer": "a) Studying",
+                }
+            ]
+            part_c = [
+                {
+                    "num": 3,
+                    "text": "Good ..........................., teacher!",
+                    "answer": "morning",
+                }
+            ]
 
     # 2. Guardrail validation & automatic synonym replacement
-    full_text_to_check = " ".join([b["text"] for b in dialogue] + [q["text"] for q in part_a] + [q["text"] for q in part_b] + [q["text"] for q in part_c])
-    validation = analyze_and_advise(DB_PATH, max_grade=grade, max_lesson=lesson_num, text=full_text_to_check)
+    full_text_to_check = " ".join(
+        [b["text"] for b in dialogue]
+        + [q["text"] for q in part_a]
+        + [q["text"] for q in part_b]
+        + [q["text"] for q in part_c]
+    )
+    validation = analyze_and_advise(
+        DB_PATH, max_grade=grade, max_lesson=lesson_num, text=full_text_to_check
+    )
 
     if not validation["is_valid"] and validation["out_of_syllabus_words"]:
         # Auto-replace out-of-syllabus words with in-syllabus alternatives
@@ -317,7 +396,11 @@ DO NOT include any commentary. Return ONLY the JSON object.
     audio_wavs = []
     for idx, b in enumerate(dialogue):
         spk_str = b.get("speaker", "").lower()
-        selected_vname = spk1_obj["name"] if "speaker 1" in spk_str or "1" in spk_str else spk2_obj["name"]
+        selected_vname = (
+            spk1_obj["name"]
+            if "speaker 1" in spk_str or "1" in spk_str
+            else spk2_obj["name"]
+        )
         wav_file = os.path.join(out_dir, f"turn_{idx}.wav")
         if generate_tts_clip(b["text"], selected_vname, wav_file):
             audio_wavs.append(wav_file)
@@ -330,7 +413,28 @@ DO NOT include any commentary. Return ONLY the JSON object.
                 f.write(f"file '{w}'\n")
         try:
             import subprocess
-            subprocess.run([FFMPEG_BIN, "-y", "-f", "concat", "-safe", "0", "-i", concat_txt, "-ac", "1", "-ar", "24000", "-b:a", "64k", audio_path], check=True, capture_output=True)
+
+            subprocess.run(
+                [
+                    FFMPEG_BIN,
+                    "-y",
+                    "-f",
+                    "concat",
+                    "-safe",
+                    "0",
+                    "-i",
+                    concat_txt,
+                    "-ac",
+                    "1",
+                    "-ar",
+                    "24000",
+                    "-b:a",
+                    "64k",
+                    audio_path,
+                ],
+                check=True,
+                capture_output=True,
+            )
             audio_generated = True
         except Exception:
             pass
@@ -340,6 +444,7 @@ DO NOT include any commentary. Return ONLY the JSON object.
         fallback_sample = "/home/ubuntu/vision_kb/assets/audio_previews/fola.mp3"
         if os.path.exists(fallback_sample):
             import shutil
+
             shutil.copy(fallback_sample, audio_path)
             audio_generated = True
 
@@ -359,7 +464,9 @@ DO NOT include any commentary. Return ONLY the JSON object.
         "pdf_url": f"/api/download/{session_id}/student_sheet.pdf",
         "key_pdf_url": f"/api/download/{session_id}/teacher_answer_key.pdf",
         "html_url": f"/api/download/{session_id}/student_sheet.html",
-        "audio_url": f"/api/download/{session_id}/listening_audio.mp3" if audio_generated else None,
+        "audio_url": f"/api/download/{session_id}/listening_audio.mp3"
+        if audio_generated
+        else None,
         "has_audio": audio_generated,
         "coverage_ratio": 100.0,
     }

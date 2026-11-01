@@ -96,10 +96,16 @@ def handle_api_request(
     if method == "GET" and path == "/api/lessons":
         with session_scope(DB_PATH) as session:
             lessons = list(
-                session.scalars(select(Lesson).order_by(Lesson.grade.asc(), Lesson.lesson_num.asc())).all()
+                session.scalars(
+                    select(Lesson).order_by(Lesson.grade.asc(), Lesson.lesson_num.asc())
+                ).all()
             )
             passages = list(
-                session.scalars(select(Passage).order_by(Passage.grade.asc(), Passage.lesson_num.asc())).all()
+                session.scalars(
+                    select(Passage).order_by(
+                        Passage.grade.asc(), Passage.lesson_num.asc()
+                    )
+                ).all()
             )
 
         by_grade: Dict[int, Dict[str, Any]] = {}
@@ -132,7 +138,9 @@ def handle_api_request(
 
     if method == "POST" and path == "/api/analyze":
         if not active_limiter.allow(client_ip):
-            return 429, {"error": "تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً یک دقیقه صبر کنید."}
+            return 429, {
+                "error": "تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً یک دقیقه صبر کنید."
+            }
 
         if not isinstance(payload, dict):
             return 400, {"error": "فرمت درخواست نامعتبر است."}
@@ -152,12 +160,16 @@ def handle_api_request(
         if grade not in range(7, 13) or max_lesson not in range(1, 9):
             return 400, {"error": "پایه تحصیلی باید بین ۷ تا ۱۲ باشد."}
 
-        result = analyze_and_advise(DB_PATH, max_grade=grade, max_lesson=max_lesson, text=raw_text)
+        result = analyze_and_advise(
+            DB_PATH, max_grade=grade, max_lesson=max_lesson, text=raw_text
+        )
         word_count = max(1, int(result.get("word_count", 0)))
         out_count = len(result.get("out_of_syllabus_words", []))
         in_count = max(0, word_count - out_count)
         result["coverage_ratio"] = (
-            round((in_count / word_count) * 100, 1) if result.get("word_count", 0) > 0 else 100.0
+            round((in_count / word_count) * 100, 1)
+            if result.get("word_count", 0) > 0
+            else 100.0
         )
 
         for g_hit in result.get("forbidden_grammar_hits", []):
@@ -168,7 +180,9 @@ def handle_api_request(
 
     if method == "POST" and path == "/api/generate-exam":
         if not active_limiter.allow(client_ip):
-            return 429, {"error": "تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً یک دقیقه صبر کنید."}
+            return 429, {
+                "error": "تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً یک دقیقه صبر کنید."
+            }
 
         if not isinstance(payload, dict):
             return 400, {"error": "فرمت درخواست نامعتبر است."}
@@ -279,7 +293,9 @@ class VisionRequestHandler(BaseHTTPRequestHandler):
                         mime = "audio/mpeg"
                     self.send_response(200)
                     self.send_header("Content-Type", mime)
-                    self.send_header("Content-Disposition", f'attachment; filename="{fname}"')
+                    self.send_header(
+                        "Content-Disposition", f'attachment; filename="{fname}"'
+                    )
                     self.send_header("Content-Length", str(len(file_bytes)))
                     self.end_headers()
                     self.wfile.write(file_bytes)
@@ -303,7 +319,9 @@ class VisionRequestHandler(BaseHTTPRequestHandler):
             self._send_json(400, {"error": "ساختار JSON نامعتبر است."})
             return
 
-        status, body = handle_api_request("POST", parsed.path, payload, self._client_ip())
+        status, body = handle_api_request(
+            "POST", parsed.path, payload, self._client_ip()
+        )
         self._send_json(status, body)
 
 

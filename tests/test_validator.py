@@ -8,6 +8,7 @@ from schema import init_db
 from seed_vision1 import seed_all
 from validator import validate_exam_text
 
+
 class TestValidator(unittest.TestCase):
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
@@ -48,6 +49,7 @@ class TestValidator(unittest.TestCase):
         text = "The heart is pumping blood faster to protect the body."
         res = validate_exam_text(self.conn, max_grade=10, max_lesson=2, text=text)
         self.assertEqual(res["out_of_syllabus_words"], [])
+
 
 if __name__ == "__main__":
     unittest.main()

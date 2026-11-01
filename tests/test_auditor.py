@@ -8,6 +8,7 @@ from schema import init_db
 from seed_all_grades import seed_curriculum
 from auditor import run_curriculum_audit
 
+
 class TestAuditor(unittest.TestCase):
     def setUp(self):
         self.conn = sqlite3.connect(":memory:")
@@ -18,8 +19,13 @@ class TestAuditor(unittest.TestCase):
         report = run_curriculum_audit(self.conn)
         self.assertEqual(report["total_grades"], 6)
         self.assertEqual(report["total_lessons"], 31)
-        self.assertEqual(report["passage_validation_failures"], [], f"Passages failed self-validation: {report.get('passage_validation_failures')}")
+        self.assertEqual(
+            report["passage_validation_failures"],
+            [],
+            f"Passages failed self-validation: {report.get('passage_validation_failures')}",
+        )
         self.assertTrue(report["audit_passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

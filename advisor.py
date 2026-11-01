@@ -39,7 +39,9 @@ CURATED_SYNONYMS: Dict[str, List[str]] = {
 }
 
 
-def analyze_and_advise(conn: DbTarget, max_grade: int, max_lesson: int, text: str) -> Dict[str, Any]:
+def analyze_and_advise(
+    conn: DbTarget, max_grade: int, max_lesson: int, text: str
+) -> Dict[str, Any]:
     validation = validate_exam_text(conn, max_grade, max_lesson, text)
     allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
 
@@ -50,7 +52,12 @@ def analyze_and_advise(conn: DbTarget, max_grade: int, max_lesson: int, text: st
             w = str(word).lower()
             stmt = (
                 select(Vocabulary)
-                .where(or_(func.lower(Vocabulary.lemma) == w, func.lower(Vocabulary.word) == w))
+                .where(
+                    or_(
+                        func.lower(Vocabulary.lemma) == w,
+                        func.lower(Vocabulary.word) == w,
+                    )
+                )
                 .order_by(Vocabulary.grade.asc(), Vocabulary.lesson_num.asc())
                 .limit(1)
             )
@@ -75,7 +82,10 @@ def analyze_and_advise(conn: DbTarget, max_grade: int, max_lesson: int, text: st
                             Vocabulary.definition_fa.like(f"%{def_fa}%"),
                             or_(
                                 Vocabulary.grade < max_grade,
-                                and_(Vocabulary.grade == max_grade, Vocabulary.lesson_num <= max_lesson),
+                                and_(
+                                    Vocabulary.grade == max_grade,
+                                    Vocabulary.lesson_num <= max_lesson,
+                                ),
                             ),
                         )
                     )

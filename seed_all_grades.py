@@ -6,7 +6,19 @@ import os
 from typing import Set, Tuple
 
 from sqlalchemy import delete, text
-from models import DbTarget, Lesson, Passage, Rubric, Vocabulary, session_scope
+from models import (
+    ConceptEdge,
+    ConceptNode,
+    DbTarget,
+    ExamQuestionItem,
+    L1ErrorPattern,
+    Lesson,
+    NationalExamPaper,
+    Passage,
+    Rubric,
+    Vocabulary,
+    session_scope,
+)
 from rag import compute_embedding
 from schema import init_db
 from seed_vision1 import PROSPECT_BASE_LEMMAS
@@ -17,11 +29,17 @@ DEFAULT_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum.db
 
 def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) -> None:
     with session_scope(target) as session:
+        session.execute(delete(ExamQuestionItem))
+        session.execute(delete(NationalExamPaper))
+        session.execute(delete(L1ErrorPattern))
+        session.execute(delete(ConceptEdge))
+        session.execute(delete(ConceptNode))
         session.execute(delete(Passage))
         session.execute(delete(Vocabulary))
         session.execute(delete(Lesson))
         session.execute(delete(Rubric))
         session.execute(text("DELETE FROM passages_fts"))
+        session.execute(text("DELETE FROM exam_items_fts"))
 
         seen_vocab: Set[Tuple[str, int, int]] = set()
 
@@ -109,7 +127,13 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                     text(
                         "INSERT INTO passages_fts (grade, lesson_num, section_type, title, content) VALUES (:g, :l, :s, :t, :c)"
                     ),
-                    {"g": str(grade), "l": l_num, "s": sec_type, "t": title, "c": content},
+                    {
+                        "g": str(grade),
+                        "l": l_num,
+                        "s": sec_type,
+                        "t": title,
+                        "c": content,
+                    },
                 )
 
             for r_item in data.get("rubrics", []):
@@ -124,6 +148,124 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                     )
                 )
 
+        # Seed Pedagogical Knowledge Graph
+        graph_file = os.path.join(datasets_dir, "concept_graph_grade12.json")
+        if os.path.exists(graph_file):
+            with open(graph_file, "r", encoding="utf-8") as f:
+                gdata = json.load(f)
+
+            for n in gdata.get("nodes", []):
+                vec = compute_embedding(
+                    f"{n['title_en']} {n['title_fa']} {n['description']}"
+                )
+                session.add(
+                    ConceptNode(
+                        id=str(n["id"]),
+                        grade=int(n["grade"]),
+                        lesson_num=int(n["lesson_num"]),
+                        category=str(n["category"]),
+                        title_en=str(n["title_en"]),
+                        title_fa=str(n["title_fa"]),
+                        description=str(n["description"]),
+                        embedding_json=json.dumps(vec),
+                    )
+                )
+            session.flush()
+
+            for e in gdata.get("edges", []):
+                session.add(
+                    ConceptEdge(
+                        source_id=str(e["source_id"]),
+                        target_id=str(e["target_id"]),
+                        relation_type=str(e["relation_type"]),
+                        weight=float(e.get("weight", 1.0)),
+                        notes=str(e.get("notes", "")),
+                    )
+                )
+
+            for lp in gdata.get("l1_patterns", []):
+                session.add(
+                    L1ErrorPattern(
+                        id=str(lp["id"]),
+                        concept_id=str(lp["concept_id"]),
+                        error_title_fa=str(lp["error_title_fa"]),
+                        incorrect_pattern_en=str(lp["incorrect_pattern_en"]),
+                        correct_pattern_en=str(lp["correct_pattern_en"]),
+                        l1_root_cause_fa=str(lp["l1_root_cause_fa"]),
+                        remedial_drill_template=str(lp["remedial_drill_template"]),
+                    )
+                )
+
+        # Seed National Exams Bank
+        exams_file = os.path.join(datasets_dir, "national_exams_grade12_1397_1405.json")
+        if os.path.exists(exams_file):
+            with open(exams_file, "r", encoding="utf-8") as f:
+                edata = json.load(f)
+
+            for p in edata.get("papers", []):
+                session.add(
+                    NationalExamPaper(
+                        id=str(p["id"]),
+                        grade=int(p["grade"]),
+                        shamsi_year=int(p["shamsi_year"]),
+                        session=str(p["session"]),
+                        total_written_points=float(p["total_written_points"]),
+                        blueprint_version=str(p["blueprint_version"]),
+                        source_origin=str(p.get("source_origin", "Markaz-e-Sanjesh")),
+                        is_verified=bool(p.get("is_verified", True)),
+                    )
+                )
+            session.flush()
+
+            for it in edata.get("items", []):
+                vec = compute_embedding(f"{it['stem_text']} {it['canonical_answer']}")
+                session.add(
+                    ExamQuestionItem(
+                        id=str(it["id"]),
+                        paper_id=str(it["paper_id"]),
+                        section_code=str(it["section_code"]),
+                        item_type=str(it["item_type"]),
+                        grade=int(it["grade"]),
+                        lesson_num=int(it["lesson_num"]),
+                        bloom_level=str(it.get("bloom_level", "apply")),
+                        difficulty=str(it.get("difficulty", "medium")),
+                        points=float(it["points"]),
+                        instruction_en=str(it["instruction_en"]),
+                        stem_text=str(it["stem_text"]),
+                        passage_text=str(it.get("passage_text", "")) or None,
+                        options_json=str(it.get("options_json", "")) or None,
+                        canonical_answer=str(it["canonical_answer"]),
+                        acceptable_variants_json=str(
+                            it.get("acceptable_variants_json", "[]")
+                        ),
+                        rubric_breakdown_json=str(
+                            it.get("rubric_breakdown_json", "{}")
+                        ),
+                        distractor_analysis=str(it.get("distractor_analysis", ""))
+                        or None,
+                        concept_ids_json=str(it.get("concept_ids_json", "[]")),
+                        embedding_json=json.dumps(vec),
+                        is_synthetic_twin=bool(it.get("is_synthetic_twin", False)),
+                        parent_item_id=str(it.get("parent_item_id", "")) or None,
+                    )
+                )
+                session.execute(
+                    text(
+                        """
+                        INSERT INTO exam_items_fts (item_id, paper_id, section_code, stem_text, canonical_answer, concept_keywords)
+                        VALUES (:iid, :pid, :sec, :stem, :ans, :kw)
+                        """
+                    ),
+                    {
+                        "iid": str(it["id"]),
+                        "pid": str(it["paper_id"]),
+                        "sec": str(it["section_code"]),
+                        "stem": str(it["stem_text"]),
+                        "ans": str(it["canonical_answer"]),
+                        "kw": str(it.get("concept_ids_json", "")),
+                    },
+                )
+
         session.commit()
 
 
@@ -131,7 +273,7 @@ def build_database(db_path: str = DEFAULT_DB_PATH) -> None:
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     init_db(db_path)
     seed_curriculum(db_path)
-    print(f"Full 6-grade curriculum database seeded at: {db_path}")
+    print(f"Full 6-grade curriculum and national exams database seeded at: {db_path}")
 
 
 if __name__ == "__main__":
