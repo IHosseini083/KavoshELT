@@ -8,6 +8,7 @@ import sys
 from validator import validate_exam_text
 from auditor import run_curriculum_audit
 from advisor import analyze_and_advise
+from exam_styler import generate_exam_docx, generate_exam_pdf
 
 CURRICULUM_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum.db")
 VISION1_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "vision1.db")
@@ -205,6 +206,21 @@ def cmd_blueprint(args):
     conn.close()
     print(json.dumps(blueprint, ensure_ascii=False, indent=2))
 
+def cmd_export(args):
+    fmt = args.format.lower()
+    out = args.out
+    if not out:
+        base, _ = os.path.splitext(args.file)
+        out = f"{base}.{fmt}"
+        
+    if fmt == "pdf":
+        generate_exam_pdf(args.file, out, school_name=args.school)
+    elif fmt == "docx":
+        generate_exam_docx(args.file, out, school_name=args.school)
+    else:
+        print(f"Unsupported format: {fmt}. Choose 'pdf' or 'docx'.")
+        sys.exit(1)
+
 def main():
     parser = argparse.ArgumentParser(description="Secondary English Curriculum Knowledge Base & Authoring CLI")
     parser.add_argument("--db", default=None, help="Custom SQLite path")
@@ -252,6 +268,14 @@ def main():
     p_bp.add_argument("--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)")
     p_bp.add_argument("--exam-type", default="Listening", help="Listening or Written")
     p_bp.set_defaults(func=cmd_blueprint)
+    
+    # export
+    p_exp = subparsers.add_parser("export", help="Export exam markdown to printable PDF or Word DOCX")
+    p_exp.add_argument("--file", required=True, help="Input markdown exam file")
+    p_exp.add_argument("--format", choices=["pdf", "docx"], default="pdf", help="Output format (pdf or docx)")
+    p_exp.add_argument("--out", help="Output file path")
+    p_exp.add_argument("--school", default="Ministry of Education", help="School name on header")
+    p_exp.set_defaults(func=cmd_export)
     
     args = parser.parse_args()
     args.func(args)
