@@ -4,15 +4,17 @@ import hashlib
 import json
 import math
 import re
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from collections.abc import Sequence
+from typing import Any
 
 from sqlalchemy import and_, or_, select, text
+
 from models import DbTarget, Lesson, Passage, Vocabulary, session_scope
 
 EMBEDDING_DIM = 64
 
 # 16 semantic concept clusters covering the 6-grade Iranian English syllabus
-SEMANTIC_CLUSTERS: List[Tuple[str, ...]] = [
+SEMANTIC_CLUSTERS: list[tuple[str, ...]] = [
     (
         "nature",
         "wildlife",
@@ -359,23 +361,21 @@ SEMANTIC_CLUSTERS: List[Tuple[str, ...]] = [
 ]
 
 
-def _normalize_tokens(text_str: str) -> List[str]:
+def _normalize_tokens(text_str: str) -> list[str]:
     raw = re.findall(r"[a-zA-Z\u0600-\u06FF]+", text_str.lower())
-    out: List[str] = []
+    out: list[str] = []
     for tok in raw:
         out.append(tok)
         if len(tok) > 4 and tok.endswith("ing"):
             out.append(tok[:-3])
-        elif len(tok) > 3 and tok.endswith("ed"):
-            out.append(tok[:-2])
-        elif len(tok) > 3 and tok.endswith("es"):
+        elif len(tok) > 3 and tok.endswith("ed") or len(tok) > 3 and tok.endswith("es"):
             out.append(tok[:-2])
         elif len(tok) > 3 and tok.endswith("s"):
             out.append(tok[:-1])
     return out
 
 
-def compute_embedding(text_str: str) -> List[float]:
+def compute_embedding(text_str: str) -> list[float]:
     vec = [0.0] * EMBEDDING_DIM
     tokens = _normalize_tokens(text_str)
     if not tokens:
@@ -428,7 +428,7 @@ def hybrid_search_passages(
     max_grade: int = 12,
     max_lesson: int = 8,
     top_k: int = 5,
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     query_vec = compute_embedding(query)
     query_terms = [t for t in _normalize_tokens(query) if len(t) > 2]
 
@@ -443,7 +443,7 @@ def hybrid_search_passages(
         in_scope_passages = list(session.scalars(stmt).all())
 
         # 2. Check FTS5 lexical matches
-        fts_Hits: Dict[Tuple[int, int, str], float] = {}
+        fts_Hits: dict[tuple[int, int, str], float] = {}
         if query_terms:
             fts_query = " OR ".join(f'"{t}"' for t in query_terms[:8])
             try:
@@ -466,9 +466,9 @@ def hybrid_search_passages(
             except Exception:
                 pass
 
-        scored_results: List[Dict[str, Any]] = []
+        scored_results: list[dict[str, Any]] = []
         for p in in_scope_passages:
-            p_vec: List[float]
+            p_vec: list[float]
             if p.embedding_json:
                 p_vec = json.loads(p.embedding_json)
             else:
@@ -508,7 +508,7 @@ def hybrid_search_vocabulary(
     max_grade: int = 12,
     max_lesson: int = 8,
     top_k: int = 15,
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     query_vec = compute_embedding(query)
     query_terms = set(_normalize_tokens(query))
 
@@ -527,9 +527,9 @@ def hybrid_search_vocabulary(
         )
         vocab_items = list(session.scalars(stmt).all())
 
-        scored: List[Dict[str, Any]] = []
+        scored: list[dict[str, Any]] = []
         for v in vocab_items:
-            v_vec: List[float]
+            v_vec: list[float]
             if v.embedding_json:
                 v_vec = json.loads(v.embedding_json)
             else:
@@ -566,7 +566,7 @@ def retrieve_rag_context(
     max_lesson: int = 4,
     top_k_passages: int = 3,
     top_k_vocab: int = 15,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     passages = hybrid_search_passages(
         target, query, max_grade=max_grade, max_lesson=max_lesson, top_k=top_k_passages
     )

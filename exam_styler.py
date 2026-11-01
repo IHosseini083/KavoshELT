@@ -3,12 +3,11 @@ from __future__ import annotations
 import html
 import os
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import arabic_reshaper
-from bidi.algorithm import get_display
-
 import docx
+from bidi.algorithm import get_display
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
@@ -17,7 +16,6 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.table import Table as DocxTable
 from docx.text.paragraph import Paragraph as DocxParagraph
 from docx.text.run import Run as DocxRun
-
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
@@ -39,7 +37,7 @@ VAZIR_BOLD = os.path.join(FONTS_DIR, "Vazirmatn-Bold.ttf")
 _FONTS_REGISTERED = False
 
 
-def ensure_fonts_registered() -> Tuple[str, str]:
+def ensure_fonts_registered() -> tuple[str, str]:
     global _FONTS_REGISTERED
     if (
         not _FONTS_REGISTERED
@@ -109,7 +107,7 @@ def _set_table_rtl(table: DocxTable) -> None:
             tbl_pr.append(bidi_vis)
 
 
-def parse_exam_markdown(md_path: str) -> Dict[str, Any]:
+def parse_exam_markdown(md_path: str) -> dict[str, Any]:
     with open(md_path, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -157,8 +155,8 @@ def parse_exam_markdown(md_path: str) -> Dict[str, Any]:
                 student_section = rest
             break
 
-    def parse_lines(raw_block: str) -> List[Tuple[str, str]]:
-        items: List[Tuple[str, str]] = []
+    def parse_lines(raw_block: str) -> list[tuple[str, str]]:
+        items: list[tuple[str, str]] = []
         for line in raw_block.strip().split("\n"):
             line_s = line.strip()
             if (
@@ -441,7 +439,7 @@ def generate_exam_pdf(
         spaceBefore=12,
     )
 
-    story: List[Any] = []
+    story: list[Any] = []
     story.append(Paragraph(shape_persian("به نام خدا"), god_style))
 
     header_rows = [
@@ -591,7 +589,7 @@ def generate_answer_key_pdf(
         alignment=2,
     )
 
-    story: List[Any] = []
+    story: list[Any] = []
     story.append(
         Paragraph(
             shape_persian(
@@ -641,7 +639,7 @@ def generate_exam_html(
 ) -> None:
     exam_data = parse_exam_markdown(md_path)
 
-    body_parts: List[str] = []
+    body_parts: list[str] = []
     for item_type, val in exam_data["items"]:
         esc = html.escape(val)
         is_fa = has_persian(val)

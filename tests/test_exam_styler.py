@@ -5,13 +5,13 @@ import sys
 import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from exam_generator import generate_full_exam_package
 from exam_styler import (
+    generate_answer_key_pdf,
     generate_exam_docx,
     generate_exam_pdf,
-    generate_answer_key_pdf,
     shape_persian,
 )
-from exam_generator import generate_full_exam_package
 from schema import init_db
 from seed_all_grades import seed_curriculum
 

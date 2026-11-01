@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import json
 import sqlite3
 import unittest
 
-from models import ConceptNode, ExamQuestionItem, NationalExamPaper, session_scope
+from models import ExamQuestionItem, NationalExamPaper, session_scope
 from schema import init_db
 from seed_all_grades import seed_curriculum
-from verify_exam_bank import verify_item, verify_paper
+from verify_exam_bank import verify_item
 
 
 class TestVerifyExamBank(unittest.TestCase):

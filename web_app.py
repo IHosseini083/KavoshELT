@@ -6,7 +6,7 @@ import os
 import time
 from collections import defaultdict, deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from typing import Any, Deque, Dict, List, Optional, Tuple
+from typing import Any
 from urllib.parse import urlparse
 
 from sqlalchemy import select
@@ -24,14 +24,14 @@ FONTS_DIR = os.path.join(BASE_DIR, "assets", "fonts")
 
 MAX_TEXT_LENGTH = 10000
 
-GRAMMAR_REASONS_FA: Dict[str, str] = {
+GRAMMAR_REASONS_FA: dict[str, str] = {
     "present_perfect": "ساختار ماضی نقلی (Present Perfect) در پایه یازدهم (کتاب Vision 2، درس ۱) تدریس می‌شود و برای این پایه خارج از سرفصل است.",
     "past_progressive": "ساختار گذشته استمراری (Past Progressive) در پایه دهم (کتاب Vision 1، درس ۳) معرفی می‌شود و پیش از آن مجاز نیست.",
     "passive_voice": "ساختار مجهول (Passive Voice) در پایه دوازدهم (کتاب Vision 3، درس ۱) تدریس می‌شود و برای این پایه خارج از سرفصل است.",
     "conditional_type_2": "جملات شرطی نوع دوم (Conditional Type 2) در پایه دوازدهم (کتاب Vision 3، درس ۲) معرفی می‌شود.",
 }
 
-BOOK_NAMES_FA: Dict[int, str] = {
+BOOK_NAMES_FA: dict[int, str] = {
     7: "پراسپکت ۱ (پایه هفتم)",
     8: "پراسپکت ۲ (پایه هشتم)",
     9: "پراسپکت ۳ (پایه نهم)",
@@ -54,7 +54,7 @@ class RateLimiter:
     def __init__(self, max_requests: int = 30, window_seconds: int = 60) -> None:
         self.max_requests = max_requests
         self.window_seconds = window_seconds
-        self._hits: Dict[str, Deque[float]] = defaultdict(deque)
+        self._hits: dict[str, deque[float]] = defaultdict(deque)
 
     def allow(self, ip: str) -> bool:
         now = time.monotonic()
@@ -80,10 +80,10 @@ def render_index_html() -> str:
 def handle_api_request(
     method: str,
     path: str,
-    payload: Optional[Dict[str, Any]],
+    payload: dict[str, Any] | None,
     client_ip: str,
-    limiter: Optional[RateLimiter] = None,
-) -> Tuple[int, Dict[str, Any]]:
+    limiter: RateLimiter | None = None,
+) -> tuple[int, dict[str, Any]]:
     ensure_db()
     active_limiter = limiter or GLOBAL_LIMITER
 
@@ -108,7 +108,7 @@ def handle_api_request(
                 ).all()
             )
 
-        by_grade: Dict[int, Dict[str, Any]] = {}
+        by_grade: dict[int, dict[str, Any]] = {}
         for l_row in lessons:
             g = l_row.grade
             if g not in by_grade:
@@ -225,7 +225,7 @@ class VisionRequestHandler(BaseHTTPRequestHandler):
             return forwarded.split(",")[0].strip()
         return self.client_address[0]
 
-    def _send_json(self, status: int, data: Dict[str, Any]) -> None:
+    def _send_json(self, status: int, data: dict[str, Any]) -> None:
         raw = json.dumps(data, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")

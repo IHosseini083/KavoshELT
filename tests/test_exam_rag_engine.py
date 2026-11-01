@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import sqlite3
 import unittest
-from models import session_scope
-from schema import init_db
-from seed_all_grades import seed_curriculum
+
 from exam_rag_engine import (
     retrieve_exam_items,
     synthesize_twin_item,
     traverse_prerequisites,
 )
+from schema import init_db
+from seed_all_grades import seed_curriculum
 
 
 class TestExamRagEngine(unittest.TestCase):

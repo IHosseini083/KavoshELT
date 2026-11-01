@@ -6,20 +6,18 @@ import json
 import os
 import sqlite3
 import sys
-from typing import Any, Dict, List, Optional
 
 from advisor import analyze_and_advise
 from auditor import run_curriculum_audit
+from exam_composer import compose_exam
 from exam_generator import generate_full_exam_package
+from exam_rag_engine import traverse_prerequisites
 from exam_styler import (
     generate_answer_key_pdf,
     generate_exam_docx,
     generate_exam_html,
     generate_exam_pdf,
 )
-from exam_composer import compose_exam
-from exam_rag_engine import traverse_prerequisites
-from models import DbTarget
 from rag import retrieve_rag_context
 from validator import validate_exam_text
 
@@ -27,7 +25,7 @@ CURRICULUM_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum
 VISION1_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "vision1.db")
 
 
-def get_connection(db_path: Optional[str] = None) -> sqlite3.Connection:
+def get_connection(db_path: str | None = None) -> sqlite3.Connection:
     if not db_path:
         db_path = (
             CURRICULUM_DB_PATH

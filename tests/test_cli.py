@@ -1,7 +1,7 @@
-import subprocess
 import json
-import unittest
+import subprocess
 import sys
+import unittest
 
 PYTHON = sys.executable
 

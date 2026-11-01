@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import sqlite3
 import unittest
-from sqlalchemy import func, select
+
+from sqlalchemy import select
 
 from models import (
     ConceptEdge,

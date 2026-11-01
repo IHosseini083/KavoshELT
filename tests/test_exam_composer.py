@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import sqlite3
 import unittest
+
 from exam_composer import compose_exam, swap_slot_item
 from schema import init_db
 from seed_all_grades import seed_curriculum

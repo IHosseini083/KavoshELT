@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
-import sqlite3
-from typing import List, Set, Tuple
+
 from sqlalchemy import delete, text
+
 from models import DbTarget, Lesson, Passage, Rubric, Vocabulary, session_scope
 from rag import compute_embedding
 
@@ -1697,7 +1697,7 @@ def seed_all(conn: DbTarget) -> None:
                 )
             )
 
-        seen_vocab: Set[Tuple[str, int, int]] = set()
+        seen_vocab: set[tuple[str, int, int]] = set()
         for w_str, l_str, pos_str, g_num, l_num, def_fa, ex_en in VOCABULARY_VISION1:
             key = (l_str.lower(), int(g_num), int(l_num))
             if key in seen_vocab:
@@ -1777,6 +1777,7 @@ def seed_all(conn: DbTarget) -> None:
 
 if __name__ == "__main__":
     import os
+
     from schema import init_db
 
     db_path = os.path.join(os.path.dirname(__file__), "data", "vision1.db")

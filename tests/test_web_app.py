@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import json
 import unittest
-from typing import Any, Dict
 
 from web_app import RateLimiter, handle_api_request, render_index_html
 

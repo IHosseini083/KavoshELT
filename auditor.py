@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, List
+from typing import Any
 
 from sqlalchemy import func, select
+
 from models import DbTarget, Lesson, Passage, session_scope
 from validator import validate_exam_text
 
 
-def run_curriculum_audit(conn: DbTarget) -> Dict[str, Any]:
+def run_curriculum_audit(conn: DbTarget) -> dict[str, Any]:
     with session_scope(conn) as session:
         grades_count = int(
             session.scalar(select(func.count(func.distinct(Lesson.grade)))) or 0
@@ -18,7 +19,7 @@ def run_curriculum_audit(conn: DbTarget) -> Dict[str, Any]:
         )
         passages = list(session.scalars(select(Passage)).all())
 
-    failures: List[Dict[str, Any]] = []
+    failures: list[dict[str, Any]] = []
     for p in passages:
         res = validate_exam_text(
             conn, max_grade=p.grade, max_lesson=p.lesson_num, text=p.content

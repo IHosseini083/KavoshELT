@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from exam_styler import (
     generate_answer_key_pdf,
@@ -11,8 +11,7 @@ from exam_styler import (
 )
 from models import DbTarget
 
-
-GRADE_EXAM_TEMPLATES: Dict[Tuple[int, int], Dict[str, Any]] = {
+GRADE_EXAM_TEMPLATES: dict[tuple[int, int], dict[str, Any]] = {
     (7, 1): {
         "book": "Prospect 1",
         "lessons_label": "Lessons 1 to 4 (My Name, My Classmates, My Age, My Family)",
@@ -189,7 +188,7 @@ GRADE_EXAM_TEMPLATES: Dict[Tuple[int, int], Dict[str, Any]] = {
 }
 
 
-def build_markdown_from_template(grade: int, term: int, tpl: Dict[str, Any]) -> str:
+def build_markdown_from_template(grade: int, term: int, tpl: dict[str, Any]) -> str:
     term_fa = "نوبت اول (دی‌ماه)" if term == 1 else "نوبت دوم (خردادماه)"
     grade_fa = {
         7: "هفتم",
@@ -287,7 +286,7 @@ def generate_full_exam_package(
     term: int,
     out_dir: str,
     school_name: str = "دبیرستان نمونه دولتی",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     os.makedirs(out_dir, exist_ok=True)
     prefix = f"grade{grade}_term{term}_listening"
     md_path = os.path.join(out_dir, f"{prefix}.md")

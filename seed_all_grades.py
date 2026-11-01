@@ -3,9 +3,9 @@ from __future__ import annotations
 import glob
 import json
 import os
-from typing import Set, Tuple
 
 from sqlalchemy import delete, text
+
 from models import (
     ConceptEdge,
     ConceptNode,
@@ -41,7 +41,7 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
         session.execute(text("DELETE FROM passages_fts"))
         session.execute(text("DELETE FROM exam_items_fts"))
 
-        seen_vocab: Set[Tuple[str, int, int]] = set()
+        seen_vocab: set[tuple[str, int, int]] = set()
 
         for word in PROSPECT_BASE_LEMMAS:
             key = (word.lower(), 6, 0)

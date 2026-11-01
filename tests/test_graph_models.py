@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import sqlite3
 import unittest
+
 from sqlalchemy import select, text
+
 from models import (
-    Base,
     ConceptEdge,
     ConceptNode,
     ExamQuestionItem,
     L1ErrorPattern,
     NationalExamPaper,
-    create_engine_for_target,
     session_scope,
 )
 from schema import init_db

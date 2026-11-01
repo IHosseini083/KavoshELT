@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from sqlalchemy import and_, func, or_, select
+
 from models import DbTarget, Vocabulary, session_scope
 from validator import get_allowed_vocabulary, validate_exam_text
 
-CURATED_SYNONYMS: Dict[str, List[str]] = {
+CURATED_SYNONYMS: dict[str, list[str]] = {
     "physician": ["doctor"],
     "dentist": ["doctor"],
     "automobile": ["car"],
@@ -41,11 +42,11 @@ CURATED_SYNONYMS: Dict[str, List[str]] = {
 
 def analyze_and_advise(
     conn: DbTarget, max_grade: int, max_lesson: int, text: str
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     validation = validate_exam_text(conn, max_grade, max_lesson, text)
     allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
 
-    word_diagnostics: Dict[str, Any] = {}
+    word_diagnostics: dict[str, Any] = {}
 
     with session_scope(conn) as session:
         for word in validation["out_of_syllabus_words"]:
@@ -61,13 +62,13 @@ def analyze_and_advise(
                 .order_by(Vocabulary.grade.asc(), Vocabulary.lesson_num.asc())
                 .limit(1)
             )
-            vocab_row: Optional[Vocabulary] = session.scalars(stmt).first()
+            vocab_row: Vocabulary | None = session.scalars(stmt).first()
 
-            taught_grade: Optional[int] = vocab_row.grade if vocab_row else None
-            taught_lesson: Optional[int] = vocab_row.lesson_num if vocab_row else None
-            def_fa: Optional[str] = vocab_row.definition_fa if vocab_row else None
+            taught_grade: int | None = vocab_row.grade if vocab_row else None
+            taught_lesson: int | None = vocab_row.lesson_num if vocab_row else None
+            def_fa: str | None = vocab_row.definition_fa if vocab_row else None
 
-            alternatives: List[str] = []
+            alternatives: list[str] = []
             if w in CURATED_SYNONYMS:
                 for syn in CURATED_SYNONYMS[w]:
                     if syn.lower() in allowed_vocab:

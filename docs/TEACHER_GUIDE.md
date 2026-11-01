@@ -1,59 +1,124 @@
-# Teacher & AI Authoring Guide
+# KavoshELT Teacher & Educator Guide
 
-This guide explains how educators and automated AI workflows use the Curriculum Knowledge Base to design valid, syllabus-bounded exams and generate professional listening audio tracks.
-
----
-
-## 1. Exam Authoring Workflow (4 Standard Steps)
-
-```text
-[1. Fetch Bounds] ──> [2. Compose Draft] ──> [3. Validate & Adapt] ──> [4. Generate TTS Audio & Export]
-```
-
-### Step 1: Extract Curriculum Context and Vocabulary
-Before drafting questions, retrieve the active vocabulary pool, allowed tenses, forbidden structures, and scoring rubrics:
-```bash
-python3 curriculum_kb.py context --grade 10 --lessons 1,2
-```
-This JSON output provides the exact constraints needed to prompt an LLM or guide manual drafting.
-
-### Step 2: Compose Question Draft
-Draft the listening scripts, reading comprehension passages, or vocabulary items using the retrieved syllabus boundaries.
-
-### Step 3: Validate and Adapt Out-of-Syllabus Text
-Submit the drafted markdown or text to the curriculum advisor:
-```bash
-python3 curriculum_kb.py adapt --grade 10 --max-lesson 2 --file my_exam_draft.md
-```
-If an out-of-syllabus word is identified:
-- The command reports the exact word.
-- It specifies in which future grade and lesson that word will actually be taught.
-- It suggests **in-syllabus semantic alternatives** from vocabulary the student has already learned in earlier grades.
-
-### Step 4: Export Printable Sheets & Generate Audio
-Retrieve the official assessment blueprint:
-```bash
-python3 curriculum_kb.py blueprint --grade 10 --term 1 --exam-type Listening
-```
-Then export the finalized exam to print-ready PDF or editable Word DOCX:
-```bash
-python3 curriculum_kb.py export --file my_exam_draft.md --format pdf --out exam.pdf --school "Shahid Beheshti High School"
-python3 curriculum_kb.py export --file my_exam_draft.md --format docx --out exam.docx --school "Shahid Beheshti High School"
-```
+This guide explains how secondary English teachers can use KavoshELT to compose official final exam simulations, generate targeted skill worksheets, analyze first-language (L1) errors, and produce print-ready examination papers.
 
 ---
 
-## 2. Audio Generation with Gemini 3.8 Flash TTS
+## 1. Core Teaching Scenarios
 
-Google's **Gemini 3.8 Flash TTS** engine is pre-calibrated for school listening comprehension tests:
+### Scenario A: Composing a Grade 12 National Mock Exam (28 Points)
+Before official final exams in Khordad, teachers need authentic mock exams that mirror the official Ministry of Education (*Markaz-e-Sanjesh*) blueprint without accidental leakage of the exact same test items across sections.
 
-1. **Recommended Voice Configuration:**
-   * **Speaker 1 (Female):** `Fola` (Formal, articulate, and instructional tone for the examiner, teacher, or narrator).
-   * **Speaker 2 (Male):** `Rami` (Natural, warm, conversational tone for students, tourists, physicians, or secondary characters).
-2. **Pacing Rules:**
-   * For Iranian secondary learners (CEFR A2/B1), speed should target **125 to 135 words per minute (WPM)**.
-   * Use native inline pause tags:
-     - Sentence transitions: `<short pause>` (0.5 to 1.0s)
-     - Question reading intervals: `<long pause>` (15s examinee inspection time)
-3. **Verbatim Script Isolation:**
-   * Sustained delivery styles must be assigned via `speechMetadata.style` (e.g. `"Clear, formal, and slow"`) rather than inline bracketed stage directions, preventing the synthetic voice from reading stage cues aloud.
+Run this command in the terminal:
+```bash
+python3 curriculum_kb.py compose-exam \
+    --mode full_mock \
+    --grade 12 \
+    --points 28.0 \
+    --sourcing hybrid \
+    --school "Farhang High School" \
+    --teacher "Seyed Iliya Hosseini" \
+    --out-dir exports/grade12_mock_khordad
+```
+
+**What the system generates:**
+* `exports/grade12_mock_khordad/student_sheet.docx`: Fully editable Word document with native RTL school header grid and student metadata fields.
+* `exports/grade12_mock_khordad/student_sheet.pdf`: Clean A4 exam paper formatted with the Persian Vazirmatn font.
+* `exports/grade12_mock_khordad/student_sheet.html`: Browser-printable exam sheet.
+* `exports/grade12_mock_khordad/teacher_answer_key.pdf`: Official scoring key with 0.25-point sub-rubrics and item provenance notes.
+
+---
+
+### Scenario B: Generating a Single-Skill Remedial Worksheet
+When students struggle with a specific area—such as paragraph writing or sentence unscramble tasks—generate a targeted worksheet:
+```bash
+python3 curriculum_kb.py compose-exam \
+    --mode skill_worksheet \
+    --grade 12 \
+    --section writing \
+    --points 6.0 \
+    --sourcing past_papers \
+    --out-dir exports/writing_remedial
+```
+This isolates the writing section, pulling authentic past national exam questions for classroom practice.
+
+---
+
+### Scenario C: Creating Parallel Quizzes to Prevent Cheating
+When administering a continuous classroom quiz for Grade 12 Lesson 1 across multiple class sections:
+```bash
+# Form A (Class 1) - Hybrid past papers and twin items:
+python3 curriculum_kb.py compose-exam \
+    --mode custom_quiz \
+    --grade 12 \
+    --lessons 1 \
+    --points 10.0 \
+    --sourcing past_papers \
+    --out-dir exports/quiz_class_a
+
+# Form B (Class 2) - 100% Synthesized twin questions:
+python3 curriculum_kb.py compose-exam \
+    --mode custom_quiz \
+    --grade 12 \
+    --lessons 1 \
+    --points 10.0 \
+    --sourcing ai_twins \
+    --out-dir exports/quiz_class_b
+```
+Both forms test the exact same grammar concepts and vocabulary at identical difficulty, but use distinct sentence stems.
+
+---
+
+### Scenario D: Diagnosing Grammatical Errors & Persian L1 Transfer
+When students repeatedly make mistakes on advanced structures (e.g., passive voice or tag questions), query the prerequisite knowledge graph:
+```bash
+python3 curriculum_kb.py graph-query --concept g12.l1.grammar.passive_voice
+```
+
+**Output Diagnostics:**
+1. **Foundational Prerequisites:** Explains that students must review Grade 9 Lesson 5 (Simple Past irregular forms) and Grade 11 Lesson 1 (Past Participle morphology) before mastering passive constructions.
+2. **L1 Root Cause:** Highlights that in Persian, passive sentences (e.g., «پل ساخته شد») do not employ an explicit auxiliary `to be`, leading students to write `The bridge built` instead of `The bridge was built`.
+3. **Remedial Practice Drill:** Supplies ready-to-use drill templates for lesson planning.
+
+---
+
+## 2. Real-Time Text Verification & Synonym Assistance
+
+When drafting original exam questions or reading passages:
+
+### Step 1: Check Syllabus Boundaries
+Verify that your text does not introduce untaught vocabulary:
+```bash
+python3 curriculum_kb.py validate \
+    --grade 10 \
+    --max-lesson 2 \
+    --text "The patient visited the hospital for a checkup."
+```
+If an out-of-syllabus word is found (e.g., `patient`), the validator reports it immediately.
+
+### Step 2: Get In-Syllabus Synonym Replacements
+```bash
+python3 curriculum_kb.py adapt \
+    --grade 10 \
+    --max-lesson 2 \
+    --text "The physician helped the ill person."
+```
+The advisor suggests substituting `doctor` (introduced in Grade 7) for `physician` (Grade 10 Lesson 3), ensuring fair and syllabus-compliant assessments.
+
+---
+
+## 3. Listening Comprehension Audio Studio
+
+For official listening assessments, KavoshELT configures acoustic directives for Google's Gemini 3.8 Flash TTS engine:
+
+| Role | Recommended Voice | Tone & Character | Target Pacing |
+|:---|:---|:---|:---|
+| **Examiner / Narrator** | `Fola` (Female) or `Zephyr` (Female) | Clear, articulate, instructional | 125–130 WPM |
+| **Secondary Speaker / Dialogue** | `Rami` (Male) or `Puck` (Male) | Natural, conversational, friendly | 130–135 WPM |
+
+### Inline Pause Standards
+* Between instruction sections: `<long pause>` (15-second inspection interval).
+* Between repetitive listening rounds: `<medium pause>` (5-second transition).
+* Between sentences: `<short pause>` (0.75-second cadence).
+
+Sample audio preview files for each speaker are available under `assets/audio_previews/` in the repository.

@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import sqlite3
+from collections.abc import Iterator
 from contextlib import contextmanager
-from typing import Iterator, Optional, Union
+from typing import Union
 
 from sqlalchemy import (
     Boolean,
@@ -51,9 +52,9 @@ class Vocabulary(Base):
     pos: Mapped[str] = mapped_column(String(32), nullable=False)
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
     lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
-    definition_fa: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    example_en: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    definition_fa: Mapped[str | None] = mapped_column(Text, nullable=True)
+    example_en: Mapped[str | None] = mapped_column(Text, nullable=True)
+    embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class Passage(Base):
@@ -66,7 +67,7 @@ class Passage(Base):
     section_type: Mapped[str] = mapped_column(String(64), nullable=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
-    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class Rubric(Base):
@@ -99,7 +100,7 @@ class ConceptNode(Base):
     title_en: Mapped[str] = mapped_column(String(255), nullable=False)
     title_fa: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=False)
-    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class ConceptEdge(Base):
@@ -121,7 +122,7 @@ class ConceptEdge(Base):
         String(64), nullable=False
     )  # prerequisite_of, contrasts_with, l1_interference_with, co_occurs_with
     weight: Mapped[float] = mapped_column(Float, default=1.0)
-    notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class NationalExamPaper(Base):
@@ -176,16 +177,16 @@ class ExamQuestionItem(Base):
     )  # exact multiple of 0.25
     instruction_en: Mapped[str] = mapped_column(Text, nullable=False)
     stem_text: Mapped[str] = mapped_column(Text, nullable=False)
-    passage_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    options_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    passage_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    options_json: Mapped[str | None] = mapped_column(Text, nullable=True)
     canonical_answer: Mapped[str] = mapped_column(Text, nullable=False)
     acceptable_variants_json: Mapped[str] = mapped_column(Text, default="[]")
     rubric_breakdown_json: Mapped[str] = mapped_column(Text, default="{}")
-    distractor_analysis: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    distractor_analysis: Mapped[str | None] = mapped_column(Text, nullable=True)
     concept_ids_json: Mapped[str] = mapped_column(Text, default="[]")
-    embedding_json: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_synthetic_twin: Mapped[bool] = mapped_column(Boolean, default=False)
-    parent_item_id: Mapped[Optional[str]] = mapped_column(String(128), nullable=True)
+    parent_item_id: Mapped[str | None] = mapped_column(String(128), nullable=True)
 
 
 class L1ErrorPattern(Base):
@@ -206,7 +207,7 @@ class L1ErrorPattern(Base):
 DbTarget = Union[str, Engine, Session, sqlite3.Connection]
 
 
-def create_engine_for_target(target: Union[str, sqlite3.Connection]) -> Engine:
+def create_engine_for_target(target: str | sqlite3.Connection) -> Engine:
     if isinstance(target, sqlite3.Connection):
         return create_engine(
             "sqlite://",

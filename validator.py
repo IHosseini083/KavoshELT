@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Set
+from typing import Any
 
-from sqlalchemy import and_, func, or_, select
+from sqlalchemy import and_, or_, select
+
 from models import DbTarget, Vocabulary, session_scope
 
 COMMON_PROPER_NOUNS = {
@@ -214,7 +215,7 @@ STOP_CONTRACTIONS = {"'s", "'re", "'m", "'ve", "'ll", "'d", "n't", "s", "d", "t"
 
 def get_allowed_vocabulary(
     conn: DbTarget, max_grade: int = 10, max_lesson: int = 4
-) -> Set[str]:
+) -> set[str]:
     with session_scope(conn) as session:
         stmt = select(Vocabulary.lemma, Vocabulary.word).where(
             or_(
@@ -226,14 +227,14 @@ def get_allowed_vocabulary(
         )
         rows = session.execute(stmt).all()
 
-    allowed: Set[str] = set()
+    allowed: set[str] = set()
     for lemma_val, word_val in rows:
         if lemma_val:
             allowed.add(str(lemma_val).lower().strip())
         if word_val:
             allowed.add(str(word_val).lower().strip())
 
-    extra: Set[str] = set()
+    extra: set[str] = set()
     for item in allowed:
         if " " in item:
             for part in item.split():
@@ -241,7 +242,7 @@ def get_allowed_vocabulary(
     return allowed | extra | COMMON_PROPER_NOUNS
 
 
-def lemmatize_word(word: str, allowed_set: Set[str]) -> bool:
+def lemmatize_word(word: str, allowed_set: set[str]) -> bool:
     w = word.lower().strip()
     if not w or w.isdigit():
         return True
@@ -317,7 +318,7 @@ def lemmatize_word(word: str, allowed_set: Set[str]) -> bool:
 
 def check_grammar_bounds(
     text: str, max_grade: int, max_lesson: int
-) -> List[Dict[str, str]]:
+) -> list[dict[str, str]]:
     hits = []
     clean_text = text.replace("\n", " ")
 
@@ -346,7 +347,7 @@ def check_grammar_bounds(
                 {
                     "type": "past_progressive",
                     "match": match.group(0),
-                    "reason": f"Past Progressive is forbidden before Grade 10 Lesson 3.",
+                    "reason": "Past Progressive is forbidden before Grade 10 Lesson 3.",
                 }
             )
 
@@ -373,7 +374,7 @@ def check_grammar_bounds(
                 {
                     "type": "conditional_type_2",
                     "match": match.group(0),
-                    "reason": f"Conditional Type 2 is forbidden before Grade 12 Lesson 2.",
+                    "reason": "Conditional Type 2 is forbidden before Grade 12 Lesson 2.",
                 }
             )
 
@@ -395,7 +396,7 @@ def clean_markdown_and_metadata(text: str) -> str:
 
 def validate_exam_text(
     conn: DbTarget, max_grade: int, max_lesson: int, text: str
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
 
     cleaned_text = clean_markdown_and_metadata(text)

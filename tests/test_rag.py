@@ -3,7 +3,6 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from models import DbTarget
 from rag import (
     compute_embedding,
     cosine_similarity,

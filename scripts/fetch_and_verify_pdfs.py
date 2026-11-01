@@ -8,10 +8,6 @@ and verifies extracted vocabulary against datasets/grade*.json.
 import argparse
 import json
 import os
-import re
-import sys
-import urllib.request
-import urllib.error
 
 OFFICIAL_BOOK_CODES = {
     7: {"title": "English for Schools (Prospect 1)", "code": "107230", "grade": 7},

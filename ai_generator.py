@@ -4,11 +4,11 @@ import base64
 import json
 import os
 import re
-import time
 import uuid
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import httpx
+
 from advisor import analyze_and_advise
 from exam_styler import (
     generate_answer_key_pdf,
@@ -16,9 +16,7 @@ from exam_styler import (
     generate_exam_html,
     generate_exam_pdf,
 )
-from models import Lesson, session_scope
 from rag import retrieve_rag_context
-from validator import validate_exam_text
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "data", "curriculum.db")
@@ -28,7 +26,7 @@ GEMINI_KEY = os.environ.get(
     "GEMINI_API_KEY", "AQ.Ab8RN6L_bn4-za1OVc2f4wcQRuuI7w9PlDT60qmK-roKLeMf8A"
 )
 
-VOICE_CATALOG: Dict[str, Dict[str, str]] = {
+VOICE_CATALOG: dict[str, dict[str, str]] = {
     "fola": {
         "id": "fola",
         "name": "Fola",
@@ -64,7 +62,7 @@ VOICE_CATALOG: Dict[str, Dict[str, str]] = {
 }
 
 
-def call_gemini_llm(prompt: str, timeout_sec: int = 25) -> Optional[str]:
+def call_gemini_llm(prompt: str, timeout_sec: int = 25) -> str | None:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={GEMINI_KEY}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -116,11 +114,11 @@ def build_exam_markdown(
     exam_type: str,
     school_name: str,
     teacher_name: str,
-    content_blocks: List[Dict[str, str]],
-    part_a_questions: List[Dict[str, Any]],
-    part_b_questions: List[Dict[str, Any]],
-    part_c_questions: List[Dict[str, Any]],
-    answer_key_lines: List[str],
+    content_blocks: list[dict[str, str]],
+    part_a_questions: list[dict[str, Any]],
+    part_b_questions: list[dict[str, Any]],
+    part_c_questions: list[dict[str, Any]],
+    answer_key_lines: list[str],
 ) -> str:
     series = "Prospect" if grade <= 9 else "Vision"
     grade_fa = {
@@ -197,7 +195,7 @@ def generate_exam_package_with_ai(
     voice1: str = "fola",
     voice2: str = "rami",
     speed_wpm: int = 130,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     os.makedirs(EXPORTS_DIR, exist_ok=True)
     session_id = uuid.uuid4().hex[:10]
     out_dir = os.path.join(EXPORTS_DIR, session_id)
@@ -409,8 +407,7 @@ DO NOT include any commentary. Return ONLY the JSON object.
         # Merge wav files into one mp3 using ffmpeg
         concat_txt = os.path.join(out_dir, "concat.txt")
         with open(concat_txt, "w") as f:
-            for w in audio_wavs:
-                f.write(f"file '{w}'\n")
+            f.writelines(f"file '{w}'\n" for w in audio_wavs)
         try:
             import subprocess
 

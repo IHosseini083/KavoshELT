@@ -2,9 +2,8 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import uuid
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any
 
 from exam_rag_engine import retrieve_exam_items, synthesize_twin_item
 from exam_styler import (
@@ -17,7 +16,7 @@ from models import DbTarget
 
 DEFAULT_EXPORTS_DIR = os.path.join(os.path.dirname(__file__), "exports", "composed")
 
-OFFICIAL_SECTION_TITLES_FA: Dict[str, str] = {
+OFFICIAL_SECTION_TITLES_FA: dict[str, str] = {
     "vocabulary": "بخش واژگان (Vocabulary)",
     "grammar": "بخش دستور زبان (Grammar)",
     "writing": "بخش نگارش و بندنویسی (Writing)",
@@ -29,10 +28,10 @@ OFFICIAL_SECTION_TITLES_FA: Dict[str, str] = {
 
 def _apply_sourcing(
     conn: DbTarget,
-    items: List[Dict[str, Any]],
+    items: list[dict[str, Any]],
     sourcing: str,
-) -> List[Dict[str, Any]]:
-    processed: List[Dict[str, Any]] = []
+) -> list[dict[str, Any]]:
+    processed: list[dict[str, Any]] = []
     for idx, it in enumerate(items):
         if sourcing == "ai_twins":
             twin = synthesize_twin_item(conn, it["id"], variation_index=idx)
@@ -65,7 +64,7 @@ def _render_composed_markdown(
     school_name: str,
     teacher_name: str,
     total_points: float,
-    sections: List[Dict[str, Any]],
+    sections: list[dict[str, Any]],
 ) -> str:
     series = "Prospect" if grade <= 9 else "Vision"
     grade_fa = {
@@ -77,7 +76,7 @@ def _render_composed_markdown(
         12: "دوازدهم",
     }.get(grade, str(grade))
 
-    lines: List[str] = [
+    lines: list[str] = [
         f"# {title} - پایه {grade_fa} ({series})",
         "",
         f"**مشخصات آزمون:** آموزشگاه: {school_name} | طراح: {teacher_name} | بارم کل کتبی: {total_points:.2f} نمره",
@@ -88,7 +87,7 @@ def _render_composed_markdown(
     ]
 
     q_counter = 1
-    answer_key_lines: List[str] = []
+    answer_key_lines: list[str] = []
 
     for sec in sections:
         sec_code = sec["section_code"]
@@ -152,27 +151,27 @@ def compose_exam(
     conn: DbTarget,
     mode: str = "full_mock",
     grade: int = 12,
-    lessons: Optional[List[int]] = None,
-    section: Optional[str] = None,
+    lessons: list[int] | None = None,
+    section: str | None = None,
     target_points: float = 28.0,
     sourcing: str = "past_papers",
     school_name: str = "دبیرستان نمونه دولتی",
     teacher_name: str = "دبیر محترم",
-    year_min: Optional[int] = None,
-    year_max: Optional[int] = None,
-    sessions: Optional[List[str]] = None,
-    out_dir: Optional[str] = None,
-) -> Dict[str, Any]:
+    year_min: int | None = None,
+    year_max: int | None = None,
+    sessions: list[str] | None = None,
+    out_dir: str | None = None,
+) -> dict[str, Any]:
     comp_id = uuid.uuid4().hex[:10]
     target_out_dir = out_dir or os.path.join(DEFAULT_EXPORTS_DIR, comp_id)
     os.makedirs(target_out_dir, exist_ok=True)
 
-    composed_sections: List[Dict[str, Any]] = []
+    composed_sections: list[dict[str, Any]] = []
 
     if mode == "full_mock":
         # Official Blueprint 28.0 Points Distribution:
         # Vocabulary (6.0), Grammar (5.0), Writing (6.0), Cloze (3.0), Reading (8.0)
-        blueprint_slots: List[Tuple[str, float]] = [
+        blueprint_slots: list[tuple[str, float]] = [
             ("vocabulary", 6.0),
             ("grammar", 5.0),
             ("writing", 6.0),
@@ -197,7 +196,7 @@ def compose_exam(
             )
 
             # Select items greedily to reach slot_target
-            selected: List[Dict[str, Any]] = []
+            selected: list[dict[str, Any]] = []
             curr_pts = 0.0
             for it in pool:
                 if curr_pts + it["points"] <= slot_target + 1e-4:
@@ -352,15 +351,15 @@ def compose_exam(
 
 def swap_slot_item(
     conn: DbTarget,
-    composed_exam: Dict[str, Any],
+    composed_exam: dict[str, Any],
     slot_id: str,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     # Locate target section and item
     target_sec = None
     target_item = None
     target_idx = -1
 
-    existing_ids: Set[str] = set()
+    existing_ids: set[str] = set()
     for sec in composed_exam["sections"]:
         for i, it in enumerate(sec["items"]):
             existing_ids.add(it["id"])

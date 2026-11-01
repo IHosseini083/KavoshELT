@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 import re
 import uuid
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Any
 
-from sqlalchemy import and_, or_, select, text
+from sqlalchemy import and_, select, text
 
 from models import (
     ConceptEdge,
@@ -17,26 +17,25 @@ from models import (
     session_scope,
 )
 from rag import _normalize_tokens, compute_embedding, cosine_similarity
-from validator import validate_exam_text
 from verify_exam_bank import verify_item
 
 
 def retrieve_exam_items(
     conn: DbTarget,
     grade: int = 12,
-    lessons: Optional[List[int]] = None,
-    sections: Optional[List[str]] = None,
-    sessions: Optional[List[str]] = None,
-    year_min: Optional[int] = None,
-    year_max: Optional[int] = None,
-    difficulty: Optional[str] = None,
-    bloom_level: Optional[str] = None,
-    item_type: Optional[str] = None,
-    concept_id: Optional[str] = None,
-    query: Optional[str] = None,
+    lessons: list[int] | None = None,
+    sections: list[str] | None = None,
+    sessions: list[str] | None = None,
+    year_min: int | None = None,
+    year_max: int | None = None,
+    difficulty: str | None = None,
+    bloom_level: str | None = None,
+    item_type: str | None = None,
+    concept_id: str | None = None,
+    query: str | None = None,
     top_k: int = 10,
-) -> List[Dict[str, Any]]:
-    query_vec: Optional[List[float]] = compute_embedding(query) if query else None
+) -> list[dict[str, Any]]:
+    query_vec: list[float] | None = compute_embedding(query) if query else None
     query_terms = [t for t in _normalize_tokens(query) if len(t) > 2] if query else []
 
     with session_scope(conn) as session:
@@ -67,7 +66,7 @@ def retrieve_exam_items(
         matched_rows = session.execute(stmt).all()
 
         # FTS5 matches if query exists
-        fts_hits: Dict[str, float] = {}
+        fts_hits: dict[str, float] = {}
         if query_terms:
             fts_query = " OR ".join(f'"{t}"' for t in query_terms[:8])
             try:
@@ -86,10 +85,10 @@ def retrieve_exam_items(
             except Exception:
                 pass
 
-        results: List[Dict[str, Any]] = []
+        results: list[dict[str, Any]] = []
         for item, paper in matched_rows:
             # Concept ID filter
-            c_ids: List[str] = []
+            c_ids: list[str] = []
             if item.concept_ids_json:
                 try:
                     c_ids = json.loads(item.concept_ids_json)
@@ -100,7 +99,7 @@ def retrieve_exam_items(
 
             sem_score = 0.0
             if query_vec:
-                item_vec: List[float] = []
+                item_vec: list[float] = []
                 if item.embedding_json:
                     try:
                         item_vec = json.loads(item.embedding_json)
@@ -155,7 +154,7 @@ def retrieve_exam_items(
         return results[:top_k]
 
 
-def traverse_prerequisites(conn: DbTarget, concept_id: str) -> Dict[str, Any]:
+def traverse_prerequisites(conn: DbTarget, concept_id: str) -> dict[str, Any]:
     with session_scope(conn) as session:
         concept = session.get(ConceptNode, concept_id)
         if not concept:
@@ -173,7 +172,7 @@ def traverse_prerequisites(conn: DbTarget, concept_id: str) -> Dict[str, Any]:
             ).all()
         )
 
-        prereq_nodes: List[Dict[str, Any]] = []
+        prereq_nodes: list[dict[str, Any]] = []
         for e in edges:
             target_node = session.get(ConceptNode, e.target_id)
             if target_node:
@@ -240,7 +239,7 @@ def traverse_prerequisites(conn: DbTarget, concept_id: str) -> Dict[str, Any]:
 
 
 # Curated parallel sentence substitutions for closed-loop twin synthesis
-TWIN_VARIATION_MAP: Dict[str, List[Dict[str, Any]]] = {
+TWIN_VARIATION_MAP: dict[str, list[dict[str, Any]]] = {
     "g12.l1.vocab.appreciation": [
         {
             "stem": "We must show gratitude and appreciation to our parents for their devotion.",
@@ -341,13 +340,13 @@ def synthesize_twin_item(
     conn: DbTarget,
     base_item_id: str,
     variation_index: int = 0,
-) -> Optional[Dict[str, Any]]:
+) -> dict[str, Any] | None:
     with session_scope(conn) as session:
         base_item = session.get(ExamQuestionItem, base_item_id)
         if not base_item:
             return None
 
-        concept_ids: List[str] = []
+        concept_ids: list[str] = []
         if base_item.concept_ids_json:
             try:
                 concept_ids = json.loads(base_item.concept_ids_json)

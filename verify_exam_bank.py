@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any, Dict, List, Set
+from typing import Any
 
 from sqlalchemy import select
 
@@ -16,8 +16,8 @@ from models import (
 from validator import validate_exam_text
 
 
-def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
-    errors: List[str] = []
+def verify_item(conn: DbTarget, item: ExamQuestionItem) -> dict[str, Any]:
+    errors: list[str] = []
 
     # Rule V1: Point precision (multiple of 0.25)
     pts = float(item.points)
@@ -27,7 +27,7 @@ def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
         errors.append(f"Points must be a precise multiple of 0.25, got {pts}")
 
     # Rubric breakdown precision
-    rubric_dict: Dict[str, Any] = {}
+    rubric_dict: dict[str, Any] = {}
     if item.rubric_breakdown_json:
         try:
             rubric_dict = json.loads(item.rubric_breakdown_json)
@@ -44,7 +44,7 @@ def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
             )
     elif item.item_type in ("paragraph_writing", "open_ended"):
         errors.append(
-            f"Open-ended and paragraph writing items require non-empty rubric_breakdown_json"
+            "Open-ended and paragraph writing items require non-empty rubric_breakdown_json"
         )
 
     # Rule V2: Syllabus alignment
@@ -80,7 +80,7 @@ def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
             )
 
     # Rule V3: Concept graph integrity
-    concept_ids: List[str] = []
+    concept_ids: list[str] = []
     if item.concept_ids_json:
         try:
             c_data = json.loads(item.concept_ids_json)
@@ -106,7 +106,7 @@ def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
 
     # Rule V4: Answer key completeness
     if item.item_type == "multiple_choice":
-        options_list: List[str] = []
+        options_list: list[str] = []
         if item.options_json:
             try:
                 raw_opts = json.loads(item.options_json)
@@ -142,7 +142,7 @@ def verify_item(conn: DbTarget, item: ExamQuestionItem) -> Dict[str, Any]:
     }
 
 
-def verify_paper(conn: DbTarget, paper_id: str) -> Dict[str, Any]:
+def verify_paper(conn: DbTarget, paper_id: str) -> dict[str, Any]:
     with session_scope(conn) as session:
         paper = session.get(NationalExamPaper, paper_id)
         if not paper:
@@ -161,7 +161,7 @@ def verify_paper(conn: DbTarget, paper_id: str) -> Dict[str, Any]:
         )
 
     item_reports = [verify_item(conn, item) for item in items]
-    paper_errors: List[str] = []
+    paper_errors: list[str] = []
 
     total_pts = sum(float(it.points) for it in items)
     if abs(total_pts - float(paper.total_written_points)) > 1e-4:
@@ -182,7 +182,7 @@ def verify_paper(conn: DbTarget, paper_id: str) -> Dict[str, Any]:
     }
 
 
-def audit_national_exam_bank(conn: DbTarget) -> Dict[str, Any]:
+def audit_national_exam_bank(conn: DbTarget) -> dict[str, Any]:
     with session_scope(conn) as session:
         papers = list(
             session.scalars(
