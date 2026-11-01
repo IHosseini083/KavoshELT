@@ -8,7 +8,8 @@ import sys
 from validator import validate_exam_text
 from auditor import run_curriculum_audit
 from advisor import analyze_and_advise
-from exam_styler import generate_exam_docx, generate_exam_pdf
+from exam_styler import generate_exam_docx, generate_exam_pdf, generate_answer_key_pdf
+from exam_generator import generate_full_exam_package
 
 CURRICULUM_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum.db")
 VISION1_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "vision1.db")
@@ -215,11 +216,26 @@ def cmd_export(args):
         
     if fmt == "pdf":
         generate_exam_pdf(args.file, out, school_name=args.school)
+        if args.include_key:
+            key_out = out.replace(".pdf", "_answer_key.pdf")
+            generate_answer_key_pdf(args.file, key_out, school_name=args.school)
     elif fmt == "docx":
         generate_exam_docx(args.file, out, school_name=args.school)
     else:
         print(f"Unsupported format: {fmt}. Choose 'pdf' or 'docx'.")
         sys.exit(1)
+
+def cmd_generate(args):
+    conn = get_connection(args.db)
+    res = generate_full_exam_package(
+        conn,
+        grade=args.grade,
+        term=args.term,
+        out_dir=args.out_dir,
+        school_name=args.school,
+    )
+    conn.close()
+    print(json.dumps(res, ensure_ascii=False, indent=2))
 
 def main():
     parser = argparse.ArgumentParser(description="Secondary English Curriculum Knowledge Base & Authoring CLI")
@@ -274,8 +290,17 @@ def main():
     p_exp.add_argument("--file", required=True, help="Input markdown exam file")
     p_exp.add_argument("--format", choices=["pdf", "docx"], default="pdf", help="Output format (pdf or docx)")
     p_exp.add_argument("--out", help="Output file path")
-    p_exp.add_argument("--school", default="Ministry of Education", help="School name on header")
+    p_exp.add_argument("--school", default="دبیرستان نمونه دولتی", help="School name on header")
+    p_exp.add_argument("--include-key", action="store_true", help="Also generate separate Teacher Answer Key PDF")
     p_exp.set_defaults(func=cmd_export)
+
+    # generate
+    p_gen = subparsers.add_parser("generate", help="Generate complete exam package (MD + Student PDF + DOCX + Answer Key PDF)")
+    p_gen.add_argument("--grade", type=int, default=10, help="Grade level (7-12)")
+    p_gen.add_argument("--term", type=int, choices=[1, 2], default=1, help="Term (1 or 2)")
+    p_gen.add_argument("--out-dir", default="exports", help="Output directory")
+    p_gen.add_argument("--school", default="دبیرستان نمونه دولتی", help="School name on header")
+    p_gen.set_defaults(func=cmd_generate)
     
     args = parser.parse_args()
     args.func(args)
