@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cache and temporary files
+.cache/
+*.tmp
+*.log
+
+# Databases (rebuilt via seed scripts)
+data/*.db
+data/*.sqlite
+!data/.gitkeep
+
+# Environment and editor
+.env
+.vscode/
+.idea/
