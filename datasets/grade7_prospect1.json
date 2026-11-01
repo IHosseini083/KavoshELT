@@ -1,0 +1,754 @@
+{
+  "grade": 7,
+  "book": "Prospect 1",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "My Name",
+      "theme": "Introductions, names, alphabet, greetings",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "wh_questions_what",
+          "possessive_adjectives_my_your"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "present_continuous",
+          "future"
+        ],
+        "forbidden_structures": [
+          "modals",
+          "passive",
+          "perfect"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "My Classmates",
+      "theme": "Classroom, friends, classmates, greetings",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "wh_questions_who",
+          "this_that_these_those"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "present_continuous",
+          "future"
+        ],
+        "forbidden_structures": [
+          "modals",
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "My Age",
+      "theme": "Numbers, age, months, birthdays",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "how_old_questions",
+          "numbers_1_to_100"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 4,
+      "title": "My Family",
+      "theme": "Family members, jobs, relationships",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "wh_questions_what_job",
+          "family_relations"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 5,
+      "title": "My Appearance",
+      "theme": "Colors, clothes, height, hair, physical looks",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "descriptive_adjectives",
+          "colors"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "comparatives",
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 6,
+      "title": "My House",
+      "theme": "Rooms, furniture, household activities",
+      "allowed_grammar": {
+        "tenses": [
+          "present_continuous"
+        ],
+        "structures": [
+          "there_is_there_are",
+          "prepositions_in_on_under"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "perfect",
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 7,
+      "title": "My Address",
+      "theme": "Addresses, telephone numbers, days of the week, time",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "telling_time",
+          "days_of_the_week",
+          "prepositions_at_on"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 8,
+      "title": "My Favorite Food",
+      "theme": "Food, drinks, meals, preferences",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_like_want"
+        ],
+        "structures": [
+          "food_nouns",
+          "polite_requests_please"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "name",
+      "name",
+      "noun",
+      1,
+      "نام",
+      "My name is Ali."
+    ],
+    [
+      "first name",
+      "first name",
+      "noun",
+      1,
+      "نام کوچک",
+      "What is your first name?"
+    ],
+    [
+      "last name",
+      "last name",
+      "noun",
+      1,
+      "نام خانوادگی",
+      "My last name is Ahmadi."
+    ],
+    [
+      "hello",
+      "hello",
+      "interj",
+      1,
+      "سلام",
+      "Hello my friend."
+    ],
+    [
+      "hi",
+      "hi",
+      "interj",
+      1,
+      "سلام",
+      "Hi Reza."
+    ],
+    [
+      "good morning",
+      "good morning",
+      "phrase",
+      1,
+      "صبح بخیر",
+      "Good morning teacher."
+    ],
+    [
+      "good afternoon",
+      "good afternoon",
+      "phrase",
+      1,
+      "عصر بخیر",
+      "Good afternoon students."
+    ],
+    [
+      "classmate",
+      "classmate",
+      "noun",
+      2,
+      "همکلاسی",
+      "This is my classmate."
+    ],
+    [
+      "friend",
+      "friend",
+      "noun",
+      2,
+      "دوست",
+      "He is my best friend."
+    ],
+    [
+      "teacher",
+      "teacher",
+      "noun",
+      2,
+      "معلم",
+      "Our teacher is kind."
+    ],
+    [
+      "student",
+      "student",
+      "noun",
+      2,
+      "دانش‌آموز",
+      "They are good students."
+    ],
+    [
+      "school",
+      "school",
+      "noun",
+      2,
+      "مدرسه",
+      "Welcome to our school."
+    ],
+    [
+      "boy",
+      "boy",
+      "noun",
+      2,
+      "پسر",
+      "He is a clever boy."
+    ],
+    [
+      "girl",
+      "girl",
+      "noun",
+      2,
+      "دختر",
+      "She is a polite girl."
+    ],
+    [
+      "age",
+      "age",
+      "noun",
+      3,
+      "سن",
+      "What is your age?"
+    ],
+    [
+      "year",
+      "year",
+      "noun",
+      3,
+      "سال",
+      "I am twelve years old."
+    ],
+    [
+      "month",
+      "month",
+      "noun",
+      3,
+      "ماه",
+      "My birthday is in Mehr."
+    ],
+    [
+      "birthday",
+      "birthday",
+      "noun",
+      3,
+      "روز تولد",
+      "Happy birthday to you."
+    ],
+    [
+      "number",
+      "number",
+      "noun",
+      3,
+      "شماره، عدد",
+      "What is your phone number?"
+    ],
+    [
+      "family",
+      "family",
+      "noun",
+      4,
+      "خانواده",
+      "I love my family."
+    ],
+    [
+      "father",
+      "father",
+      "noun",
+      4,
+      "پدر",
+      "My father is a teacher."
+    ],
+    [
+      "mother",
+      "mother",
+      "noun",
+      4,
+      "مادر",
+      "My mother is a nurse."
+    ],
+    [
+      "brother",
+      "brother",
+      "noun",
+      4,
+      "برادر",
+      "He has one brother."
+    ],
+    [
+      "sister",
+      "sister",
+      "noun",
+      4,
+      "خواهر",
+      "My sister is a student."
+    ],
+    [
+      "uncle",
+      "uncle",
+      "noun",
+      4,
+      "عمو، دایی",
+      "His uncle is a driver."
+    ],
+    [
+      "aunt",
+      "aunt",
+      "noun",
+      4,
+      "عمه، خاله",
+      "Her aunt is a doctor."
+    ],
+    [
+      "job",
+      "job",
+      "noun",
+      4,
+      "شغل",
+      "What is his job?"
+    ],
+    [
+      "dentist",
+      "dentist",
+      "noun",
+      4,
+      "دندانپزشک",
+      "The dentist helps patients."
+    ],
+    [
+      "pilot",
+      "pilot",
+      "noun",
+      4,
+      "خلبان",
+      "A pilot flies planes."
+    ],
+    [
+      "appearance",
+      "appearance",
+      "noun",
+      5,
+      "ظاهر",
+      "Describe his appearance."
+    ],
+    [
+      "tall",
+      "tall",
+      "adj",
+      5,
+      "قدبلند",
+      "He is a tall boy."
+    ],
+    [
+      "short",
+      "short",
+      "adj",
+      5,
+      "کوتاه",
+      "She has short hair."
+    ],
+    [
+      "young",
+      "young",
+      "adj",
+      5,
+      "جوان",
+      "Our teacher is young."
+    ],
+    [
+      "old",
+      "old",
+      "adj",
+      5,
+      "پیر، قدیمی",
+      "My grandfather is old."
+    ],
+    [
+      "shirt",
+      "shirt",
+      "noun",
+      5,
+      "پیراهن",
+      "He wears a white shirt."
+    ],
+    [
+      "jacket",
+      "jacket",
+      "noun",
+      5,
+      "ژاکت، کاپشن",
+      "Put on your warm jacket."
+    ],
+    [
+      "shoes",
+      "shoes",
+      "noun",
+      5,
+      "کفش",
+      "These black shoes are nice."
+    ],
+    [
+      "color",
+      "color",
+      "noun",
+      5,
+      "رنگ",
+      "What color is your bag?"
+    ],
+    [
+      "house",
+      "house",
+      "noun",
+      6,
+      "خانه",
+      "Their house is big."
+    ],
+    [
+      "room",
+      "room",
+      "noun",
+      6,
+      "اتاق",
+      "This is my bedroom."
+    ],
+    [
+      "kitchen",
+      "kitchen",
+      "noun",
+      6,
+      "آشپزخانه",
+      "Mom is in the kitchen."
+    ],
+    [
+      "living room",
+      "living room",
+      "noun",
+      6,
+      "اتاق نشیمن",
+      "We watch TV in the living room."
+    ],
+    [
+      "bedroom",
+      "bedroom",
+      "noun",
+      6,
+      "اتاق خواب",
+      "Go to your bedroom."
+    ],
+    [
+      "garage",
+      "garage",
+      "noun",
+      6,
+      "پارکینگ، گاراژ",
+      "The car is in the garage."
+    ],
+    [
+      "cooking",
+      "cook",
+      "verb",
+      6,
+      "آشپزی کردن",
+      "Grandmother is cooking lunch."
+    ],
+    [
+      "eating",
+      "eat",
+      "verb",
+      6,
+      "غذا خوردن",
+      "He is eating dinner."
+    ],
+    [
+      "drinking",
+      "drink",
+      "verb",
+      6,
+      "نوشیدن",
+      "She is drinking tea."
+    ],
+    [
+      "sleeping",
+      "sleep",
+      "verb",
+      6,
+      "خوابیدن",
+      "The baby is sleeping now."
+    ],
+    [
+      "washing",
+      "wash",
+      "verb",
+      6,
+      "شستن",
+      "Father is washing the car."
+    ],
+    [
+      "address",
+      "address",
+      "noun",
+      7,
+      "آدرس",
+      "What is your home address?"
+    ],
+    [
+      "street",
+      "street",
+      "noun",
+      7,
+      "خیابان",
+      "We live on Bahar street."
+    ],
+    [
+      "alley",
+      "alley",
+      "noun",
+      7,
+      "کوچه",
+      "Turn into the next alley."
+    ],
+    [
+      "clock",
+      "clock",
+      "noun",
+      7,
+      "ساعت دیواری",
+      "Look at the wall clock."
+    ],
+    [
+      "time",
+      "time",
+      "noun",
+      7,
+      "زمان، وقت",
+      "What time is it now?"
+    ],
+    [
+      "food",
+      "food",
+      "noun",
+      8,
+      "غذا",
+      "Rice and kebab is Iranian food."
+    ],
+    [
+      "rice",
+      "rice",
+      "noun",
+      8,
+      "برنج",
+      "We eat rice every day."
+    ],
+    [
+      "bread",
+      "bread",
+      "noun",
+      8,
+      "نان",
+      "Fresh bread smells good."
+    ],
+    [
+      "water",
+      "water",
+      "noun",
+      8,
+      "آب",
+      "Drink clean water."
+    ],
+    [
+      "tea",
+      "tea",
+      "noun",
+      8,
+      "چای",
+      "Would you like hot tea?"
+    ],
+    [
+      "chicken",
+      "chicken",
+      "noun",
+      8,
+      "مرغ",
+      "I like roast chicken."
+    ],
+    [
+      "engineer",
+      "engineer",
+      "noun",
+      4,
+      "مهندس",
+      "My father is an engineer."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Talking about Names",
+      "content": "Teacher: Hello class! My name is Mr. Rezaei. What is your name?\nAli: Hello teacher. My name is Ali Moradi.\nTeacher: Nice to meet you, Ali.\nAli: Nice to meet you too, sir."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Reading",
+      "title": "My Family",
+      "content": "My name is Mina. I live in a warm family. My father is an engineer and my mother is a kind teacher. I have one brother, Nima. He is a young student. We love our grandfather and grandmother."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g7_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "Identification",
+            "points": 3.0
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 3.0
+          },
+          {
+            "part": "C",
+            "type": "Short Answer",
+            "points": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g7_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Matching",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

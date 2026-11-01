@@ -1,0 +1,643 @@
+{
+  "grade": 9,
+  "book": "Prospect 3",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "Personality",
+      "theme": "Personality traits, character, to be adjectives",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present"
+        ],
+        "structures": [
+          "personality_adjectives",
+          "to_be_questions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "future_will",
+          "past_continuous"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "Travel",
+      "theme": "Travel, airport, train station, booking hotel",
+      "allowed_grammar": {
+        "tenses": [
+          "present_continuous_for_future"
+        ],
+        "structures": [
+          "by_plane_train",
+          "travel_actions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "future_will",
+          "past_perfect"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "Festivals and Ceremonies",
+      "theme": "Nowruz, Yalda, religious events, rituals",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_routines"
+        ],
+        "structures": [
+          "cultural_festivals",
+          "family_rituals"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "future_will",
+          "passive"
+        ],
+        "forbidden_structures": [
+          "conditionals"
+        ]
+      }
+    },
+    {
+      "lesson_num": 4,
+      "title": "Services",
+      "theme": "Public services, post office, police, bank",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present"
+        ],
+        "structures": [
+          "public_places",
+          "requesting_services"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_continuous"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 5,
+      "title": "Media",
+      "theme": "TV, internet, newspaper, reports",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_past"
+        ],
+        "structures": [
+          "past_simple_regular_irregular",
+          "did_questions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "present_perfect"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 6,
+      "title": "Health and Injuries",
+      "theme": "Accidents, emergency, injuries, treatment",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_past"
+        ],
+        "structures": [
+          "hurting_oneself",
+          "emergency_actions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "present_perfect"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "personality",
+      "personality",
+      "noun",
+      1,
+      "شخصیت",
+      "He has a great personality."
+    ],
+    [
+      "clever",
+      "clever",
+      "adj",
+      1,
+      "باهوش",
+      "Omid is a clever boy."
+    ],
+    [
+      "kind",
+      "kind",
+      "adj",
+      1,
+      "مهربان",
+      "Our teacher is very kind."
+    ],
+    [
+      "patient",
+      "patient",
+      "adj",
+      1,
+      "صبور",
+      "My mother is very patient."
+    ],
+    [
+      "brave",
+      "brave",
+      "adj",
+      1,
+      "شجاع",
+      "Firefighters are brave."
+    ],
+    [
+      "neat",
+      "neat",
+      "adj",
+      1,
+      "مرتب، تمیز",
+      "Keep your room neat."
+    ],
+    [
+      "messy",
+      "messy",
+      "adj",
+      1,
+      "نامرتب",
+      "His desk is messy."
+    ],
+    [
+      "careless",
+      "careless",
+      "adj",
+      1,
+      "بی‌دقت",
+      "Do not be careless."
+    ],
+    [
+      "hard-working",
+      "hard-working",
+      "adj",
+      1,
+      "سخت‌کوش",
+      "He is a hard-working student."
+    ],
+    [
+      "ticket",
+      "ticket",
+      "noun",
+      2,
+      "بلیط",
+      "Buy a train ticket."
+    ],
+    [
+      "passport",
+      "passport",
+      "noun",
+      2,
+      "گذرنامه",
+      "Show your passport."
+    ],
+    [
+      "timetable",
+      "timetable",
+      "noun",
+      2,
+      "جدول زمان‌بندی",
+      "Check the train timetable."
+    ],
+    [
+      "hotel",
+      "hotel",
+      "noun",
+      2,
+      "هتل",
+      "We booked a clean hotel."
+    ],
+    [
+      "receptionist",
+      "receptionist",
+      "noun",
+      2,
+      "مسئول پذیرش",
+      "Ask the hotel receptionist."
+    ],
+    [
+      "nowruz",
+      "nowruz",
+      "noun",
+      3,
+      "نوروز",
+      "Nowruz is Iranian New Year."
+    ],
+    [
+      "haft-seen",
+      "haft-seen",
+      "noun",
+      3,
+      "هفت‌سین",
+      "Set the Haft-seen table."
+    ],
+    [
+      "samanu",
+      "samanu",
+      "noun",
+      3,
+      "سمنو",
+      "Grandmother is baking samanu."
+    ],
+    [
+      "yalda",
+      "yalda",
+      "noun",
+      3,
+      "یلدا",
+      "We read Hafez poems on Yalda night."
+    ],
+    [
+      "festival",
+      "festival",
+      "noun",
+      3,
+      "جشنواره",
+      "Eid-e-Fitr is an Islamic festival."
+    ],
+    [
+      "generous",
+      "generous",
+      "adj",
+      1,
+      "بخشنده",
+      "He is very generous."
+    ],
+    [
+      "helpful",
+      "helpful",
+      "adj",
+      1,
+      "یاری‌رسان",
+      "Students are very helpful."
+    ],
+    [
+      "polite",
+      "polite",
+      "adj",
+      1,
+      "مؤدب",
+      "Always speak politely."
+    ],
+    [
+      "rude",
+      "rude",
+      "adj",
+      1,
+      "بی‌ادب",
+      "Do not be rude to people."
+    ],
+    [
+      "nervous",
+      "nervous",
+      "adj",
+      1,
+      "مضطرب، عصبی",
+      "She feels nervous before exams."
+    ],
+    [
+      "quiet",
+      "quiet",
+      "adj",
+      1,
+      "ساکت",
+      "Be quiet in the library."
+    ],
+    [
+      "talkative",
+      "talkative",
+      "adj",
+      1,
+      "پر حرف",
+      "The boy is talkative."
+    ],
+    [
+      "forgetful",
+      "forgetful",
+      "adj",
+      1,
+      "فراموشکار",
+      "Grandfather is a bit forgetful."
+    ],
+    [
+      "funny",
+      "funny",
+      "adj",
+      1,
+      "خنده‌دار، شوخ",
+      "He tells funny jokes."
+    ],
+    [
+      "angry",
+      "angry",
+      "adj",
+      1,
+      "عصبانی",
+      "He never gets angry."
+    ],
+    [
+      "airport",
+      "airport",
+      "noun",
+      2,
+      "فرودگاه",
+      "Go to the airport early."
+    ],
+    [
+      "airplane",
+      "airplane",
+      "noun",
+      2,
+      "هواپیما",
+      "Board the airplane now."
+    ],
+    [
+      "train station",
+      "train station",
+      "noun",
+      2,
+      "ایستگاه قطار",
+      "Wait at the train station."
+    ],
+    [
+      "baggage",
+      "baggage",
+      "noun",
+      2,
+      "چمدان، بار",
+      "Check your baggage."
+    ],
+    [
+      "pack",
+      "pack",
+      "verb",
+      2,
+      "بستن (چمدان)",
+      "Pack your bag for travel."
+    ],
+    [
+      "fill out",
+      "fill out",
+      "verb",
+      2,
+      "پر کردن (فرم)",
+      "Fill out the reservation form."
+    ],
+    [
+      "information desk",
+      "information desk",
+      "noun",
+      2,
+      "میز اطلاعات",
+      "Ask the information desk."
+    ],
+    [
+      "ceremony",
+      "ceremony",
+      "noun",
+      3,
+      "مراسم",
+      "We hold wedding ceremonies."
+    ],
+    [
+      "celebrate",
+      "celebrate",
+      "verb",
+      3,
+      "جشن گرفتن",
+      "People celebrate Nowruz."
+    ],
+    [
+      "relatives",
+      "relative",
+      "noun",
+      3,
+      "اقوام، خویشاوندان",
+      "We visit our relatives."
+    ],
+    [
+      "watermelon",
+      "watermelon",
+      "noun",
+      3,
+      "هندوانه",
+      "Eat watermelon on Yalda night."
+    ],
+    [
+      "nut",
+      "nut",
+      "noun",
+      3,
+      "آجیل",
+      "Yalda table has fresh nuts."
+    ],
+    [
+      "poem",
+      "poem",
+      "noun",
+      3,
+      "شعر",
+      "Read a Hafez poem."
+    ],
+    [
+      "firework",
+      "firework",
+      "noun",
+      3,
+      "آتش‌بازی",
+      "Children watch fireworks."
+    ],
+    [
+      "post office",
+      "post office",
+      "noun",
+      4,
+      "اداره پست",
+      "Send letters at the post office."
+    ],
+    [
+      "postman",
+      "postman",
+      "noun",
+      4,
+      "پستچی",
+      "The postman delivered a parcel."
+    ],
+    [
+      "bank",
+      "bank",
+      "noun",
+      4,
+      "بانک",
+      "Deposit money in the bank."
+    ],
+    [
+      "police station",
+      "police station",
+      "noun",
+      4,
+      "کلانتری",
+      "Report theft at the police station."
+    ],
+    [
+      "fire station",
+      "fire station",
+      "noun",
+      4,
+      "ایستگاه آتش‌نشانی",
+      "Call the fire station."
+    ],
+    [
+      "firefighter",
+      "firefighter",
+      "noun",
+      4,
+      "آتش‌نشان",
+      "Firefighters extinguish fires."
+    ],
+    [
+      "emergency",
+      "emergency",
+      "noun",
+      6,
+      "اورژانس، فوریت",
+      "Call emergency immediately."
+    ],
+    [
+      "accident",
+      "accident",
+      "noun",
+      6,
+      "تصادف",
+      "Drive carefully to prevent an accident."
+    ],
+    [
+      "bleed",
+      "bleed",
+      "verb",
+      6,
+      "خونریزی کردن",
+      "The cut finger started to bleed."
+    ],
+    [
+      "bandage",
+      "bandage",
+      "noun",
+      6,
+      "بانداژ",
+      "Put a bandage on the wound."
+    ],
+    [
+      "burn",
+      "burn",
+      "verb",
+      6,
+      "سوختن",
+      "Be careful not to burn your hand."
+    ],
+    [
+      "homework",
+      "homework",
+      "noun",
+      1,
+      "تکلیف خانه",
+      "Do your English homework."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Talking about Personalities",
+      "content": "Mina: Tell me about your new classmate, Omid. What is he like?\nReza: He is very quiet, but he is clever and kind. He always helps his friends with English homework."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g9_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g9_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

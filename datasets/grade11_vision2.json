@@ -1,0 +1,728 @@
+{
+  "grade": 11,
+  "book": "Vision 2",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "Understanding People",
+      "theme": "Human languages, communication, deaf culture, sign language",
+      "allowed_grammar": {
+        "tenses": [
+          "present_perfect_have_has_pp"
+        ],
+        "structures": [
+          "for_since_time_expressions",
+          "count_noncount_nouns"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "passive_voice",
+          "past_perfect"
+        ],
+        "forbidden_structures": [
+          "conditionals_type_2"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "A Healthy Lifestyle",
+      "theme": "Physical health, nutrition, stress, exercise, prevention",
+      "allowed_grammar": {
+        "tenses": [
+          "present_perfect",
+          "modals"
+        ],
+        "structures": [
+          "gerunds_and_infinitives",
+          "conditional_type_1"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "passive_voice"
+        ],
+        "forbidden_structures": [
+          "conditionals_type_2"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "Art and Culture",
+      "theme": "Persian art, handicrafts, calligraphy, pottery, culture",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present",
+          "simple_past",
+          "present_perfect"
+        ],
+        "structures": [
+          "conditional_type_1",
+          "infinitives_of_purpose"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "passive_voice_advanced"
+        ],
+        "forbidden_structures": [
+          "relative_clauses_complex"
+        ]
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "language",
+      "language",
+      "noun",
+      1,
+      "زبان",
+      "Thousands of languages exist worldwide."
+    ],
+    [
+      "communicate",
+      "communicate",
+      "verb",
+      1,
+      "ارتباط برقرار کردن",
+      "People communicate in different ways."
+    ],
+    [
+      "communication",
+      "communication",
+      "noun",
+      1,
+      "ارتباط",
+      "Language is a tool of communication."
+    ],
+    [
+      "sign language",
+      "sign language",
+      "noun",
+      1,
+      "زبان اشاره",
+      "Deaf people use sign language."
+    ],
+    [
+      "deaf",
+      "deaf",
+      "adj",
+      1,
+      "ناشنوا",
+      "He helps deaf children learn."
+    ],
+    [
+      "native speaker",
+      "native speaker",
+      "noun",
+      1,
+      "گویشور بومی",
+      "She is a native English speaker."
+    ],
+    [
+      "foreign",
+      "foreign",
+      "adj",
+      1,
+      "خارجی",
+      "He studies foreign languages."
+    ],
+    [
+      "popular",
+      "popular",
+      "adj",
+      1,
+      "محبوب، پرطرفدار",
+      "English is a popular language."
+    ],
+    [
+      "lifestyle",
+      "lifestyle",
+      "noun",
+      2,
+      "سبک زندگی",
+      "Exercise leads to a healthy lifestyle."
+    ],
+    [
+      "diet",
+      "diet",
+      "noun",
+      2,
+      "رژیم غذایی",
+      "A balanced diet provides vitamins."
+    ],
+    [
+      "prevent",
+      "prevent",
+      "verb",
+      2,
+      "پیشگیری کردن",
+      "Vaccines prevent terrible diseases."
+    ],
+    [
+      "prevention",
+      "prevention",
+      "noun",
+      2,
+      "پیشگیری",
+      "Prevention is better than cure."
+    ],
+    [
+      "stress",
+      "stress",
+      "noun",
+      2,
+      "استرس، فشار روانی",
+      "Deep breathing reduces mental stress."
+    ],
+    [
+      "habit",
+      "habit",
+      "noun",
+      2,
+      "عادت",
+      "Reading is a wonderful habit."
+    ],
+    [
+      "energy",
+      "energy",
+      "noun",
+      2,
+      "انرژی",
+      "Healthy food gives you energy."
+    ],
+    [
+      "physical",
+      "physical",
+      "adj",
+      2,
+      "جسمی، فیزیکی",
+      "Physical activity is essential."
+    ],
+    [
+      "culture",
+      "culture",
+      "noun",
+      3,
+      "فرهنگ",
+      "Art reflects national culture."
+    ],
+    [
+      "pottery",
+      "pottery",
+      "noun",
+      3,
+      "سفالگری",
+      "Lalejin is famous for Persian pottery."
+    ],
+    [
+      "calligraphy",
+      "calligraphy",
+      "noun",
+      3,
+      "خوشنویسی",
+      "He practices Iranian calligraphy."
+    ],
+    [
+      "carpet",
+      "carpet",
+      "noun",
+      3,
+      "فرش",
+      "Persian handmade carpets are famous."
+    ],
+    [
+      "rug",
+      "rug",
+      "noun",
+      3,
+      "قالیچه",
+      "The weaver made a silk rug."
+    ],
+    [
+      "craft",
+      "craft",
+      "noun",
+      3,
+      "صنعت، هنر دستی",
+      "Persian crafts are admired globally."
+    ],
+    [
+      "artist",
+      "artist",
+      "noun",
+      3,
+      "هنرمند",
+      "The artist painted a masterpiece."
+    ],
+    [
+      "billion",
+      "billion",
+      "noun",
+      1,
+      "میلیارد",
+      "Billions of people live on Earth."
+    ],
+    [
+      "century",
+      "century",
+      "noun",
+      1,
+      "قرن",
+      "In the twenty-first century."
+    ],
+    [
+      "society",
+      "society",
+      "noun",
+      1,
+      "جامعه",
+      "Language is vital in society."
+    ],
+    [
+      "international",
+      "international",
+      "adj",
+      1,
+      "بین‌المللی",
+      "English is an international language."
+    ],
+    [
+      "fluently",
+      "fluently",
+      "adv",
+      1,
+      "به روانی",
+      "She speaks French fluently."
+    ],
+    [
+      "experience",
+      "experience",
+      "noun",
+      1,
+      "تجربه",
+      "Teaching English requires experience."
+    ],
+    [
+      "region",
+      "region",
+      "noun",
+      1,
+      "منطقه",
+      "Languages vary by region."
+    ],
+    [
+      "healthy",
+      "healthy",
+      "adj",
+      2,
+      "سالم",
+      "Healthy habits protect your heart."
+    ],
+    [
+      "health",
+      "health",
+      "noun",
+      2,
+      "سلامتی",
+      "Mental health is crucial."
+    ],
+    [
+      "nutrient",
+      "nutrient",
+      "noun",
+      2,
+      "ماده مغذی",
+      "Vegetables contain vital nutrients."
+    ],
+    [
+      "vitamin",
+      "vitamin",
+      "noun",
+      2,
+      "ویتامین",
+      "Fruits are rich in vitamins."
+    ],
+    [
+      "fat",
+      "fat",
+      "noun",
+      2,
+      "چربی",
+      "Avoid foods high in fat."
+    ],
+    [
+      "sugar",
+      "sugar",
+      "noun",
+      2,
+      "قند، شکر",
+      "Too much sugar harms teeth."
+    ],
+    [
+      "gain weight",
+      "gain weight",
+      "phrase",
+      2,
+      "وزن اضافه کردن",
+      "Exercising prevents gaining weight."
+    ],
+    [
+      "lose weight",
+      "lose weight",
+      "phrase",
+      2,
+      "وزن کم کردن",
+      "A healthy diet helps lose weight."
+    ],
+    [
+      "calm",
+      "calm",
+      "adj",
+      2,
+      "آرام",
+      "Stay calm during stressful times."
+    ],
+    [
+      "artwork",
+      "artwork",
+      "noun",
+      3,
+      "اثر هنری",
+      "The museum displays ancient artwork."
+    ],
+    [
+      "handicraft",
+      "handicraft",
+      "noun",
+      3,
+      "صنایع دستی",
+      "Shiraz is famous for handicrafts."
+    ],
+    [
+      "mirrorwork",
+      "mirrorwork",
+      "noun",
+      3,
+      "آینه‌کاری",
+      "Shiraz shrines have exquisite mirrorwork."
+    ],
+    [
+      "metalwork",
+      "metalwork",
+      "noun",
+      3,
+      "فلزکاری",
+      "Isfahan metalwork is traditional."
+    ],
+    [
+      "tilework",
+      "tilework",
+      "noun",
+      3,
+      "کاشی‌کاری",
+      "Mosques feature turquoise tilework."
+    ],
+    [
+      "monument",
+      "monument",
+      "noun",
+      3,
+      "بنای تاریخی",
+      "Historical monuments reflect heritage."
+    ],
+    [
+      "weaving",
+      "weave",
+      "verb",
+      3,
+      "بافتن",
+      "Artisans weave fine Persian carpets."
+    ],
+    [
+      "appreciate",
+      "appreciate",
+      "verb",
+      3,
+      "قدردانی کردن",
+      "We appreciate Iranian art."
+    ],
+    [
+      "heritage",
+      "heritage",
+      "noun",
+      3,
+      "میراث فرهنگی",
+      "Preserve our national heritage."
+    ],
+    [
+      "traditional",
+      "traditional",
+      "adj",
+      3,
+      "سنتی",
+      "Traditional arts connect generations."
+    ],
+    [
+      "creativity",
+      "creativity",
+      "noun",
+      3,
+      "خلاقیت",
+      "Art requires boundless creativity."
+    ],
+    [
+      "custom",
+      "custom",
+      "noun",
+      3,
+      "رسم و رسوم",
+      "Every nation has unique customs."
+    ],
+    [
+      "world",
+      "world",
+      "noun",
+      1,
+      "جهان",
+      "Languages around the world."
+    ],
+    [
+      "visual",
+      "visual",
+      "adj",
+      1,
+      "دیداری، بصری",
+      "Sign language is visual."
+    ],
+    [
+      "community",
+      "community",
+      "noun",
+      1,
+      "جامعه، اجتماع",
+      "Deaf communities."
+    ],
+    [
+      "express",
+      "express",
+      "verb",
+      1,
+      "بیان کردن",
+      "Express thoughts and feelings."
+    ],
+    [
+      "thought",
+      "thought",
+      "noun",
+      1,
+      "فکر، اندیشه",
+      "Express deep thoughts."
+    ],
+    [
+      "emotion",
+      "emotion",
+      "noun",
+      1,
+      "احساس",
+      "Express human emotions."
+    ],
+    [
+      "mean",
+      "mean",
+      "verb",
+      2,
+      "معنی داشتن",
+      "A healthy lifestyle means wellness."
+    ],
+    [
+      "mind",
+      "mind",
+      "noun",
+      2,
+      "ذهن",
+      "Care for mind and body."
+    ],
+    [
+      "fresh",
+      "fresh",
+      "adj",
+      2,
+      "تازه",
+      "Eat fresh fruits."
+    ],
+    [
+      "fruit",
+      "fruit",
+      "noun",
+      2,
+      "میوه",
+      "Fresh fruits and vegetables."
+    ],
+    [
+      "vegetable",
+      "vegetable",
+      "noun",
+      2,
+      "سبزیجات",
+      "Eat green vegetables."
+    ],
+    [
+      "whole",
+      "whole",
+      "adj",
+      2,
+      "کامل",
+      "Whole grains are healthy."
+    ],
+    [
+      "grain",
+      "grain",
+      "noun",
+      2,
+      "غلات",
+      "Eat whole grains."
+    ],
+    [
+      "energetic",
+      "energetic",
+      "adj",
+      2,
+      "پرانرژی",
+      "It keeps you energetic."
+    ],
+    [
+      "regular",
+      "regular",
+      "adj",
+      2,
+      "منظم",
+      "Regular physical exercise."
+    ],
+    [
+      "problem",
+      "problem",
+      "noun",
+      2,
+      "مشکل",
+      "Prevents heart problems."
+    ],
+    [
+      "enough",
+      "enough",
+      "adj",
+      2,
+      "کافی",
+      "Get enough sleep."
+    ],
+    [
+      "avoid",
+      "avoid",
+      "verb",
+      2,
+      "اجتناب کردن",
+      "Avoiding stress."
+    ],
+    [
+      "maintain",
+      "maintain",
+      "verb",
+      2,
+      "حفظ کردن",
+      "Maintain mental wellness."
+    ],
+    [
+      "mental",
+      "mental",
+      "adj",
+      2,
+      "روحی، روانی",
+      "Mental health is vital."
+    ],
+    [
+      "wellness",
+      "wellness",
+      "noun",
+      2,
+      "سلامتی و تندرستی",
+      "Achieve wellness."
+    ],
+    [
+      "get",
+      "get",
+      "verb",
+      2,
+      "به دست آوردن، شدن",
+      "Get enough sleep."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "Human Languages",
+      "content": "Language is a wonderful system of communication. There are about seven thousand languages in the world today. Some languages have millions of speakers, while others have only a few hundred. Sign language is also a rich visual language used by deaf communities to express thoughts and emotions."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "Having a Healthy Lifestyle",
+      "content": "A healthy lifestyle means taking care of both mind and body. Eating fresh fruits, vegetables, and whole grains keeps you energetic. Regular physical exercise prevents heart problems. Also, getting enough sleep and avoiding stress help you maintain mental wellness."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g11_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g11_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

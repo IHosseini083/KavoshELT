@@ -1,0 +1,712 @@
+{
+  "grade": 12,
+  "book": "Vision 3",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "Sense of Appreciation",
+      "theme": "Elders, nursing homes, gratitude, respect, family bonds",
+      "allowed_grammar": {
+        "tenses": [
+          "passive_voice_present_past"
+        ],
+        "structures": [
+          "tag_questions",
+          "compound_sentences_and_but_or_so"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_perfect_continuous"
+        ],
+        "forbidden_structures": [
+          "inversion"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "Look it Up!",
+      "theme": "Dictionaries, reference books, encyclopedia, vocabulary acquisition",
+      "allowed_grammar": {
+        "tenses": [
+          "passive_voice_modals"
+        ],
+        "structures": [
+          "relative_clauses_who_which_that",
+          "conditional_type_2"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "future_perfect"
+        ],
+        "forbidden_structures": [
+          "subjunctive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "Renewable Energy",
+      "theme": "Clean energy, solar power, wind turbines, environmental protection",
+      "allowed_grammar": {
+        "tenses": [
+          "past_perfect_had_pp"
+        ],
+        "structures": [
+          "passive_voice_all_tenses",
+          "causative_verbs"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [],
+        "forbidden_structures": []
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "appreciation",
+      "appreciation",
+      "noun",
+      1,
+      "قدردانی، سپاس",
+      "Show appreciation to your parents."
+    ],
+    [
+      "respect",
+      "respect",
+      "verb",
+      1,
+      "احترام گذاشتن",
+      "We must respect elderly people."
+    ],
+    [
+      "elderly",
+      "elderly",
+      "adj",
+      1,
+      "سالمند",
+      "Visit the elderly in nursing homes."
+    ],
+    [
+      "nursing home",
+      "nursing home",
+      "noun",
+      1,
+      "خانه سالمندان",
+      "Volunteers visit the nursing home."
+    ],
+    [
+      "forgive",
+      "forgive",
+      "verb",
+      1,
+      "بخشیدن",
+      "Forgive others to find peace."
+    ],
+    [
+      "devotion",
+      "devotion",
+      "noun",
+      1,
+      "فداکاری",
+      "Parents show endless devotion."
+    ],
+    [
+      "dictionary",
+      "dictionary",
+      "noun",
+      2,
+      "فرهنگ لغت",
+      "Look up new words in a dictionary."
+    ],
+    [
+      "definition",
+      "definition",
+      "noun",
+      2,
+      "تعریف",
+      "Read the definition carefully."
+    ],
+    [
+      "entry",
+      "entry",
+      "noun",
+      2,
+      "مدخل واژه‌نامه",
+      "Each dictionary entry has examples."
+    ],
+    [
+      "pronunciation",
+      "pronunciation",
+      "noun",
+      2,
+      "تلفظ",
+      "Check the phonetic pronunciation."
+    ],
+    [
+      "symbol",
+      "symbol",
+      "noun",
+      2,
+      "نماد",
+      "Phonetic symbols show sounds."
+    ],
+    [
+      "effective",
+      "effective",
+      "adj",
+      2,
+      "مؤثر",
+      "Use effective study techniques."
+    ],
+    [
+      "renewable",
+      "renewable",
+      "adj",
+      3,
+      "تجدیدپذیر",
+      "Solar power is renewable energy."
+    ],
+    [
+      "fossil fuel",
+      "fossil fuel",
+      "noun",
+      3,
+      "سوخت فسیلی",
+      "Fossil fuels pollute the atmosphere."
+    ],
+    [
+      "solar power",
+      "solar power",
+      "noun",
+      3,
+      "انرژی خورشیدی",
+      "Solar power is clean and infinite."
+    ],
+    [
+      "wind turbine",
+      "wind turbine",
+      "noun",
+      3,
+      "توربین بادی",
+      "Wind turbines generate green electricity."
+    ],
+    [
+      "generate",
+      "generate",
+      "verb",
+      3,
+      "تولید کردن",
+      "Clean energy generates electricity."
+    ],
+    [
+      "electricity",
+      "electricity",
+      "noun",
+      3,
+      "برق، الکتریسیته",
+      "Turbines produce clean electricity."
+    ],
+    [
+      "pollution",
+      "pollution",
+      "noun",
+      3,
+      "آلودگی",
+      "Renewable energy cuts air pollution."
+    ],
+    [
+      "environment",
+      "environment",
+      "noun",
+      3,
+      "محیط زیست",
+      "Save our natural environment."
+    ],
+    [
+      "elder",
+      "elder",
+      "noun",
+      1,
+      "بزرگتر، سالمند",
+      "Show deference to family elders."
+    ],
+    [
+      "gratitude",
+      "gratitude",
+      "noun",
+      1,
+      "سپاسگزاری",
+      "Express gratitude to teachers."
+    ],
+    [
+      "kindness",
+      "kindness",
+      "noun",
+      1,
+      "مهربانی",
+      "Kindness brightens lives."
+    ],
+    [
+      "patient",
+      "patient",
+      "adj",
+      1,
+      "صبور",
+      "Be patient with old parents."
+    ],
+    [
+      "compassion",
+      "compassion",
+      "noun",
+      1,
+      "دلسوزی",
+      "Treat patients with compassion."
+    ],
+    [
+      "generation",
+      "generation",
+      "noun",
+      1,
+      "نسل",
+      "Each generation learns from the past."
+    ],
+    [
+      "honor",
+      "honor",
+      "verb",
+      1,
+      "تکریم کردن",
+      "We honor national heroes."
+    ],
+    [
+      "guidance",
+      "guidance",
+      "noun",
+      1,
+      "راهنمایی",
+      "Follow wise parental guidance."
+    ],
+    [
+      "alphabetical",
+      "alphabetical",
+      "adj",
+      2,
+      "الفبایی",
+      "Entries appear in alphabetical order."
+    ],
+    [
+      "synonym",
+      "synonym",
+      "noun",
+      2,
+      "مترادف",
+      "Find synonyms in a thesaurus."
+    ],
+    [
+      "antonym",
+      "antonym",
+      "noun",
+      2,
+      "متضاد",
+      "Good is the antonym of bad."
+    ],
+    [
+      "etymology",
+      "etymology",
+      "noun",
+      2,
+      "ریشه‌شناسی",
+      "Study word etymology."
+    ],
+    [
+      "collocation",
+      "collocation",
+      "noun",
+      2,
+      "هم‌آیی کلمات",
+      "Learn English collocations."
+    ],
+    [
+      "context",
+      "context",
+      "noun",
+      2,
+      "زمینه متن",
+      "Guess word meanings from context."
+    ],
+    [
+      "idiom",
+      "idiom",
+      "noun",
+      2,
+      "اصطلاح",
+      "Idioms enrich speech."
+    ],
+    [
+      "abbreviation",
+      "abbreviation",
+      "noun",
+      2,
+      "مخفف",
+      "UNESCO is an abbreviation."
+    ],
+    [
+      "reference",
+      "reference",
+      "noun",
+      2,
+      "مرجع",
+      "Use reference books."
+    ],
+    [
+      "source",
+      "source",
+      "noun",
+      3,
+      "منبع",
+      "Solar energy is a clean source."
+    ],
+    [
+      "pollution",
+      "pollution",
+      "noun",
+      3,
+      "آلودگی",
+      "Air pollution harms health."
+    ],
+    [
+      "pollute",
+      "pollute",
+      "verb",
+      3,
+      "آلوده کردن",
+      "Vehicles pollute city air."
+    ],
+    [
+      "clean",
+      "clean",
+      "adj",
+      3,
+      "پاک",
+      "Solar panels provide clean power."
+    ],
+    [
+      "absorb",
+      "absorb",
+      "verb",
+      3,
+      "جذب کردن",
+      "Panels absorb solar radiation."
+    ],
+    [
+      "hydropower",
+      "hydropower",
+      "noun",
+      3,
+      "برق‌آبی",
+      "Dams produce hydropower."
+    ],
+    [
+      "infinite",
+      "infinite",
+      "adj",
+      3,
+      "بی‌پایان",
+      "Sunlight is infinite energy."
+    ],
+    [
+      "emission",
+      "emission",
+      "noun",
+      3,
+      "انتشار گازها",
+      "Green energy lowers carbon emissions."
+    ],
+    [
+      "radiation",
+      "radiation",
+      "noun",
+      3,
+      "تابش",
+      "Solar radiation reaches Earth."
+    ],
+    [
+      "atmosphere",
+      "atmosphere",
+      "noun",
+      3,
+      "جو، اتمسفر",
+      "Gases trap heat in the atmosphere."
+    ],
+    [
+      "global warming",
+      "global warming",
+      "noun",
+      3,
+      "گرمایش جهانی",
+      "Renewables combat global warming."
+    ],
+    [
+      "sustainable",
+      "sustainable",
+      "adj",
+      3,
+      "پایدار",
+      "Build a sustainable future."
+    ],
+    [
+      "conserve",
+      "conserve",
+      "verb",
+      3,
+      "صرفه‌جویی کردن",
+      "Conserve natural resources."
+    ],
+    [
+      "efficient",
+      "efficient",
+      "adj",
+      3,
+      "کارآمد",
+      "Renewable energy is efficient."
+    ],
+    [
+      "resource",
+      "resource",
+      "noun",
+      3,
+      "منبع",
+      "Water is a precious natural resource."
+    ],
+    [
+      "dedicated",
+      "dedicate",
+      "verb",
+      1,
+      "وقف کردن",
+      "They have dedicated their lives."
+    ],
+    [
+      "raise",
+      "raise",
+      "verb",
+      1,
+      "بزرگ کردن (فرزند)",
+      "Raising children."
+    ],
+    [
+      "serve",
+      "serve",
+      "verb",
+      1,
+      "خدمت کردن",
+      "Serving society."
+    ],
+    [
+      "parent",
+      "parent",
+      "noun",
+      1,
+      "والدین",
+      "Respect your parents."
+    ],
+    [
+      "grandparent",
+      "grandparent",
+      "noun",
+      1,
+      "پدربزرگ و مادربزرگ",
+      "Love your grandparents."
+    ],
+    [
+      "deep",
+      "deep",
+      "adj",
+      1,
+      "عمیق",
+      "Deeply rooted in culture."
+    ],
+    [
+      "deeply",
+      "deeply",
+      "adv",
+      1,
+      "به طور عمیق",
+      "Deeply rooted."
+    ],
+    [
+      "root",
+      "root",
+      "noun",
+      1,
+      "ریشه",
+      "Rooted in our tradition."
+    ],
+    [
+      "treat",
+      "treat",
+      "verb",
+      1,
+      "رفتار کردن",
+      "Treat with kindness."
+    ],
+    [
+      "coal",
+      "coal",
+      "noun",
+      3,
+      "زغال‌سنگ",
+      "Fossil fuels like coal."
+    ],
+    [
+      "oil",
+      "oil",
+      "noun",
+      3,
+      "نفت",
+      "Coal and oil cause pollution."
+    ],
+    [
+      "cause",
+      "cause",
+      "verb",
+      3,
+      "باعث شدن",
+      "Fossil fuels cause global warming."
+    ],
+    [
+      "severe",
+      "severe",
+      "adj",
+      3,
+      "شدید",
+      "Severe air pollution."
+    ],
+    [
+      "such",
+      "such",
+      "adj",
+      3,
+      "چنین",
+      "Such as solar power."
+    ],
+    [
+      "develop",
+      "develop",
+      "verb",
+      3,
+      "توسعه دادن",
+      "Clean energy must be developed."
+    ],
+    [
+      "panel",
+      "panel",
+      "noun",
+      3,
+      "پنل، صفحه",
+      "Solar panels absorb light."
+    ],
+    [
+      "sunlight",
+      "sunlight",
+      "noun",
+      3,
+      "نور خورشید",
+      "Panels absorb sunlight."
+    ],
+    [
+      "convert",
+      "convert",
+      "verb",
+      3,
+      "تبدیل کردن",
+      "Convert sunlight into electricity."
+    ],
+    [
+      "harm",
+      "harm",
+      "verb",
+      3,
+      "آسیب زدن",
+      "Without harmful emissions."
+    ],
+    [
+      "harmful",
+      "harmful",
+      "adj",
+      3,
+      "مضر، آسیب‌رسان",
+      "Harmful emissions."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "Respecting Our Elders",
+      "content": "Elderly people have dedicated their lives to raising their children and serving society. Respecting elderly parents and grandparents is deeply rooted in our culture. When they grow old, they should be treated with kindness, patience, and gratitude."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Clean and Renewable Energy",
+      "content": "Fossil fuels like coal and oil cause severe air pollution and global warming. To protect the planet, renewable energy sources such as solar power, wind, and hydropower must be developed. Solar panels absorb sunlight and convert it into clean electricity without harmful emissions."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g12_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 12.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 3.0
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 4.0
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g12_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 12.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 3.0
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 4.0
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

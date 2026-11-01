@@ -1,0 +1,1737 @@
+{
+  "grade": 10,
+  "book": "Vision 1",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "Saving Nature",
+      "theme": "Wildlife, endangered animals, natural habitats, protecting nature",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present",
+          "simple_future_will",
+          "be_going_to"
+        ],
+        "structures": [
+          "singular_plural_nouns",
+          "proper_common_nouns"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_progressive",
+          "present_perfect",
+          "past_perfect"
+        ],
+        "forbidden_structures": [
+          "passive_voice",
+          "conditionals_type_2_3",
+          "relative_clauses"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "Wonders of Creation",
+      "theme": "Wonders of the human body, heart, blood, universe, planets, astronomy",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present",
+          "simple_future_will",
+          "be_going_to"
+        ],
+        "structures": [
+          "comparative_adjectives",
+          "superlative_adjectives",
+          "order_of_adjectives"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_progressive",
+          "present_perfect",
+          "past_perfect"
+        ],
+        "forbidden_structures": [
+          "passive_voice",
+          "conditionals_type_2_3",
+          "relative_clauses"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "The Value of Knowledge",
+      "theme": "Famous scientists, physicians, laboratory experiments, medicine, education",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_past",
+          "past_progressive"
+        ],
+        "structures": [
+          "when_while_clauses",
+          "reflexive_pronouns"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "present_perfect",
+          "past_perfect",
+          "future_continuous"
+        ],
+        "forbidden_structures": [
+          "passive_voice",
+          "conditionals_type_2_3"
+        ]
+      }
+    },
+    {
+      "lesson_num": 4,
+      "title": "Traveling the World",
+      "theme": "Tourism, Iranian historical cities, handicrafts, travel safety, destinations",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present",
+          "simple_past",
+          "simple_future"
+        ],
+        "structures": [
+          "modal_verbs_can_may_must_should",
+          "prepositions_time_place"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "present_perfect",
+          "past_perfect"
+        ],
+        "forbidden_structures": [
+          "passive_voice",
+          "conditionals_type_2_3"
+        ]
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "endangered",
+      "endangered",
+      "adj",
+      1,
+      "در معرض خطر انقراض",
+      "The cheetah is an endangered animal."
+    ],
+    [
+      "alive",
+      "alive",
+      "adj",
+      1,
+      "زنده",
+      "Few cheetahs are still alive."
+    ],
+    [
+      "cheetah",
+      "cheetah",
+      "noun",
+      1,
+      "یوزپلنگ",
+      "Iranian cheetahs live in the plains."
+    ],
+    [
+      "die out",
+      "die out",
+      "verb",
+      1,
+      "منقرض شدن",
+      "Many animals will die out soon."
+    ],
+    [
+      "protect",
+      "protect",
+      "verb",
+      1,
+      "محافظت کردن",
+      "We must protect wildlife."
+    ],
+    [
+      "hunter",
+      "hunter",
+      "noun",
+      1,
+      "شکارچی",
+      "Hunters hunt animals for skins."
+    ],
+    [
+      "hunt",
+      "hunt",
+      "verb",
+      1,
+      "شکار کردن",
+      "Humans should not hunt endangered species."
+    ],
+    [
+      "nature",
+      "nature",
+      "noun",
+      1,
+      "طبیعت",
+      "We should take care of nature."
+    ],
+    [
+      "natural",
+      "natural",
+      "adj",
+      1,
+      "طبیعی",
+      "Forests are their natural homes."
+    ],
+    [
+      "habitat",
+      "habitat",
+      "noun",
+      1,
+      "زیستگاه",
+      "Cutting down trees destroys animal habitats."
+    ],
+    [
+      "cut down",
+      "cut down",
+      "verb",
+      1,
+      "قطع کردن (درخت)",
+      "People cut down trees to build roads."
+    ],
+    [
+      "destroy",
+      "destroy",
+      "verb",
+      1,
+      "نابود کردن",
+      "Pollution will destroy the environment."
+    ],
+    [
+      "wildlife",
+      "wildlife",
+      "noun",
+      1,
+      "حیات وحش",
+      "Iran has a diverse wildlife."
+    ],
+    [
+      "injure",
+      "injure",
+      "verb",
+      1,
+      "زخمی کردن",
+      "The trap can injure wild animals."
+    ],
+    [
+      "injured",
+      "injured",
+      "adj",
+      1,
+      "مصدوم، زخمی",
+      "Rangers helped the injured wolf."
+    ],
+    [
+      "ranger",
+      "ranger",
+      "noun",
+      1,
+      "محیط‌بان",
+      "The park ranger protects the park."
+    ],
+    [
+      "plain",
+      "plain",
+      "noun",
+      1,
+      "دشت",
+      "Gazelles live in the open plains."
+    ],
+    [
+      "lake",
+      "lake",
+      "noun",
+      1,
+      "دریاچه",
+      "Lake Urmia is in northwestern Iran."
+    ],
+    [
+      "forest",
+      "forest",
+      "noun",
+      1,
+      "جنگل",
+      "Golestan forest is rich in wildlife."
+    ],
+    [
+      "future",
+      "future",
+      "noun",
+      1,
+      "آینده",
+      "We hope they will have a better future."
+    ],
+    [
+      "hope",
+      "hope",
+      "verb",
+      1,
+      "امید داشتن",
+      "We hope to save our planet."
+    ],
+    [
+      "human",
+      "human",
+      "noun",
+      1,
+      "انسان",
+      "Humans harm the environment."
+    ],
+    [
+      "pay attention",
+      "pay attention",
+      "verb",
+      1,
+      "توجه کردن",
+      "Please pay attention to wild animals."
+    ],
+    [
+      "save",
+      "save",
+      "verb",
+      1,
+      "نجات دادن",
+      "Volunteers try to save endangered animals."
+    ],
+    [
+      "increase",
+      "increase",
+      "verb",
+      1,
+      "افزایش یافتن",
+      "Their population will increase with care."
+    ],
+    [
+      "decrease",
+      "decrease",
+      "verb",
+      1,
+      "کاهش یافتن",
+      "The number of lions decreased rapidly."
+    ],
+    [
+      "hear",
+      "hear",
+      "verb",
+      1,
+      "شنیدن",
+      "Did you hear about the cheetah?"
+    ],
+    [
+      "skin",
+      "skin",
+      "noun",
+      1,
+      "پوست",
+      "Hunters kill animals for their skin."
+    ],
+    [
+      "earth",
+      "earth",
+      "noun",
+      1,
+      "کره زمین",
+      "Earth is our common home."
+    ],
+    [
+      "plant",
+      "plant",
+      "verb",
+      1,
+      "کاشتن",
+      "Students will plant new trees."
+    ],
+    [
+      "put out",
+      "put out",
+      "verb",
+      1,
+      "خاموش کردن (آتش)",
+      "Campers must put out fires."
+    ],
+    [
+      "thousand",
+      "thousand",
+      "noun",
+      1,
+      "هزار",
+      "Thousands of people visit the park."
+    ],
+    [
+      "million",
+      "million",
+      "noun",
+      1,
+      "میلیون",
+      "Millions of creatures live on Earth."
+    ],
+    [
+      "animal",
+      "animal",
+      "noun",
+      1,
+      "حیوان",
+      "The cheetah is a fast wild animal."
+    ],
+    [
+      "dolphin",
+      "dolphin",
+      "noun",
+      1,
+      "دلفین",
+      "Dolphins are intelligent mammals."
+    ],
+    [
+      "whale",
+      "whale",
+      "noun",
+      1,
+      "نهنگ",
+      "Blue whales are the largest creatures."
+    ],
+    [
+      "leopard",
+      "leopard",
+      "noun",
+      1,
+      "پلنگ",
+      "The Persian leopard is endangered."
+    ],
+    [
+      "wolf",
+      "wolf",
+      "noun",
+      1,
+      "گرگ",
+      "Wolves live in packs."
+    ],
+    [
+      "duck",
+      "duck",
+      "noun",
+      1,
+      "اردک",
+      "Wild ducks swim in the wetlands."
+    ],
+    [
+      "panda",
+      "panda",
+      "noun",
+      1,
+      "پاندا",
+      "Pandas eat bamboo leaves."
+    ],
+    [
+      "wonder",
+      "wonder",
+      "noun",
+      2,
+      "شگفتی",
+      "The human body is a wonder of creation."
+    ],
+    [
+      "wonderful",
+      "wonderful",
+      "adj",
+      2,
+      "شگفت‌انگیز",
+      "Saturn has wonderful rings."
+    ],
+    [
+      "creation",
+      "creation",
+      "noun",
+      2,
+      "خلقت، آفرینش",
+      "We appreciate Allah's great creation."
+    ],
+    [
+      "heart",
+      "heart",
+      "noun",
+      2,
+      "قلب",
+      "The heart pumps blood continuously."
+    ],
+    [
+      "pump",
+      "pump",
+      "verb",
+      2,
+      "پمپ کردن",
+      "The heart pumps blood through vessels."
+    ],
+    [
+      "blood",
+      "blood",
+      "noun",
+      2,
+      "خون",
+      "Blood carries oxygen and food."
+    ],
+    [
+      "vessel",
+      "vessel",
+      "noun",
+      2,
+      "رگ",
+      "Blood vessels carry blood to organs."
+    ],
+    [
+      "cell",
+      "cell",
+      "noun",
+      2,
+      "سلول",
+      "Cells are building blocks of life."
+    ],
+    [
+      "red cell",
+      "red cell",
+      "noun",
+      2,
+      "گلبول قرمز",
+      "Red cells carry oxygen."
+    ],
+    [
+      "white cell",
+      "white cell",
+      "noun",
+      2,
+      "گلبول سفید",
+      "White cells defend our body."
+    ],
+    [
+      "defend",
+      "defend",
+      "verb",
+      2,
+      "دفاع کردن",
+      "Antibodies defend against disease."
+    ],
+    [
+      "microbe",
+      "microbe",
+      "noun",
+      2,
+      "میکروب",
+      "Microbes can make us sick."
+    ],
+    [
+      "liquid",
+      "liquid",
+      "noun",
+      2,
+      "مایع",
+      "Water and blood are vital liquids."
+    ],
+    [
+      "drop",
+      "drop",
+      "noun",
+      2,
+      "قطره",
+      "A drop of blood contains millions of cells."
+    ],
+    [
+      "oxygen",
+      "oxygen",
+      "noun",
+      2,
+      "اکسیژن",
+      "We need oxygen to breathe."
+    ],
+    [
+      "brain",
+      "brain",
+      "noun",
+      2,
+      "مغز",
+      "The human brain controls all functions."
+    ],
+    [
+      "planet",
+      "planet",
+      "noun",
+      2,
+      "سیاره",
+      "Mars is known as the red planet."
+    ],
+    [
+      "solar system",
+      "solar system",
+      "noun",
+      2,
+      "منظومه شمسی",
+      "Earth is in the solar system."
+    ],
+    [
+      "telescope",
+      "telescope",
+      "noun",
+      2,
+      "تلسکوپ",
+      "We looked at stars through a telescope."
+    ],
+    [
+      "observatory",
+      "observatory",
+      "noun",
+      2,
+      "رصدخانه",
+      "Scientists work at the observatory."
+    ],
+    [
+      "ring",
+      "ring",
+      "noun",
+      2,
+      "حلقه",
+      "Saturn is famous for its rings."
+    ],
+    [
+      "moon",
+      "moon",
+      "noun",
+      2,
+      "ماه",
+      "The moon revolves around Earth."
+    ],
+    [
+      "star",
+      "star",
+      "noun",
+      2,
+      "ستاره",
+      "Stars shine bright in the night sky."
+    ],
+    [
+      "distance",
+      "distance",
+      "noun",
+      2,
+      "فاصله",
+      "The distance between stars is vast."
+    ],
+    [
+      "near",
+      "near",
+      "adj",
+      2,
+      "نزدیک",
+      "Mercury is near the sun."
+    ],
+    [
+      "far",
+      "far",
+      "adj",
+      2,
+      "دور",
+      "Neptune is far from the sun."
+    ],
+    [
+      "powerful",
+      "powerful",
+      "adj",
+      2,
+      "قدرتمند",
+      "They used a powerful microscope."
+    ],
+    [
+      "microscope",
+      "microscope",
+      "noun",
+      2,
+      "میکروسکوپ",
+      "We examine cells under a microscope."
+    ],
+    [
+      "carry",
+      "carry",
+      "verb",
+      2,
+      "حمل کردن",
+      "Red blood cells carry oxygen."
+    ],
+    [
+      "collect",
+      "collect",
+      "verb",
+      2,
+      "جمع‌آوری کردن",
+      "Veins collect blood from organs."
+    ],
+    [
+      "healthy",
+      "healthy",
+      "adj",
+      2,
+      "سالم",
+      "Regular exercise keeps your heart healthy."
+    ],
+    [
+      "exercise",
+      "exercise",
+      "verb",
+      2,
+      "ورزش کردن",
+      "When you exercise, heart beats faster."
+    ],
+    [
+      "body",
+      "body",
+      "noun",
+      2,
+      "بدن",
+      "Take care of your physical body."
+    ],
+    [
+      "organ",
+      "organ",
+      "noun",
+      2,
+      "اندام، عضو",
+      "The heart is a vital organ."
+    ],
+    [
+      "beat",
+      "beat",
+      "verb",
+      2,
+      "تپیدن",
+      "A healthy heart beats regularly."
+    ],
+    [
+      "tiny",
+      "tiny",
+      "adj",
+      2,
+      "بسیار ریز",
+      "Microbes are tiny living things."
+    ],
+    [
+      "fact",
+      "fact",
+      "noun",
+      2,
+      "حقیقت، واقعیت",
+      "These are interesting scientific facts."
+    ],
+    [
+      "scientist",
+      "scientist",
+      "noun",
+      3,
+      "دانشمند",
+      "Great scientists worked tirelessly."
+    ],
+    [
+      "inventor",
+      "inventor",
+      "noun",
+      3,
+      "مخترع",
+      "Edison was a brilliant inventor."
+    ],
+    [
+      "physician",
+      "physician",
+      "noun",
+      3,
+      "پزشک",
+      "Dr. Gharib was a kind physician."
+    ],
+    [
+      "pediatrics",
+      "pediatrics",
+      "noun",
+      3,
+      "طب اطفال",
+      "Dr. Gharib was father of pediatrics."
+    ],
+    [
+      "knowledge",
+      "knowledge",
+      "noun",
+      3,
+      "دانش",
+      "Knowledge is valuable for mankind."
+    ],
+    [
+      "laboratory",
+      "laboratory",
+      "noun",
+      3,
+      "آزمایشگاه",
+      "Pasteur worked inside his laboratory."
+    ],
+    [
+      "experiment",
+      "experiment",
+      "noun",
+      3,
+      "آزمایش",
+      "He conducted scientific experiments."
+    ],
+    [
+      "medicine",
+      "medicine",
+      "noun",
+      3,
+      "دارو، پزشکی",
+      "He dedicated his life to medicine."
+    ],
+    [
+      "cure",
+      "cure",
+      "verb",
+      3,
+      "درمان کردن",
+      "Doctors work hard to cure diseases."
+    ],
+    [
+      "patient",
+      "patient",
+      "noun",
+      3,
+      "بیمار",
+      "He treated poor patients for free."
+    ],
+    [
+      "generous",
+      "generous",
+      "adj",
+      3,
+      "بخشنده، دست‌ودلباز",
+      "He was very kind and generous."
+    ],
+    [
+      "free",
+      "free",
+      "adj",
+      3,
+      "رایگان",
+      "He examined sick children for free."
+    ],
+    [
+      "discover",
+      "discover",
+      "verb",
+      3,
+      "کشف کردن",
+      "Pasteur discovered microbes in air."
+    ],
+    [
+      "vaccine",
+      "vaccine",
+      "noun",
+      3,
+      "واکسن",
+      "Vaccines save millions of lives."
+    ],
+    [
+      "rabies",
+      "rabies",
+      "noun",
+      3,
+      "هاری (بیماری)",
+      "He invented a vaccine against rabies."
+    ],
+    [
+      "success",
+      "success",
+      "noun",
+      3,
+      "موفقیت",
+      "Hard work brings genuine success."
+    ],
+    [
+      "successful",
+      "successful",
+      "adj",
+      3,
+      "موفق",
+      "She became a successful researcher."
+    ],
+    [
+      "patience",
+      "patience",
+      "noun",
+      3,
+      "صبر، شکیبایی",
+      "Patience is needed in science."
+    ],
+    [
+      "humanity",
+      "humanity",
+      "noun",
+      3,
+      "انسانیت، بشریت",
+      "Serving humanity is our duty."
+    ],
+    [
+      "tirelessly",
+      "tirelessly",
+      "adv",
+      3,
+      "خستگی‌ناپذیر",
+      "Scientists worked tirelessly."
+    ],
+    [
+      "research",
+      "research",
+      "noun",
+      3,
+      "تحقیق، پژوهش",
+      "He published medical research."
+    ],
+    [
+      "devote",
+      "devote",
+      "verb",
+      3,
+      "وقف کردن",
+      "They devoted their lives to others."
+    ],
+    [
+      "famous",
+      "famous",
+      "adj",
+      3,
+      "مشهور",
+      "Hafez is a famous Persian poet."
+    ],
+    [
+      "build",
+      "build",
+      "verb",
+      3,
+      "ساختن",
+      "They built a new children's hospital."
+    ],
+    [
+      "hospital",
+      "hospital",
+      "noun",
+      3,
+      "بیمارستان",
+      "Sick people visit the hospital."
+    ],
+    [
+      "child",
+      "child",
+      "noun",
+      3,
+      "کودک",
+      "Dr. Gharib loved every sick child."
+    ],
+    [
+      "children",
+      "children",
+      "noun",
+      3,
+      "کودکان",
+      "He treated poor children kindly."
+    ],
+    [
+      "illness",
+      "illness",
+      "noun",
+      3,
+      "بیماری",
+      "Vaccines prevent deadly illness."
+    ],
+    [
+      "disease",
+      "disease",
+      "noun",
+      3,
+      "بیماری",
+      "Doctors fight dangerous diseases."
+    ],
+    [
+      "grow up",
+      "grow up",
+      "verb",
+      3,
+      "بزرگ شدن، رشد کردن",
+      "He grew up in a noble family."
+    ],
+    [
+      "find",
+      "find",
+      "verb",
+      3,
+      "پیدا کردن",
+      "Pasteur found cures for diseases."
+    ],
+    [
+      "invent",
+      "invent",
+      "verb",
+      3,
+      "اختراع کردن",
+      "Who invented the telephone?"
+    ],
+    [
+      "travel",
+      "travel",
+      "verb",
+      4,
+      "سفر کردن",
+      "They travel around Iran in spring."
+    ],
+    [
+      "tourist",
+      "tourist",
+      "noun",
+      4,
+      "گردشگر",
+      "Tourists enjoy historical sites."
+    ],
+    [
+      "tourism",
+      "tourism",
+      "noun",
+      4,
+      "گردشگری",
+      "Eco-tourism protects nature."
+    ],
+    [
+      "vacation",
+      "vacation",
+      "noun",
+      4,
+      "تعطیلات",
+      "We took a vacation to Shiraz."
+    ],
+    [
+      "trip",
+      "trip",
+      "noun",
+      4,
+      "سفر",
+      "Have a safe and pleasant trip."
+    ],
+    [
+      "destination",
+      "destination",
+      "noun",
+      4,
+      "مقصد",
+      "Isfahan is a top tourist destination."
+    ],
+    [
+      "attraction",
+      "attraction",
+      "noun",
+      4,
+      "جاذبه دیدنی",
+      "Persepolis is an ancient attraction."
+    ],
+    [
+      "historical",
+      "historical",
+      "adj",
+      4,
+      "تاریخی",
+      "Iran has many historical monuments."
+    ],
+    [
+      "ancient",
+      "ancient",
+      "adj",
+      4,
+      "باستانی",
+      "Persepolis is an ancient city."
+    ],
+    [
+      "monument",
+      "monument",
+      "noun",
+      4,
+      "بنای یادبود",
+      "They visited historical monuments."
+    ],
+    [
+      "handicraft",
+      "handicraft",
+      "noun",
+      4,
+      "صنایع دستی",
+      "Tourists buy Persian handicrafts."
+    ],
+    [
+      "handmade",
+      "handmade",
+      "adj",
+      4,
+      "دست‌ساز",
+      "Isfahan produces handmade rugs."
+    ],
+    [
+      "souvenir",
+      "souvenir",
+      "noun",
+      4,
+      "سوغات",
+      "Buy local sweets as a souvenir."
+    ],
+    [
+      "bazaar",
+      "bazaar",
+      "noun",
+      4,
+      "بازار سنتی",
+      "We walked in the old bazaar."
+    ],
+    [
+      "mosque",
+      "mosque",
+      "noun",
+      4,
+      "مسجد",
+      "The blue mosque is magnificent."
+    ],
+    [
+      "tomb",
+      "tomb",
+      "noun",
+      4,
+      "آرامگاه",
+      "We visited the tomb of Hafez."
+    ],
+    [
+      "poet",
+      "poet",
+      "noun",
+      4,
+      "شاعر",
+      "Saadi was a wise Persian poet."
+    ],
+    [
+      "culture",
+      "culture",
+      "noun",
+      4,
+      "فرهنگ",
+      "Iran has a rich cultural heritage."
+    ],
+    [
+      "hospitable",
+      "hospitable",
+      "adj",
+      4,
+      "مهمان‌نواز",
+      "Iranian people are very hospitable."
+    ],
+    [
+      "hospitality",
+      "hospitality",
+      "noun",
+      4,
+      "مهمان‌نوازی",
+      "Their hospitality impressed tourists."
+    ],
+    [
+      "pilgrim",
+      "pilgrim",
+      "noun",
+      4,
+      "زائر",
+      "Pilgrims visit the holy shrine."
+    ],
+    [
+      "holy",
+      "holy",
+      "adj",
+      4,
+      "مقدس",
+      "Mashhad is a holy city in Iran."
+    ],
+    [
+      "shrine",
+      "shrine",
+      "noun",
+      4,
+      "حرم، زیارتگاه",
+      "Pilgrims pray at the holy shrine."
+    ],
+    [
+      "guesthouse",
+      "guesthouse",
+      "noun",
+      4,
+      "مهمان‌پذیر",
+      "We stayed in a traditional guesthouse."
+    ],
+    [
+      "hotel",
+      "hotel",
+      "noun",
+      4,
+      "هتل",
+      "The hotel receptionist was polite."
+    ],
+    [
+      "receptionist",
+      "receptionist",
+      "noun",
+      4,
+      "مسئول پذیرش",
+      "The receptionist checked our passport."
+    ],
+    [
+      "passport",
+      "passport",
+      "noun",
+      4,
+      "گذرنامه",
+      "Show your passport at immigration."
+    ],
+    [
+      "ticket",
+      "ticket",
+      "noun",
+      4,
+      "بلیط",
+      "We bought a train ticket to Shiraz."
+    ],
+    [
+      "train",
+      "train",
+      "noun",
+      4,
+      "قطار",
+      "Traveling by train is comfortable."
+    ],
+    [
+      "plane",
+      "plane",
+      "noun",
+      4,
+      "هواپیما",
+      "Planes are faster than buses."
+    ],
+    [
+      "scenery",
+      "scenery",
+      "noun",
+      4,
+      "منظره",
+      "Enjoy the green mountain scenery."
+    ],
+    [
+      "bridge",
+      "bridge",
+      "noun",
+      4,
+      "پل",
+      "Si-o-se-pol is an ancient bridge."
+    ],
+    [
+      "tile",
+      "tile",
+      "noun",
+      4,
+      "کاشی",
+      "Blue tiles decorate the mosques."
+    ],
+    [
+      "recommend",
+      "recommend",
+      "verb",
+      4,
+      "توصیه کردن",
+      "I recommend visiting Isfahan."
+    ],
+    [
+      "suggestion",
+      "suggestion",
+      "noun",
+      4,
+      "پیشنهاد",
+      "That was a great suggestion."
+    ],
+    [
+      "suggest",
+      "suggest",
+      "verb",
+      4,
+      "پیشنهاد دادن",
+      "Guides suggest visiting Persepolis."
+    ],
+    [
+      "mean",
+      "mean",
+      "verb",
+      1,
+      "معنی دادن",
+      "What does this mean?"
+    ],
+    [
+      "place",
+      "place",
+      "noun",
+      1,
+      "مکان، جا",
+      "Animals need places to live."
+    ],
+    [
+      "instead",
+      "instead",
+      "adv",
+      1,
+      "به جای آن",
+      "They built roads instead."
+    ],
+    [
+      "then",
+      "then",
+      "adv",
+      1,
+      "سپس، آنگاه",
+      "Then the animals won't have homes."
+    ],
+    [
+      "meat",
+      "meat",
+      "noun",
+      1,
+      "گوشت",
+      "Hunters kill animals for meat."
+    ],
+    [
+      "problem",
+      "problem",
+      "noun",
+      1,
+      "مشکل",
+      "What is the main problem?"
+    ],
+    [
+      "nutrient",
+      "nutrient",
+      "noun",
+      2,
+      "ماده مغذی",
+      "Blood carries nutrients."
+    ],
+    [
+      "soldier",
+      "soldier",
+      "noun",
+      2,
+      "سرباز",
+      "White cells are like soldiers."
+    ],
+    [
+      "virus",
+      "virus",
+      "noun",
+      2,
+      "ویروس",
+      "Cells defend against viruses."
+    ],
+    [
+      "jump",
+      "jump",
+      "verb",
+      2,
+      "پریدن",
+      "When you jump and run."
+    ],
+    [
+      "energy",
+      "energy",
+      "noun",
+      2,
+      "انرژی",
+      "Muscles need more energy."
+    ],
+    [
+      "deliver",
+      "deliver",
+      "verb",
+      2,
+      "تحویل دادن، رساندن",
+      "Deliver oxygen quickly."
+    ],
+    [
+      "quickly",
+      "quickly",
+      "adv",
+      2,
+      "به سرعت",
+      "Deliver blood quickly."
+    ],
+    [
+      "regular",
+      "regular",
+      "adj",
+      2,
+      "منظم",
+      "Regular exercise is good."
+    ],
+    [
+      "keep",
+      "keep",
+      "verb",
+      2,
+      "نگه داشتن",
+      "Keep your heart strong."
+    ],
+    [
+      "strong",
+      "strong",
+      "adj",
+      2,
+      "قوی",
+      "Exercise keeps muscles strong."
+    ],
+    [
+      "full",
+      "full",
+      "adj",
+      2,
+      "پر",
+      "The sky is full of stars."
+    ],
+    [
+      "born",
+      "bear",
+      "verb",
+      3,
+      "متولد شدن",
+      "He was born in Tehran."
+    ],
+    [
+      "modern",
+      "modern",
+      "adj",
+      3,
+      "مدرن",
+      "Father of modern pediatrics."
+    ],
+    [
+      "return",
+      "return",
+      "verb",
+      3,
+      "بازگشتن",
+      "He returned home to help."
+    ],
+    [
+      "compassionate",
+      "compassionate",
+      "adj",
+      3,
+      "مهربان، دلسوز",
+      "He was compassionate."
+    ],
+    [
+      "treat",
+      "treat",
+      "verb",
+      3,
+      "درمان کردن، رفتار کردن",
+      "He treated sick children."
+    ],
+    [
+      "accept",
+      "accept",
+      "verb",
+      3,
+      "پذیرفتن",
+      "He never accepted money."
+    ],
+    [
+      "money",
+      "money",
+      "noun",
+      3,
+      "پول",
+      "He never took money from the poor."
+    ],
+    [
+      "specialized",
+      "specialized",
+      "adj",
+      3,
+      "تخصصی",
+      "A specialized children's hospital."
+    ],
+    [
+      "medical",
+      "medical",
+      "adj",
+      3,
+      "پزشکی",
+      "Trained medical students."
+    ],
+    [
+      "serve",
+      "serve",
+      "verb",
+      3,
+      "خدمت کردن",
+      "Serving humanity is noble."
+    ],
+    [
+      "history",
+      "history",
+      "noun",
+      4,
+      "تاریخ",
+      "Iran has a rich history."
+    ],
+    [
+      "beautiful",
+      "beautiful",
+      "adj",
+      4,
+      "زیبا",
+      "Beautiful Persian gardens."
+    ],
+    [
+      "architecture",
+      "architecture",
+      "noun",
+      4,
+      "معماری",
+      "Admire Islamic architecture."
+    ],
+    [
+      "world",
+      "world",
+      "noun",
+      4,
+      "جهان",
+      "World-famous destinations."
+    ],
+    [
+      "visitor",
+      "visitor",
+      "noun",
+      4,
+      "بازدیدکننده",
+      "Visitors admire the mosques."
+    ],
+    [
+      "admire",
+      "admire",
+      "verb",
+      4,
+      "تحسین کردن",
+      "Visitors admire ancient bridges."
+    ],
+    [
+      "delicious",
+      "delicious",
+      "adj",
+      4,
+      "خوشمزه",
+      "Delicious local sweets."
+    ],
+    [
+      "local",
+      "local",
+      "adj",
+      4,
+      "محلی",
+      "Buy local sweets and crafts."
+    ],
+    [
+      "traditional",
+      "traditional",
+      "adj",
+      4,
+      "سنتی",
+      "Walk in traditional bazaars."
+    ],
+    [
+      "find",
+      "find",
+      "verb",
+      1,
+      "یافتن، پیدا کردن",
+      "We can find wild animals."
+    ],
+    [
+      "build",
+      "build",
+      "verb",
+      1,
+      "ساختن",
+      "They build roads."
+    ],
+    [
+      "continuous",
+      "continuous",
+      "adj",
+      2,
+      "پیوسته، مداوم",
+      "Continuous pumping of blood."
+    ],
+    [
+      "continuously",
+      "continuously",
+      "adv",
+      2,
+      "به طور مداوم",
+      "The heart pumps continuously."
+    ],
+    [
+      "kilometer",
+      "kilometer",
+      "noun",
+      2,
+      "کیلومتر",
+      "Thousands of kilometers."
+    ],
+    [
+      "illness",
+      "illness",
+      "noun",
+      2,
+      "بیماری",
+      "Defend against illnesses."
+    ],
+    [
+      "disease",
+      "disease",
+      "noun",
+      2,
+      "بیماری",
+      "Fight against diseases."
+    ],
+    [
+      "garden",
+      "garden",
+      "noun",
+      4,
+      "باغ",
+      "Beautiful Persian gardens."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "Endangered Animals",
+      "content": "Today, there are some endangered animals on Earth. It means that we can find only a few of them around us. Some examples are Iranian cheetahs, pandas, and blue whales. Humans destroy the natural homes of the animals in the forests, lakes, and plains. When the number of people on Earth increases, they need more places for living. They cut down trees and destroy lakes. They make homes and roads instead. Then the animals won't have a place to live. They will die out. Also, hunters hunt them for their meat or skins. If we take care of them, their number will increase. We can protect their natural homes and teach people how to love nature."
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Saving Nature Conversation",
+      "content": "Maryam: Look at this cheetah. Is it an endangered animal?\nTeacher: Yes, it is. The Iranian cheetah is in danger of dying out.\nMaryam: Why? What is the problem?\nTeacher: Humans destroy their homes and hunt them. Also, they build roads through their natural plains.\nMaryam: How can we save them?\nTeacher: We can protect their habitats and stop cutting down trees."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "A Wonder of Creation: The Human Heart",
+      "content": "The human body is truly a wonder of creation. The heart is one of the most powerful organs in the body. It pumps blood continuously through thousands of kilometers of blood vessels. Blood carries red and white cells. Red blood cells carry oxygen and nutrients to all parts of the body. White blood cells are like brave soldiers that defend our body against dangerous microbes, viruses, and illnesses. When you run, jump, or exercise, your active muscles need more oxygen and energy. So, your heart beats much faster to deliver oxygen quickly. Eating healthy food and regular exercise keep our heart strong."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "Astronomy and Planets",
+      "content": "Ali: Look at the sky through this powerful telescope!\nSina: What can you see?\nAli: I can see Saturn and its wonderful rings.\nSina: That is amazing! Our solar system is full of wonders.\nAli: Yes, but Earth is the most wonderful planet because it has water and oxygen for living things. We should thank Allah for this great creation."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Dr. Mohammad Gharib: The Dedicated Physician",
+      "content": "Dr. Mohammad Gharib was born in Tehran in 1909. He was known as the father of modern pediatrics in Iran. After studying medicine in France, he returned home to help his people. He was a generous and compassionate physician who loved children. He treated sick children and never accepted money from poor patients. He founded the first specialized children's hospital in Tehran and trained hundreds of medical students. Great scientists like Dr. Gharib and Louis Pasteur teach us that true success comes from patience, hard work, and serving humanity."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Reading",
+      "title": "Iran: A Wonderful Destination",
+      "content": "Every year, millions of tourists and pilgrims travel to Iran. Iran is an ancient country with rich history, beautiful architecture, and hospitable people. Cities like Isfahan and Shiraz are world-famous tourist destinations. In Shiraz, tourists can visit Persepolis, beautiful Persian gardens, and the tombs of great poets like Hafez and Saadi. In Isfahan, visitors admire blue-tiled mosques, Naqsh-e Jahan Square, and ancient bridges like Si-o-se-pol. Tourists can also buy delicious local sweets and handmade handicrafts in traditional bazaars."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g10_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "term": 1,
+        "scope": "Lessons 1 and 2",
+        "total_points": 10.0,
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "questions": 5,
+            "points_per_item": 0.5,
+            "total": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "questions": 5,
+            "points_per_item": 0.5,
+            "total": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "questions": 5,
+            "points_per_item": 1.0,
+            "total": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g10_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "term": 2,
+        "scope": "Lessons 1 to 4 (Emphasis on 3 and 4)",
+        "total_points": 10.0,
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "questions": 5,
+            "points_per_item": 0.5,
+            "total": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "questions": 5,
+            "points_per_item": 0.5,
+            "total": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "questions": 5,
+            "points_per_item": 1.0,
+            "total": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,710 @@
+{
+  "grade": 8,
+  "book": "Prospect 2",
+  "lessons": [
+    {
+      "lesson_num": 1,
+      "title": "My Nationality",
+      "theme": "Countries, nationalities, languages",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_be"
+        ],
+        "structures": [
+          "where_are_you_from",
+          "nationalities"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 2,
+      "title": "My Week",
+      "theme": "Weekly schedule, days, routine activities",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_do_does"
+        ],
+        "structures": [
+          "days_of_the_week",
+          "everyday_activities"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 3,
+      "title": "My Abilities",
+      "theme": "Talents, sports, can / can't",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present"
+        ],
+        "structures": [
+          "modal_can_ability",
+          "can_questions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 4,
+      "title": "My Health",
+      "theme": "Health problems, illnesses, advice with should",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_have_has"
+        ],
+        "structures": [
+          "have_headache_cold",
+          "giving_advice"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 5,
+      "title": "My City",
+      "theme": "City places, weather, location",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present"
+        ],
+        "structures": [
+          "there_is_are",
+          "weather_adjectives",
+          "location_prepositions"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 6,
+      "title": "My Village",
+      "theme": "Village life, farming, livestock, nature",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present"
+        ],
+        "structures": [
+          "raising_animals",
+          "farming_activities"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    },
+    {
+      "lesson_num": 7,
+      "title": "My Hobbies",
+      "theme": "Free time activities, sports, reading, hobbies",
+      "allowed_grammar": {
+        "tenses": [
+          "simple_present_free_time"
+        ],
+        "structures": [
+          "play_sports",
+          "reading_books"
+        ]
+      },
+      "forbidden_grammar": {
+        "forbidden_tenses": [
+          "past_simple",
+          "future"
+        ],
+        "forbidden_structures": [
+          "passive"
+        ]
+      }
+    }
+  ],
+  "vocabulary": [
+    [
+      "country",
+      "country",
+      "noun",
+      1,
+      "کشور",
+      "Iran is a beautiful country."
+    ],
+    [
+      "nationality",
+      "nationality",
+      "noun",
+      1,
+      "ملیت",
+      "What is your nationality?"
+    ],
+    [
+      "iranian",
+      "iranian",
+      "adj",
+      1,
+      "ایرانی",
+      "I am proud to be Iranian."
+    ],
+    [
+      "english",
+      "english",
+      "noun",
+      1,
+      "انگلیسی",
+      "We study English at school."
+    ],
+    [
+      "france",
+      "france",
+      "noun",
+      1,
+      "فرانسه",
+      "Paris is in France."
+    ],
+    [
+      "week",
+      "week",
+      "noun",
+      2,
+      "هفته",
+      "There are seven days in a week."
+    ],
+    [
+      "saturday",
+      "saturday",
+      "noun",
+      2,
+      "شنبه",
+      "School starts on Saturday."
+    ],
+    [
+      "friday",
+      "friday",
+      "noun",
+      2,
+      "جمعه",
+      "We rest on Friday."
+    ],
+    [
+      "study",
+      "study",
+      "verb",
+      2,
+      "درس خواندن",
+      "I study English on Mondays."
+    ],
+    [
+      "go to the gym",
+      "go to the gym",
+      "phrase",
+      2,
+      "باشگاه رفتن",
+      "He goes to the gym on Tuesdays."
+    ],
+    [
+      "ability",
+      "ability",
+      "noun",
+      3,
+      "توانایی",
+      "Everyone has different abilities."
+    ],
+    [
+      "swim",
+      "swim",
+      "verb",
+      3,
+      "شنا کردن",
+      "Can you swim in the pool?"
+    ],
+    [
+      "ride a bicycle",
+      "ride a bicycle",
+      "phrase",
+      3,
+      "دوچرخه‌سواری کردن",
+      "I can ride a bicycle fast."
+    ],
+    [
+      "draw",
+      "draw",
+      "verb",
+      3,
+      "نقاشی کشیدن",
+      "She can draw beautiful pictures."
+    ],
+    [
+      "take photos",
+      "take photos",
+      "phrase",
+      3,
+      "عکس گرفتن",
+      "He is good at taking photos."
+    ],
+    [
+      "health",
+      "health",
+      "noun",
+      4,
+      "سلامت",
+      "Health is better than wealth."
+    ],
+    [
+      "headache",
+      "headache",
+      "noun",
+      4,
+      "سردرد",
+      "I have a bad headache."
+    ],
+    [
+      "sore throat",
+      "sore throat",
+      "noun",
+      4,
+      "گلودرد",
+      "Drink warm milk for sore throat."
+    ],
+    [
+      "fever",
+      "fever",
+      "noun",
+      4,
+      "تب",
+      "The child has a high fever."
+    ],
+    [
+      "doctor",
+      "doctor",
+      "noun",
+      4,
+      "پزشک",
+      "See a doctor if you are sick."
+    ],
+    [
+      "city",
+      "city",
+      "noun",
+      5,
+      "شهر",
+      "Isfahan is an ancient city."
+    ],
+    [
+      "village",
+      "village",
+      "noun",
+      6,
+      "روستا",
+      "My grandparents live in a village."
+    ],
+    [
+      "farm",
+      "farm",
+      "noun",
+      6,
+      "مزرعه",
+      "They work on the green farm."
+    ],
+    [
+      "hobby",
+      "hobby",
+      "noun",
+      7,
+      "سرگرمی",
+      "Reading books is my hobby."
+    ],
+    [
+      "spanish",
+      "spanish",
+      "adj",
+      1,
+      "اسپانیایی",
+      "He speaks Spanish."
+    ],
+    [
+      "china",
+      "china",
+      "noun",
+      1,
+      "چین",
+      "Beijing is in China."
+    ],
+    [
+      "chinese",
+      "chinese",
+      "adj",
+      1,
+      "چینی",
+      "Chinese food is popular."
+    ],
+    [
+      "germany",
+      "germany",
+      "noun",
+      1,
+      "آلمان",
+      "Berlin is in Germany."
+    ],
+    [
+      "german",
+      "german",
+      "adj",
+      1,
+      "آلمانی",
+      "He is studying German."
+    ],
+    [
+      "japan",
+      "japan",
+      "noun",
+      1,
+      "ژاپن",
+      "Tokyo is in Japan."
+    ],
+    [
+      "japanese",
+      "japanese",
+      "adj",
+      1,
+      "ژاپنی",
+      "Japanese trains are fast."
+    ],
+    [
+      "weekend",
+      "weekend",
+      "noun",
+      2,
+      "آخر هفته",
+      "What do you do on weekends?"
+    ],
+    [
+      "sunday",
+      "sunday",
+      "noun",
+      2,
+      "یکشنبه",
+      "We play football on Sunday."
+    ],
+    [
+      "monday",
+      "monday",
+      "noun",
+      2,
+      "دوشنبه",
+      "School has English on Monday."
+    ],
+    [
+      "tuesday",
+      "tuesday",
+      "noun",
+      2,
+      "سه‌شنبه",
+      "I visit my aunt on Tuesday."
+    ],
+    [
+      "wednesday",
+      "wednesday",
+      "noun",
+      2,
+      "چهارشنبه",
+      "We have math on Wednesday."
+    ],
+    [
+      "thursday",
+      "thursday",
+      "noun",
+      2,
+      "پنجشنبه",
+      "We clean our house on Thursday."
+    ],
+    [
+      "afternoon",
+      "afternoon",
+      "noun",
+      2,
+      "بعدازظهر",
+      "In the afternoon, I do homework."
+    ],
+    [
+      "football",
+      "football",
+      "noun",
+      3,
+      "فوتبال",
+      "He can play football."
+    ],
+    [
+      "computer",
+      "computer",
+      "noun",
+      3,
+      "کامپیوتر",
+      "She can work with a computer."
+    ],
+    [
+      "typing",
+      "type",
+      "verb",
+      3,
+      "تایپ کردن",
+      "I am good at typing."
+    ],
+    [
+      "cooking",
+      "cook",
+      "verb",
+      3,
+      "آشپزی",
+      "My brother can cook delicious food."
+    ],
+    [
+      "running",
+      "run",
+      "verb",
+      3,
+      "دویدن",
+      "He can run very fast."
+    ],
+    [
+      "cough",
+      "cough",
+      "noun",
+      4,
+      "سرفه",
+      "Take cough syrup."
+    ],
+    [
+      "running nose",
+      "running nose",
+      "noun",
+      4,
+      "آبریزش بینی",
+      "I have a cold and running nose."
+    ],
+    [
+      "earache",
+      "earache",
+      "noun",
+      4,
+      "گوش‌درد",
+      "He has a painful earache."
+    ],
+    [
+      "toothache",
+      "toothache",
+      "noun",
+      4,
+      "دندان‌درد",
+      "Visit the dentist for toothache."
+    ],
+    [
+      "stomachache",
+      "stomachache",
+      "noun",
+      4,
+      "دل‌درد",
+      "Eating too much causes stomachache."
+    ],
+    [
+      "medicine",
+      "medicine",
+      "noun",
+      4,
+      "دارو",
+      "Take your medicine on time."
+    ],
+    [
+      "rest",
+      "rest",
+      "verb",
+      4,
+      "استراحت کردن",
+      "You should rest in bed."
+    ],
+    [
+      "hospital",
+      "hospital",
+      "noun",
+      4,
+      "بیمارستان",
+      "Doctors work at the hospital."
+    ],
+    [
+      "patient",
+      "patient",
+      "noun",
+      4,
+      "بیمار",
+      "The patient is resting."
+    ],
+    [
+      "museum",
+      "museum",
+      "noun",
+      5,
+      "موزه",
+      "Visit the national museum."
+    ],
+    [
+      "zoo",
+      "zoo",
+      "noun",
+      5,
+      "باغ وحش",
+      "Children like the zoo."
+    ],
+    [
+      "restaurant",
+      "restaurant",
+      "noun",
+      5,
+      "رستوران",
+      "We had lunch at a restaurant."
+    ],
+    [
+      "mosque",
+      "mosque",
+      "noun",
+      5,
+      "مسجد",
+      "The grand mosque is downtown."
+    ],
+    [
+      "bridge",
+      "bridge",
+      "noun",
+      5,
+      "پل",
+      "There is a river under the bridge."
+    ],
+    [
+      "search",
+      "search",
+      "verb",
+      3,
+      "جستجو کردن",
+      "Search the web."
+    ],
+    [
+      "web",
+      "web",
+      "noun",
+      3,
+      "وب، اینترنت",
+      "Search on the web."
+    ],
+    [
+      "volleyball",
+      "volleyball",
+      "noun",
+      3,
+      "والیبال",
+      "He plays volleyball."
+    ]
+  ],
+  "passages": [
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Talking about Abilities",
+      "content": "Reza: Can you speak English, Mehrad?\nMehrad: Yes, I can speak English and I can search the web in English.\nReza: That is great! Can you swim too?\nMehrad: No, I can't swim, but I can play volleyball very well."
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "g8_term1_listening",
+      "term": 1,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "Multiple Choice",
+            "points": 3.0
+          },
+          {
+            "part": "B",
+            "type": "True/False",
+            "points": 3.0
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "g8_term2_listening",
+      "term": 2,
+      "exam_type": "Listening",
+      "total_points": 10.0,
+      "structure": {
+        "parts": [
+          {
+            "part": "A",
+            "type": "True/False",
+            "points": 2.5
+          },
+          {
+            "part": "B",
+            "type": "Multiple Choice",
+            "points": 2.5
+          },
+          {
+            "part": "C",
+            "type": "Fill in the Blanks",
+            "points": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}
