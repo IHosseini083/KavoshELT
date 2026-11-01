@@ -5,6 +5,7 @@ __pycache__/
 
 # Cache and temporary files
 .cache/
+exports/generated/
 *.tmp
 *.log
 
