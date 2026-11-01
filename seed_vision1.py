@@ -1,5 +1,11 @@
+from __future__ import annotations
+
 import json
 import sqlite3
+from typing import List, Set, Tuple
+from sqlalchemy import delete, text
+from models import DbTarget, Lesson, Passage, Rubric, Vocabulary, session_scope
+from rag import compute_embedding
 
 LESSONS_DATA = [
     (
@@ -358,50 +364,102 @@ RUBRICS_DATA = [
     )
 ]
 
-def seed_all(conn: sqlite3.Connection) -> None:
-    cur = conn.cursor()
-    cur.executemany(
-        "INSERT OR REPLACE INTO lessons (grade, lesson_num, title, theme, allowed_grammar, forbidden_grammar) VALUES (?, ?, ?, ?, ?, ?)",
-        LESSONS_DATA
-    )
-    
-    # Insert Vision 1 specific vocabulary
-    cur.executemany(
-        "INSERT OR IGNORE INTO vocabulary (word, lemma, pos, grade, lesson_num, definition_fa, example_en) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        VOCABULARY_VISION1
-    )
-    
-    # Insert Prospect baseline vocabulary (grade 9, lesson 0 as baseline)
-    prospect_tuples = [
-        (word, word, "base", 9, 0, "واژگان پایه دوره‌های قبل", f"This is {word}.")
-        for word in PROSPECT_BASE_LEMMAS
-    ]
-    cur.executemany(
-        "INSERT OR IGNORE INTO vocabulary (word, lemma, pos, grade, lesson_num, definition_fa, example_en) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        prospect_tuples
-    )
-    
-    # Insert Passages into FTS5
-    cur.execute("DELETE FROM passages_fts")
-    cur.executemany(
-        "INSERT INTO passages_fts (grade, lesson_num, section_type, title, content) VALUES (?, ?, ?, ?, ?)",
-        PASSAGES_DATA
-    )
-    
-    # Insert Rubrics
-    cur.executemany(
-        "INSERT OR REPLACE INTO rubrics (id, grade, term, exam_type, total_points, structure_json) VALUES (?, ?, ?, ?, ?, ?)",
-        RUBRICS_DATA
-    )
-    
-    conn.commit()
+def seed_all(conn: DbTarget) -> None:
+    with session_scope(conn) as session:
+        session.execute(delete(Passage))
+        session.execute(delete(Vocabulary))
+        session.execute(delete(Lesson))
+        session.execute(delete(Rubric))
+        session.execute(text("DELETE FROM passages_fts"))
+
+        for g, l_num, title, theme, allowed_g, forbidden_g in LESSONS_DATA:
+            session.add(
+                Lesson(
+                    grade=int(g),
+                    lesson_num=int(l_num),
+                    title=str(title),
+                    theme=str(theme),
+                    allowed_grammar=str(allowed_g),
+                    forbidden_grammar=str(forbidden_g),
+                )
+            )
+
+        seen_vocab: Set[Tuple[str, int, int]] = set()
+        for w_str, l_str, pos_str, g_num, l_num, def_fa, ex_en in VOCABULARY_VISION1:
+            key = (l_str.lower(), int(g_num), int(l_num))
+            if key in seen_vocab:
+                continue
+            seen_vocab.add(key)
+            vec = compute_embedding(f"{w_str} {l_str} {def_fa} {ex_en}")
+            session.add(
+                Vocabulary(
+                    word=w_str,
+                    lemma=l_str,
+                    pos=pos_str,
+                    grade=int(g_num),
+                    lesson_num=int(l_num),
+                    definition_fa=def_fa,
+                    example_en=ex_en,
+                    embedding_json=json.dumps(vec),
+                )
+            )
+
+        for word in PROSPECT_BASE_LEMMAS:
+            key = (word.lower(), 9, 0)
+            if key in seen_vocab:
+                continue
+            seen_vocab.add(key)
+            session.add(
+                Vocabulary(
+                    word=word,
+                    lemma=word,
+                    pos="base",
+                    grade=9,
+                    lesson_num=0,
+                    definition_fa="واژگان پایه دوره‌های قبل",
+                    example_en=f"This is {word}.",
+                    embedding_json=None,
+                )
+            )
+
+        for g_num, l_num, sec_type, title, content in PASSAGES_DATA:
+            vec = compute_embedding(f"{title} {content}")
+            session.add(
+                Passage(
+                    grade=int(g_num),
+                    lesson_num=int(l_num),
+                    section_type=str(sec_type),
+                    title=str(title),
+                    content=str(content),
+                    embedding_json=json.dumps(vec),
+                )
+            )
+            session.execute(
+                text(
+                    "INSERT INTO passages_fts (grade, lesson_num, section_type, title, content) VALUES (:g, :l, :s, :t, :c)"
+                ),
+                {"g": str(g_num), "l": int(l_num), "s": sec_type, "t": title, "c": content},
+            )
+
+        for r_id, g_num, term_num, ex_type, tot_pts, struct_json in RUBRICS_DATA:
+            session.add(
+                Rubric(
+                    id=str(r_id),
+                    grade=int(g_num),
+                    term=int(term_num),
+                    exam_type=str(ex_type),
+                    total_points=float(tot_pts),
+                    structure_json=str(struct_json),
+                )
+            )
+
+        session.commit()
 
 if __name__ == "__main__":
     import os
     from schema import init_db
     db_path = os.path.join(os.path.dirname(__file__), "data", "vision1.db")
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
-    conn = sqlite3.connect(db_path)
-    init_db(conn)
-    seed_all(conn)
+    init_db(db_path)
+    seed_all(db_path)
     print(f"Vision 1 Database successfully seeded at: {db_path}")

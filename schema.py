@@ -1,31 +1,10 @@
+from __future__ import annotations
+
 import sqlite3
+from sqlalchemy import text
+from models import Base, DbTarget, create_engine_for_target, session_scope
 
-SCHEMA_SQL = """
-CREATE TABLE IF NOT EXISTS lessons (
-    grade INTEGER NOT NULL,
-    lesson_num INTEGER NOT NULL,
-    title TEXT NOT NULL,
-    theme TEXT NOT NULL,
-    allowed_grammar TEXT NOT NULL,
-    forbidden_grammar TEXT NOT NULL,
-    PRIMARY KEY (grade, lesson_num)
-);
-
-CREATE TABLE IF NOT EXISTS vocabulary (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    word TEXT NOT NULL,
-    lemma TEXT NOT NULL,
-    pos TEXT NOT NULL,
-    grade INTEGER NOT NULL,
-    lesson_num INTEGER NOT NULL,
-    definition_fa TEXT,
-    example_en TEXT,
-    UNIQUE(lemma, grade, lesson_num)
-);
-
-CREATE INDEX IF NOT EXISTS idx_vocab_lemma ON vocabulary(lemma);
-CREATE INDEX IF NOT EXISTS idx_vocab_scope ON vocabulary(grade, lesson_num);
-
+FTS_SQL = """
 CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
     grade,
     lesson_num,
@@ -33,17 +12,19 @@ CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
     title,
     content
 );
-
-CREATE TABLE IF NOT EXISTS rubrics (
-    id TEXT PRIMARY KEY,
-    grade INTEGER NOT NULL,
-    term INTEGER NOT NULL,
-    exam_type TEXT NOT NULL,
-    total_points REAL NOT NULL,
-    structure_json TEXT NOT NULL
-);
 """
 
-def init_db(conn: sqlite3.Connection) -> None:
-    conn.executescript(SCHEMA_SQL)
-    conn.commit()
+
+def init_db(target: DbTarget) -> None:
+    if isinstance(target, sqlite3.Connection):
+        engine = create_engine_for_target(target)
+        Base.metadata.create_all(engine)
+        target.executescript(FTS_SQL)
+        target.commit()
+        return
+
+    with session_scope(target) as session:
+        bind = session.get_bind()
+        Base.metadata.create_all(bind)
+        session.execute(text(FTS_SQL))
+        session.commit()

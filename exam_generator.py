@@ -1,8 +1,15 @@
+from __future__ import annotations
+
 import os
-import sqlite3
-from typing import Dict, Any, List, Tuple
-from exam_styler import generate_exam_pdf, generate_exam_docx, generate_answer_key_pdf
-from validator import validate_exam_text
+from typing import Any, Dict, List, Optional, Tuple
+
+from exam_styler import (
+    generate_answer_key_pdf,
+    generate_exam_docx,
+    generate_exam_html,
+    generate_exam_pdf,
+)
+from models import DbTarget
 
 
 GRADE_EXAM_TEMPLATES: Dict[Tuple[int, int], Dict[str, Any]] = {
@@ -67,7 +74,7 @@ GRADE_EXAM_TEMPLATES: Dict[Tuple[int, int], Dict[str, Any]] = {
         "book": "Vision 1",
         "lessons_label": "Lessons 1 & 2 (Saving Nature & Wonders of Creation)",
         "max_lesson": 2,
-        " existing_md": "/home/ubuntu/آزمون_شنیداری_زبان_انگلیسی_پایه_دهم_نوبت_اول.md",
+        "existing_md": "/home/ubuntu/آزمون_شنیداری_زبان_انگلیسی_پایه_دهم_نوبت_اول.md",
     },
     (10, 2): {
         "book": "Vision 1",
@@ -143,7 +150,7 @@ def build_markdown_from_template(grade: int, term: int, tpl: Dict[str, Any]) -> 
 
 
 def generate_full_exam_package(
-    conn: sqlite3.Connection,
+    target: DbTarget,
     grade: int,
     term: int,
     out_dir: str,
@@ -154,12 +161,13 @@ def generate_full_exam_package(
     md_path = os.path.join(out_dir, f"{prefix}.md")
     student_pdf = os.path.join(out_dir, f"{prefix}_student.pdf")
     student_docx = os.path.join(out_dir, f"{prefix}_student.docx")
+    student_html = os.path.join(out_dir, f"{prefix}_student.html")
     key_pdf = os.path.join(out_dir, f"{prefix}_answer_key.pdf")
 
     tpl = GRADE_EXAM_TEMPLATES.get((grade, term))
     if tpl and ("existing_md" in tpl or " existing_md" in tpl):
         src_md = tpl.get("existing_md") or tpl.get(" existing_md")
-        if os.path.exists(src_md):
+        if src_md and os.path.exists(src_md):
             with open(src_md, "r", encoding="utf-8") as f:
                 md_content = f.read()
             with open(md_path, "w", encoding="utf-8") as f:
@@ -169,7 +177,6 @@ def generate_full_exam_package(
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(md_content)
     else:
-        # Fallback to Grade 10 Term 1 template structure
         fallback_tpl = GRADE_EXAM_TEMPLATES[(7, 1)]
         md_content = build_markdown_from_template(grade, term, fallback_tpl)
         with open(md_path, "w", encoding="utf-8") as f:
@@ -177,6 +184,7 @@ def generate_full_exam_package(
 
     generate_exam_pdf(md_path, student_pdf, school_name=school_name)
     generate_exam_docx(md_path, student_docx, school_name=school_name)
+    generate_exam_html(md_path, student_html, school_name=school_name)
     generate_answer_key_pdf(md_path, key_pdf, school_name=school_name)
 
     return {
@@ -185,5 +193,6 @@ def generate_full_exam_package(
         "markdown": md_path,
         "student_pdf": student_pdf,
         "student_docx": student_docx,
+        "student_html": student_html,
         "answer_key_pdf": key_pdf,
     }

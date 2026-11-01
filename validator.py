@@ -1,6 +1,10 @@
+from __future__ import annotations
+
 import re
-import sqlite3
-from typing import Dict, List, Set, Any
+from typing import Any, Dict, List, Set
+
+from sqlalchemy import and_, func, or_, select
+from models import DbTarget, Vocabulary, session_scope
 
 COMMON_PROPER_NOUNS = {
     "iran", "iranian", "tehran", "shiraz", "isfahan", "esfahan", "golestan",
@@ -57,20 +61,24 @@ STOP_CONTRACTIONS = {
     "'s", "'re", "'m", "'ve", "'ll", "'d", "n't", "s", "d", "t"
 }
 
-def get_allowed_vocabulary(conn: sqlite3.Connection, max_grade: int = 10, max_lesson: int = 4) -> Set[str]:
-    cur = conn.cursor()
-    query = """
-        SELECT DISTINCT LOWER(lemma) FROM vocabulary
-        WHERE (grade < ?) OR (grade = ? AND lesson_num <= ?)
-        UNION
-        SELECT DISTINCT LOWER(word) FROM vocabulary
-        WHERE (grade < ?) OR (grade = ? AND lesson_num <= ?)
-    """
-    cur.execute(query, (max_grade, max_grade, max_lesson, max_grade, max_grade, max_lesson))
-    allowed = {row[0].strip() for row in cur.fetchall() if row[0]}
-    
-    # Also include multi-word expressions as individual words
-    extra = set()
+def get_allowed_vocabulary(conn: DbTarget, max_grade: int = 10, max_lesson: int = 4) -> Set[str]:
+    with session_scope(conn) as session:
+        stmt = select(Vocabulary.lemma, Vocabulary.word).where(
+            or_(
+                Vocabulary.grade < max_grade,
+                and_(Vocabulary.grade == max_grade, Vocabulary.lesson_num <= max_lesson),
+            )
+        )
+        rows = session.execute(stmt).all()
+
+    allowed: Set[str] = set()
+    for lemma_val, word_val in rows:
+        if lemma_val:
+            allowed.add(str(lemma_val).lower().strip())
+        if word_val:
+            allowed.add(str(word_val).lower().strip())
+
+    extra: Set[str] = set()
     for item in allowed:
         if " " in item:
             for part in item.split():
@@ -209,7 +217,7 @@ def clean_markdown_and_metadata(text: str) -> str:
     t = re.sub(r"[*#_`|~=>\-]", " ", t)
     return t
 
-def validate_exam_text(conn: sqlite3.Connection, max_grade: int, max_lesson: int, text: str) -> Dict[str, Any]:
+def validate_exam_text(conn: DbTarget, max_grade: int, max_lesson: int, text: str) -> Dict[str, Any]:
     allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
     
     cleaned_text = clean_markdown_and_metadata(text)

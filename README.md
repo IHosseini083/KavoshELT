@@ -1,7 +1,7 @@
 # Iranian Secondary English Curriculum Knowledge Base & Exam Validator
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Tests](https://img.shields.io/badge/tests-27%20passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-34%20passed-brightgreen.svg)]()
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-stdlib%20only-success.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -13,7 +13,7 @@ Designed to serve as a **Ground-Truth Guardrail** for AI agents (LLMs) and Engli
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **Complete 6-Grade Syllabus (31 Official Lessons):**
   Comprehensive SQLite database (`curriculum.db`) storing over 1,050 official textbook vocabulary entries, progressive grammar rules, canonical reading/listening passages with FTS5 full-text indexing, and official scoring blueprints from the Ministry of Education (*Daftar-e-Talif*).
@@ -28,7 +28,7 @@ Designed to serve as a **Ground-Truth Guardrail** for AI agents (LLMs) and Engli
 
 ---
 
-## 📊 Curriculum Progression Overview
+## Curriculum Progression Overview
 
 | Grade | Textbook | Lessons | In-Scope Grammar & Structures | Forbidden Out-of-Scope Structures |
 |:---:|:---:|:---:|:---|:---|
@@ -41,7 +41,7 @@ Designed to serve as a **Ground-Truth Guardrail** for AI agents (LLMs) and Engli
 
 ---
 
-## 🛠️ Quick Start & CLI Reference
+## Quick Start & CLI Reference
 
 All CLI commands run directly using Python's standard library:
 
@@ -71,35 +71,50 @@ python3 curriculum_kb.py adapt --grade 7 --max-lesson 8 --text "The physician he
 ```
 *Output identifies that `physician` belongs to Grade 10 Lesson 3, and recommends `doctor` from the Grade 7 vocabulary pool.*
 
-### 5. Search Official Textbook Passages (FTS5)
+### 5. Hybrid Semantic & Lexical RAG Retrieval (LLM Prompt Guardrail)
+Perform dual semantic vector + FTS5 lexical retrieval with hard grade boundaries:
+```bash
+python3 curriculum_kb.py rag --query "endangered wildlife cheetah" --grade 10 --max-lesson 2
+```
+*Retrieves top textbook passages, relevant in-syllabus vocabulary, active grammar rules, and formats a complete bounded prompt context for LLMs.*
+
+### 6. Search Official Textbook Passages (FTS5)
 ```bash
 python3 curriculum_kb.py search --query "cheetah"
 python3 curriculum_kb.py search --query "renewable energy"
 ```
 
-### 6. Export to Printable PDF & Editable Word DOCX
+### 7. Export to Printable PDF, Word DOCX & HTML
 ```bash
-# Generate A4 Print-Ready PDF
-python3 curriculum_kb.py export --file exam.md --format pdf --out exam.pdf --school "Shahid Beheshti High School"
+# Generate A4 Print-Ready PDF with Vazirmatn font
+python3 curriculum_kb.py export --file exam.md --format pdf --out exam.pdf --school "Shahid Beheshti High School" --include-key
 
-# Generate Editable Word Document
+# Generate Editable Word Document with RTL table and paragraph metadata
 python3 curriculum_kb.py export --file exam.md --format docx --out exam.docx --school "Farhang High School"
+
+# Generate Printable HTML Document
+python3 curriculum_kb.py export --file exam.md --format html --out exam.html
 ```
 
-### 7. Run Curriculum Self-Consistency Audit
+### 8. Run Curriculum Self-Consistency Audit
 Audits all 31 lessons to ensure 100% of textbook passages pass their own grade boundary:
 ```bash
 python3 curriculum_kb.py audit
 ```
 
-### 8. Generate Exam Blueprint & Gemini TTS Template
+### 9. Generate Exam Blueprint & Gemini TTS Template
 ```bash
 python3 curriculum_kb.py blueprint --grade 10 --term 1 --exam-type Listening
 ```
 
+### 10. Generate Complete Exam Package (One-Command Generation)
+```bash
+python3 curriculum_kb.py generate --grade 10 --term 1 --out-dir exports --school "Shahid Beheshti High School"
+```
+
 ---
 
-## 🧪 Test Suite
+## Test Suite
 
 Run the full automated test suite (27 unit tests):
 ```bash
@@ -108,17 +123,20 @@ python3 -m unittest discover -s tests
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```text
 vision-kb/
 ├── curriculum_kb.py       # Unified Command-Line Interface (CLI)
+├── models.py              # SQLAlchemy 2.0 type-safe ORM declarative models
+├── rag.py                 # Hybrid semantic vector + FTS5 RAG retrieval engine
 ├── schema.py              # SQLite relational schema and FTS5 virtual table
 ├── seed_all_grades.py     # Database builder from modular JSON datasets
 ├── validator.py           # Morphology parser and progressive grammar engine
 ├── advisor.py             # In-syllabus synonym advisor and diagnostics
 ├── auditor.py             # Self-consistency verification engine
 ├── exam_styler.py         # Printable PDF & Word DOCX sheet generator
+├── exam_generator.py      # Automated exam package generator
 ├── datasets/              # Versioned curriculum datasets (Grades 7–12)
 │   ├── grade7_prospect1.json
 │   ├── grade8_prospect2.json
@@ -132,18 +150,18 @@ vision-kb/
 │   └── TEACHER_GUIDE.md   # Practical guide for educators and AI prompt engineers
 ├── scripts/               # Utility scripts for textbook verification
 │   └── fetch_and_verify_pdfs.py
-├── exports/               # Pre-generated sample exams (PDF & DOCX)
-└── tests/                 # 27 unit tests (TDD verified)
+├── exports/               # Pre-generated sample exams (PDF, DOCX & HTML)
+└── tests/                 # 34 unit tests (TDD verified)
 ```
 
 ---
 
-## 📖 Documentation
+## Documentation
 - [Architecture & Design Details](docs/ARCHITECTURE.md)
 - [Comprehensive Curriculum Map](docs/CURRICULUM_MAP.md)
 - [Teacher & AI Authoring Guide](docs/TEACHER_GUIDE.md)
 
 ---
 
-## 📄 License
+## License
 This project is licensed under the [MIT License](LICENSE). Open-source and free for English teachers, schools, researchers, and students.

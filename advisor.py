@@ -1,8 +1,12 @@
-import sqlite3
-from typing import Dict, Any, List
-from validator import validate_exam_text, get_allowed_vocabulary
+from __future__ import annotations
 
-CURATED_SYNONYMS = {
+from typing import Any, Dict, List, Optional
+
+from sqlalchemy import and_, func, or_, select
+from models import DbTarget, Vocabulary, session_scope
+from validator import get_allowed_vocabulary, validate_exam_text
+
+CURATED_SYNONYMS: Dict[str, List[str]] = {
     "physician": ["doctor"],
     "dentist": ["doctor"],
     "automobile": ["car"],
@@ -31,54 +35,62 @@ CURATED_SYNONYMS = {
     "gift": ["present"],
     "meal": ["food", "dinner", "lunch"],
     "beverage": ["drink", "tea", "water"],
-    "dwelling": ["house", "home"]
+    "dwelling": ["house", "home"],
 }
 
-def analyze_and_advise(conn: sqlite3.Connection, max_grade: int, max_lesson: int, text: str) -> Dict[str, Any]:
+
+def analyze_and_advise(conn: DbTarget, max_grade: int, max_lesson: int, text: str) -> Dict[str, Any]:
     validation = validate_exam_text(conn, max_grade, max_lesson, text)
     allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
-    
-    cur = conn.cursor()
-    word_diagnostics = {}
-    
-    for word in validation["out_of_syllabus_words"]:
-        w = word.lower()
-        # 1. Check if word is taught in a higher grade
-        cur.execute(
-            "SELECT grade, lesson_num, definition_fa, pos FROM vocabulary WHERE LOWER(lemma) = ? OR LOWER(word) = ? ORDER BY grade ASC, lesson_num ASC LIMIT 1",
-            (w, w)
-        )
-        row = cur.fetchone()
-        
-        taught_grade = row[0] if row else None
-        taught_lesson = row[1] if row else None
-        def_fa = row[2] if row else None
-        
-        # 2. Find in-syllabus alternatives
-        alternatives = []
-        if w in CURATED_SYNONYMS:
-            for syn in CURATED_SYNONYMS[w]:
-                if syn.lower() in allowed_vocab:
-                    alternatives.append(syn)
-                    
-        # If no curated synonym found, check if definition keywords match
-        if not alternatives and def_fa:
-            cur.execute(
-                """SELECT DISTINCT word FROM vocabulary 
-                   WHERE definition_fa LIKE ? AND ((grade < ?) OR (grade = ? AND lesson_num <= ?))
-                   LIMIT 3""",
-                (f"%{def_fa}%", max_grade, max_grade, max_lesson)
+
+    word_diagnostics: Dict[str, Any] = {}
+
+    with session_scope(conn) as session:
+        for word in validation["out_of_syllabus_words"]:
+            w = str(word).lower()
+            stmt = (
+                select(Vocabulary)
+                .where(or_(func.lower(Vocabulary.lemma) == w, func.lower(Vocabulary.word) == w))
+                .order_by(Vocabulary.grade.asc(), Vocabulary.lesson_num.asc())
+                .limit(1)
             )
-            for r in cur.fetchall():
-                if r[0].lower() != w:
-                    alternatives.append(r[0])
-                    
-        word_diagnostics[word] = {
-            "taught_in_grade": taught_grade,
-            "taught_in_lesson": taught_lesson,
-            "definition_fa": def_fa,
-            "in_syllabus_alternatives": alternatives
-        }
-        
+            vocab_row: Optional[Vocabulary] = session.scalars(stmt).first()
+
+            taught_grade: Optional[int] = vocab_row.grade if vocab_row else None
+            taught_lesson: Optional[int] = vocab_row.lesson_num if vocab_row else None
+            def_fa: Optional[str] = vocab_row.definition_fa if vocab_row else None
+
+            alternatives: List[str] = []
+            if w in CURATED_SYNONYMS:
+                for syn in CURATED_SYNONYMS[w]:
+                    if syn.lower() in allowed_vocab:
+                        alternatives.append(syn)
+
+            if not alternatives and def_fa:
+                alt_stmt = (
+                    select(Vocabulary.word)
+                    .distinct()
+                    .where(
+                        and_(
+                            Vocabulary.definition_fa.like(f"%{def_fa}%"),
+                            or_(
+                                Vocabulary.grade < max_grade,
+                                and_(Vocabulary.grade == max_grade, Vocabulary.lesson_num <= max_lesson),
+                            ),
+                        )
+                    )
+                    .limit(3)
+                )
+                for candidate_word in session.scalars(alt_stmt).all():
+                    if candidate_word.lower() != w:
+                        alternatives.append(candidate_word)
+
+            word_diagnostics[word] = {
+                "taught_in_grade": taught_grade,
+                "taught_in_lesson": taught_lesson,
+                "definition_fa": def_fa,
+                "in_syllabus_alternatives": alternatives,
+            }
+
     validation["word_diagnostics"] = word_diagnostics
     return validation
