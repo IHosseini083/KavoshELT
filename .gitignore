@@ -15,5 +15,7 @@ data/*.sqlite
 
 # Environment and editor
 .env
+.venv/
+venv/
 .vscode/
 .idea/

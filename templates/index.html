@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>سامانه اعتبارسنجی برنامه درسی زبان انگلیسی</title>
+  <meta name="description" content="سامانه هوشمند انطباق متون آزمون زبان انگلیسی با برنامه مصوب متوسطه اول و دوم ایران">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9EFF5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0E1522">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <style>
+    @font-face {
+      font-family: "Vazirmatn";
+      src: url("/fonts/Vazirmatn-Regular.ttf") format("truetype");
+      font-weight: 400 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Vazirmatn";
+      src: url("/fonts/Vazirmatn-Bold.ttf") format("truetype");
+      font-weight: 700 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #E9EFF5;
+      --surface: #FFFFFF;
+      --surface-inset: #F1F5F9;
+      --border: #D3DDE8;
+      --text: #14202E;
+      --text-muted: #5B6B7C;
+      --accent-green: #187A50;
+      --accent-blue: #3D5FD6;
+      --fill-muted: #D3DDE8;
+      --focus-ring: #3D5FD6;
+      --font-stack: "Vazirmatn", system-ui, -apple-system, Tahoma, sans-serif;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0E1522;
+      --surface: #151D2E;
+      --surface-inset: #1E293D;
+      --border: #243046;
+      --text: #F1F5F9;
+      --text-muted: #8B98AD;
+      --accent-green: #6FD0A0;
+      --accent-blue: #7F9BFF;
+      --fill-muted: #2A3447;
+      --focus-ring: #7F9BFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0E1522;
+        --surface: #151D2E;
+        --surface-inset: #1E293D;
+        --border: #243046;
+        --text: #F1F5F9;
+        --text-muted: #8B98AD;
+        --accent-green: #6FD0A0;
+        --accent-blue: #7F9BFF;
+        --fill-muted: #2A3447;
+        --focus-ring: #7F9BFF;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      min-height: 100vh;
+      padding-inline: max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-left));
+      padding-block: 20px env(safe-area-inset-bottom);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a, button, select, input, textarea {
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    button:disabled, select:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-block-end: 8px;
+    }
+
+    .status-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background-color: var(--accent-green);
+      flex-shrink: 0;
+    }
+
+    .status-text {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Theme Switcher */
+    .theme-switcher {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      color: var(--text-muted);
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 150ms ease-out, color 150ms ease-out;
+    }
+
+    .theme-btn:hover {
+      color: var(--text);
+    }
+
+    .theme-btn[aria-checked="true"] {
+      background-color: var(--surface-inset);
+      border-color: var(--border);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Header & Display Title */
+    .header-area {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .display-title {
+      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3;
+      position: relative;
+      display: inline-block;
+    }
+
+    .display-title::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0.08em;
+      height: 0.28em;
+      background-color: color-mix(in srgb, var(--accent-green) 40%, transparent);
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    /* Workspace Grid */
+    .workspace {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card System */
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Form & Selects */
+    .controls-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .controls-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .pill-select {
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      min-height: 44px;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235B6B7C' d='M6 7.4 0 1.4 1.4 0 6 4.6 10.6 0 12 1.4z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 14px center;
+      padding-inline-start: 36px;
+    }
+
+    .editor-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .editor-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      min-height: 40px;
+      transition: border-color 150ms ease-out, transform 150ms ease-out;
+    }
+
+    .pill-btn:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .pill-btn:active {
+      transform: translateY(1px);
+    }
+
+    .primary-btn {
+      background-color: var(--accent-green);
+      color: #FFFFFF;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: filter 150ms ease-out, transform 150ms ease-out;
+    }
+
+    .primary-btn:hover {
+      filter: brightness(1.08);
+    }
+
+    .primary-btn:active {
+      transform: translateY(1px);
+    }
+
+    .text-input {
+      width: 100%;
+      min-height: 220px;
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      resize: vertical;
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* Diagnostics & Coverage */
+    .coverage-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .segmented-bar {
+      display: flex;
+      height: 10px;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .segment {
+      flex: 1;
+      border-radius: 999px;
+      background-color: var(--fill-muted);
+      transition: background-color 200ms ease-out;
+    }
+
+    .segment.filled {
+      background-color: var(--accent-green);
+    }
+
+    .coverage-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* Inset Rows */
+    .inset-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .inset-row {
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .inset-row.attention {
+      border: 1.5px solid var(--accent-blue);
+      background:
+        repeating-linear-gradient(135deg,
+          color-mix(in srgb, var(--accent-blue) 12%, transparent) 0 6px,
+          transparent 6px 12px),
+        var(--surface-inset);
+    }
+
+    .row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .word-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      direction: ltr;
+    }
+
+    .target-word {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      background-color: color-mix(in srgb, var(--accent-blue) 16%, transparent);
+      direction: rtl;
+    }
+
+    .row-sub {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .synonym-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-block-start: 4px;
+    }
+
+    .synonym-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .synonym-pill {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      direction: ltr;
+      min-height: 32px;
+      transition: background-color 150ms ease-out, border-color 150ms ease-out;
+    }
+
+    .synonym-pill:hover {
+      border-color: var(--accent-green);
+      background-color: color-mix(in srgb, var(--accent-green) 12%, transparent);
+    }
+
+    /* Annotated Preview */
+    .preview-box {
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 12px;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      direction: ltr;
+      text-align: left;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .token-out {
+      color: var(--accent-blue);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      font-weight: 700;
+      padding-inline: 2px;
+    }
+
+    /* States (Empty, Loading, Error per R-27) */
+    .state-box {
+      background-color: var(--surface-inset);
+      border: 1px dashed var(--border);
+      border-radius: 1rem;
+      padding: 32px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .state-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .state-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      max-width: 380px;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      max-width: 1040px;
+      padding-block-start: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-block-start: 1px solid var(--border);
+      margin-block-start: 20px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="status-group">
+        <div class="status-dot" aria-hidden="true"></div>
+        <span class="status-text" id="status-label">پایگاه مصوب کتب درسی (پایه‌های ۷ تا ۱۲) فعال است</span>
+      </div>
+      <div class="theme-switcher" role="radiogroup" aria-label="انتخاب پوسته">
+        <button type="button" class="theme-btn" data-set-theme="auto" role="radio" aria-checked="true" id="theme-auto">خودکار</button>
+        <button type="button" class="theme-btn" data-set-theme="light" role="radio" aria-checked="false" id="theme-light">روشن</button>
+        <button type="button" class="theme-btn" data-set-theme="dark" role="radio" aria-checked="false" id="theme-dark">تاریک</button>
+      </div>
+    </header>
+
+    <!-- Header Section -->
+    <div class="header-area">
+      <h1 class="display-title">اعتبارسنج برنامه درسی زبان انگلیسی</h1>
+      <p class="tagline">بررسی هوشمند کلمات و ساختارهای گرامری خارج از کتاب، تحلیل سطح آموزشی و پیشنهاد جایگزین‌های مصوب برای دبیران مدارس و طراحان سوال</p>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <main class="workspace">
+      <!-- Editor Column (Inline Start) -->
+      <section class="card" aria-labelledby="editor-heading">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="editor-heading">تنظیم محدوده و متن آزمون</h2>
+          </div>
+          <span class="card-meta" id="char-count">۰ کاراکتر</span>
+        </div>
+
+        <div class="controls-row">
+          <div class="control-item">
+            <label class="control-label" for="grade-select">پایه تحصیلی</label>
+            <select id="grade-select" class="pill-select">
+              <option value="7">پایه هفتم (Prospect 1)</option>
+              <option value="8">پایه هشتم (Prospect 2)</option>
+              <option value="9">پایه نهم (Prospect 3)</option>
+              <option value="10" selected>پایه دهم (Vision 1)</option>
+              <option value="11">پایه یازدهم (Vision 2)</option>
+              <option value="12">پایه دوازدهم (Vision 3)</option>
+            </select>
+          </div>
+          <div class="control-item">
+            <label class="control-label" for="lesson-select">حداکثر سرفصل تدریس‌شده</label>
+            <select id="lesson-select" class="pill-select">
+              <option value="1">درس ۱</option>
+              <option value="2" selected>درس ۲</option>
+              <option value="3">درس ۳</option>
+              <option value="4">درس ۴</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="editor-group">
+          <div class="editor-actions">
+            <label class="control-label" for="exam-text">متن انگلیسی آزمون یا متن ریدینگ</label>
+            <button type="button" class="pill-btn" id="load-sample-btn">بارگذاری متن نمونه با خطای سطح</button>
+          </div>
+          <textarea id="exam-text" class="text-input" placeholder="متن مورد نظر برای سوالات، مکالمات یا متون آزمون را اینجا قرار دهید..."></textarea>
+        </div>
+
+        <div class="editor-actions">
+          <button type="button" class="primary-btn" id="analyze-btn">
+            <span>بررسی انطباق با کتاب درسی</span>
+          </button>
+          <button type="button" class="pill-btn" id="clear-btn">پاک‌سازی</button>
+        </div>
+      </section>
+
+      <!-- Diagnostics Column (Inline End) -->
+      <section class="card" aria-labelledby="diag-heading">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="diag-heading">گزارش اعتبارسنجی و جایگزین‌ها</h2>
+          </div>
+          <span class="badge" id="validity-badge">آماده دریافت</span>
+        </div>
+
+        <!-- Initial Empty State -->
+        <div id="state-empty" class="state-box">
+          <div class="state-title">هنوز متنی بررسی نشده است</div>
+          <p class="state-desc">متن آزمون را در کادر مقابل وارد کنید و دکمه بررسی را فشار دهید، یا از دکمه بارگذاری نمونه استفاده کنید.</p>
+          <button type="button" class="pill-btn" id="empty-sample-btn">بررسی متن آزمایشی</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="state-loading" class="state-box" style="display: none;">
+          <div class="state-title">در حال استخراج و تحلیل ساختار...</div>
+          <p class="state-desc">تطبیق یکپارچه واژگان با ۱۰۵۹ ریشه مصوب و استانداردهای گرامری ۶ پایه تحصیلی</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="state-error" class="state-box" style="display: none;">
+          <div class="state-title" style="color: var(--accent-blue);">خطا در پردازش درخواست</div>
+          <p class="state-desc" id="error-message">ارتباط با سرور برقرار نشد. لطفاً دوباره تلاش کنید.</p>
+          <button type="button" class="pill-btn" id="error-retry-btn">تلاش مجدد</button>
+        </div>
+
+        <!-- Results View -->
+        <div id="state-results" style="display: none;" class="coverage-card">
+          <div class="coverage-meta">
+            <span>درصد انطباق با سرفصل: <strong id="coverage-percent">۱۰۰٪</strong></span>
+            <span id="word-stats">۰ واژه بررسی شد</span>
+          </div>
+          <div class="segmented-bar" id="segmented-strip" aria-hidden="true"></div>
+
+          <!-- Highlighted Text Preview -->
+          <div class="control-label" style="margin-block-start: 6px;">متن با برجسته‌سازی کلمات خارج از سطح:</div>
+          <div class="preview-box" id="annotated-preview"></div>
+
+          <!-- Out of syllabus list -->
+          <div class="control-label" id="words-header" style="margin-block-start: 8px;">کلمات نیازمند جایگزینی:</div>
+          <div class="inset-list" id="words-list"></div>
+
+          <!-- Grammar violations list -->
+          <div class="control-label" id="grammar-header" style="margin-block-start: 8px;">ساختارهای گرامری خارج از محدوده:</div>
+          <div class="inset-list" id="grammar-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div>سامانه متن‌باز پایگاه دانش برنامه درسی زبان انگلیسی ایران (Grades 7 to 12)</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://github.com/IHosseini083/vision-kb" target="_blank" rel="noopener">مخزن گیت‌هاب</a>
+        <a class="footer-link" href="/api/health">وضعیت سرویس</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Persian digits converter
+    function toPersianDigits(n) {
+      const p = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+      return String(n).replace(/[0-9]/g, function (d) { return p[+d]; });
+    }
+
+    // Theme Switcher Logic
+    const themeButtons = document.querySelectorAll('[data-set-theme]');
+    const rootEl = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark' || theme === 'light') {
+        rootEl.setAttribute('data-theme', theme);
+        try { localStorage.setItem('vision_theme', theme); } catch (e) {}
+      } else {
+        rootEl.removeAttribute('data-theme');
+        try { localStorage.removeItem('vision_theme'); } catch (e) {}
+      }
+      themeButtons.forEach(btn => {
+        const isCurrent = btn.getAttribute('data-set-theme') === theme;
+        btn.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
+      });
+    }
+
+    const savedTheme = (function() {
+      try { return localStorage.getItem('vision_theme') || 'auto'; } catch(e) { return 'auto'; }
+    })();
+    applyTheme(savedTheme);
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyTheme(btn.getAttribute('data-set-theme'));
+      });
+    });
+
+    // Grade and Lesson dynamic populator
+    let lessonsData = null;
+    const gradeSelect = document.getElementById('grade-select');
+    const lessonSelect = document.getElementById('lesson-select');
+
+    async function loadLessons() {
+      try {
+        const res = await fetch('/api/lessons');
+        const data = await res.json();
+        lessonsData = data.grades;
+        updateLessonOptions();
+      } catch (e) {
+        console.error('Failed to load lessons', e);
+      }
+    }
+
+    function updateLessonOptions() {
+      if (!lessonsData) return;
+      const selectedGrade = parseInt(gradeSelect.value, 10);
+      const gradeObj = lessonsData.find(g => g.grade === selectedGrade);
+      lessonSelect.innerHTML = '';
+      if (gradeObj && gradeObj.lessons) {
+        gradeObj.lessons.forEach(l => {
+          const opt = document.createElement('option');
+          opt.value = l.lesson_num;
+          opt.textContent = 'درس ' + toPersianDigits(l.lesson_num) + ': ' + l.title;
+          lessonSelect.appendChild(opt);
+        });
+        lessonSelect.value = gradeObj.lessons.length > 1 ? '2' : '1';
+      }
+    }
+
+    gradeSelect.addEventListener('change', updateLessonOptions);
+    loadLessons();
+
+    // Editor elements
+    const examText = document.getElementById('exam-text');
+    const charCount = document.getElementById('char-count');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const loadSampleBtn = document.getElementById('load-sample-btn');
+    const emptySampleBtn = document.getElementById('empty-sample-btn');
+    const clearBtn = document.getElementById('clear-btn');
+
+    // Result elements
+    const stateEmpty = document.getElementById('state-empty');
+    const stateLoading = document.getElementById('state-loading');
+    const stateError = document.getElementById('state-error');
+    const stateResults = document.getElementById('state-results');
+    const errorMessage = document.getElementById('error-message');
+    const errorRetryBtn = document.getElementById('error-retry-btn');
+
+    const validityBadge = document.getElementById('validity-badge');
+    const coveragePercent = document.getElementById('coverage-percent');
+    const wordStats = document.getElementById('word-stats');
+    const segmentedStrip = document.getElementById('segmented-strip');
+    const annotatedPreview = document.getElementById('annotated-preview');
+    const wordsList = document.getElementById('words-list');
+    const wordsHeader = document.getElementById('words-header');
+    const grammarList = document.getElementById('grammar-list');
+    const grammarHeader = document.getElementById('grammar-header');
+
+    examText.addEventListener('input', () => {
+      charCount.textContent = toPersianDigits(examText.value.length) + ' کاراکتر';
+    });
+
+    const sampleText = 'Yesterday, the physician visited an ancient clinic. He has discovered a new medicine, but wolves were hunting near the hospital.';
+
+    function setSample() {
+      gradeSelect.value = '7';
+      updateLessonOptions();
+      lessonSelect.value = '4';
+      examText.value = sampleText;
+      charCount.textContent = toPersianDigits(sampleText.length) + ' کاراکتر';
+      triggerAnalysis();
+    }
+
+    loadSampleBtn.addEventListener('click', setSample);
+    emptySampleBtn.addEventListener('click', setSample);
+    clearBtn.addEventListener('click', () => {
+      examText.value = '';
+      charCount.textContent = '۰ کاراکتر';
+      showState('empty');
+    });
+
+    function showState(st) {
+      stateEmpty.style.display = st === 'empty' ? 'flex' : 'none';
+      stateLoading.style.display = st === 'loading' ? 'flex' : 'none';
+      stateError.style.display = st === 'error' ? 'flex' : 'none';
+      stateResults.style.display = st === 'results' ? 'flex' : 'none';
+    }
+
+    async function triggerAnalysis() {
+      const text = examText.value.trim();
+      if (!text) {
+        showState('empty');
+        return;
+      }
+      showState('loading');
+
+      const payload = {
+        grade: parseInt(gradeSelect.value, 10),
+        max_lesson: parseInt(lessonSelect.value, 10),
+        text: text
+      };
+
+      try {
+        const res = await fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          errorMessage.textContent = data.error || 'خطایی در پردازش رخ داد.';
+          showState('error');
+          return;
+        }
+
+        renderResults(data, text);
+        showState('results');
+      } catch (err) {
+        errorMessage.textContent = 'خطا در ارتباط با سرور: لطفاً اتصال شبکه را بررسی کنید.';
+        showState('error');
+      }
+    }
+
+    analyzeBtn.addEventListener('click', triggerAnalysis);
+    errorRetryBtn.addEventListener('click', triggerAnalysis);
+
+    function renderResults(data, originalText) {
+      const ratio = data.coverage_ratio || 0;
+      coveragePercent.textContent = toPersianDigits(Math.round(ratio)) + '٪';
+      wordStats.textContent = toPersianDigits(data.word_count || 0) + ' کلمه شمارش شد';
+
+      // 20 segments strip
+      segmentedStrip.innerHTML = '';
+      const filledCount = Math.round((ratio / 100) * 20);
+      for (let i = 0; i < 20; i++) {
+        const seg = document.createElement('div');
+        seg.className = 'segment' + (i < filledCount ? ' filled' : '');
+        segmentedStrip.appendChild(seg);
+      }
+
+      if (data.is_valid) {
+        validityBadge.textContent = 'منطبق با سرفصل';
+        validityBadge.style.color = 'var(--accent-green)';
+        validityBadge.style.backgroundColor = 'color-mix(in srgb, var(--accent-green) 16%, transparent)';
+      } else {
+        validityBadge.textContent = 'نیازمند اصلاح';
+        validityBadge.style.color = 'var(--accent-blue)';
+        validityBadge.style.backgroundColor = 'color-mix(in srgb, var(--accent-blue) 16%, transparent)';
+      }
+
+      // Render Annotated Preview
+      const outSet = new Set((data.out_of_syllabus_words || []).map(w => w.toLowerCase()));
+      const tokens = originalText.split(/(\s+|[.,!?;:()"])/);
+      annotatedPreview.innerHTML = '';
+      tokens.forEach(tok => {
+        const cleanTok = tok.toLowerCase().replace(/[^a-z']/g, '');
+        if (cleanTok && outSet.has(cleanTok)) {
+          const span = document.createElement('span');
+          span.className = 'token-out';
+          span.textContent = tok;
+          annotatedPreview.appendChild(span);
+        } else {
+          annotatedPreview.appendChild(document.createTextNode(tok));
+        }
+      });
+
+      // Out of Syllabus Words
+      wordsList.innerHTML = '';
+      const outWords = data.out_of_syllabus_words || [];
+      if (outWords.length === 0) {
+        wordsHeader.style.display = 'none';
+      } else {
+        wordsHeader.style.display = 'block';
+        outWords.forEach(w => {
+          const diag = (data.word_diagnostics && data.word_diagnostics[w]) || {};
+          const row = document.createElement('div');
+          row.className = 'inset-row attention';
+
+          let badgeText = 'خارج از دوره متوسطه';
+          if (diag.taught_in_grade) {
+            badgeText = 'تدریس در پایه ' + toPersianDigits(diag.taught_in_grade) + ' (درس ' + toPersianDigits(diag.taught_in_lesson) + ')';
+          }
+
+          let synHtml = '';
+          const alts = diag.in_syllabus_alternatives || [];
+          if (alts.length > 0) {
+            synHtml = '<div class="synonym-group"><span class="synonym-label">جایگزین‌های مجاز کتاب:</span>';
+            alts.forEach(syn => {
+              synHtml += '<button type="button" class="synonym-pill" data-replace-from="' + w + '" data-replace-to="' + syn + '">✓ ' + syn + '</button>';
+            });
+            synHtml += '</div>';
+          } else {
+            synHtml = '<div class="row-sub">مترادف ساده‌تری در پایه‌های قبلی یافت نشد؛ بازنویسی جمله پیشنهاد می‌شود.</div>';
+          }
+
+          row.innerHTML =
+            '<div class="row-top">' +
+              '<div class="word-badge-group">' +
+                '<span class="target-word">' + w + '</span>' +
+                '<span class="badge">' + badgeText + '</span>' +
+              '</div>' +
+            '</div>' +
+            (diag.definition_fa ? '<div class="row-sub">معنی کتاب: ' + diag.definition_fa + '</div>' : '') +
+            synHtml;
+
+          wordsList.appendChild(row);
+        });
+
+        // Add replace event listeners
+        wordsList.querySelectorAll('.synonym-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const fromW = btn.getAttribute('data-replace-from');
+            const toW = btn.getAttribute('data-replace-to');
+            const regex = new RegExp('\\b' + fromW + '\\b', 'gi');
+            examText.value = examText.value.replace(regex, toW);
+            charCount.textContent = toPersianDigits(examText.value.length) + ' کاراکتر';
+            triggerAnalysis();
+          });
+        });
+      }
+
+      // Grammar hits
+      grammarList.innerHTML = '';
+      const gHits = data.forbidden_grammar_hits || [];
+      if (gHits.length === 0) {
+        grammarHeader.style.display = 'none';
+      } else {
+        grammarHeader.style.display = 'block';
+        gHits.forEach(g => {
+          const row = document.createElement('div');
+          row.className = 'inset-row attention';
+          row.innerHTML =
+            '<div class="row-top">' +
+              '<div class="word-badge-group">' +
+                '<span class="target-word" style="direction: ltr;">"' + g.match + '"</span>' +
+                '<span class="badge">' + (g.type || 'گرامر خارج از سرفصل') + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="row-sub">' + (g.reason_fa || g.reason || '') + '</div>';
+          grammarList.appendChild(row);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

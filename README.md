@@ -112,6 +112,12 @@ python3 curriculum_kb.py blueprint --grade 10 --term 1 --exam-type Listening
 python3 curriculum_kb.py generate --grade 10 --term 1 --out-dir exports --school "Shahid Beheshti High School"
 ```
 
+### 11. Run Web Application (Self-Hosted UI & API)
+```bash
+python3 web_app.py
+# Or access live production deployment: https://vision.v1x.ir
+```
+
 ---
 
 ## Test Suite
