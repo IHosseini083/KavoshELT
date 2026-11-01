@@ -4,7 +4,7 @@ Detailed roadmap of all 31 official lessons, their thematic scopes, target gramm
 
 ---
 
-## Junior High School (متوسطه اول) — *Prospect Series*
+## Junior High School (Lower Secondary) — *Prospect Series*
 
 ### Grade 7 (Prospect 1) — 8 Lessons
 1. **Lesson 1: My Name**  
@@ -51,7 +51,7 @@ Detailed roadmap of all 31 official lessons, their thematic scopes, target gramm
 
 ---
 
-## Senior High School (متوسطه دوم) — *Vision Series*
+## Senior High School (Upper Secondary) — *Vision Series*
 
 ### Grade 10 (Vision 1) — 4 Lessons
 1. **Lesson 1: Saving Nature**  

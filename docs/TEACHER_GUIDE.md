@@ -1,54 +1,59 @@
-# Teacher & AI Authoring Guide (راهنمای دبیران و توسعه‌دهندگان)
+# Teacher & AI Authoring Guide
 
-This guide explains how teachers and automated AI workflows can use the Curriculum Knowledge Base to design valid, syllabus-bounded exams and generate professional listening audio tracks.
+This guide explains how educators and automated AI workflows use the Curriculum Knowledge Base to design valid, syllabus-bounded exams and generate professional listening audio tracks.
 
 ---
 
-## 1. Exam Authoring Workflow (۴ مرحله استاندارد طراحی آزمون)
+## 1. Exam Authoring Workflow (4 Standard Steps)
 
 ```text
-[1. Fetch Bounds] ──> [2. Compose Draft] ──> [3. Validate & Adapt] ──> [4. Generate TTS Audio]
+[1. Fetch Bounds] ──> [2. Compose Draft] ──> [3. Validate & Adapt] ──> [4. Generate TTS Audio & Export]
 ```
 
-### مرحله اول: استخراج واژگان و قواعد مجاز
-قبل از نگارش آزمون، محدوده درس‌های هدف را دریافت کنید:
+### Step 1: Extract Curriculum Context and Vocabulary
+Before drafting questions, retrieve the active vocabulary pool, allowed tenses, forbidden structures, and scoring rubrics:
 ```bash
 python3 curriculum_kb.py context --grade 10 --lessons 1,2
 ```
-این خروجی حاوی واژگان فعال، گرامرهای مجاز و بودجه‌بندی بارم (Rubric) است.
+This JSON output provides the exact constraints needed to prompt an LLM or guide manual drafting.
 
-### مرحله دوم: نگارش پیش‌نویس سوالات
-سوالات یا متون لیسنینگ را با تکیه بر واژگان و گرامرهای مرحله اول تنظیم کنید.
+### Step 2: Compose Question Draft
+Draft the listening scripts, reading comprehension passages, or vocabulary items using the retrieved syllabus boundaries.
 
-### مرحله سوم: اعتبارسنجی و جایگزینی کلمات خارج از کتاب
-متن نگارش‌شده را به اعتبارسنج بسپارید:
+### Step 3: Validate and Adapt Out-of-Syllabus Text
+Submit the drafted markdown or text to the curriculum advisor:
 ```bash
 python3 curriculum_kb.py adapt --grade 10 --max-lesson 2 --file my_exam_draft.md
 ```
-اگر کلمه‌ای خارج از کتاب باشد:
-- دستور `adapt` فوراً هشدار می‌دهد.
-- مشخص می‌کند آن کلمه در کدام پایه بالاتر تدریس می‌شود.
-- **جایگزین‌های هم‌معنی و مجاز** از پایه‌های قبلی را پیشنهاد می‌دهد تا متن خود را اصلاح کنید.
+If an out-of-syllabus word is identified:
+- The command reports the exact word.
+- It specifies in which future grade and lesson that word will actually be taught.
+- It suggests **in-syllabus semantic alternatives** from vocabulary the student has already learned in earlier grades.
 
-### مرحله چهارم: دریافت ساختار استاندارد صوت
-برای هر پایه و ترم، ساختار رسمی را دریافت کنید:
+### Step 4: Export Printable Sheets & Generate Audio
+Retrieve the official assessment blueprint:
 ```bash
 python3 curriculum_kb.py blueprint --grade 10 --term 1 --exam-type Listening
+```
+Then export the finalized exam to print-ready PDF or editable Word DOCX:
+```bash
+python3 curriculum_kb.py export --file my_exam_draft.md --format pdf --out exam.pdf --school "Shahid Beheshti High School"
+python3 curriculum_kb.py export --file my_exam_draft.md --format docx --out exam.docx --school "Shahid Beheshti High School"
 ```
 
 ---
 
-## 2. راهنمای تولید فایل‌های صوتی با Gemini 3.8 Flash TTS
+## 2. Audio Generation with Gemini 3.8 Flash TTS
 
-مدل صوتی **Gemini 3.8 Flash TTS** برای آزمون‌های لیسنینگ مدارس ایده‌آل است. قواعد کلیدی:
+Google's **Gemini 3.8 Flash TTS** engine is pre-calibrated for school listening comprehension tests:
 
-1. **گویندگان پیشنهادی:**
-   * **Speaker 1 (زن):** `Fola` (لحن رسمی، واضح و شمرده برای راوی، معلم و گوینده اول)
-   * **Speaker 2 (مرد):** `Rami` (لحن گرم، جوان و طبیعی برای دانش‌آموز، پزشک یا مسافر)
-2. **سرعت خواندن (Pacing):**
-   * برای زبان‌آموزان ایرانی سطح A2/B1، سرعت باید بین **۱۲۵ تا ۱۳۵ کلمه در دقیقه** باشد.
-   * از تگ‌های مکث مجاز استفاده کنید:
-     - وقفه‌های بین جملات: `<short pause>`
-     - مهلت خواندن سوالات توسط دانش‌آموز: `<long pause>` (۱۵ ثانیه)
-3. **جداسازی دستورات از متن:**
-   * هرگز سبک بیان را داخل متن صحبت گوینده ننویسید؛ سبک‌ها باید در فیلد `speechMetadata.style` تعریف شوند تا گوینده آن‌ها را بلند نخواند.
+1. **Recommended Voice Configuration:**
+   * **Speaker 1 (Female):** `Fola` (Formal, articulate, and instructional tone for the examiner, teacher, or narrator).
+   * **Speaker 2 (Male):** `Rami` (Natural, warm, conversational tone for students, tourists, physicians, or secondary characters).
+2. **Pacing Rules:**
+   * For Iranian secondary learners (CEFR A2/B1), speed should target **125 to 135 words per minute (WPM)**.
+   * Use native inline pause tags:
+     - Sentence transitions: `<short pause>` (0.5 to 1.0s)
+     - Question reading intervals: `<long pause>` (15s examinee inspection time)
+3. **Verbatim Script Isolation:**
+   * Sustained delivery styles must be assigned via `speechMetadata.style` (e.g. `"Clear, formal, and slow"`) rather than inline bracketed stage directions, preventing the synthetic voice from reading stage cues aloud.
