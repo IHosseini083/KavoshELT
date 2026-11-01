@@ -2,8 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <title>سامانه اعتبارسنجی برنامه درسی زبان انگلیسی</title>
-  <meta name="description" content="سامانه هوشمند انطباق متون آزمون زبان انگلیسی با برنامه مصوب متوسطه اول و دوم ایران">
+  <title>استودیوی آزمون و صوت زبان انگلیسی</title>
+  <meta name="description" content="تولید هوشمند آزمون، برگه چاپی Word و PDF و فایل‌های صوتی لیسنینگ زبان انگلیسی مدارس ایران">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#E9EFF5">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0E1522">
@@ -103,7 +103,7 @@
 
     .container {
       width: 100%;
-      max-width: 1040px;
+      max-width: 1060px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -116,7 +116,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      padding-block-end: 8px;
+      padding-block-end: 4px;
     }
 
     .status-group {
@@ -155,9 +155,9 @@
       border: 1px solid transparent;
       border-radius: 999px;
       font-size: 0.75rem;
-      padding: 4px 10px;
+      padding: 4px 12px;
       color: var(--text-muted);
-      min-height: 34px;
+      min-height: 36px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -206,13 +206,48 @@
     .tagline {
       font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 720px;
+      max-width: 760px;
+    }
+
+    /* Navigation Mode Switcher */
+    .mode-nav {
+      display: flex;
+      gap: 10px;
+      border-block-end: 1px solid var(--border);
+      padding-block-end: 12px;
+      margin-block-start: 4px;
+    }
+
+    .mode-tab {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 150ms ease-out;
+    }
+
+    .mode-tab:hover {
+      color: var(--text);
+      border-color: var(--accent-blue);
+    }
+
+    .mode-tab.active {
+      background-color: var(--surface-inset);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
     }
 
     /* Workspace Grid */
     .workspace {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 20px;
       align-items: start;
     }
@@ -223,15 +258,15 @@
       }
     }
 
-    /* Card System */
+    /* Cards */
     .card {
       background-color: var(--surface);
       border: 1px solid var(--border);
       border-radius: 1.5rem;
-      padding: 20px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
     .card-header {
@@ -241,49 +276,38 @@
       gap: 12px;
     }
 
-    .card-title-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
     .card-title {
       font-size: 1.125rem;
       font-weight: 700;
       color: var(--text);
     }
 
-    .card-meta {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* Form & Selects */
-    .controls-row {
+    /* Form rows */
+    .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
     }
 
-    @media (max-width: 500px) {
-      .controls-row {
+    @media (max-width: 540px) {
+      .form-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .control-item {
+    .field-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .control-label {
+    .field-label {
       font-size: 0.8125rem;
       font-weight: 600;
       color: var(--text-muted);
     }
 
-    .pill-select {
+    .pill-input, .pill-select {
       background-color: var(--surface-inset);
       border: 1px solid var(--border);
       border-radius: 999px;
@@ -292,6 +316,10 @@
       font-weight: 600;
       color: var(--text);
       min-height: 44px;
+      width: 100%;
+    }
+
+    .pill-select {
       appearance: none;
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235B6B7C' d='M6 7.4 0 1.4 1.4 0 6 4.6 10.6 0 12 1.4z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -299,53 +327,60 @@
       padding-inline-start: 36px;
     }
 
-    .editor-group {
+    /* Voice Studio Box */
+    .voice-box {
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
     }
 
-    .editor-actions {
-      display: flex;
-      justify-content: space-between;
+    .voice-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .pill-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background-color: var(--surface-inset);
+    .preview-voice-btn {
+      background-color: var(--surface);
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 6px 14px;
       font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--text);
-      min-height: 40px;
-      transition: border-color 150ms ease-out, transform 150ms ease-out;
+      font-weight: 700;
+      color: var(--accent-green);
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      transition: all 150ms ease-out;
     }
 
-    .pill-btn:hover {
-      border-color: var(--accent-blue);
+    .preview-voice-btn:hover {
+      border-color: var(--accent-green);
+      background-color: color-mix(in srgb, var(--accent-green) 12%, transparent);
     }
 
-    .pill-btn:active {
-      transform: translateY(1px);
+    .preview-voice-btn.playing {
+      background-color: var(--accent-green);
+      color: #FFFFFF;
     }
 
+    /* Buttons */
     .primary-btn {
       background-color: var(--accent-green);
       color: #FFFFFF;
       border: 1px solid transparent;
       border-radius: 999px;
-      padding: 10px 24px;
+      padding: 12px 28px;
       font-size: 0.9375rem;
       font-weight: 700;
-      min-height: 46px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -361,177 +396,119 @@
       transform: translateY(1px);
     }
 
-    .text-input {
-      width: 100%;
-      min-height: 220px;
-      background-color: var(--surface-inset);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 14px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--text);
-      resize: vertical;
-      direction: ltr;
-      text-align: left;
-    }
-
-    /* Diagnostics & Coverage */
-    .coverage-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .segmented-bar {
-      display: flex;
-      height: 10px;
-      gap: 4px;
-      width: 100%;
-    }
-
-    .segment {
-      flex: 1;
-      border-radius: 999px;
-      background-color: var(--fill-muted);
-      transition: background-color 200ms ease-out;
-    }
-
-    .segment.filled {
-      background-color: var(--accent-green);
-    }
-
-    .coverage-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    /* Inset Rows */
-    .inset-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .inset-row {
-      background-color: var(--surface-inset);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 6px;
+      background-color: var(--surface-inset);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      min-height: 42px;
+      transition: all 150ms ease-out;
+      text-decoration: none;
     }
 
-    .inset-row.attention {
+    .pill-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .download-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .download-group {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .download-pill-main {
+      background-color: color-mix(in srgb, var(--accent-blue) 14%, var(--surface));
       border: 1.5px solid var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .download-pill-green {
+      background-color: color-mix(in srgb, var(--accent-green) 14%, var(--surface));
+      border: 1.5px solid var(--accent-green);
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    /* Audio Player Inset */
+    .audio-player-card {
       background:
         repeating-linear-gradient(135deg,
-          color-mix(in srgb, var(--accent-blue) 12%, transparent) 0 6px,
+          color-mix(in srgb, var(--accent-green) 8%, transparent) 0 6px,
           transparent 6px 12px),
         var(--surface-inset);
-    }
-
-    .row-top {
+      border: 1.5px solid var(--accent-green);
+      border-radius: 1rem;
+      padding: 16px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .word-badge-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      direction: ltr;
-    }
-
-    .target-word {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
+    audio {
+      width: 100%;
+      height: 40px;
+      border-radius: 999px;
     }
 
     .badge {
       display: inline-block;
-      padding: 2px 8px;
+      padding: 2px 10px;
       border-radius: 999px;
-      font-size: 0.6875rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--accent-blue);
       background-color: color-mix(in srgb, var(--accent-blue) 16%, transparent);
-      direction: rtl;
     }
 
-    .row-sub {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    .synonym-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-      margin-block-start: 4px;
-    }
-
-    .synonym-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .synonym-pill {
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 0.8125rem;
-      font-weight: 700;
+    .badge.green {
       color: var(--accent-green);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      direction: ltr;
-      min-height: 32px;
-      transition: background-color 150ms ease-out, border-color 150ms ease-out;
+      background-color: color-mix(in srgb, var(--accent-green) 16%, transparent);
     }
 
-    .synonym-pill:hover {
-      border-color: var(--accent-green);
-      background-color: color-mix(in srgb, var(--accent-green) 12%, transparent);
-    }
-
-    /* Annotated Preview */
-    .preview-box {
+    .text-preview {
       background-color: var(--surface-inset);
       border: 1px solid var(--border);
       border-radius: 0.75rem;
-      padding: 12px;
+      padding: 14px;
       font-size: 0.9375rem;
-      line-height: 1.7;
+      line-height: 1.8;
       direction: ltr;
       text-align: left;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      max-height: 380px;
+      overflow-y: auto;
     }
 
-    .token-out {
-      color: var(--accent-blue);
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
+    .dialogue-turn {
+      margin-block-end: 8px;
+    }
+
+    .speaker-label {
       font-weight: 700;
-      padding-inline: 2px;
+      color: var(--accent-blue);
     }
 
-    /* States (Empty, Loading, Error per R-27) */
+    /* States */
     .state-box {
       background-color: var(--surface-inset);
       border: 1px dashed var(--border);
       border-radius: 1rem;
-      padding: 32px 16px;
+      padding: 36px 18px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -540,7 +517,7 @@
     }
 
     .state-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
     }
@@ -548,13 +525,13 @@
     .state-desc {
       font-size: 0.8125rem;
       color: var(--text-muted);
-      max-width: 380px;
+      max-width: 420px;
     }
 
     /* Footer */
     footer {
       width: 100%;
-      max-width: 1040px;
+      max-width: 1060px;
       padding-block-start: 24px;
       display: flex;
       flex-wrap: wrap;
@@ -565,11 +542,6 @@
       margin-block-start: 20px;
       font-size: 0.8125rem;
       color: var(--text-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
     }
 
     .footer-link {
@@ -588,7 +560,7 @@
     <header class="top-bar">
       <div class="status-group">
         <div class="status-dot" aria-hidden="true"></div>
-        <span class="status-text" id="status-label">پایگاه مصوب کتب درسی (پایه‌های ۷ تا ۱۲) فعال است</span>
+        <span class="status-text">استودیوی هوشمند تولید آزمون، صوت و کاربرگ زبان انگلیسی</span>
       </div>
       <div class="theme-switcher" role="radiogroup" aria-label="انتخاب پوسته">
         <button type="button" class="theme-btn" data-set-theme="auto" role="radio" aria-checked="true" id="theme-auto">خودکار</button>
@@ -599,25 +571,40 @@
 
     <!-- Header Section -->
     <div class="header-area">
-      <h1 class="display-title">اعتبارسنج برنامه درسی زبان انگلیسی</h1>
-      <p class="tagline">بررسی هوشمند کلمات و ساختارهای گرامری خارج از کتاب، تحلیل سطح آموزشی و پیشنهاد جایگزین‌های مصوب برای دبیران مدارس و طراحان سوال</p>
+      <h1 class="display-title">استودیوی طراحی آزمون و فایل صوتی</h1>
+      <p class="tagline">تولید صفر تا صد سوالات استاندارد امتحانی، صدور برگه‌های چاپی Word و PDF با سربرگ مدارس و ضبط استودیویی صوت لیسنینگ با گویندگان هوش مصنوعی</p>
     </div>
 
-    <!-- Main Workspace Grid -->
-    <main class="workspace">
-      <!-- Editor Column (Inline Start) -->
-      <section class="card" aria-labelledby="editor-heading">
+    <!-- Mode Selector Navigation -->
+    <nav class="mode-nav" aria-label="بخش‌های سامانه">
+      <button type="button" class="mode-tab active" id="tab-studio-btn">استودیوی تولید آزمون و صوت (AI Studio)</button>
+      <button type="button" class="mode-tab" id="tab-validator-btn">اعتبارسنجی متن آزاد و مترادف‌ها</button>
+    </nav>
+
+    <!-- TAB 1: AI STUDIO -->
+    <main class="workspace" id="tab-studio-content">
+      <!-- Left Configuration Panel -->
+      <section class="card" aria-labelledby="studio-setup-heading">
         <div class="card-header">
-          <div class="card-title-group">
-            <h2 class="card-title" id="editor-heading">تنظیم محدوده و متن آزمون</h2>
-          </div>
-          <span class="card-meta" id="char-count">۰ کاراکتر</span>
+          <h2 class="card-title" id="studio-setup-heading">۱. تنظیمات مشخصات آزمون و مدرسه</h2>
+          <span class="badge green">تطبیق ۱۰۰٪ سیلابس</span>
         </div>
 
-        <div class="controls-row">
-          <div class="control-item">
-            <label class="control-label" for="grade-select">پایه تحصیلی</label>
-            <select id="grade-select" class="pill-select">
+        <div class="form-grid">
+          <div class="field-group">
+            <label class="field-label" for="school-name-input">نام آموزشگاه / مدرسه</label>
+            <input type="text" id="school-name-input" class="pill-input" value="دبیرستان نمونه دولتی">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="teacher-name-input">نام طراح آزمون</label>
+            <input type="text" id="teacher-name-input" class="pill-input" value="دبیر محترم">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label class="field-label" for="studio-grade-select">پایه تحصیلی</label>
+            <select id="studio-grade-select" class="pill-select">
               <option value="7">پایه هفتم (Prospect 1)</option>
               <option value="8">پایه هشتم (Prospect 2)</option>
               <option value="9">پایه نهم (Prospect 3)</option>
@@ -626,103 +613,172 @@
               <option value="12">پایه دوازدهم (Vision 3)</option>
             </select>
           </div>
-          <div class="control-item">
-            <label class="control-label" for="lesson-select">حداکثر سرفصل تدریس‌شده</label>
-            <select id="lesson-select" class="pill-select">
-              <option value="1">درس ۱</option>
-              <option value="2" selected>درس ۲</option>
-              <option value="3">درس ۳</option>
-              <option value="4">درس ۴</option>
+          <div class="field-group">
+            <label class="field-label" for="studio-lesson-select">درس مورد نظر</label>
+            <select id="studio-lesson-select" class="pill-select">
+              <option value="1" selected>درس ۱: Saving Nature</option>
+              <option value="2">درس ۲: Wonders of Creation</option>
             </select>
           </div>
         </div>
 
-        <div class="editor-group">
-          <div class="editor-actions">
-            <label class="control-label" for="exam-text">متن انگلیسی آزمون یا متن ریدینگ</label>
-            <button type="button" class="pill-btn" id="load-sample-btn">بارگذاری متن نمونه با خطای سطح</button>
-          </div>
-          <textarea id="exam-text" class="text-input" placeholder="متن مورد نظر برای سوالات، مکالمات یا متون آزمون را اینجا قرار دهید..."></textarea>
+        <div class="field-group">
+          <label class="field-label" for="studio-exam-type">قالب و ساختار آزمون</label>
+          <select id="studio-exam-type" class="pill-select">
+            <option value="Listening" selected>بسته آزمون شنیداری (Listening: مکالمه + درست/نادرست + تستی + جای خالی)</option>
+            <option value="Reading">درک مطلب ریدینگ (Reading Passage + Comprehension Questions)</option>
+            <option value="Quiz">کوئیز کلاسی واژگان و گرامر (Vocabulary & Grammar Worksheet)</option>
+          </select>
         </div>
 
-        <div class="editor-actions">
-          <button type="button" class="primary-btn" id="analyze-btn">
-            <span>بررسی انطباق با کتاب درسی</span>
-          </button>
-          <button type="button" class="pill-btn" id="clear-btn">پاک‌سازی</button>
+        <!-- Voice Studio Sub-Card -->
+        <div class="voice-box">
+          <div class="field-label" style="font-weight: 700; color: var(--text);">۲. استودیوی گویندگان و سرعت صوت (Gemini TTS)</div>
+
+          <div class="voice-row">
+            <div class="field-group" style="width: 100%;">
+              <label class="field-label" for="voice1-select">گوینده ۱ (راوی و معرفی / زن)</label>
+              <select id="voice1-select" class="pill-select">
+                <option value="fola" selected>فولا (Fola) - شمرده، رسمی و آزمونی (زن)</option>
+                <option value="zephyr">زفیر (Zephyr) - گرم، دوستانه و روان (زن)</option>
+              </select>
+            </div>
+            <button type="button" class="preview-voice-btn" data-voice="fola" id="play-v1-btn" style="margin-block-start: 22px;">
+              <span>▶ پخش صدا</span>
+            </button>
+          </div>
+
+          <div class="voice-row">
+            <div class="field-group" style="width: 100%;">
+              <label class="field-label" for="voice2-select">گوینده ۲ (دانش‌آموز و محاوره / مرد)</label>
+              <select id="voice2-select" class="pill-select">
+                <option value="rami" selected>رامی (Rami) - طبیعی، آرام و آموزشی (مرد)</option>
+                <option value="puck">پاک (Puck) - رسا و پرانرژی (مرد)</option>
+              </select>
+            </div>
+            <button type="button" class="preview-voice-btn" data-voice="rami" id="play-v2-btn" style="margin-block-start: 22px;">
+              <span>▶ پخش صدا</span>
+            </button>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="speed-select">سرعت خوانش گویندگان (WPM)</label>
+            <select id="speed-select" class="pill-select">
+              <option value="125">آرام و شمرده (۱۲۵ کلمه در دقیقه - ویژه پایه‌های ۷ و ۸)</option>
+              <option value="130" selected>متوسط و استاندارد (۱۳۰ کلمه در دقیقه - ویژه پایه‌های ۹ و ۱۰)</option>
+              <option value="135">طبیعی و پیشرفته (۱۳۵ کلمه در دقیقه - ویژه پایه‌های ۱۱ و ۱۲)</option>
+            </select>
+          </div>
         </div>
+
+        <button type="button" class="primary-btn" id="generate-package-btn">
+          <span>تولید هوشمند آزمون و فایل‌های صوتی</span>
+        </button>
       </section>
 
-      <!-- Diagnostics Column (Inline End) -->
-      <section class="card" aria-labelledby="diag-heading">
+      <!-- Right Output & Player Panel -->
+      <section class="card" aria-labelledby="studio-output-heading">
         <div class="card-header">
-          <div class="card-title-group">
-            <h2 class="card-title" id="diag-heading">گزارش اعتبارسنجی و جایگزین‌ها</h2>
-          </div>
-          <span class="badge" id="validity-badge">آماده دریافت</span>
+          <h2 class="card-title" id="studio-output-heading">۳. خروجی نهایی، صوت و برگه‌ها</h2>
+          <span class="badge" id="studio-status-badge">آماده تولید</span>
         </div>
 
         <!-- Initial Empty State -->
-        <div id="state-empty" class="state-box">
-          <div class="state-title">هنوز متنی بررسی نشده است</div>
-          <p class="state-desc">متن آزمون را در کادر مقابل وارد کنید و دکمه بررسی را فشار دهید، یا از دکمه بارگذاری نمونه استفاده کنید.</p>
-          <button type="button" class="pill-btn" id="empty-sample-btn">بررسی متن آزمایشی</button>
+        <div id="studio-empty-state" class="state-box">
+          <div class="state-title">هنوز آزمونی تولید نشده است</div>
+          <p class="state-desc">پایه و گویندگان مورد نظر را در کادر تنظیمات انتخاب کنید و دکمه سبز را فشار دهید. پکیج کامل شامل برگه ورد، پی‌دی‌اف و فایل صوتی صادر می‌شود.</p>
         </div>
 
         <!-- Loading State -->
-        <div id="state-loading" class="state-box" style="display: none;">
-          <div class="state-title">در حال استخراج و تحلیل ساختار...</div>
-          <p class="state-desc">تطبیق یکپارچه واژگان با ۱۰۵۹ ریشه مصوب و استانداردهای گرامری ۶ پایه تحصیلی</p>
+        <div id="studio-loading-state" class="state-box" style="display: none;">
+          <div class="state-title">در حال تدوین سناریو و تولید فایل صوتی...</div>
+          <p class="state-desc">۱. طراحی سوالات با کانتکست قفل‌شده درس<br>۲. ممیزی واژگان با گاردریل مصوب<br>۳. سنتز صدا با هوش مصنوعی و تدوین فایل‌ها</p>
         </div>
 
-        <!-- Error State -->
-        <div id="state-error" class="state-box" style="display: none;">
-          <div class="state-title" style="color: var(--accent-blue);">خطا در پردازش درخواست</div>
-          <p class="state-desc" id="error-message">ارتباط با سرور برقرار نشد. لطفاً دوباره تلاش کنید.</p>
-          <button type="button" class="pill-btn" id="error-retry-btn">تلاش مجدد</button>
-        </div>
-
-        <!-- Results View -->
-        <div id="state-results" style="display: none;" class="coverage-card">
-          <div class="coverage-meta">
-            <span>درصد انطباق با سرفصل: <strong id="coverage-percent">۱۰۰٪</strong></span>
-            <span id="word-stats">۰ واژه بررسی شد</span>
+        <!-- Results State -->
+        <div id="studio-results-state" style="display: none; display: flex; flex-direction: column; gap: 16px;">
+          <!-- Audio Player Block -->
+          <div class="audio-player-card" id="audio-player-wrapper">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--accent-green);">فایل صوتی آزمون شنیداری</span>
+              <span class="badge green" id="audio-speakers-label">Fola & Rami</span>
+            </div>
+            <audio id="exam-audio-player" controls preload="metadata"></audio>
+            <a href="#" download="listening_audio.mp3" class="pill-btn download-pill-green" id="download-audio-link">
+              <span>دریافت مستقیم فایل صوتی (MP3)</span>
+            </a>
           </div>
-          <div class="segmented-bar" id="segmented-strip" aria-hidden="true"></div>
 
-          <!-- Highlighted Text Preview -->
-          <div class="control-label" style="margin-block-start: 6px;">متن با برجسته‌سازی کلمات خارج از سطح:</div>
-          <div class="preview-box" id="annotated-preview"></div>
+          <!-- Document Downloads -->
+          <div class="field-label" style="font-weight: 700; color: var(--text);">دریافت برگه‌های آماده چاپ و ویرایش:</div>
+          <div class="download-group">
+            <a href="#" class="pill-btn download-pill-main" id="download-docx-btn">
+              <span>برگه سوالات Word (.docx)</span>
+            </a>
+            <a href="#" class="pill-btn" id="download-pdf-btn">
+              <span>برگه سوالات PDF آماده چاپ</span>
+            </a>
+            <a href="#" class="pill-btn" id="download-key-btn">
+              <span>پاسخنامه تشریحی دبیر (PDF)</span>
+            </a>
+            <a href="#" class="pill-btn" id="download-html-btn" target="_blank">
+              <span>مشاهده و چاپ مستقیم (HTML)</span>
+            </a>
+          </div>
 
-          <!-- Out of syllabus list -->
-          <div class="control-label" id="words-header" style="margin-block-start: 8px;">کلمات نیازمند جایگزینی:</div>
-          <div class="inset-list" id="words-list"></div>
-
-          <!-- Grammar violations list -->
-          <div class="control-label" id="grammar-header" style="margin-block-start: 8px;">ساختارهای گرامری خارج از محدوده:</div>
-          <div class="inset-list" id="grammar-list"></div>
+          <!-- Live Preview of Generated Dialogue and Questions -->
+          <div class="field-label" style="font-weight: 700; color: var(--text);">پیش‌نمایش متن مکالمه و سوالات آزمون:</div>
+          <div class="text-preview" id="studio-text-preview"></div>
         </div>
       </section>
     </main>
 
+    <!-- TAB 2: TEXT VALIDATOR (Secondary Workspace) -->
+    <div class="workspace" id="tab-validator-content" style="display: none;">
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">اعتبارسنجی متن آزاد</h2>
+          <span class="card-meta" id="val-char-count">۰ کاراکتر</span>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="val-text">متن انگلیسی خود را وارد کنید</label>
+          <textarea id="val-text" class="pill-input" style="min-height: 200px; border-radius: 1rem; direction: ltr; font-family: monospace;"></textarea>
+        </div>
+        <div class="card-header">
+          <button type="button" class="primary-btn" id="val-analyze-btn">بررسی متن</button>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">نتایج انطباق سیلابس</h2>
+          <span class="badge" id="val-badge">آماده</span>
+        </div>
+        <div id="val-results-box" class="inset-list">
+          <div class="state-desc" style="padding: 20px; text-align: center;">متن را در کادر مقابل بنویسید و بررسی کنید.</div>
+        </div>
+      </section>
+    </div>
+
     <!-- Footer -->
     <footer>
-      <div>سامانه متن‌باز پایگاه دانش برنامه درسی زبان انگلیسی ایران (Grades 7 to 12)</div>
-      <div class="footer-links">
+      <div>پلتفرم هوشمند برنامه درسی زبان انگلیسی ایران (پایه‌های ۷ تا ۱۲)</div>
+      <div style="display: flex; gap: 14px;">
         <a class="footer-link" href="https://github.com/IHosseini083/vision-kb" target="_blank" rel="noopener">مخزن گیت‌هاب</a>
-        <a class="footer-link" href="/api/health">وضعیت سرویس</a>
+        <a class="footer-link" href="/api/health">وضعیت سرور</a>
       </div>
     </footer>
   </div>
 
+  <!-- Audio Element for Voice Previews -->
+  <audio id="preview-audio-player" style="display: none;"></audio>
+
   <script>
-    // Persian digits converter
     function toPersianDigits(n) {
       const p = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
       return String(n).replace(/[0-9]/g, function (d) { return p[+d]; });
     }
 
-    // Theme Switcher Logic
+    // Theme Switcher
     const themeButtons = document.querySelectorAll('[data-set-theme]');
     const rootEl = document.documentElement;
 
@@ -746,31 +802,49 @@
     applyTheme(savedTheme);
 
     themeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        applyTheme(btn.getAttribute('data-set-theme'));
-      });
+      btn.addEventListener('click', () => applyTheme(btn.getAttribute('data-set-theme')));
     });
 
-    // Grade and Lesson dynamic populator
+    // Navigation Tabs
+    const tabStudioBtn = document.getElementById('tab-studio-btn');
+    const tabValidatorBtn = document.getElementById('tab-validator-btn');
+    const tabStudioContent = document.getElementById('tab-studio-content');
+    const tabValidatorContent = document.getElementById('tab-validator-content');
+
+    tabStudioBtn.addEventListener('click', () => {
+      tabStudioBtn.classList.add('active');
+      tabValidatorBtn.classList.remove('active');
+      tabStudioContent.style.display = 'grid';
+      tabValidatorContent.style.display = 'none';
+    });
+
+    tabValidatorBtn.addEventListener('click', () => {
+      tabValidatorBtn.classList.add('active');
+      tabStudioBtn.classList.remove('active');
+      tabValidatorContent.style.display = 'grid';
+      tabStudioContent.style.display = 'none';
+    });
+
+    // Dynamic Lessons Loader
     let lessonsData = null;
-    const gradeSelect = document.getElementById('grade-select');
-    const lessonSelect = document.getElementById('lesson-select');
+    const gradeSelect = document.getElementById('studio-grade-select');
+    const lessonSelect = document.getElementById('studio-lesson-select');
 
     async function loadLessons() {
       try {
         const res = await fetch('/api/lessons');
         const data = await res.json();
         lessonsData = data.grades;
-        updateLessonOptions();
+        updateLessons();
       } catch (e) {
         console.error('Failed to load lessons', e);
       }
     }
 
-    function updateLessonOptions() {
+    function updateLessons() {
       if (!lessonsData) return;
-      const selectedGrade = parseInt(gradeSelect.value, 10);
-      const gradeObj = lessonsData.find(g => g.grade === selectedGrade);
+      const g = parseInt(gradeSelect.value, 10);
+      const gradeObj = lessonsData.find(x => x.grade === g);
       lessonSelect.innerHTML = '';
       if (gradeObj && gradeObj.lessons) {
         gradeObj.lessons.forEach(l => {
@@ -779,225 +853,176 @@
           opt.textContent = 'درس ' + toPersianDigits(l.lesson_num) + ': ' + l.title;
           lessonSelect.appendChild(opt);
         });
-        lessonSelect.value = gradeObj.lessons.length > 1 ? '2' : '1';
       }
     }
 
-    gradeSelect.addEventListener('change', updateLessonOptions);
+    gradeSelect.addEventListener('change', updateLessons);
     loadLessons();
 
-    // Editor elements
-    const examText = document.getElementById('exam-text');
-    const charCount = document.getElementById('char-count');
-    const analyzeBtn = document.getElementById('analyze-btn');
-    const loadSampleBtn = document.getElementById('load-sample-btn');
-    const emptySampleBtn = document.getElementById('empty-sample-btn');
-    const clearBtn = document.getElementById('clear-btn');
+    // Voice Previews
+    const previewAudio = document.getElementById('preview-audio-player');
+    const playV1Btn = document.getElementById('play-v1-btn');
+    const playV2Btn = document.getElementById('play-v2-btn');
+    const voice1Select = document.getElementById('voice1-select');
+    const voice2Select = document.getElementById('voice2-select');
 
-    // Result elements
-    const stateEmpty = document.getElementById('state-empty');
-    const stateLoading = document.getElementById('state-loading');
-    const stateError = document.getElementById('state-error');
-    const stateResults = document.getElementById('state-results');
-    const errorMessage = document.getElementById('error-message');
-    const errorRetryBtn = document.getElementById('error-retry-btn');
+    function playVoiceSample(vname, btn) {
+      const url = '/api/voice-preview/' + vname.toLowerCase() + '.mp3';
+      previewAudio.src = url;
+      previewAudio.play().then(() => {
+        btn.classList.add('playing');
+        btn.querySelector('span').textContent = '⏹ در حال پخش...';
+      }).catch(err => {
+        console.log('Audio playback error', err);
+      });
 
-    const validityBadge = document.getElementById('validity-badge');
-    const coveragePercent = document.getElementById('coverage-percent');
-    const wordStats = document.getElementById('word-stats');
-    const segmentedStrip = document.getElementById('segmented-strip');
-    const annotatedPreview = document.getElementById('annotated-preview');
-    const wordsList = document.getElementById('words-list');
-    const wordsHeader = document.getElementById('words-header');
-    const grammarList = document.getElementById('grammar-list');
-    const grammarHeader = document.getElementById('grammar-header');
-
-    examText.addEventListener('input', () => {
-      charCount.textContent = toPersianDigits(examText.value.length) + ' کاراکتر';
-    });
-
-    const sampleText = 'Yesterday, the physician visited an ancient clinic. He has discovered a new medicine, but wolves were hunting near the hospital.';
-
-    function setSample() {
-      gradeSelect.value = '7';
-      updateLessonOptions();
-      lessonSelect.value = '4';
-      examText.value = sampleText;
-      charCount.textContent = toPersianDigits(sampleText.length) + ' کاراکتر';
-      triggerAnalysis();
+      previewAudio.onended = () => {
+        btn.classList.remove('playing');
+        btn.querySelector('span').textContent = '▶ پخش صدا';
+      };
     }
 
-    loadSampleBtn.addEventListener('click', setSample);
-    emptySampleBtn.addEventListener('click', setSample);
-    clearBtn.addEventListener('click', () => {
-      examText.value = '';
-      charCount.textContent = '۰ کاراکتر';
-      showState('empty');
+    playV1Btn.addEventListener('click', () => {
+      playVoiceSample(voice1Select.value, playV1Btn);
     });
 
-    function showState(st) {
-      stateEmpty.style.display = st === 'empty' ? 'flex' : 'none';
-      stateLoading.style.display = st === 'loading' ? 'flex' : 'none';
-      stateError.style.display = st === 'error' ? 'flex' : 'none';
-      stateResults.style.display = st === 'results' ? 'flex' : 'none';
-    }
+    playV2Btn.addEventListener('click', () => {
+      playVoiceSample(voice2Select.value, playV2Btn);
+    });
 
-    async function triggerAnalysis() {
-      const text = examText.value.trim();
-      if (!text) {
-        showState('empty');
-        return;
-      }
-      showState('loading');
+    // AI Exam Generation Action
+    const generateBtn = document.getElementById('generate-package-btn');
+    const studioEmpty = document.getElementById('studio-empty-state');
+    const studioLoading = document.getElementById('studio-loading-state');
+    const studioResults = document.getElementById('studio-results-state');
+    const studioStatusBadge = document.getElementById('studio-status-badge');
+
+    const audioPlayer = document.getElementById('exam-audio-player');
+    const downloadAudioLink = document.getElementById('download-audio-link');
+    const downloadDocxBtn = document.getElementById('download-docx-btn');
+    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+    const downloadKeyBtn = document.getElementById('download-key-btn');
+    const downloadHtmlBtn = document.getElementById('download-html-btn');
+    const textPreview = document.getElementById('studio-text-preview');
+    const audioSpeakersLabel = document.getElementById('audio-speakers-label');
+
+    generateBtn.addEventListener('click', async () => {
+      studioEmpty.style.display = 'none';
+      studioLoading.style.display = 'flex';
+      studioResults.style.display = 'none';
+      studioStatusBadge.textContent = 'در حال ساخت...';
+      generateBtn.disabled = true;
 
       const payload = {
         grade: parseInt(gradeSelect.value, 10),
-        max_lesson: parseInt(lessonSelect.value, 10),
-        text: text
+        lesson_num: parseInt(lessonSelect.value, 10),
+        exam_type: document.getElementById('studio-exam-type').value,
+        school_name: document.getElementById('school-name-input').value.trim() || 'دبیرستان نمونه دولتی',
+        teacher_name: document.getElementById('teacher-name-input').value.trim() || 'دبیر محترم',
+        voice1: voice1Select.value,
+        voice2: voice2Select.value,
+        speed_wpm: parseInt(document.getElementById('speed-select').value, 10),
       };
 
       try {
-        const res = await fetch('/api/analyze', {
+        const res = await fetch('/api/generate-exam', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
 
         const data = await res.json();
+        generateBtn.disabled = false;
+        studioLoading.style.display = 'none';
+
         if (!res.ok) {
-          errorMessage.textContent = data.error || 'خطایی در پردازش رخ داد.';
-          showState('error');
+          alert(data.error || 'خطایی در پردازش رخ داد.');
+          studioEmpty.style.display = 'flex';
+          studioStatusBadge.textContent = 'خطا';
           return;
         }
 
-        renderResults(data, text);
-        showState('results');
-      } catch (err) {
-        errorMessage.textContent = 'خطا در ارتباط با سرور: لطفاً اتصال شبکه را بررسی کنید.';
-        showState('error');
-      }
-    }
+        // Render Generated Results
+        studioResults.style.display = 'flex';
+        studioStatusBadge.textContent = 'آماده دانلود ✓';
+        studioStatusBadge.className = 'badge green';
 
-    analyzeBtn.addEventListener('click', triggerAnalysis);
-    errorRetryBtn.addEventListener('click', triggerAnalysis);
+        downloadDocxBtn.href = data.docx_url;
+        downloadPdfBtn.href = data.pdf_url;
+        downloadKeyBtn.href = data.key_pdf_url;
+        downloadHtmlBtn.href = data.html_url;
 
-    function renderResults(data, originalText) {
-      const ratio = data.coverage_ratio || 0;
-      coveragePercent.textContent = toPersianDigits(Math.round(ratio)) + '٪';
-      wordStats.textContent = toPersianDigits(data.word_count || 0) + ' کلمه شمارش شد';
-
-      // 20 segments strip
-      segmentedStrip.innerHTML = '';
-      const filledCount = Math.round((ratio / 100) * 20);
-      for (let i = 0; i < 20; i++) {
-        const seg = document.createElement('div');
-        seg.className = 'segment' + (i < filledCount ? ' filled' : '');
-        segmentedStrip.appendChild(seg);
-      }
-
-      if (data.is_valid) {
-        validityBadge.textContent = 'منطبق با سرفصل';
-        validityBadge.style.color = 'var(--accent-green)';
-        validityBadge.style.backgroundColor = 'color-mix(in srgb, var(--accent-green) 16%, transparent)';
-      } else {
-        validityBadge.textContent = 'نیازمند اصلاح';
-        validityBadge.style.color = 'var(--accent-blue)';
-        validityBadge.style.backgroundColor = 'color-mix(in srgb, var(--accent-blue) 16%, transparent)';
-      }
-
-      // Render Annotated Preview
-      const outSet = new Set((data.out_of_syllabus_words || []).map(w => w.toLowerCase()));
-      const tokens = originalText.split(/(\s+|[.,!?;:()"])/);
-      annotatedPreview.innerHTML = '';
-      tokens.forEach(tok => {
-        const cleanTok = tok.toLowerCase().replace(/[^a-z']/g, '');
-        if (cleanTok && outSet.has(cleanTok)) {
-          const span = document.createElement('span');
-          span.className = 'token-out';
-          span.textContent = tok;
-          annotatedPreview.appendChild(span);
-        } else {
-          annotatedPreview.appendChild(document.createTextNode(tok));
+        if (data.audio_url) {
+          audioPlayer.src = data.audio_url;
+          downloadAudioLink.href = data.audio_url;
+          audioSpeakersLabel.textContent = data.voice1 + ' & ' + data.voice2;
         }
-      });
 
-      // Out of Syllabus Words
-      wordsList.innerHTML = '';
-      const outWords = data.out_of_syllabus_words || [];
-      if (outWords.length === 0) {
-        wordsHeader.style.display = 'none';
-      } else {
-        wordsHeader.style.display = 'block';
-        outWords.forEach(w => {
-          const diag = (data.word_diagnostics && data.word_diagnostics[w]) || {};
-          const row = document.createElement('div');
-          row.className = 'inset-row attention';
-
-          let badgeText = 'خارج از دوره متوسطه';
-          if (diag.taught_in_grade) {
-            badgeText = 'تدریس در پایه ' + toPersianDigits(diag.taught_in_grade) + ' (درس ' + toPersianDigits(diag.taught_in_lesson) + ')';
-          }
-
-          let synHtml = '';
-          const alts = diag.in_syllabus_alternatives || [];
-          if (alts.length > 0) {
-            synHtml = '<div class="synonym-group"><span class="synonym-label">جایگزین‌های مجاز کتاب:</span>';
-            alts.forEach(syn => {
-              synHtml += '<button type="button" class="synonym-pill" data-replace-from="' + w + '" data-replace-to="' + syn + '">✓ ' + syn + '</button>';
-            });
-            synHtml += '</div>';
-          } else {
-            synHtml = '<div class="row-sub">مترادف ساده‌تری در پایه‌های قبلی یافت نشد؛ بازنویسی جمله پیشنهاد می‌شود.</div>';
-          }
-
-          row.innerHTML =
-            '<div class="row-top">' +
-              '<div class="word-badge-group">' +
-                '<span class="target-word">' + w + '</span>' +
-                '<span class="badge">' + badgeText + '</span>' +
-              '</div>' +
-            '</div>' +
-            (diag.definition_fa ? '<div class="row-sub">معنی کتاب: ' + diag.definition_fa + '</div>' : '') +
-            synHtml;
-
-          wordsList.appendChild(row);
-        });
-
-        // Add replace event listeners
-        wordsList.querySelectorAll('.synonym-pill').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const fromW = btn.getAttribute('data-replace-from');
-            const toW = btn.getAttribute('data-replace-to');
-            const regex = new RegExp('\\b' + fromW + '\\b', 'gi');
-            examText.value = examText.value.replace(regex, toW);
-            charCount.textContent = toPersianDigits(examText.value.length) + ' کاراکتر';
-            triggerAnalysis();
+        // Preview text
+        textPreview.innerHTML = '';
+        if (data.dialogue) {
+          data.dialogue.forEach(d => {
+            const p = document.createElement('p');
+            p.className = 'dialogue-turn';
+            p.innerHTML = '<span class="speaker-label">' + d.speaker + ':</span> ' + d.text;
+            textPreview.appendChild(p);
           });
-        });
-      }
+        }
+        if (data.part_a && data.part_a.length) {
+          const sep = document.createElement('div');
+          sep.style.margin = '12px 0 6px 0';
+          sep.style.fontWeight = 'bold';
+          sep.textContent = 'Questions (Part A: True/False):';
+          textPreview.appendChild(sep);
+          data.part_a.forEach(q => {
+            const qp = document.createElement('p');
+            qp.textContent = q.num + '. ' + q.text + ' ( ' + q.answer + ' )';
+            textPreview.appendChild(qp);
+          });
+        }
 
-      // Grammar hits
-      grammarList.innerHTML = '';
-      const gHits = data.forbidden_grammar_hits || [];
-      if (gHits.length === 0) {
-        grammarHeader.style.display = 'none';
-      } else {
-        grammarHeader.style.display = 'block';
-        gHits.forEach(g => {
-          const row = document.createElement('div');
-          row.className = 'inset-row attention';
-          row.innerHTML =
-            '<div class="row-top">' +
-              '<div class="word-badge-group">' +
-                '<span class="target-word" style="direction: ltr;">"' + g.match + '"</span>' +
-                '<span class="badge">' + (g.type || 'گرامر خارج از سرفصل') + '</span>' +
-              '</div>' +
-            '</div>' +
-            '<div class="row-sub">' + (g.reason_fa || g.reason || '') + '</div>';
-          grammarList.appendChild(row);
-        });
+      } catch (err) {
+        generateBtn.disabled = false;
+        studioLoading.style.display = 'none';
+        studioEmpty.style.display = 'flex';
+        alert('خطا در برقراری ارتباط با سرور.');
       }
-    }
+    });
+
+    // Free Text Validator Logic (Tab 2)
+    const valText = document.getElementById('val-text');
+    const valAnalyzeBtn = document.getElementById('val-analyze-btn');
+    const valBadge = document.getElementById('val-badge');
+    const valResultsBox = document.getElementById('val-results-box');
+
+    valAnalyzeBtn.addEventListener('click', async () => {
+      const text = valText.value.trim();
+      if (!text) return;
+      valBadge.textContent = 'در حال بررسی...';
+      try {
+        const res = await fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ grade: 10, max_lesson: 2, text })
+        });
+        const data = await res.json();
+        valBadge.textContent = data.is_valid ? 'منطبق با سرفصل' : 'نیازمند اصلاح';
+        valBadge.className = data.is_valid ? 'badge green' : 'badge';
+        valResultsBox.innerHTML = '';
+        if (data.out_of_syllabus_words && data.out_of_syllabus_words.length) {
+          data.out_of_syllabus_words.forEach(w => {
+            const row = document.createElement('div');
+            row.className = 'inset-row attention';
+            row.innerHTML = '<strong>' + w + '</strong> (کلمه خارج از درس)';
+            valResultsBox.appendChild(row);
+          });
+        } else {
+          valResultsBox.innerHTML = '<div style="padding: 16px; color: var(--accent-green);">تمامی کلمات و گرامر در محدوده مصوب هستند.</div>';
+        }
+      } catch (e) {
+        valBadge.textContent = 'خطا';
+      }
+    });
   </script>
 </body>
 </html>

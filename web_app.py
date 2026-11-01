@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 from sqlalchemy import select
 
 from advisor import analyze_and_advise
+from ai_generator import VOICE_CATALOG, generate_exam_package_with_ai
 from models import Lesson, Passage, session_scope
 from schema import init_db
 from seed_all_grades import seed_curriculum
@@ -89,6 +90,9 @@ def handle_api_request(
     if method == "GET" and path == "/api/health":
         return 200, {"status": "ok", "grades": 6, "lessons": 31}
 
+    if method == "GET" and path == "/api/voices":
+        return 200, {"voices": list(VOICE_CATALOG.values())}
+
     if method == "GET" and path == "/api/lessons":
         with session_scope(DB_PATH) as session:
             lessons = list(
@@ -162,6 +166,38 @@ def handle_api_request(
 
         return 200, result
 
+    if method == "POST" and path == "/api/generate-exam":
+        if not active_limiter.allow(client_ip):
+            return 429, {"error": "تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً یک دقیقه صبر کنید."}
+
+        if not isinstance(payload, dict):
+            return 400, {"error": "فرمت درخواست نامعتبر است."}
+
+        try:
+            grade = int(payload.get("grade", 10))
+            lesson_num = int(payload.get("lesson_num", 1))
+        except (ValueError, TypeError):
+            return 400, {"error": "پایه یا شماره درس نامعتبر است."}
+
+        exam_type = str(payload.get("exam_type", "Listening"))
+        school_name = str(payload.get("school_name", "دبیرستان نمونه دولتی"))
+        teacher_name = str(payload.get("teacher_name", "دبیر محترم"))
+        voice1 = str(payload.get("voice1", "fola"))
+        voice2 = str(payload.get("voice2", "rami"))
+        speed_wpm = int(payload.get("speed_wpm", 130))
+
+        result = generate_exam_package_with_ai(
+            grade=grade,
+            lesson_num=lesson_num,
+            exam_type=exam_type,
+            school_name=school_name,
+            teacher_name=teacher_name,
+            voice1=voice1,
+            voice2=voice2,
+            speed_wpm=speed_wpm,
+        )
+        return 200, result
+
     return 404, {"error": "مسیر مورد نظر یافت نشد."}
 
 
@@ -208,6 +244,46 @@ class VisionRequestHandler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(font_bytes)
                 return
+
+        if parsed.path.startswith("/api/voice-preview/"):
+            fname = os.path.basename(parsed.path)
+            previews_dir = os.path.join(BASE_DIR, "assets", "audio_previews")
+            fpath = os.path.join(previews_dir, fname)
+            if os.path.exists(fpath) and fname.endswith((".mp3", ".wav")):
+                with open(fpath, "rb") as f:
+                    audio_bytes = f.read()
+                mime = "audio/mpeg" if fname.endswith(".mp3") else "audio/wav"
+                self.send_response(200)
+                self.send_header("Content-Type", mime)
+                self.send_header("Content-Length", str(len(audio_bytes)))
+                self.end_headers()
+                self.wfile.write(audio_bytes)
+                return
+
+        if parsed.path.startswith("/api/download/"):
+            parts = parsed.path.strip("/").split("/")
+            if len(parts) == 4 and parts[0] == "api" and parts[1] == "download":
+                sess_id, fname = parts[2], parts[3]
+                fpath = os.path.join(BASE_DIR, "exports", "generated", sess_id, fname)
+                if os.path.exists(fpath):
+                    with open(fpath, "rb") as f:
+                        file_bytes = f.read()
+                    mime = "application/octet-stream"
+                    if fname.endswith(".docx"):
+                        mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    elif fname.endswith(".pdf"):
+                        mime = "application/pdf"
+                    elif fname.endswith(".html"):
+                        mime = "text/html; charset=utf-8"
+                    elif fname.endswith(".mp3"):
+                        mime = "audio/mpeg"
+                    self.send_response(200)
+                    self.send_header("Content-Type", mime)
+                    self.send_header("Content-Disposition", f'attachment; filename="{fname}"')
+                    self.send_header("Content-Length", str(len(file_bytes)))
+                    self.end_headers()
+                    self.wfile.write(file_bytes)
+                    return
 
         status, body = handle_api_request("GET", parsed.path, None, self._client_ip())
         self._send_json(status, body)
