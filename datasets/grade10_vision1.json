@@ -28,6 +28,50 @@
           "conditionals_type_2_3",
           "relative_clauses"
         ]
+      },
+      "grammar_details": {
+        "focus": "Simple Future (will vs be going to) & Nouns",
+        "rules": [
+          {
+            "structure": "Simple Future with will",
+            "formula": "Subject + will + base verb",
+            "usage": "Predictions based on belief/opinion, instant decisions, offers, promises.",
+            "examples": [
+              "I think the cheetahs will survive.",
+              "I will help the injured leopard."
+            ]
+          },
+          {
+            "structure": "Future with be going to",
+            "formula": "Subject + am/is/are + going to + base verb",
+            "usage": "Plans, prior intentions, and predictions based on present evidence.",
+            "examples": [
+              "Look at the dark clouds; it is going to rain.",
+              "We are going to visit Golestan National Park tomorrow."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Types of Nouns (Common vs Proper Nouns; Singular vs Plural Nouns)",
+        "rules": [
+          "A common noun names general people, places, or things (animal, forest, river).",
+          "A proper noun names a specific person, place, or day and always starts with a capital letter (Iran, Tehran, Babak, Saturday).",
+          "Regular plurals add -s or -es (cheetah -> cheetahs, box -> boxes). Irregular plurals change form (man -> men, child -> children, foot -> feet)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Suffixes -ful and -less",
+        "rules": "Suffix -ful means 'full of' (hopeful, careful, useful, colorful, painful). Suffix -less means 'without' (hopeless, careless, useless, colorless, painless).",
+        "examples": [
+          "hope -> hopeful / hopeless",
+          "care -> careful / careless",
+          "use -> useful / useless"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Plural -s and -es",
+        "rules": "Pronounced /s/ after voiceless sounds /p, t, k, f/ (ducks, plants). Pronounced /z/ after voiced sounds /b, d, g, v, m, n, vowels/ (pandas, plains). Pronounced /iz/ after sibilants /s, z, sh, ch, dzh/ (busses, foxes)."
       }
     },
     {
@@ -37,8 +81,8 @@
       "allowed_grammar": {
         "tenses": [
           "simple_present",
-          "simple_future_will",
-          "be_going_to"
+          "simple_past",
+          "future_will"
         ],
         "structures": [
           "comparative_adjectives",
@@ -48,15 +92,64 @@
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_progressive",
           "present_perfect",
           "past_perfect"
         ],
         "forbidden_structures": [
           "passive_voice",
-          "conditionals_type_2_3",
-          "relative_clauses"
+          "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Comparative & Superlative Adjectives and Adjective Order",
+        "rules": [
+          {
+            "structure": "Comparative Adjectives",
+            "formula": "Short adj + -er + than  |  more + long adj + than",
+            "usage": "Comparing two people, objects, or concepts.",
+            "examples": [
+              "The heart is smaller than the lungs.",
+              "Telescopes are more powerful than eyeglasses."
+            ]
+          },
+          {
+            "structure": "Superlative Adjectives",
+            "formula": "the + short adj + -est  |  the most + long adj",
+            "usage": "Comparing one against three or more members of a group.",
+            "examples": [
+              "Jupiter is the largest planet in our solar system.",
+              "The human brain is the most complex wonder of creation."
+            ]
+          },
+          {
+            "structure": "Order of Adjectives",
+            "formula": "Opinion -> Size -> Age -> Shape -> Color -> Origin -> Material -> Noun",
+            "examples": [
+              "a wonderful small round red cell",
+              "a beautiful ancient rocky planet"
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Adjectives (Attributive vs Predicative)",
+        "rules": [
+          "Attributive adjectives sit before the noun (a healthy heart, powerful microscopes).",
+          "Predicative adjectives sit after linking verbs like be, look, feel, seem (The planet is rocky, He looks healthy)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Compound Nouns (Noun + Noun)",
+        "rules": "Two nouns combined to make a new concept. The first noun modifies the second noun (blood cell, water drop, solar system, heart beat, textbook).",
+        "examples": [
+          "water + drop = water drop",
+          "blood + cell = blood cell",
+          "solar + system = solar system"
+        ]
+      },
+      "see_also": {
+        "topic": "Syllable Stress in Numbers & Adjectives",
+        "rules": "Stress on teen numbers is on the second syllable (fif'teen). Stress on ty numbers is on the first syllable ('fifty)."
       }
     },
     {
@@ -65,6 +158,7 @@
       "theme": "Famous scientists, physicians, laboratory experiments, medicine, education",
       "allowed_grammar": {
         "tenses": [
+          "simple_present",
           "simple_past",
           "past_progressive"
         ],
@@ -76,13 +170,63 @@
       "forbidden_grammar": {
         "forbidden_tenses": [
           "present_perfect",
-          "past_perfect",
-          "future_continuous"
+          "past_perfect"
         ],
         "forbidden_structures": [
           "passive_voice",
           "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Past Progressive Tense with when/while & Reflexive Pronouns",
+        "rules": [
+          {
+            "structure": "Past Progressive",
+            "formula": "Subject + was/were + V-ing",
+            "usage": "Action continuing at a specific point in the past.",
+            "examples": [
+              "Dr. Gharib was examining sick children at 5 PM yesterday."
+            ]
+          },
+          {
+            "structure": "While and When Clauses",
+            "formula": "While + past progressive, simple past  |  Simple past + when + simple past / past progressive",
+            "examples": [
+              "While he was studying medicine in France, he conducted valuable research.",
+              "The light went out when scientists were working in the laboratory."
+            ]
+          },
+          {
+            "structure": "Reflexive Pronouns",
+            "formula": "myself, yourself, himself, herself, itself, ourselves, yourselves, themselves",
+            "usage": "Used when the subject and object are the same person, or for emphasis.",
+            "examples": [
+              "Dr. Gharib founded the hospital himself.",
+              "Children can protect themselves against microbes."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Action Verbs vs State Verbs & Subject-Verb Agreement",
+        "rules": [
+          "Action verbs describe dynamic actions (cure, invent, examine, build).",
+          "State verbs describe states, thoughts, or feelings and are rarely used in continuous tenses (know, believe, like, understand).",
+          "Singular subjects take singular verbs; plural subjects take plural verbs."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Prefix un- and Agent Suffixes -er / -or",
+        "rules": "Prefix un- means 'not' or opposite (unimportant, uneducated, unknown, uncertain). Suffixes -er and -or turn verbs into agent nouns (invent -> inventor, hunt -> hunter, farm -> farmer, act -> actor, educate -> educator).",
+        "examples": [
+          "known -> unknown",
+          "invent -> inventor",
+          "teach -> teacher"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Reflexive Pronouns and Sentence Stress",
+        "rules": "In reflexive pronouns, the primary stress falls on 'self' or 'selves' (him'self, them'selves)."
       }
     },
     {
@@ -93,11 +237,12 @@
         "tenses": [
           "simple_present",
           "simple_past",
-          "simple_future"
+          "future_will",
+          "past_progressive"
         ],
         "structures": [
           "modal_verbs_can_may_must_should",
-          "prepositions_time_place"
+          "prepositions_of_location_time"
         ]
       },
       "forbidden_grammar": {
@@ -109,6 +254,51 @@
           "passive_voice",
           "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Modal Auxiliaries (can, may, must, should) & Prepositions",
+        "rules": [
+          {
+            "structure": "Modal Verbs",
+            "formula": "Subject + modal (can / may / must / should) + base verb",
+            "usage": "can (ability/possibility), may (polite permission), must (obligation/necessity), should (advice/recommendation).",
+            "examples": [
+              "Tourists can visit Persepolis in Fars province.",
+              "Travelers must carry their identification cards.",
+              "You should buy handicrafts to support local artists."
+            ]
+          },
+          {
+            "structure": "Prepositions of Place and Direction",
+            "examples": [
+              "in Iran",
+              "at the airport",
+              "on the plain",
+              "to Shiraz",
+              "across the historical bridge"
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Basic Sentence Structure & Prepositional Phrases",
+        "rules": [
+          "Standard English sentence order: Subject + Verb + Object + Place + Time (S V O P T).",
+          "Example: 'Many tourists (S) visit (V) Isfahan (O) in spring (T).'"
+        ]
+      },
+      "vocab_development": {
+        "topic": "Suffix -al and Word Derivations",
+        "rules": "Suffix -al converts nouns into adjectives meaning 'relating to' (culture -> cultural, history -> historical, nature -> natural, nation -> national, tradition -> traditional, religion -> religious).",
+        "examples": [
+          "culture -> cultural",
+          "history -> historical",
+          "nature -> natural"
+        ]
+      },
+      "see_also": {
+        "topic": "Rising and Falling Intonation in Requests and Statements",
+        "rules": "Yes/No questions end with rising intonation (Can you help me?). Wh-questions and statements end with falling intonation (Where are you traveling?)."
       }
     }
   ],
@@ -2112,6 +2302,586 @@
       "Our flight to Shiraz leaves at eight in the morning.",
       "an act of flying through the air by airplane",
       "get_ready"
+    ],
+    [
+      "among",
+      "among",
+      "prep",
+      1,
+      "در میان",
+      "The cheetah is among endangered species.",
+      "in the company of or surrounded by",
+      "reading"
+    ],
+    [
+      "beautiful",
+      "beautiful",
+      "adj",
+      1,
+      "زیبا",
+      "The cheetah is a beautiful wild animal.",
+      "pleasing the senses or mind aesthetically",
+      "reading"
+    ],
+    [
+      "national",
+      "national",
+      "adj",
+      1,
+      "ملی",
+      "Golestan is a protected national park.",
+      "relating to a nation",
+      "conversation"
+    ],
+    [
+      "reply",
+      "reply",
+      "verb",
+      1,
+      "پاسخ دادن",
+      "The park ranger replied politely.",
+      "to say something in response to something",
+      "conversation"
+    ],
+    [
+      "mainly",
+      "mainly",
+      "adv",
+      1,
+      "عمدتاً، بیشتر",
+      "Cheetahs live mainly in open plains.",
+      "more than anything else",
+      "conversation"
+    ],
+    [
+      "throw",
+      "throw",
+      "verb",
+      1,
+      "انداختن، پرتاب کردن",
+      "Never throw garbage in the forest.",
+      "propel with force through the air",
+      "conversation"
+    ],
+    [
+      "real",
+      "real",
+      "adj",
+      2,
+      "واقعی",
+      "The human body is a real wonder.",
+      "actually existing as a thing or occurring in fact",
+      "reading"
+    ],
+    [
+      "minute",
+      "minute",
+      "noun",
+      2,
+      "دقیقه",
+      "The heart pumps 70 times a minute.",
+      "a period of time equal to sixty seconds",
+      "reading"
+    ],
+    [
+      "scientist",
+      "scientist",
+      "noun",
+      2,
+      "دانشمند",
+      "Scientists use telescopes to observe stars.",
+      "a person studying natural or physical sciences",
+      "reading"
+    ],
+    [
+      "distant",
+      "distant",
+      "adj",
+      2,
+      "دور، دوردست",
+      "We can see distant stars in the sky.",
+      "far away in space or time",
+      "reading"
+    ],
+    [
+      "dad",
+      "dad",
+      "noun",
+      2,
+      "پدر، بابا",
+      "Alireza looked at the stars with his dad.",
+      "one's father",
+      "conversation"
+    ],
+    [
+      "ancient",
+      "ancient",
+      "adj",
+      2,
+      "باستانی",
+      "Ancient astronomers studied the moon.",
+      "belonging to the very distant past",
+      "conversation"
+    ],
+    [
+      "certainly",
+      "certainly",
+      "adv",
+      2,
+      "البته، مسلماً",
+      "Certainly, Iranian scientists were pioneers.",
+      "undoubtedly; definitely",
+      "conversation"
+    ],
+    [
+      "famous",
+      "famous",
+      "adj",
+      2,
+      "مشهور",
+      "Maragheh is a famous historical observatory.",
+      "known about by many people",
+      "conversation"
+    ],
+    [
+      "advanced",
+      "advanced",
+      "adj",
+      2,
+      "پیشرفته",
+      "The observatory had advanced equipment.",
+      "far on or ahead in development or progress",
+      "conversation"
+    ],
+    [
+      "instrument",
+      "instrument",
+      "noun",
+      2,
+      "ابزار، وسیله",
+      "Telescopes are optical instruments.",
+      "a tool or implement for precision work",
+      "conversation"
+    ],
+    [
+      "high",
+      "high",
+      "adj",
+      3,
+      "عالی، بالا",
+      "He finished his high school education.",
+      "of great vertical extent or level",
+      "reading"
+    ],
+    [
+      "education",
+      "education",
+      "noun",
+      3,
+      "تحصیلات، آموزش",
+      "Dr. Gharib continued his education in France.",
+      "the process of receiving or giving systematic instruction",
+      "reading"
+    ],
+    [
+      "abroad",
+      "abroad",
+      "adv",
+      3,
+      "خارج از کشور",
+      "He traveled abroad to study medicine.",
+      "in or to a foreign country or countries",
+      "reading"
+    ],
+    [
+      "become",
+      "become",
+      "verb",
+      3,
+      "شدن",
+      "He became a distinguished doctor in 1316.",
+      "begin to be",
+      "reading"
+    ],
+    [
+      "homeland",
+      "homeland",
+      "noun",
+      3,
+      "وطن، میهن",
+      "He returned to his beloved homeland.",
+      "a person's or a people's native land",
+      "reading"
+    ],
+    [
+      "establish",
+      "establish",
+      "verb",
+      3,
+      "تأسیس کردن",
+      "He established Children's Hospital Center.",
+      "set up on a firm or permanent basis",
+      "reading"
+    ],
+    [
+      "center",
+      "center",
+      "noun",
+      3,
+      "مرکز",
+      "Tehran is the medical center of Iran.",
+      "the middle point or a facility",
+      "reading"
+    ],
+    [
+      "examine",
+      "examine",
+      "verb",
+      3,
+      "معاینه کردن، بررسی کردن",
+      "Dr. Gharib examined sick children.",
+      "inspect someone or something thoroughly",
+      "reading"
+    ],
+    [
+      "textbook",
+      "textbook",
+      "noun",
+      3,
+      "کتاب درسی",
+      "He wrote the first textbook on pediatrics.",
+      "a book used as a standard work for study",
+      "reading"
+    ],
+    [
+      "person",
+      "person",
+      "noun",
+      3,
+      "شخص، انسان",
+      "He was a very kind person.",
+      "a human being regarded as an individual",
+      "reading"
+    ],
+    [
+      "service",
+      "service",
+      "noun",
+      3,
+      "خدمت",
+      "People remember his medical services.",
+      "the action of helping or doing work for someone",
+      "reading"
+    ],
+    [
+      "arrive",
+      "arrive",
+      "verb",
+      3,
+      "رسیدن",
+      "Students arrived at Pasteur Institute.",
+      "reach a destination",
+      "conversation"
+    ],
+    [
+      "microscopic",
+      "microscopic",
+      "adj",
+      3,
+      "میکروسکوپی",
+      "They studied microscopic cells.",
+      "so small as to be visible only with a microscope",
+      "conversation"
+    ],
+    [
+      "develop",
+      "develop",
+      "verb",
+      3,
+      "توسعه دادن، ساختن",
+      "Scientists develop new vaccines.",
+      "grow or cause to grow and become more mature",
+      "conversation"
+    ],
+    [
+      "foreign",
+      "foreign",
+      "adj",
+      3,
+      "خارجی",
+      "He worked with foreign medical schools.",
+      "from another country",
+      "conversation"
+    ],
+    [
+      "collaborate",
+      "collaborate",
+      "verb",
+      3,
+      "همکاری کردن",
+      "Iranian researchers collaborated with universities.",
+      "work jointly on an activity or project",
+      "conversation"
+    ],
+    [
+      "world",
+      "world",
+      "noun",
+      3,
+      "جهان",
+      "Avicenna is a world-renowned physician.",
+      "the earth together with all of its countries and peoples",
+      "conversation"
+    ],
+    [
+      "renowned",
+      "renowned",
+      "adj",
+      3,
+      "نامدار، نام‌آور",
+      "He was a renowned professor.",
+      "known or talked about by many people",
+      "conversation"
+    ],
+    [
+      "university",
+      "university",
+      "noun",
+      3,
+      "دانشگاه",
+      "Tehran University has medical faculties.",
+      "a high-level educational institution",
+      "conversation"
+    ],
+    [
+      "wish",
+      "wish",
+      "noun",
+      3,
+      "آرزو",
+      "His wish was to train young doctors.",
+      "a desire or hope for something to happen",
+      "conversation"
+    ],
+    [
+      "different",
+      "different",
+      "adj",
+      4,
+      "متفاوت، گوناگون",
+      "Tourists visit different parts of Iran.",
+      "not the same as another or each other",
+      "reading"
+    ],
+    [
+      "attract",
+      "attract",
+      "verb",
+      4,
+      "جذب کردن",
+      "Historical cities attract travelers.",
+      "cause to come to a place by offering something of interest",
+      "reading"
+    ],
+    [
+      "domestic",
+      "domestic",
+      "adj",
+      4,
+      "داخلی (کشوری)",
+      "The airport has domestic and international flights.",
+      "existing or occurring inside a particular country",
+      "reading"
+    ],
+    [
+      "worldwide",
+      "worldwide",
+      "adv",
+      4,
+      "در سراسر جهان",
+      "Iranian hospitality is famous worldwide.",
+      "extending or reaching throughout the world",
+      "reading"
+    ],
+    [
+      "meal",
+      "meal",
+      "noun",
+      4,
+      "وعده غذایی، غذا",
+      "Tourists enjoy delicious Persian meals.",
+      "any of the regular occasions on which food is eaten",
+      "reading"
+    ],
+    [
+      "agent",
+      "agent",
+      "noun",
+      4,
+      "نماینده، کارگزار",
+      "The travel agent booked our tickets.",
+      "a person who acts on behalf of another person or group",
+      "conversation"
+    ],
+    [
+      "definitely",
+      "definitely",
+      "adv",
+      4,
+      "قطعاً، حتماً",
+      "You should definitely visit Persepolis.",
+      "without doubt; clearly",
+      "conversation"
+    ],
+    [
+      "grand",
+      "grand",
+      "adj",
+      4,
+      "بزرگ، باشکوه",
+      "We shopped in the grand bazaar of Isfahan.",
+      "magnificent and imposing in appearance or size",
+      "conversation"
+    ],
+    [
+      "skilled",
+      "skilled",
+      "adj",
+      4,
+      "ماهر، زبردست",
+      "Skilled artisans weave Persian carpets.",
+      "having or showing the knowledge, ability, or training",
+      "conversation"
+    ],
+    [
+      "craftsperson",
+      "craftsperson",
+      "noun",
+      4,
+      "صنعتگر، هنرمند سنتی",
+      "Craftspeople make copper dishes by hand.",
+      "a person who is skilled in a particular craft",
+      "conversation"
+    ],
+    [
+      "miniature",
+      "miniature",
+      "noun",
+      4,
+      "نگارگری، مینیاتور",
+      "Isfahan is famous for miniature painting.",
+      "a very small and detailed painting",
+      "conversation"
+    ],
+    [
+      "painting",
+      "painting",
+      "noun",
+      4,
+      "نقاشی",
+      "The walls are decorated with Persian paintings.",
+      "the action or skill of using paint",
+      "conversation"
+    ],
+    [
+      "exquisite",
+      "exquisite",
+      "adj",
+      4,
+      "نفیس، بی‌نظیر",
+      "The bazaar sells exquisite handicrafts.",
+      "extremely beautiful and delicate",
+      "conversation"
+    ],
+    [
+      "handwoven",
+      "handwoven",
+      "adj",
+      4,
+      "دست‌باف",
+      "Handwoven rugs have high artistic value.",
+      "woven by hand rather than on a machine",
+      "conversation"
+    ],
+    [
+      "rug",
+      "rug",
+      "noun",
+      4,
+      "قالیچه، فرش",
+      "Nomads weave woolen rugs.",
+      "a floor covering of thick woven material",
+      "conversation"
+    ],
+    [
+      "dedicated",
+      "dedicated",
+      "adj",
+      3,
+      "فداکار، متعهد",
+      "He was a dedicated physician.",
+      "giving much time and energy to a noble cause",
+      "new_words"
+    ],
+    [
+      "dedicate",
+      "dedicate",
+      "verb",
+      3,
+      "وقف کردن",
+      "He dedicated his life to children.",
+      "devote to a particular subject or purpose",
+      "reading"
+    ],
+    [
+      "fond",
+      "fond",
+      "adj",
+      3,
+      "علاقه‌مند",
+      "He was very fond of children.",
+      "having an affection or liking for",
+      "new_words"
+    ],
+    [
+      "distinguished",
+      "distinguished",
+      "adj",
+      3,
+      "برجسته، نامدار",
+      "Avicenna is a distinguished scientist.",
+      "very successful and admired",
+      "new_words"
+    ],
+    [
+      "pottery",
+      "pottery",
+      "noun",
+      4,
+      "سفالگری، ظروف سفالی",
+      "Lalejin is famous for pottery.",
+      "pots and dishes made of clay",
+      "reading"
+    ],
+    [
+      "colorful",
+      "colorful",
+      "adj",
+      4,
+      "رنگارنگ",
+      "The bazaar sells colorful handicrafts.",
+      "having bright or varied colors",
+      "new_words"
+    ],
+    [
+      "international",
+      "international",
+      "adj",
+      4,
+      "بین‌المللی",
+      "Many international tourists visit Shiraz.",
+      "existing between two or more nations",
+      "new_words"
     ]
   ],
   "passages": [
@@ -2119,37 +2889,49 @@
       "lesson_num": 1,
       "section_type": "Reading",
       "title": "Endangered Animals",
-      "content": "Today, there are some endangered animals on Earth. It means that we can find only a few of them around us. Some examples are Iranian cheetahs, pandas, and blue whales. Humans destroy the natural homes of the animals in the forests, lakes, and plains. When the number of people on Earth increases, they need more places for living. They cut down trees and destroy lakes. They make homes and roads instead. Then the animals won't have a place to live. They will die out. Also, hunters hunt them for their meat or skins. If we take care of them, their number will increase. We can protect their natural homes and teach people how to love nature."
+      "content": "Today, there are some endangered animals on Earth. It means that we can find only a few of them alive. Some examples are pandas, tigers, and Asian elephants. Humans destroy the natural homes of the animals in the forests, lakes, and plains. When the number of people on Earth increases, they need more places for living. They cut down trees and destroy lakes. They make homes and roads instead. Then the animals won't have a place to live. They will die out. The Iranian cheetah is among these animals. This wild animal lives only in the plains of Iran. Now there are only a few Iranian cheetahs alive. If people take care of them, there is hope for this beautiful animal to live about."
     },
     {
       "lesson_num": 1,
       "section_type": "Conversation",
-      "title": "Saving Nature Conversation",
-      "content": "Maryam: Look at this cheetah. Is it an endangered animal?\nTeacher: Yes, it is. The Iranian cheetah is in danger of dying out.\nMaryam: Why? What is the problem?\nTeacher: Humans destroy their homes and hunt them. Also, they build roads through their natural plains.\nMaryam: How can we save them?\nTeacher: We can protect their habitats and stop cutting down trees."
+      "title": "Saving Nature in Golestan National Park",
+      "content": "Babak and his father are visiting Golestan National Park. Babak asks Mr. Razavi the park ranger: 'Are there many cheetahs living in this forest?' Mr. Razavi replies: 'No, cheetahs live mainly in open plains. Here in Golestan we protect endangered Persian leopards and brown bears.' Babak says: 'What can students do to help?' The ranger answers: 'You should learn about wildlife, protect their natural habitats, and never throw plastic into nature.'"
     },
     {
       "lesson_num": 2,
       "section_type": "Reading",
       "title": "A Wonder of Creation: The Human Heart",
-      "content": "The human body is truly a wonder of creation. The heart is one of the most powerful organs in the body. It pumps blood continuously through thousands of kilometers of blood vessels. Blood carries red and white cells. Red blood cells carry oxygen and nutrients to all parts of the body. White blood cells are like brave soldiers that defend our body against dangerous microbes, viruses, and illnesses. When you run, jump, or exercise, your active muscles need more oxygen and energy. So, your heart beats much faster to deliver oxygen quickly. Eating healthy food and regular exercise keep our heart strong."
+      "content": "The human body is a real wonder. It is sometimes good to think about our body and how it works. Our heart is an amazing organ. It pumps blood to all parts of our body. In fact, the heart pumps about 70 times a minute. There are millions of red and white blood cells in each drop of blood. Red blood cells carry oxygen from lungs to body cells. White blood cells defend our body against microbes. Blood also carries food nutrients. Look at the night sky. Scientists use powerful telescopes to look at the moon, stars, and distant planets. Earth is a wonderful planet in our solar system."
     },
     {
       "lesson_num": 2,
       "section_type": "Conversation",
-      "title": "Astronomy and Planets",
-      "content": "Ali: Look at the sky through this powerful telescope!\nSina: What can you see?\nAli: I can see Saturn and its wonderful rings.\nSina: That is amazing! Our solar system is full of wonders.\nAli: Yes, but Earth is the most wonderful planet because it has water and oxygen for living things. We should thank Allah for this great creation."
+      "title": "Astronomy and Maragheh Observatory",
+      "content": "Alireza: 'Look through the telescope, Dad! I can see the rings of Saturn.' Father: 'Yes, Saturn is one of the most wonderful planets in our solar system.' Alireza: 'Did Iranian scientists study stars in ancient times?' Father: 'Certainly! Nasir al-Din al-Tusi built the famous Maragheh observatory hundreds of years ago. It had the most advanced instruments of its time.'"
     },
     {
       "lesson_num": 3,
       "section_type": "Reading",
       "title": "Dr. Mohammad Gharib: The Dedicated Physician",
-      "content": "Dr. Mohammad Gharib was born in Tehran in 1909. He was known as the father of modern pediatrics in Iran. After studying medicine in France, he returned home to help his people. He was a generous and compassionate physician who loved children. He treated sick children and never accepted money from poor patients. He founded the first specialized children's hospital in Tehran and trained hundreds of medical students. Great scientists like Dr. Gharib and Louis Pasteur teach us that true success comes from patience, hard work, and serving humanity."
+      "content": "Dr. Mohammad Gharib was born in Tehran in 1288. After finishing his high school education, he went abroad to study medicine in France. In 1316, he became a distinguished physician and returned to his homeland. He founded modern pediatrics in Iran and established Children's Hospital Center in Tehran. Dr. Gharib was a dedicated doctor. He was very fond of children and examined poor children without taking any money. He wrote the first Persian textbook on children's diseases. He was not only a distinguished scientist but also a generous and kind person. He died in 1353, but people still remember his great services."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Research at Pasteur Institute",
+      "content": "Sina: 'What were the researchers doing in the laboratory when we arrived?' Guide: 'They were examining microscopic cells to develop new vaccines against diseases.' Sina: 'Did Dr. Gharib also work with foreign medical centers?' Guide: 'Yes, he collaborated with world-renowned universities, but his greatest wish was to train dedicated Iranian doctors to cure sick children in our own country.'"
     },
     {
       "lesson_num": 4,
       "section_type": "Reading",
       "title": "Iran: A Wonderful Destination",
-      "content": "Every year, millions of tourists and pilgrims travel to Iran. Iran is an ancient country with rich history, beautiful architecture, and hospitable people. Cities like Isfahan and Shiraz are world-famous tourist destinations. In Shiraz, tourists can visit Persepolis, beautiful Persian gardens, and the tombs of great poets like Hafez and Saadi. In Isfahan, visitors admire blue-tiled mosques, Naqsh-e Jahan Square, and ancient bridges like Si-o-se-pol. Tourists can also buy delicious local sweets and handmade handicrafts in traditional bazaars."
+      "content": "Every year, millions of people travel to different parts of the world. Tourism is very important for many countries. Iran is an ancient country with a rich culture and thousands of historical attractions. Cities like Shiraz, Isfahan, Yazd, and Mashhad attract many domestic and international tourists each year. Tourists visit ancient monuments like Persepolis and Pasargadae. They enjoy beautiful gardens, mosques, and traditional bazaars. Iranian people are known worldwide for being warm, kind, and hospitable. In every city, tourists can find delicious traditional meals and colorful handicrafts like carpets, pottery, and tilework to take home as souvenirs."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Conversation",
+      "title": "Planning a Trip to Isfahan",
+      "content": "Diego: 'Excuse me, can you help me choose the best historical attractions in Isfahan?' Travel Agent: 'Certainly! You should definitely visit Naqsh-e Jahan Square, Si-o-se-pol, and Chehel Sotoun palace.' Diego: 'Are there good places to buy traditional souvenirs?' Travel Agent: 'Yes, around the grand bazaar you can find skilled craftspeople making miniature paintings, pottery, and exquisite handwoven Persian rugs.'"
     }
   ],
   "rubrics": [

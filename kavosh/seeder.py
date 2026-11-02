@@ -91,6 +91,26 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                         theme=str(l_item["theme"]),
                         allowed_grammar=json.dumps(l_item["allowed_grammar"]),
                         forbidden_grammar=json.dumps(l_item["forbidden_grammar"]),
+                        grammar_details_json=(
+                            json.dumps(l_item["grammar_details"])
+                            if "grammar_details" in l_item
+                            else None
+                        ),
+                        writing_skills_json=(
+                            json.dumps(l_item["writing_skills"])
+                            if "writing_skills" in l_item
+                            else None
+                        ),
+                        vocab_development_json=(
+                            json.dumps(l_item["vocab_development"])
+                            if "vocab_development" in l_item
+                            else None
+                        ),
+                        see_also_json=(
+                            json.dumps(l_item["see_also"])
+                            if "see_also" in l_item
+                            else None
+                        ),
                     )
                 )
 

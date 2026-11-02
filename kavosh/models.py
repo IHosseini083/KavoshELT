@@ -33,6 +33,10 @@ class Lesson(Base):
     theme: Mapped[str] = mapped_column(Text, nullable=False)
     allowed_grammar: Mapped[str] = mapped_column(Text, nullable=False)
     forbidden_grammar: Mapped[str] = mapped_column(Text, nullable=False)
+    grammar_details_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    writing_skills_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    vocab_development_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    see_also_json: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class Vocabulary(Base):

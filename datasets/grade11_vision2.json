@@ -8,21 +8,76 @@
       "theme": "Human languages, communication, deaf culture, sign language",
       "allowed_grammar": {
         "tenses": [
-          "present_perfect_have_has_pp"
+          "simple_present",
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "structures": [
-          "for_since_time_expressions",
-          "count_noncount_nouns"
+          "for_since_prepositions",
+          "countable_uncountable_nouns",
+          "quantifiers_many_much_few_little"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "passive_voice",
           "past_perfect"
         ],
         "forbidden_structures": [
-          "conditionals_type_2"
+          "passive_voice",
+          "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Present Perfect Tense (have/has + V3) with for/since & Quantifiers",
+        "rules": [
+          {
+            "structure": "Present Perfect Tense",
+            "formula": "Subject + have/has + past participle (V3)",
+            "usage": "Actions occurring at an unspecified time before now, or actions beginning in the past and continuing into the present.",
+            "examples": [
+              "I have studied English for three years.",
+              "She has lived in Shiraz since 1395."
+            ]
+          },
+          {
+            "structure": "for vs since",
+            "formula": "for + duration of time (for two hours, for ten years)  |  since + starting point in time (since yesterday, since 1400)",
+            "examples": [
+              "They have practiced sign language for months.",
+              "He has been interested in foreign languages since childhood."
+            ]
+          },
+          {
+            "structure": "Quantifiers with Countable vs Uncountable Nouns",
+            "formula": "many / a few + countable plural nouns  |  much / a little + uncountable nouns  |  a lot of + both",
+            "examples": [
+              "There are many languages in the world.",
+              "We need a little time to translate this text."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Gerunds (V-ing) as Sentence Subjects & Word Formation",
+        "rules": [
+          "A gerund (V-ing) can function as the subject of a sentence and takes a singular verb.",
+          "Example: 'Learning a foreign language (S) opens (V) new doors to world cultures.'",
+          "Example: 'Communicating with deaf people requires sign language.'"
+        ]
+      },
+      "vocab_development": {
+        "topic": "Adverbs with -ly & Prefix re-",
+        "rules": "Suffix -ly converts adjectives into adverbs of manner (fluent -> fluently, natural -> naturally, easy -> easily, quick -> quickly). Prefix re- means 'again' (read -> reread, write -> rewrite, build -> rebuild, play -> replay).",
+        "examples": [
+          "fluent -> fluently",
+          "write -> rewrite",
+          "build -> rebuild"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Contractions & Linking Sounds",
+        "rules": "Pronunciation of have/has contractions ('ve, 's, haven't, hasn't). When a word ending in a consonant sound is followed by a word beginning with a vowel, the consonant links to the vowel."
       }
     },
     {
@@ -31,21 +86,68 @@
       "theme": "Physical health, nutrition, stress, exercise, prevention",
       "allowed_grammar": {
         "tenses": [
-          "present_perfect",
-          "modals"
+          "simple_present",
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "structures": [
           "gerunds_and_infinitives",
-          "conditional_type_1"
+          "conditional_sentences_type_1"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "passive_voice"
+          "past_perfect"
         ],
         "forbidden_structures": [
-          "conditionals_type_2"
+          "passive_voice",
+          "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Gerunds & Infinitives and Conditional Sentences Type 1",
+        "rules": [
+          {
+            "structure": "Gerunds vs Infinitives",
+            "formula": "verb + V-ing (enjoy, avoid, practice, mind, finish)  |  verb + to + base verb (decide, hope, plan, promise, want)",
+            "examples": [
+              "You should avoid eating fast food.",
+              "She decided to exercise every morning."
+            ]
+          },
+          {
+            "structure": "Conditional Sentences Type 1",
+            "formula": "If + Simple Present (condition), will / can / may + base verb (result)",
+            "usage": "Real or very likely future conditions and their probable results.",
+            "examples": [
+              "If you eat a balanced diet, you will stay energetic and healthy.",
+              "If students manage their daily stress, they can perform better in exams."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "The Three Essential Parts of a Paragraph",
+        "rules": [
+          "A paragraph is a group of sentences about a single main idea.",
+          "1. Topic Sentence: States the main topic and controlling idea.",
+          "2. Supporting Sentences: Provide explanations, facts, statistics, or examples.",
+          "3. Concluding Sentence: Summarizes the main point or restates the topic sentence."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Suffixes -tion / -sion & Suffix -ness",
+        "rules": "Suffixes -tion and -sion convert verbs into abstract nouns (pollute -> pollution, prevent -> prevention, decide -> decision). Suffix -ness converts adjectives into nouns representing states (ill -> illness, fit -> fitness, happy -> happiness, dark -> darkness).",
+        "examples": [
+          "prevent -> prevention",
+          "fit -> fitness",
+          "happy -> happiness"
+        ]
+      },
+      "see_also": {
+        "topic": "Sentence Rhythm & Pause in Conditionals",
+        "rules": "In conditional sentences, there is a slight pause and rising intonation at the end of the if-clause when it comes first, followed by a falling intonation at the end of the main clause."
       }
     },
     {
@@ -56,20 +158,67 @@
         "tenses": [
           "simple_present",
           "simple_past",
+          "future_will",
           "present_perfect"
         ],
         "structures": [
-          "conditional_type_1",
-          "infinitives_of_purpose"
+          "conditionals_type_1_modal_imperative",
+          "infinitives_of_purpose",
+          "introductory_tag_questions"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "passive_voice_advanced"
+          "past_perfect"
         ],
         "forbidden_structures": [
-          "relative_clauses_complex"
+          "passive_voice",
+          "conditionals_type_2_3"
         ]
+      },
+      "grammar_details": {
+        "focus": "Conditionals with Modals/Imperatives & Infinitives of Purpose",
+        "rules": [
+          {
+            "structure": "Infinitives of Purpose",
+            "formula": "Subject + Verb + to + base verb",
+            "usage": "Explaining the reason or purpose for doing an action.",
+            "examples": [
+              "Tourists travel to Isfahan to see famous tilework.",
+              "He went to the bazaar to buy a handcrafted carpet."
+            ]
+          },
+          {
+            "structure": "Conditional Type 1 with Imperatives or Modals",
+            "formula": "If + Simple Present, Imperative verb  |  If + Simple Present, modal + base verb",
+            "examples": [
+              "If you visit Hamedan, visit the pottery workshops in Lalejin.",
+              "If we appreciate our heritage, we must preserve traditional crafts."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Developing Supporting Sentences with Transition Words",
+        "rules": [
+          "Supporting sentences explain the topic sentence using reasons, examples, or details.",
+          "Use transition words to connect ideas smoothly: 'for example', 'in fact', 'furthermore', 'therefore', 'in addition'.",
+          "Example: 'Persian art is world-famous. For example, handmade silk carpets from Isfahan are admired in international exhibitions.'"
+        ]
+      },
+      "vocab_development": {
+        "topic": "Suffix -able & Collocations in Arts",
+        "rules": "Suffix -able means 'capable of being' (value -> valuable, enjoy -> enjoyable, accept -> acceptable, change -> changeable).",
+        "examples": [
+          "value -> valuable",
+          "enjoy -> enjoyable",
+          "weave a carpet",
+          "make pottery"
+        ]
+      },
+      "see_also": {
+        "topic": "Intonation in Polite Requests & Inquiries",
+        "rules": "Polite requests using modal verbs typically end with rising intonation (Could you show me that carpet, please?)."
       }
     }
   ],
@@ -873,20 +1022,844 @@
       "Blue tiles adorn the dome of the historical mosque.",
       "a thin rectangular slab of baked clay",
       "get_ready"
+    ],
+    [
+      "share",
+      "share",
+      "verb",
+      1,
+      "به اشتراک گذاشتن",
+      "People share thoughts through language.",
+      "have a portion of something with others",
+      "reading"
+    ],
+    [
+      "such",
+      "such",
+      "adj",
+      1,
+      "چنین، مانند",
+      "Languages such as English and Spanish are common.",
+      "of the character or degree indicated",
+      "reading"
+    ],
+    [
+      "unfortunately",
+      "unfortunately",
+      "adv",
+      1,
+      "متأسفانه",
+      "Unfortunately, rare languages are disappearing.",
+      "it is unfortunate that",
+      "reading"
+    ],
+    [
+      "away",
+      "away",
+      "adv",
+      1,
+      "دور، از میان",
+      "Old speakers pass away.",
+      "to or at a distance from a particular place",
+      "reading"
+    ],
+    [
+      "gesture",
+      "gesture",
+      "noun",
+      1,
+      "حرکت دست و بدن",
+      "Deaf people use hand gestures.",
+      "a movement of part of the body to express idea",
+      "reading"
+    ],
+    [
+      "facial",
+      "facial",
+      "adj",
+      1,
+      "صورتی، مربوط به چهره",
+      "Facial expressions show human feelings.",
+      "relating to the human face",
+      "reading"
+    ],
+    [
+      "expression",
+      "expression",
+      "noun",
+      1,
+      "بیان، حالت چهره",
+      "Smile is a kind facial expression.",
+      "the look on someone's face showing emotion",
+      "reading"
+    ],
+    [
+      "symbol",
+      "symbol",
+      "noun",
+      1,
+      "نماد",
+      "Every sign has a unique symbol.",
+      "a thing that stands for something else",
+      "reading"
+    ],
+    [
+      "different",
+      "different",
+      "adj",
+      1,
+      "متفاوت",
+      "People speak different dialects.",
+      "not the same as another",
+      "reading"
+    ],
+    [
+      "continent",
+      "continent",
+      "noun",
+      1,
+      "قاره",
+      "Asia and Europe are continents.",
+      "any of the world's main continuous landmasses",
+      "reading"
+    ],
+    [
+      "exchange",
+      "exchange",
+      "noun",
+      1,
+      "تبادل، مبادله",
+      "He is an exchange student.",
+      "giving one thing and receiving another",
+      "conversation"
+    ],
+    [
+      "long",
+      "long",
+      "adv",
+      1,
+      "مدت طولانی",
+      "How long have you lived here?",
+      "for a great amount of time",
+      "conversation"
+    ],
+    [
+      "poetic",
+      "poetic",
+      "adj",
+      1,
+      "شاعرانه",
+      "Persian has a poetic rhythm.",
+      "relating to poetry or having emotional quality",
+      "conversation"
+    ],
+    [
+      "rhythm",
+      "rhythm",
+      "noun",
+      1,
+      "ریتم، وزن",
+      "Music and poetry have rhythm.",
+      "a strong, regular repeated pattern of movement or sound",
+      "conversation"
+    ],
+    [
+      "improve",
+      "improve",
+      "verb",
+      1,
+      "بهبود بخشیدن، تقویت کردن",
+      "Practice helps you improve your English.",
+      "make or become better",
+      "conversation"
+    ],
+    [
+      "rapidly",
+      "rapidly",
+      "adv",
+      1,
+      "به سرعت",
+      "His speaking ability improved rapidly.",
+      "very quickly; at a great rate",
+      "conversation"
+    ],
+    [
+      "connect",
+      "connect",
+      "verb",
+      1,
+      "وصل کردن، پیوند دادن",
+      "Languages connect people across the world.",
+      "bring together so as to provide a link",
+      "conversation"
+    ],
+    [
+      "valuable",
+      "valuable",
+      "adj",
+      2,
+      "باارزش",
+      "Health is our most valuable treasure.",
+      "worth a great deal of money or importance",
+      "reading"
+    ],
+    [
+      "gift",
+      "gift",
+      "noun",
+      2,
+      "هدیه، نعمت",
+      "Life is a divine gift.",
+      "a thing given willingly to someone",
+      "reading"
+    ],
+    [
+      "step",
+      "step",
+      "noun",
+      2,
+      "گام، مرحله",
+      "Eating fruits is the first step.",
+      "an action or measure taken toward achieving a goal",
+      "reading"
+    ],
+    [
+      "consume",
+      "consume",
+      "verb",
+      2,
+      "مصرف کردن",
+      "We should consume healthy food.",
+      "eat, drink, or ingest food",
+      "reading"
+    ],
+    [
+      "dairy",
+      "dairy",
+      "adj",
+      2,
+      "لبنیاتی",
+      "Milk and yogurt are dairy products.",
+      "containing or made from milk",
+      "reading"
+    ],
+    [
+      "product",
+      "product",
+      "noun",
+      2,
+      "محصول",
+      "Buy fresh agricultural products.",
+      "an article or substance manufactured or refined",
+      "reading"
+    ],
+    [
+      "salt",
+      "salt",
+      "noun",
+      2,
+      "نمک",
+      "Eating too much salt harms blood pressure.",
+      "a white crystalline substance used for seasoning",
+      "reading"
+    ],
+    [
+      "cycling",
+      "cycling",
+      "noun",
+      2,
+      "دوچرخه‌سواری",
+      "Cycling strengthens your leg muscles.",
+      "the sport or activity of riding a bicycle",
+      "reading"
+    ],
+    [
+      "strengthen",
+      "strengthen",
+      "verb",
+      2,
+      "تقویت کردن",
+      "Exercise strengthens your heart.",
+      "make or become stronger",
+      "reading"
+    ],
+    [
+      "spend",
+      "spend",
+      "verb",
+      2,
+      "سپری کردن (زمان)",
+      "Do not spend all day on your smartphone.",
+      "pass time in a specified way",
+      "reading"
+    ],
+    [
+      "sitting",
+      "sit",
+      "verb",
+      2,
+      "نشستن",
+      "Avoid sitting for long hours.",
+      "be in a position in which weight is supported by buttocks",
+      "reading"
+    ],
+    [
+      "tv",
+      "tv",
+      "noun",
+      2,
+      "تلویزیون",
+      "Watching too much TV causes inactivity.",
+      "television",
+      "reading"
+    ],
+    [
+      "person",
+      "person",
+      "noun",
+      2,
+      "انسان، فرد",
+      "A healthy person exercises daily.",
+      "a human being regarded as an individual",
+      "reading"
+    ],
+    [
+      "couch potato",
+      "couch potato",
+      "noun",
+      2,
+      "آدم تنبل و بی‌تحرک",
+      "Do not be a couch potato.",
+      "a person taking little exercise and watching television",
+      "reading"
+    ],
+    [
+      "lead",
+      "lead",
+      "verb",
+      2,
+      "منجر شدن",
+      "Lack of sleep leads to illnesses.",
+      "cause a person or thing to be in a specified situation",
+      "reading"
+    ],
+    [
+      "manage",
+      "manage",
+      "verb",
+      2,
+      "مدیریت کردن",
+      "Learn to manage emotional stress.",
+      "succeed in surviving or in attaining one's aims",
+      "reading"
+    ],
+    [
+      "adequate",
+      "adequate",
+      "adj",
+      2,
+      "کافی، مناسب",
+      "Get adequate rest every night.",
+      "satisfactory or acceptable in quality or quantity",
+      "reading"
+    ],
+    [
+      "relationship",
+      "relationship",
+      "noun",
+      2,
+      "ارتباط، رابطه",
+      "Maintain kind relationships with friends.",
+      "the way in which people are connected",
+      "reading"
+    ],
+    [
+      "equally",
+      "equally",
+      "adv",
+      2,
+      "به یک اندازه",
+      "Sleep and food are equally important.",
+      "in identical manner or to same extent",
+      "reading"
+    ],
+    [
+      "coach",
+      "coach",
+      "noun",
+      2,
+      "مربی",
+      "The health coach gave useful advice.",
+      "an athletic or wellness trainer",
+      "conversation"
+    ],
+    [
+      "checkup",
+      "checkup",
+      "noun",
+      2,
+      "چکاپ پزشکی",
+      "Visit a doctor for annual checkup.",
+      "a thorough medical examination",
+      "conversation"
+    ],
+    [
+      "activity",
+      "activity",
+      "noun",
+      2,
+      "فعالیت",
+      "Physical activity keeps you energetic.",
+      "a thing that a person or group does",
+      "conversation"
+    ],
+    [
+      "hour",
+      "hour",
+      "noun",
+      2,
+      "ساعت",
+      "He studies five hours every day.",
+      "a period of time equal to sixty minutes",
+      "conversation"
+    ],
+    [
+      "long",
+      "long",
+      "adj",
+      2,
+      "طولانی",
+      "Do not sit for long periods.",
+      "measuring a great distance or duration",
+      "conversation"
+    ],
+    [
+      "jog",
+      "jog",
+      "verb",
+      2,
+      "دویدن آرام",
+      "Jog for twenty minutes every morning.",
+      "run at a steady gentle pace",
+      "conversation"
+    ],
+    [
+      "plan",
+      "plan",
+      "verb",
+      2,
+      "برنامه‌ریزی کردن",
+      "Plan your weekly routine carefully.",
+      "decide on and arrange in advance",
+      "conversation"
+    ],
+    [
+      "routine",
+      "routine",
+      "noun",
+      2,
+      "برنامه روتین",
+      "Exercise should be part of daily routine.",
+      "a sequence of actions regularly followed",
+      "conversation"
+    ],
+    [
+      "art",
+      "art",
+      "noun",
+      3,
+      "هنر",
+      "Persian carpet is a celebrated art.",
+      "the expression or application of human creative skill",
+      "reading"
+    ],
+    [
+      "mirror",
+      "mirror",
+      "noun",
+      3,
+      "آینه",
+      "Art is a mirror of culture.",
+      "a reflective surface",
+      "reading"
+    ],
+    [
+      "nation",
+      "nation",
+      "noun",
+      3,
+      "ملت",
+      "Iranian nation has rich customs.",
+      "a large body of people united by common descent or culture",
+      "reading"
+    ],
+    [
+      "spiritual",
+      "spiritual",
+      "adj",
+      3,
+      "معنوی، روحانی",
+      "Calligraphy reflects spiritual beauty.",
+      "relating to or affecting the human spirit or soul",
+      "reading"
+    ],
+    [
+      "craftsperson",
+      "craftsperson",
+      "noun",
+      3,
+      "صنعتگر سنتی",
+      "Craftspeople make copper dishes.",
+      "a person who is skilled in a craft",
+      "reading"
+    ],
+    [
+      "create",
+      "create",
+      "verb",
+      3,
+      "خلق کردن، ساختن",
+      "Artists create magnificent patterns.",
+      "bring something into existence",
+      "reading"
+    ],
+    [
+      "magnificent",
+      "magnificent",
+      "adj",
+      3,
+      "باشکوه",
+      "Isfahan has magnificent historical mosques.",
+      "impressively beautiful, elaborate, or extravagant",
+      "reading"
+    ],
+    [
+      "worldwide",
+      "worldwide",
+      "adv",
+      3,
+      "در سطح جهان",
+      "Persian rugs are famous worldwide.",
+      "throughout the whole world",
+      "reading"
+    ],
+    [
+      "intricate",
+      "intricate",
+      "adj",
+      3,
+      "پیچیده، ظریف",
+      "The carpet has intricate floral designs.",
+      "very complicated or detailed",
+      "reading"
+    ],
+    [
+      "pattern",
+      "pattern",
+      "noun",
+      3,
+      "طرح، الگو",
+      "Look at the colorful tile pattern.",
+      "a repeated decorative design",
+      "reading"
+    ],
+    [
+      "quality",
+      "quality",
+      "noun",
+      3,
+      "کیفیت",
+      "Persian wool has high quality.",
+      "the standard of something as measured against other things",
+      "reading"
+    ],
+    [
+      "respected",
+      "respected",
+      "adj",
+      3,
+      "محترم، مورد احترام",
+      "Calligraphy is a respected art.",
+      "admired or deeply revered",
+      "reading"
+    ],
+    [
+      "islamic",
+      "islamic",
+      "adj",
+      3,
+      "اسلامی",
+      "Islamic architecture uses beautiful tiles.",
+      "relating to Islam",
+      "reading"
+    ],
+    [
+      "skilled",
+      "skilled",
+      "adj",
+      3,
+      "ماهر",
+      "Skilled weavers work on carpet looms.",
+      "having or showing necessary expertise",
+      "reading"
+    ],
+    [
+      "calligrapher",
+      "calligrapher",
+      "noun",
+      3,
+      "خوشنویس",
+      "The calligrapher wrote verses with ink.",
+      "a person who writes with decorative calligraphy",
+      "reading"
+    ],
+    [
+      "bamboo",
+      "bamboo",
+      "noun",
+      3,
+      "خیزران، قلم نی",
+      "Calligraphers cut bamboo pens.",
+      "a giant woody grass used for pens",
+      "reading"
+    ],
+    [
+      "ink",
+      "ink",
+      "noun",
+      3,
+      "جوهر، مرکب",
+      "Black ink flows from the calligraphy pen.",
+      "a colored fluid used for writing",
+      "reading"
+    ],
+    [
+      "verse",
+      "verse",
+      "noun",
+      3,
+      "بیت شعر، آیه",
+      "He writes verses of Hafez on paper.",
+      "writing arranged with a metrical rhythm",
+      "reading"
+    ],
+    [
+      "miniature",
+      "miniature",
+      "noun",
+      3,
+      "مینیاتور",
+      "Miniature painting flourished in Isfahan.",
+      "a very small and detailed painting",
+      "reading"
+    ],
+    [
+      "painting",
+      "painting",
+      "noun",
+      3,
+      "نقاشی",
+      "Persian painting is full of colors.",
+      "the action or art of using paint",
+      "reading"
+    ],
+    [
+      "generation",
+      "generation",
+      "noun",
+      3,
+      "نسل",
+      "Customs pass through generations.",
+      "all people born at about same time",
+      "reading"
+    ],
+    [
+      "vibrant",
+      "vibrant",
+      "adj",
+      3,
+      "درخشان، پرطراوت",
+      "Silk carpets have vibrant colors.",
+      "full of energy and life or bright",
+      "conversation"
+    ],
+    [
+      "silk",
+      "silk",
+      "noun",
+      3,
+      "ابریشم",
+      "Iranian silk is soft and fine.",
+      "a fine strong lustrous fiber produced by silkworms",
+      "conversation"
+    ],
+    [
+      "nomadic",
+      "nomadic",
+      "adj",
+      3,
+      "عشایری",
+      "Nomadic tribes live in mountain tents.",
+      "living the life of a nomad",
+      "conversation"
+    ],
+    [
+      "dye",
+      "dye",
+      "noun",
+      3,
+      "رنگرزی، رنگ طبیعی",
+      "Weavers use natural vegetable dyes.",
+      "a natural or synthetic substance used to color materials",
+      "conversation"
+    ],
+    [
+      "timeless",
+      "timeless",
+      "adj",
+      3,
+      "جاودانه، ماندگار",
+      "Saadi's poems have timeless wisdom.",
+      "not affected by the passage of time",
+      "conversation"
+    ],
+    [
+      "letter",
+      "letter",
+      "noun",
+      3,
+      "حرف، نامه",
+      "Each Persian letter has a distinct shape.",
+      "a character representing one or more sounds",
+      "conversation"
+    ],
+    [
+      "deep",
+      "deep",
+      "adj",
+      3,
+      "عمیق",
+      "The poem conveys deep meaning.",
+      "extending far down from the top or surface",
+      "conversation"
+    ],
+    [
+      "balance",
+      "balance",
+      "noun",
+      3,
+      "تعادل، توازن",
+      "Calligraphy requires great balance.",
+      "an even distribution of weight or parts",
+      "conversation"
+    ],
+    [
+      "harmony",
+      "harmony",
+      "noun",
+      3,
+      "هماهنگی، تناسب",
+      "Colors in the tilework are in harmony.",
+      "the quality of forming a pleasing whole",
+      "conversation"
+    ],
+    [
+      "beauty",
+      "beauty",
+      "noun",
+      3,
+      "زیبایی",
+      "We admire the natural beauty of art.",
+      "a combination of qualities pleasing aesthetic senses",
+      "conversation"
+    ],
+    [
+      "respect",
+      "respect",
+      "verb",
+      1,
+      "احترام گذاشتن",
+      "We must respect different languages.",
+      "admire someone deeply for abilities or qualities",
+      "reading"
+    ],
+    [
+      "emotional",
+      "emotional",
+      "adj",
+      2,
+      "عاطفی، احساسی",
+      "Emotional stress harms human health.",
+      "relating to a person's emotions",
+      "new_words"
+    ],
+    [
+      "balanced",
+      "balanced",
+      "adj",
+      2,
+      "متعادل",
+      "Eating a balanced diet prevents diseases.",
+      "taking everything into account in fair proportions",
+      "new_words"
+    ],
+    [
+      "balance",
+      "balance",
+      "noun",
+      2,
+      "تعادل، توازن",
+      "Maintain a balance between study and exercise.",
+      "an even distribution of weight or parts",
+      "new_words"
+    ],
+    [
+      "reflect",
+      "reflect",
+      "verb",
+      3,
+      "منعکس کردن، نشان دادن",
+      "Art reflects national culture.",
+      "show, express, or be a sign of a particular situation",
+      "new_words"
     ]
   ],
   "passages": [
     {
       "lesson_num": 1,
       "section_type": "Reading",
-      "title": "Human Languages",
-      "content": "Language is a wonderful system of communication. There are about seven thousand languages in the world today. Some languages have millions of speakers, while others have only a few hundred. Sign language is also a rich visual language used by deaf communities to express thoughts and emotions."
+      "title": "Human Languages: Tools of Communication",
+      "content": "Language is a system of communication. People use language to share thoughts, feelings, and information. There are about seven thousand languages in the world today. Some languages have millions of native speakers, such as Chinese, Spanish, English, and Hindi. In small villages, only a few hundred people speak some endangered languages. Unfortunately, when older speakers pass away, some of these small languages may die out. Deaf people communicate using sign languages. Every country has its own sign language with special hand gestures, facial expressions, and symbols. Learning a foreign language helps us understand other cultures and respect people from different continents."
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Learning a Foreign Language",
+      "content": "Sina is talking to Carlos, an exchange student from Spain. Sina: 'How long have you studied Persian, Carlos?' Carlos: 'I have studied it for two years. It has a beautiful poetic rhythm.' Sina: 'Was it difficult to communicate at first?' Carlos: 'A little, but practicing with native speakers helped me improve rapidly. Learning languages connects people across continents.'"
     },
     {
       "lesson_num": 2,
       "section_type": "Reading",
       "title": "Having a Healthy Lifestyle",
-      "content": "A healthy lifestyle means taking care of both mind and body. Eating fresh fruits, vegetables, and whole grains keeps you energetic. Regular physical exercise prevents heart problems. Also, getting enough sleep and avoiding stress help you maintain mental wellness."
+      "content": "Good health is the most valuable gift in human life. To have a healthy lifestyle, we need to pay attention to both physical and emotional well-being. Eating a balanced diet is the first step. We should consume fresh vegetables, fruits, whole grains, and dairy products while avoiding too much sugar, salt, and fast food. Regular physical exercise, like jogging, cycling, or swimming, strengthens the heart and lungs. Spending too much time sitting and watching TV makes a person a couch potato and leads to weight gain. Managing daily stress, getting adequate sleep, and maintaining kind relationships with family and friends are equally important to prevent diseases."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "Consulting a Health Coach",
+      "content": "Coach: 'Reza, your health checkup shows you need more physical activity.' Reza: 'I study many hours a day and feel tired in the afternoon.' Coach: 'Avoid sitting for long hours. If you jog for thirty minutes every day and eat a balanced diet with fresh fruits, you will gain more energy and prevent heart illnesses.' Reza: 'Thank you coach, I will plan my daily routine right away.'"
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Art and Culture in Iran",
+      "content": "Art is a mirror of a nation's culture, history, and spiritual values. Iran has one of the richest art heritages in the world. For thousands of years, Iranian artists and craftspeople have created magnificent works of art. Persian carpets are famous worldwide for their intricate patterns, natural colors, and high quality of weaving. Calligraphy is another respected art in Islamic culture. Skilled calligraphers use bamboo pens and ink to write poems of Hafez and verses of the Holy Quran. Pottery, tilework, miniature painting, and metalwork are other traditional crafts passed down through generations. These handmade arts show the patience, love, and creativity of Iranian people."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Visiting an Art Exhibition in Isfahan",
+      "content": "Sara: 'Look at the vibrant colors of this silk carpet, teacher!' Art Teacher: 'Yes, skilled nomadic women wove this silk carpet using natural vegetable dyes.' Sara: 'Why is calligraphy so respected in Persian culture?' Art Teacher: 'Because calligraphers devoted their lives to writing holy texts and timeless wisdom. Each letter reflects deep balance, harmony, and spiritual beauty.'"
     }
   ],
   "rubrics": [

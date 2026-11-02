@@ -40,7 +40,7 @@ def cmd_context(args: argparse.Namespace) -> None:
 
     placeholders = ",".join("?" for _ in lessons)
     cur.execute(
-        f"SELECT lesson_num, title, theme, allowed_grammar, forbidden_grammar FROM lessons WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num",
+        f"SELECT lesson_num, title, theme, allowed_grammar, forbidden_grammar, grammar_details_json, writing_skills_json, vocab_development_json, see_also_json FROM lessons WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num",
         [args.grade, *lessons],
     )
     lessons_data = [
@@ -48,8 +48,12 @@ def cmd_context(args: argparse.Namespace) -> None:
             "lesson_num": row[0],
             "title": row[1],
             "theme": row[2],
-            "allowed_grammar": json.loads(row[3]),
-            "forbidden_grammar": json.loads(row[4]),
+            "allowed_grammar": json.loads(row[3]) if row[3] else {},
+            "forbidden_grammar": json.loads(row[4]) if row[4] else {},
+            "grammar_details": json.loads(row[5]) if row[5] else {},
+            "writing_skills": json.loads(row[6]) if row[6] else {},
+            "vocab_development": json.loads(row[7]) if row[7] else {},
+            "see_also": json.loads(row[8]) if row[8] else {},
         }
         for row in cur.fetchall()
     ]

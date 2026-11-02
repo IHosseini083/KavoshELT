@@ -8,20 +8,75 @@
       "theme": "Elders, nursing homes, gratitude, respect, family bonds",
       "allowed_grammar": {
         "tenses": [
-          "passive_voice_present_past"
+          "simple_present",
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "structures": [
+          "passive_voice_present_past_simple",
           "tag_questions",
-          "compound_sentences_and_but_or_so"
+          "compound_sentences_conjunctions_and_but_or_so"
         ]
       },
       "forbidden_grammar": {
-        "forbidden_tenses": [
-          "past_perfect_continuous"
-        ],
+        "forbidden_tenses": [],
         "forbidden_structures": [
-          "inversion"
+          "conditionals_type_2_3",
+          "past_perfect"
         ]
+      },
+      "grammar_details": {
+        "focus": "Passive Voice (Present & Past Simple), Tag Questions, and Compound Sentences",
+        "rules": [
+          {
+            "structure": "Passive Voice (Present & Past Simple)",
+            "formula": "Present: am/is/are + past participle (V3)  |  Past: was/were + past participle (V3)",
+            "usage": "When the receiver of the action is more important than the doer, or when the agent is unknown or obvious.",
+            "examples": [
+              "Elderly people are respected by all family members.",
+              "The nursing home was established thirty years ago."
+            ]
+          },
+          {
+            "structure": "Tag Questions",
+            "formula": "Positive statement + negative tag?  |  Negative statement + positive tag?",
+            "usage": "Checking information or seeking agreement.",
+            "examples": [
+              "Grandparents tell wonderful stories, don't they?",
+              "The children weren't impolite yesterday, were they?"
+            ]
+          },
+          {
+            "structure": "Compound Sentences with Coordinating Conjunctions (FANBOYS)",
+            "formula": "Independent clause + , (comma) + and / but / or / so + Independent clause",
+            "examples": [
+              "Ali was very tired after practice, so he went to bed early.",
+              "Mina studied hard for the test, but she was a little nervous."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Compound Sentences & Comma Punctuation Rules",
+        "rules": [
+          "A compound sentence connects two complete thoughts (independent clauses).",
+          "Always place a comma before the coordinating conjunction (and, but, or, so).",
+          "Do not use a comma when conjunctions merely join two words or phrases (e.g. 'He is kind and generous' - no comma)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Collocations with Verbs",
+        "rules": "Words that frequently go together naturally in English: pay respect, show appreciation, take care of, burst into tears, make a mistake, do research, give advice, have regard for.",
+        "examples": [
+          "pay + respect = pay respect",
+          "show + appreciation = show appreciation",
+          "burst + into tears = burst into tears"
+        ]
+      },
+      "see_also": {
+        "topic": "Intonation in Tag Questions",
+        "rules": "Falling intonation on the tag when the speaker expects agreement (You know him, don't you? \\). Rising intonation on the tag when the speaker is asking a genuine question (You didn't see him, did you? /)."
       }
     },
     {
@@ -30,20 +85,75 @@
       "theme": "Dictionaries, reference books, encyclopedia, vocabulary acquisition",
       "allowed_grammar": {
         "tenses": [
-          "passive_voice_modals"
+          "simple_present",
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "structures": [
-          "relative_clauses_who_which_that",
-          "conditional_type_2"
+          "passive_voice_with_modals",
+          "relative_clauses_defining_who_which_that",
+          "conditional_sentences_type_2"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "future_perfect"
+          "past_perfect"
         ],
-        "forbidden_structures": [
-          "subjunctive"
+        "forbidden_structures": []
+      },
+      "grammar_details": {
+        "focus": "Passive with Modals, Defining Relative Clauses, and Conditional Type 2",
+        "rules": [
+          {
+            "structure": "Passive Voice with Modals",
+            "formula": "Subject + modal (can, should, must, may) + be + past participle (V3)",
+            "examples": [
+              "Unfamiliar words can be looked up in a bilingual dictionary.",
+              "English dictionaries must be arranged in alphabetical order."
+            ]
+          },
+          {
+            "structure": "Defining Relative Clauses",
+            "formula": "who / that (for people)  |  which / that (for things)",
+            "usage": "Provides essential information to identify the preceding noun.",
+            "examples": [
+              "A lexicographer is a person who writes dictionaries.",
+              "An encyclopedia is a book which gives information on many topics."
+            ]
+          },
+          {
+            "structure": "Conditional Sentences Type 2",
+            "formula": "If + Simple Past, would / could + base verb",
+            "usage": "Hypothetical, unreal, or imaginary situations in the present or future.",
+            "examples": [
+              "If I had more free time, I would read an English novel.",
+              "If she knew the phonetic symbols, she could pronounce words easily."
+            ]
+          }
         ]
+      },
+      "writing_skills": {
+        "topic": "Paragraph Unity and Coherence",
+        "rules": [
+          "Unity: All sentences in a paragraph must relate directly to the single controlling idea stated in the topic sentence.",
+          "Coherence: Sentences must follow a logical order with clear transitions and consistent pronouns.",
+          "Always eliminate irrelevant sentences that distract from the main idea."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Prefixes inter- and multi- & Phrasal Verbs",
+        "rules": "Prefix inter- means 'between' or 'among' (international, internet, interaction). Prefix multi- means 'many' (multilingual, multimedia, multicultural). Phrasal verbs combine verb + preposition/adverb (look up, figure out, give up, turn on, put off).",
+        "examples": [
+          "international",
+          "multilingual",
+          "look up a word",
+          "figure out meaning"
+        ]
+      },
+      "see_also": {
+        "topic": "Guide Words & Phonetic Vowel Symbols",
+        "rules": "Guide words printed at the top of a dictionary page indicate the first and last words on that page to assist quick alphabetical scanning."
       }
     },
     {
@@ -52,16 +162,63 @@
       "theme": "Clean energy, solar power, wind turbines, environmental protection",
       "allowed_grammar": {
         "tenses": [
-          "past_perfect_had_pp"
+          "simple_present",
+          "simple_past",
+          "future_will",
+          "present_perfect",
+          "past_perfect"
         ],
         "structures": [
           "passive_voice_all_tenses",
-          "causative_verbs"
+          "discourse_connectors_furthermore_however"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [],
         "forbidden_structures": []
+      },
+      "grammar_details": {
+        "focus": "Past Perfect Tense & Passive Voice Across All Tenses",
+        "rules": [
+          {
+            "structure": "Past Perfect Tense",
+            "formula": "Subject + had + past participle (V3)",
+            "usage": "An action completed before another past event or past point in time.",
+            "examples": [
+              "Scientists had warned about air pollution before governments invested in solar energy.",
+              "By the time the sun set, the solar panels had generated enough electricity."
+            ]
+          },
+          {
+            "structure": "Passive Voice Across All Tenses",
+            "formula": "Present Perfect Passive: have/has been + V3  |  Past Perfect Passive: had been + V3",
+            "examples": [
+              "Wind turbines have been installed in windy plains.",
+              "Fossil fuels had been consumed for decades before clean alternatives were developed."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Concluding Sentences and Paragraph Completion",
+        "rules": [
+          "A concluding sentence signals the end of the paragraph.",
+          "Three effective concluding strategies: 1) Restate the topic sentence in different words; 2) Summarize main supporting points; 3) Provide a final thought or prediction.",
+          "Use transition signals: 'in conclusion', 'in short', 'overall', 'as a result'."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Word Families and Derivational Conversion",
+        "rules": "Words derived from the same base root: pollute (verb) -> pollution (noun) -> pollutant (noun agent); consume (verb) -> consumption (noun) -> consumer (noun agent); generate (verb) -> generation (noun) -> generator (noun agent).",
+        "examples": [
+          "pollute -> pollution",
+          "consume -> consumption",
+          "generate -> generator"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Technical Terms & Stress Shift",
+        "rules": "Notice stress shift across word families: 'energy (noun) vs ener'getic (adj); 'photograph vs pho'tography."
       }
     }
   ],
@@ -835,6 +992,646 @@
       "Water stored behind the dam drives electric turbines.",
       "a barrier constructed to hold back water",
       "get_ready"
+    ],
+    [
+      "essential",
+      "essential",
+      "adj",
+      1,
+      "ضروری، حیاتی",
+      "Elders play an essential role in family.",
+      "absolutely necessary; extremely important",
+      "reading"
+    ],
+    [
+      "source",
+      "source",
+      "noun",
+      1,
+      "منبع، سرچشمه",
+      "Grandparents are sources of wisdom.",
+      "a place, person, or thing from which something comes",
+      "reading"
+    ],
+    [
+      "warmth",
+      "warmth",
+      "noun",
+      1,
+      "گرما، صمیمیت",
+      "Family gatherings bring emotional warmth.",
+      "the quality, state, or sensation of being warm",
+      "reading"
+    ],
+    [
+      "face",
+      "face",
+      "verb",
+      1,
+      "مواجه شدن با",
+      "Elderly people face health challenges.",
+      "confront and deal with or accept",
+      "reading"
+    ],
+    [
+      "extra",
+      "extra",
+      "adj",
+      1,
+      "اضافی، بیشتر",
+      "They need extra love and care.",
+      "added to an existing or usual amount",
+      "reading"
+    ],
+    [
+      "alone",
+      "alone",
+      "adv",
+      1,
+      "تنها",
+      "Old people should not live alone.",
+      "having no one else present",
+      "reading"
+    ],
+    [
+      "spend",
+      "spend",
+      "verb",
+      1,
+      "صرف کردن",
+      "Parents spend their lives caring for us.",
+      "pass time or pay money",
+      "reading"
+    ],
+    [
+      "entire",
+      "entire",
+      "adj",
+      1,
+      "کل، تمام",
+      "She devoted her entire life to teaching.",
+      "with no part left out; whole",
+      "reading"
+    ],
+    [
+      "moral",
+      "moral",
+      "adj",
+      1,
+      "اخلاقی",
+      "Respecting elders is our moral duty.",
+      "concerned with principles of right and wrong",
+      "reading"
+    ],
+    [
+      "duty",
+      "duty",
+      "noun",
+      1,
+      "وظیفه",
+      "It is our duty to help our parents.",
+      "a moral or legal obligation",
+      "reading"
+    ],
+    [
+      "memory",
+      "memory",
+      "noun",
+      1,
+      "خاطره، حافظه",
+      "Grandparents share sweet memories.",
+      "something remembered from the past",
+      "reading"
+    ],
+    [
+      "advice",
+      "advice",
+      "noun",
+      1,
+      "نصیحت، پند",
+      "Listen carefully to parental advice.",
+      "guidance or recommendations offered",
+      "reading"
+    ],
+    [
+      "blessing",
+      "blessing",
+      "noun",
+      1,
+      "برکت",
+      "Honoring parents brings divine blessing.",
+      "a beneficial thing for which one is grateful",
+      "reading"
+    ],
+    [
+      "unity",
+      "unity",
+      "noun",
+      1,
+      "اتحاد، یکپارچگی",
+      "Family unity brings peace and strength.",
+      "the state of being united or joined as a whole",
+      "reading"
+    ],
+    [
+      "arrive",
+      "arrive",
+      "verb",
+      1,
+      "رسیدن",
+      "He arrived at the nursing home at noon.",
+      "reach a destination",
+      "conversation"
+    ],
+    [
+      "resident",
+      "resident",
+      "noun",
+      1,
+      "ساکن، مقیم",
+      "The nursing home has twenty elderly residents.",
+      "a person who lives somewhere permanently",
+      "conversation"
+    ],
+    [
+      "lonely",
+      "lonely",
+      "adj",
+      1,
+      "تنها، منزوی",
+      "Visiting elders prevents lonely feelings.",
+      "sad because one has no friends or company",
+      "conversation"
+    ],
+    [
+      "center",
+      "center",
+      "noun",
+      1,
+      "مرکز",
+      "The community center organized a gathering.",
+      "a facility or building for specific purpose",
+      "conversation"
+    ],
+    [
+      "affection",
+      "affection",
+      "noun",
+      1,
+      "محبت، مهر",
+      "Show genuine affection to children and elders.",
+      "a gentle feeling of fondness or liking",
+      "conversation"
+    ],
+    [
+      "even",
+      "even",
+      "adv",
+      1,
+      "حتی",
+      "They need love even more than medicine.",
+      "used to emphasize something surprising or extreme",
+      "conversation"
+    ],
+    [
+      "list",
+      "list",
+      "verb",
+      2,
+      "فهرست کردن",
+      "Dictionaries list thousands of words.",
+      "make a list of or include in a list",
+      "reading"
+    ],
+    [
+      "order",
+      "order",
+      "noun",
+      2,
+      "ترتیب",
+      "Entries are in alphabetical order.",
+      "the arrangement or disposition of things",
+      "reading"
+    ],
+    [
+      "meaning",
+      "meaning",
+      "noun",
+      2,
+      "معنی",
+      "Look up the exact meaning of the word.",
+      "what is meant by a word, text, or action",
+      "reading"
+    ],
+    [
+      "grammatical",
+      "grammatical",
+      "adj",
+      2,
+      "دستوری، گرامری",
+      "The entry shows the grammatical function.",
+      "conforming to the rules of grammar",
+      "reading"
+    ],
+    [
+      "function",
+      "function",
+      "noun",
+      2,
+      "نقش، کارکرد",
+      "Words have different syntactic functions.",
+      "an activity or purpose natural to a thing",
+      "reading"
+    ],
+    [
+      "main",
+      "main",
+      "adj",
+      2,
+      "اصلی",
+      "There are two main types of dictionaries.",
+      "chief in size, importance, or extent",
+      "reading"
+    ],
+    [
+      "beginner",
+      "beginner",
+      "noun",
+      2,
+      "مبتدی",
+      "Bilingual dictionaries help beginners.",
+      "a person just starting to learn a skill",
+      "reading"
+    ],
+    [
+      "same",
+      "same",
+      "adj",
+      2,
+      "یکسان، مشابه",
+      "Monolingual books explain in the same language.",
+      "identical; not different",
+      "reading"
+    ],
+    [
+      "suitable",
+      "suitable",
+      "adj",
+      2,
+      "مناسب",
+      "This book is suitable for teenagers.",
+      "right or appropriate for a particular purpose",
+      "reading"
+    ],
+    [
+      "intermediate",
+      "intermediate",
+      "adj",
+      2,
+      "متوسط",
+      "This course is for intermediate learners.",
+      "coming between two points in time or quality",
+      "reading"
+    ],
+    [
+      "advanced",
+      "advanced",
+      "adj",
+      2,
+      "پیشرفته",
+      "Advanced students read original novels.",
+      "far on or ahead in development or skill",
+      "reading"
+    ],
+    [
+      "phonetic",
+      "phonetic",
+      "adj",
+      2,
+      "آوایی، فونتیک",
+      "Check the phonetic transcription for vowels.",
+      "relating to speech sounds",
+      "reading"
+    ],
+    [
+      "transcription",
+      "transcription",
+      "noun",
+      2,
+      "آوانویسی",
+      "Phonetic transcription helps pronunciation.",
+      "a written representation of speech sounds",
+      "reading"
+    ],
+    [
+      "syllable",
+      "syllable",
+      "noun",
+      2,
+      "سیلاب، بخش کلمه",
+      "The word 'water' has two syllables.",
+      "a unit of pronunciation having one vowel sound",
+      "reading"
+    ],
+    [
+      "sample",
+      "sample",
+      "adj",
+      2,
+      "نمونه",
+      "Read the sample sentences in the entry.",
+      "a small part or quantity intended to show quality",
+      "reading"
+    ],
+    [
+      "ideal",
+      "ideal",
+      "adj",
+      2,
+      "ایده‌آل، عالی",
+      "A learner's dictionary is ideal for students.",
+      "satisfying one's conception of what is perfect",
+      "conversation"
+    ],
+    [
+      "simple",
+      "simple",
+      "adj",
+      2,
+      "ساده",
+      "Definitions are written in simple English.",
+      "easily understood or done; not complicated",
+      "conversation"
+    ],
+    [
+      "provide",
+      "provide",
+      "verb",
+      2,
+      "فراهم کردن، ارائه دادن",
+      "The dictionary provides clear collocations.",
+      "make available for use; supply",
+      "conversation"
+    ],
+    [
+      "top",
+      "top",
+      "noun",
+      2,
+      "بالا، رأس",
+      "Guide words sit at the top of the page.",
+      "the highest point, level, or part of something",
+      "conversation"
+    ],
+    [
+      "locate",
+      "locate",
+      "verb",
+      2,
+      "پیدا کردن، جایابی کردن",
+      "Guide words help you locate entries fast.",
+      "discover the exact place or position of",
+      "conversation"
+    ],
+    [
+      "scanning",
+      "scan",
+      "verb",
+      2,
+      "پویش سریع",
+      "Scan the page for keywords.",
+      "look through all parts of something carefully",
+      "conversation"
+    ],
+    [
+      "line",
+      "line",
+      "noun",
+      2,
+      "خط، سطر",
+      "Read every line of the poem.",
+      "a row of written or printed words",
+      "conversation"
+    ],
+    [
+      "force",
+      "force",
+      "noun",
+      3,
+      "نیرو، قوه محرکه",
+      "Energy is the driving force of civilization.",
+      "strength or energy as an attribute of physical action",
+      "reading"
+    ],
+    [
+      "civilization",
+      "civilization",
+      "noun",
+      3,
+      "تمدن",
+      "Modern civilization relies on electrical power.",
+      "the stage of human social and cultural development",
+      "reading"
+    ],
+    [
+      "transportation",
+      "transportation",
+      "noun",
+      3,
+      "حمل و نقل",
+      "Buses and trains provide public transportation.",
+      "the action of transporting someone or something",
+      "reading"
+    ],
+    [
+      "rely",
+      "rely",
+      "verb",
+      3,
+      "اتکا کردن، تکیه کردن",
+      "We should not rely only on fossil fuels.",
+      "depend on with full trust or confidence",
+      "reading"
+    ],
+    [
+      "gas",
+      "gas",
+      "noun",
+      3,
+      "گاز",
+      "Natural gas is an underground fossil resource.",
+      "an air-like fluid substance",
+      "reading"
+    ],
+    [
+      "however",
+      "however",
+      "adv",
+      3,
+      "اما، با این حال",
+      "Fossil fuels are useful; however, they pollute air.",
+      "used to introduce a statement that contrasts",
+      "reading"
+    ],
+    [
+      "non-renewable",
+      "non-renewable",
+      "adj",
+      3,
+      "تجدیدناپذیر",
+      "Oil and coal are non-renewable resources.",
+      "existing in finite quantity; not replenishable",
+      "reading"
+    ],
+    [
+      "eventually",
+      "eventually",
+      "adv",
+      3,
+      "در نهایت",
+      "Fossil fuels will eventually run out.",
+      "in the end, especially after a long delay",
+      "reading"
+    ],
+    [
+      "amount",
+      "amount",
+      "noun",
+      3,
+      "مقدار، میزان",
+      "Factories produce large amounts of smoke.",
+      "a quantity of something",
+      "reading"
+    ],
+    [
+      "carbon",
+      "carbon",
+      "noun",
+      3,
+      "کربن",
+      "Burning oil releases carbon dioxide into air.",
+      "the chemical element of atomic number 6",
+      "reading"
+    ],
+    [
+      "dioxide",
+      "dioxide",
+      "noun",
+      3,
+      "دی‌اکسید",
+      "Plants absorb carbon dioxide from air.",
+      "an oxide containing two atoms of oxygen in molecule",
+      "reading"
+    ],
+    [
+      "government",
+      "government",
+      "noun",
+      3,
+      "دولت، حکومت",
+      "Governments must invest in clean energy.",
+      "the governing body of a nation, state, or community",
+      "reading"
+    ],
+    [
+      "turn",
+      "turn",
+      "verb",
+      3,
+      "چرخیدن، تبدیل شدن",
+      "Wind currents turn the blades of the turbine.",
+      "move or cause to move in a circular direction",
+      "reading"
+    ],
+    [
+      "tidal",
+      "tidal",
+      "adj",
+      3,
+      "مربوط به جزر و مد",
+      "Tidal power stations capture ocean energy.",
+      "relating to or affected by tides",
+      "reading"
+    ],
+    [
+      "giant",
+      "giant",
+      "adj",
+      3,
+      "بزرگ، غول‌آسا",
+      "Giant wind turbines stand in the field.",
+      "of very great size or force; gigantic",
+      "reading"
+    ],
+    [
+      "current",
+      "current",
+      "noun",
+      3,
+      "جریان",
+      "Wind currents generate electrical power.",
+      "a body of water or air moving in definite direction",
+      "reading"
+    ],
+    [
+      "electrical",
+      "electrical",
+      "adj",
+      3,
+      "الکتریکی، برقی",
+      "Solar panels produce electrical current.",
+      "operating by or producing electricity",
+      "reading"
+    ],
+    [
+      "vital",
+      "vital",
+      "adj",
+      3,
+      "حیاتی، اساسی",
+      "Clean air is vital for human survival.",
+      "absolutely necessary or important; essential",
+      "reading"
+    ],
+    [
+      "photovoltaic",
+      "photovoltaic",
+      "adj",
+      3,
+      "فوتوولتائیک",
+      "Photovoltaic cells convert sunlight to current.",
+      "relating to the production of electric current at junction of two substances",
+      "conversation"
+    ],
+    [
+      "directly",
+      "directly",
+      "adv",
+      3,
+      "مستقیماً",
+      "Sunlight is converted directly into electricity.",
+      "without changing direction or stopping",
+      "conversation"
+    ],
+    [
+      "hydroelectric",
+      "hydroelectric",
+      "adj",
+      3,
+      "برق‌آبی",
+      "Hydroelectric dams produce clean electricity.",
+      "relating to the generation of electricity using water power",
+      "reading"
+    ],
+    [
+      "limit",
+      "limit",
+      "noun",
+      3,
+      "محدودیت، حد",
+      "Fossil fuels have natural limits.",
+      "a point or level beyond which something does not or may not extend",
+      "reading"
     ]
   ],
   "passages": [
@@ -842,13 +1639,37 @@
       "lesson_num": 1,
       "section_type": "Reading",
       "title": "Respecting Our Elders",
-      "content": "Elderly people have dedicated their lives to raising their children and serving society. Respecting elderly parents and grandparents is deeply rooted in our culture. When they grow old, they should be treated with kindness, patience, and gratitude."
+      "content": "Elders play an essential and honored role in Iranian families and society. Grandparents are sources of wisdom, patience, and warmth. Many elderly people face health problems and need extra care as they age. In some countries, older people live alone or in nursing homes, but in our culture, families take care of their aging parents at home. Parents spend their entire lives working hard with endless love and devotion for their children. It is our moral duty to treat them with kindness, respect, and gratitude. Taking time to visit elderly relatives, listening to their memories, and valuing their advice brings blessing, unity, and happiness to the family."
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Volunteering at a Nursing Home",
+      "content": "Omid: 'Dr. Asadi, what were the young volunteers doing when I arrived at the nursing home?' Dr. Asadi: 'They were reading books to elderly residents and listening to their stories.' Omid: 'Do older people feel lonely in nursing centers?' Dr. Asadi: 'Yes, elderly people need affection and attention even more than medicine. Visiting them and showing appreciation brings great happiness to their hearts.'"
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "Dictionaries: Essential Tools for Language Learners",
+      "content": "A dictionary is an essential reference book that lists the words of a language in alphabetical order and gives their meanings, pronunciations, and grammatical functions. There are two main types of dictionaries: bilingual and monolingual. Bilingual dictionaries translate words from one language into another, which is helpful for beginners. Monolingual dictionaries explain words in the same language and are more suitable for intermediate and advanced learners. When you look up a word, you can find its definition, part of speech, phonetic transcription, syllables, and sample sentences. Dictionaries also list collocations, synonyms, antonyms, and idioms, which help you use words correctly and naturally."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "How to Choose a Good Dictionary",
+      "content": "Hamid: 'Mr. Ahmadi, should I buy a bilingual or a monolingual dictionary for Grade 12?' Mr. Ahmadi: 'A good learner's dictionary is ideal. It explains meanings in simple English and provides natural collocations.' Hamid: 'How can guide words help me?' Mr. Ahmadi: 'Guide words at the top of each page show the first and last entries, so you can locate words quickly without scanning every line.'"
     },
     {
       "lesson_num": 3,
       "section_type": "Reading",
       "title": "Clean and Renewable Energy",
-      "content": "Fossil fuels like coal and oil cause severe air pollution and global warming. To protect the planet, renewable energy sources such as solar power, wind, and hydropower must be developed. Solar panels absorb sunlight and convert it into clean electricity without harmful emissions."
+      "content": "Energy is the driving force behind modern civilization, powering our homes, factories, and transportation. For over a century, the world has heavily relied on fossil fuels like coal, oil, and natural gas. However, fossil fuels are limited natural resources that will eventually run out, and burning them produces huge amounts of carbon dioxide and harmful air pollution that cause global warming. To protect our planet, scientists and governments are turning to renewable energy resources. Clean sources such as solar power, wind energy, hydroelectric power, and tidal energy generate electricity without polluting the environment. Solar panels absorb sunlight, and giant wind turbines turn wind currents into clean electrical power. Developing renewable energy is vital for a sustainable future."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Visiting a Solar Power Plant",
+      "content": "Engineer: 'Welcome to Yazd Solar Power Station, students!' Student: 'How do these giant panels produce electricity?' Engineer: 'Photovoltaic cells absorb sunlight and convert it directly into clean electrical current.' Student: 'Can renewable energy completely replace fossil fuels in the future?' Engineer: 'Yes, by combining solar power, wind turbines, and hydroelectric dams, we can generate all our electricity without polluting the atmosphere.'"
     }
   ],
   "rubrics": [
