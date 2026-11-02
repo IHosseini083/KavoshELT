@@ -2,24 +2,28 @@ from __future__ import annotations
 
 import os
 import sqlite3
+import tempfile
 import unittest
 
-from exam_composer import compose_exam, swap_slot_item
-from schema import init_db
-from seed_all_grades import seed_curriculum
+from kavosh.composer import compose_exam, swap_slot_item
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
 
 
 class TestExamComposer(unittest.TestCase):
     conn: sqlite3.Connection
+    tmp_dir: tempfile.TemporaryDirectory[str]
 
     @classmethod
     def setUpClass(cls) -> None:
         cls.conn = sqlite3.connect(":memory:")
         init_db(cls.conn)
         seed_curriculum(cls.conn)
+        cls.tmp_dir = tempfile.TemporaryDirectory()
 
     @classmethod
     def tearDownClass(cls) -> None:
+        cls.tmp_dir.cleanup()
         cls.conn.close()
 
     def test_mode_1_full_mock_national_exam(self) -> None:
@@ -29,8 +33,9 @@ class TestExamComposer(unittest.TestCase):
             grade=12,
             target_points=28.0,
             sourcing="past_papers",
-            school_name="دبیرستان فرهنگ شیراز",
-            teacher_name="سید ایلیا حسینی",
+            school_name="دبیرستان نمونه",
+            teacher_name="گروه آموزشی زبان",
+            out_dir=os.path.join(self.tmp_dir.name, "m1"),
         )
         self.assertEqual(result["mode"], "full_mock")
         self.assertAlmostEqual(result["total_points"], 28.0, places=3)
@@ -40,7 +45,6 @@ class TestExamComposer(unittest.TestCase):
             sections, {"vocabulary", "grammar", "writing", "cloze", "reading"}
         )
 
-        # Check export files generated
         self.assertTrue(os.path.exists(result["student_pdf"]))
         self.assertTrue(os.path.exists(result["student_docx"]))
         self.assertTrue(os.path.exists(result["answer_key_pdf"]))
@@ -53,6 +57,7 @@ class TestExamComposer(unittest.TestCase):
             section="writing",
             target_points=6.0,
             sourcing="hybrid",
+            out_dir=os.path.join(self.tmp_dir.name, "m2"),
         )
         self.assertEqual(result["mode"], "skill_worksheet")
         self.assertAlmostEqual(result["total_points"], 6.0, places=3)
@@ -67,6 +72,7 @@ class TestExamComposer(unittest.TestCase):
             lessons=[1],
             target_points=10.0,
             sourcing="ai_twins",
+            out_dir=os.path.join(self.tmp_dir.name, "m3"),
         )
         self.assertEqual(result["mode"], "custom_quiz")
         self.assertAlmostEqual(result["total_points"], 10.0, places=3)
@@ -82,8 +88,9 @@ class TestExamComposer(unittest.TestCase):
             grade=12,
             target_points=28.0,
             sourcing="past_papers",
+            out_dir=os.path.join(self.tmp_dir.name, "m4"),
         )
-        original_item = mock_exam["sections"][1]["items"][0]  # First grammar item
+        original_item = mock_exam["sections"][1]["items"][0]
         slot_id = original_item["id"]
 
         swapped_exam = swap_slot_item(self.conn, mock_exam, slot_id)

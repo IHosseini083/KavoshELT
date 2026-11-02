@@ -4,8 +4,8 @@ from typing import Any
 
 from sqlalchemy import and_, func, or_, select
 
-from models import DbTarget, Vocabulary, session_scope
-from validator import get_allowed_vocabulary, validate_exam_text
+from kavosh.models import DbTarget, Vocabulary, session_scope
+from kavosh.validator import get_allowed_vocabulary, validate_exam_text
 
 CURATED_SYNONYMS: dict[str, list[str]] = {
     "physician": ["doctor"],

@@ -11,7 +11,7 @@ This guarantees:
 
 ---
 
-## 1. Relational & Knowledge-Graph Data Layer (`models.py`)
+## 1. Relational & Knowledge-Graph Data Layer (`kavosh/models.py`)
 
 The data layer models syllabus concepts, pedagogical prerequisites, historical exams, atomic test items, and negative L1 language transfer patterns.
 
@@ -37,8 +37,8 @@ The data layer models syllabus concepts, pedagogical prerequisites, historical e
 * **`ConceptEdge`:** Represents directed prerequisite relationships.
   * `source_concept_id`: Prerequisite concept (e.g., `g9.l5.grammar.simple_past`).
   * `target_concept_id`: Dependent concept (e.g., `g12.l1.grammar.passive_voice`).
-  * `relationship_type`: Directed relationship type (`prerequisite_of`, `reinforces`, `contrasts_with`).
-  * `pedagogical_notes`: Explanation of why the prerequisite is required.
+  * `relation_type`: Directed relationship type (`prerequisite_of`, `reinforces`, `contrasts_with`).
+  * `notes`: Pedagogical explanation of why the prerequisite is required.
 
 * **`NationalExamPaper`:** Represents an official nation-wide examination paper from the Ministry of Education.
   * `id`: Composite identifier (e.g., `paper_1404_khordad`).
@@ -71,7 +71,7 @@ The data layer models syllabus concepts, pedagogical prerequisites, historical e
 
 ---
 
-## 2. Four-Layer Exam Bank Verification Gate (`verify_exam_bank.py`)
+## 2. Four-Layer Exam Bank Verification Gate (`kavosh/verifier.py`)
 
 Every exam paper and question item must clear four strict verification rules before entering the database:
 
@@ -93,7 +93,7 @@ Every exam paper and question item must clear four strict verification rules bef
 
 ---
 
-## 3. Retrieval & Twin Question Synthesis (`exam_rag_engine.py`)
+## 3. Retrieval & Twin Question Synthesis (`kavosh/exam_rag.py`)
 
 ### Multi-Criteria Item Retrieval (`retrieve_exam_items`)
 Filters the question pool using combinations of:
@@ -118,7 +118,7 @@ To prevent test predictability and eliminate cheating across terms, the synthesi
 
 ---
 
-## 4. Exam Composition Engine (`exam_composer.py`)
+## 4. Exam Composition Engine (`kavosh/composer.py`)
 
 Supports four compositional modes:
 * **`full_mock`:** Follows the official 28.0-point blueprint:
@@ -131,11 +131,13 @@ Supports four compositional modes:
 * **`custom_quiz`:** Uses round-robin selection across active sections to assemble balanced classroom quizzes matching an exact point target (e.g., 10.0 points).
 * **`swap_slot_item`:** Replaces an individual question slot in an assembled exam with an alternate item of identical point value and section code.
 
+Exact score matching is solved deterministically using dynamic programming over quarter-point integer units.
+
 ---
 
-## 5. Right-to-Left (RTL) Print & Export Engine (`exam_styler.py`)
+## 5. Right-to-Left (RTL) Print & Export Engine (`kavosh/styler.py`)
 
-Iranian school exams require bilingual layouts (English question stems paired with Persian exam headers, instructions, and scoring notes). Standard PDF and Word libraries often mangle Persian text by failing to reverse bidirectional character runs or align tables correctly.
+Iranian school exams require bilingual layouts (English question stems paired with Persian exam headers, instructions, and scoring notes).
 
 KavoshELT resolves this natively:
 

@@ -1,77 +1,83 @@
+from __future__ import annotations
+
 import os
-import shutil
-import sqlite3
-import sys
+import tempfile
 import unittest
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from exam_generator import generate_full_exam_package
-from exam_styler import (
+from kavosh.styler import (
     generate_answer_key_pdf,
     generate_exam_docx,
+    generate_exam_html,
     generate_exam_pdf,
     shape_persian,
 )
-from schema import init_db
-from seed_all_grades import seed_curriculum
+
+SAMPLE_EXAM_MD = """# آزمون استاندارد زبان انگلیسی - پایه دوازدهم (Vision)
+
+**مشخصات آزمون:** آموزشگاه: دبیرستان نمونه | طراح: گروه آموزشی | بارم کل: 2.00 نمره
+---
+
+## بخش اول: برگه سوالات دانش‌آموز (Student's Question Sheet)
+
+### بخش دستور زبان (Grammar) — [2.00 Points]
+**1. The ancient palace .......... two hundred years ago.** [Khordad 1404 — 1.00 نمره]
+- a) was built
+- b) is built
+- c) built
+- d) has built
+
+**2. Children should respect their parents, ..........?** [Khordad 1404 — 1.00 نمره]
+- a) shouldn't they
+- b) should they
+- c) don't they
+- d) do they
+
+---
+
+## بخش دوم: کلید سوالات و راهنمای تصحیح رسمی (Official Scoring Key)
+### بخش دستور زبان (Grammar) (بارم بخش: 2.00 نمره)
+1. **a) was built** (1.00 نمره) [ریزبارم: choice: 1.00]
+2. **a) shouldn't they** (1.00 نمره) [ریزبارم: choice: 1.00]
+"""
 
 
 class TestExamStyler(unittest.TestCase):
-    def setUp(self):
-        self.sample_exam_md = (
-            "/home/ubuntu/آزمون_شنیداری_زبان_انگلیسی_پایه_دهم_نوبت_اول.md"
-        )
-        self.out_docx = "/tmp/test_exam.docx"
-        self.out_pdf = "/tmp/test_exam.pdf"
-        self.out_key_pdf = "/tmp/test_exam_key.pdf"
-        self.out_pkg_dir = "/tmp/test_exam_pkg"
+    def setUp(self) -> None:
+        self.tmp_dir = tempfile.TemporaryDirectory()
+        self.sample_md = os.path.join(self.tmp_dir.name, "sample_exam.md")
+        with open(self.sample_md, "w", encoding="utf-8") as f:
+            f.write(SAMPLE_EXAM_MD)
+        self.out_docx = os.path.join(self.tmp_dir.name, "exam.docx")
+        self.out_pdf = os.path.join(self.tmp_dir.name, "exam.pdf")
+        self.out_html = os.path.join(self.tmp_dir.name, "exam.html")
+        self.out_key_pdf = os.path.join(self.tmp_dir.name, "exam_key.pdf")
 
-    def test_persian_shaping(self):
+    def tearDown(self) -> None:
+        self.tmp_dir.cleanup()
+
+    def test_persian_shaping(self) -> None:
         shaped = shape_persian("به نام خدا")
-        self.assertTrue(len(shaped) > 0)
+        self.assertGreater(len(shaped), 0)
 
-    def test_generate_exam_docx(self):
-        if not os.path.exists(self.sample_exam_md):
-            self.skipTest("Sample exam md not found")
-        generate_exam_docx(self.sample_exam_md, self.out_docx)
+    def test_generate_exam_docx(self) -> None:
+        generate_exam_docx(self.sample_md, self.out_docx)
         self.assertTrue(os.path.exists(self.out_docx))
         self.assertGreater(os.path.getsize(self.out_docx), 2000)
 
-    def test_generate_exam_pdf(self):
-        if not os.path.exists(self.sample_exam_md):
-            self.skipTest("Sample exam md not found")
-        generate_exam_pdf(self.sample_exam_md, self.out_pdf)
+    def test_generate_exam_pdf(self) -> None:
+        generate_exam_pdf(self.sample_md, self.out_pdf)
         self.assertTrue(os.path.exists(self.out_pdf))
-        self.assertGreater(
-            os.path.getsize(self.out_pdf), 10000
-        )  # Embedded Vazirmatn font
+        self.assertGreater(os.path.getsize(self.out_pdf), 10000)
 
-    def test_generate_answer_key_pdf(self):
-        if not os.path.exists(self.sample_exam_md):
-            self.skipTest("Sample exam md not found")
-        generate_answer_key_pdf(self.sample_exam_md, self.out_key_pdf)
+    def test_generate_exam_html(self) -> None:
+        generate_exam_html(self.sample_md, self.out_html)
+        self.assertTrue(os.path.exists(self.out_html))
+        self.assertGreater(os.path.getsize(self.out_html), 500)
+
+    def test_generate_answer_key_pdf(self) -> None:
+        generate_answer_key_pdf(self.sample_md, self.out_key_pdf)
         self.assertTrue(os.path.exists(self.out_key_pdf))
         self.assertGreater(os.path.getsize(self.out_key_pdf), 10000)
-
-    def test_generate_full_exam_package_grade7(self):
-        conn = sqlite3.connect(":memory:")
-        init_db(conn)
-        seed_curriculum(conn)
-        res = generate_full_exam_package(
-            conn, grade=7, term=1, out_dir=self.out_pkg_dir
-        )
-        conn.close()
-        self.assertTrue(os.path.exists(res["markdown"]))
-        self.assertTrue(os.path.exists(res["student_pdf"]))
-        self.assertTrue(os.path.exists(res["student_docx"]))
-        self.assertTrue(os.path.exists(res["answer_key_pdf"]))
-
-    def tearDown(self):
-        for p in [self.out_docx, self.out_pdf, self.out_key_pdf]:
-            if os.path.exists(p):
-                os.remove(p)
-        if os.path.exists(self.out_pkg_dir):
-            shutil.rmtree(self.out_pkg_dir)
 
 
 if __name__ == "__main__":

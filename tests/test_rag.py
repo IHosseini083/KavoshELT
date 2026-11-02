@@ -3,15 +3,15 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from rag import (
+from kavosh.rag import (
     compute_embedding,
     cosine_similarity,
     hybrid_search_passages,
     hybrid_search_vocabulary,
     retrieve_rag_context,
 )
-from schema import init_db
-from seed_all_grades import seed_curriculum
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
 
 
 class TestRagEngine(unittest.TestCase):

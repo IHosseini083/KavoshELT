@@ -2,16 +2,19 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+build/
+dist/
 
-# Cache and temporary files
+# Cache and temporary artifacts
 .cache/
-exports/generated/
-exports/composed/
-exports/cli_mock/
+.ruff_cache/
+.mypy_cache/
+exports/
 *.tmp
 *.log
 
-# Databases (rebuilt via seed scripts)
+# Databases (rebuilt automatically via seeder)
 data/*.db
 data/*.sqlite
 !data/.gitkeep

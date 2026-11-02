@@ -3,13 +3,13 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from exam_rag_engine import (
+from kavosh.exam_rag import (
     retrieve_exam_items,
     synthesize_twin_item,
     traverse_prerequisites,
 )
-from schema import init_db
-from seed_all_grades import seed_curriculum
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
 
 
 class TestExamRagEngine(unittest.TestCase):

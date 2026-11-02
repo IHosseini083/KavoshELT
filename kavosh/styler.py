@@ -30,7 +30,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 
-FONTS_DIR = os.path.join(os.path.dirname(__file__), "assets", "fonts")
+FONTS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "fonts")
 VAZIR_REG = os.path.join(FONTS_DIR, "Vazirmatn-Regular.ttf")
 VAZIR_BOLD = os.path.join(FONTS_DIR, "Vazirmatn-Bold.ttf")
 
@@ -108,7 +108,7 @@ def _set_table_rtl(table: DocxTable) -> None:
 
 
 def parse_exam_markdown(md_path: str) -> dict[str, Any]:
-    with open(md_path, "r", encoding="utf-8") as f:
+    with open(md_path, encoding="utf-8") as f:
         content = f.read()
 
     title_match = re.search(r"#\s+(.+)", content)

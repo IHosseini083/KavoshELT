@@ -3,19 +3,22 @@ from __future__ import annotations
 import sqlite3
 import unittest
 
-from models import ExamQuestionItem, NationalExamPaper, session_scope
-from schema import init_db
-from seed_all_grades import seed_curriculum
-from verify_exam_bank import verify_item
+from kavosh.models import ExamQuestionItem, NationalExamPaper, session_scope
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
+from kavosh.verifier import verify_item
 
 
 class TestVerifyExamBank(unittest.TestCase):
-    def setUp(self) -> None:
-        self.conn = sqlite3.connect(":memory:")
-        init_db(self.conn)
-        seed_curriculum(self.conn)
+    conn: sqlite3.Connection
 
-        with session_scope(self.conn) as session:
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.conn = sqlite3.connect(":memory:")
+        init_db(cls.conn)
+        seed_curriculum(cls.conn)
+
+        with session_scope(cls.conn) as session:
             existing_paper = session.get(NationalExamPaper, "paper_1402_khordad")
             if not existing_paper:
                 paper = NationalExamPaper(
@@ -31,8 +34,9 @@ class TestVerifyExamBank(unittest.TestCase):
                 session.add(paper)
                 session.commit()
 
-    def tearDown(self) -> None:
-        self.conn.close()
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.conn.close()
 
     def test_v1_point_precision_violation(self) -> None:
         item = ExamQuestionItem(

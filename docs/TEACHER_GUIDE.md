@@ -11,13 +11,13 @@ Before official final exams in Khordad, teachers need authentic mock exams that 
 
 Run this command in the terminal:
 ```bash
-python3 curriculum_kb.py compose-exam \
+python -m kavosh compose-exam \
     --mode full_mock \
     --grade 12 \
     --points 28.0 \
     --sourcing hybrid \
     --school "Farhang High School" \
-    --teacher "Seyed Iliya Hosseini" \
+    --teacher "English Department" \
     --out-dir exports/grade12_mock_khordad
 ```
 
@@ -32,7 +32,7 @@ python3 curriculum_kb.py compose-exam \
 ### Scenario B: Generating a Single-Skill Remedial Worksheet
 When students struggle with a specific area—such as paragraph writing or sentence unscramble tasks—generate a targeted worksheet:
 ```bash
-python3 curriculum_kb.py compose-exam \
+python -m kavosh compose-exam \
     --mode skill_worksheet \
     --grade 12 \
     --section writing \
@@ -48,7 +48,7 @@ This isolates the writing section, pulling authentic past national exam question
 When administering a continuous classroom quiz for Grade 12 Lesson 1 across multiple class sections:
 ```bash
 # Form A (Class 1) - Hybrid past papers and twin items:
-python3 curriculum_kb.py compose-exam \
+python -m kavosh compose-exam \
     --mode custom_quiz \
     --grade 12 \
     --lessons 1 \
@@ -57,7 +57,7 @@ python3 curriculum_kb.py compose-exam \
     --out-dir exports/quiz_class_a
 
 # Form B (Class 2) - 100% Synthesized twin questions:
-python3 curriculum_kb.py compose-exam \
+python -m kavosh compose-exam \
     --mode custom_quiz \
     --grade 12 \
     --lessons 1 \
@@ -72,7 +72,7 @@ Both forms test the exact same grammar concepts and vocabulary at identical diff
 ### Scenario D: Diagnosing Grammatical Errors & Persian L1 Transfer
 When students repeatedly make mistakes on advanced structures (e.g., passive voice or tag questions), query the prerequisite knowledge graph:
 ```bash
-python3 curriculum_kb.py graph-query --concept g12.l1.grammar.passive_voice
+python -m kavosh graph-query --concept g12.l1.grammar.passive_voice
 ```
 
 **Output Diagnostics:**
@@ -89,7 +89,7 @@ When drafting original exam questions or reading passages:
 ### Step 1: Check Syllabus Boundaries
 Verify that your text does not introduce untaught vocabulary:
 ```bash
-python3 curriculum_kb.py validate \
+python -m kavosh validate \
     --grade 10 \
     --max-lesson 2 \
     --text "The patient visited the hospital for a checkup."
@@ -98,7 +98,7 @@ If an out-of-syllabus word is found (e.g., `patient`), the validator reports it 
 
 ### Step 2: Get In-Syllabus Synonym Replacements
 ```bash
-python3 curriculum_kb.py adapt \
+python -m kavosh adapt \
     --grade 10 \
     --max-lesson 2 \
     --text "The physician helped the ill person."
@@ -107,18 +107,16 @@ The advisor suggests substituting `doctor` (introduced in Grade 7) for `physicia
 
 ---
 
-## 3. Listening Comprehension Audio Studio
+## 3. Listening Comprehension Blueprint
 
-For official listening assessments, KavoshELT configures acoustic directives for Google's Gemini 3.8 Flash TTS engine:
+For official listening assessments, KavoshELT configures acoustic directives for school listening audio tracks:
 
 | Role | Recommended Voice | Tone & Character | Target Pacing |
 |:---|:---|:---|:---|
-| **Examiner / Narrator** | `Fola` (Female) or `Zephyr` (Female) | Clear, articulate, instructional | 125–130 WPM |
-| **Secondary Speaker / Dialogue** | `Rami` (Male) or `Puck` (Male) | Natural, conversational, friendly | 130–135 WPM |
+| **Examiner / Narrator** | Female | Clear, articulate, instructional | 125–130 WPM |
+| **Secondary Speaker / Dialogue** | Male | Natural, conversational, friendly | 130–135 WPM |
 
 ### Inline Pause Standards
 * Between instruction sections: `<long pause>` (15-second inspection interval).
 * Between repetitive listening rounds: `<medium pause>` (5-second transition).
 * Between sentences: `<short pause>` (0.75-second cadence).
-
-Sample audio preview files for each speaker are available under `assets/audio_previews/` in the repository.

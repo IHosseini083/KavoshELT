@@ -5,7 +5,7 @@ import unittest
 
 from sqlalchemy import select, text
 
-from models import (
+from kavosh.models import (
     ConceptEdge,
     ConceptNode,
     ExamQuestionItem,
@@ -13,7 +13,7 @@ from models import (
     NationalExamPaper,
     session_scope,
 )
-from schema import init_db
+from kavosh.schema import init_db
 
 
 class TestGraphModels(unittest.TestCase):

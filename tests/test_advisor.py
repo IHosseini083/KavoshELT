@@ -4,9 +4,9 @@ import sys
 import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from advisor import analyze_and_advise
-from schema import init_db
-from seed_all_grades import seed_curriculum
+from kavosh.advisor import analyze_and_advise
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
 
 
 class TestAdvisor(unittest.TestCase):

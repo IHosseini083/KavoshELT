@@ -4,7 +4,7 @@ import sqlite3
 
 from sqlalchemy import text
 
-from models import Base, DbTarget, create_engine_for_target, session_scope
+from kavosh.models import Base, DbTarget, create_engine_for_target, session_scope
 
 FTS_SQL = """
 CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(

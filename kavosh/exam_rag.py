@@ -7,7 +7,7 @@ from typing import Any
 
 from sqlalchemy import and_, select, text
 
-from models import (
+from kavosh.models import (
     ConceptEdge,
     ConceptNode,
     DbTarget,
@@ -16,8 +16,8 @@ from models import (
     NationalExamPaper,
     session_scope,
 )
-from rag import _normalize_tokens, compute_embedding, cosine_similarity
-from verify_exam_bank import verify_item
+from kavosh.rag import _normalize_tokens, compute_embedding, cosine_similarity
+from kavosh.verifier import verify_item
 
 
 def retrieve_exam_items(

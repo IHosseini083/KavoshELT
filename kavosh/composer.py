@@ -5,16 +5,17 @@ import os
 import uuid
 from typing import Any
 
-from exam_rag_engine import retrieve_exam_items, synthesize_twin_item
-from exam_styler import (
+from kavosh.exam_rag import retrieve_exam_items, synthesize_twin_item
+from kavosh.models import DbTarget
+from kavosh.styler import (
     generate_answer_key_pdf,
     generate_exam_docx,
     generate_exam_html,
     generate_exam_pdf,
 )
-from models import DbTarget
 
-DEFAULT_EXPORTS_DIR = os.path.join(os.path.dirname(__file__), "exports", "composed")
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+DEFAULT_EXPORTS_DIR = os.path.join(ROOT_DIR, "exports", "composed")
 
 OFFICIAL_SECTION_TITLES_FA: dict[str, str] = {
     "vocabulary": "بخش واژگان (Vocabulary)",
@@ -26,6 +27,37 @@ OFFICIAL_SECTION_TITLES_FA: dict[str, str] = {
 }
 
 
+def _select_items_for_target_points(
+    pool: list[dict[str, Any]],
+    target_points: float,
+) -> tuple[list[dict[str, Any]], float]:
+    """Select an exact subset of items summing to target_points via quarter-unit DP."""
+    target_units = int(round(target_points * 4))
+    if target_units <= 0 or not pool:
+        return [], 0.0
+
+    dp: dict[int, list[int]] = {0: []}
+    for idx, it in enumerate(pool):
+        item_units = int(round(float(it["points"]) * 4))
+        if item_units <= 0:
+            continue
+        for curr_u, chosen in list(dp.items()):
+            next_u = curr_u + item_units
+            if next_u <= target_units and next_u not in dp:
+                dp[next_u] = chosen + [idx]
+        if target_units in dp:
+            selected = [pool[i] for i in dp[target_units]]
+            return selected, round(target_units / 4.0, 2)
+
+    best_u = max(dp.keys())
+    if best_u > 0:
+        selected = [pool[i] for i in dp[best_u]]
+        return selected, round(best_u / 4.0, 2)
+
+    fallback = pool[:4]
+    return fallback, round(sum(float(x["points"]) for x in fallback), 2)
+
+
 def _apply_sourcing(
     conn: DbTarget,
     items: list[dict[str, Any]],
@@ -33,27 +65,15 @@ def _apply_sourcing(
 ) -> list[dict[str, Any]]:
     processed: list[dict[str, Any]] = []
     for idx, it in enumerate(items):
-        if sourcing == "ai_twins":
+        if sourcing == "ai_twins" or (sourcing == "hybrid" and idx % 2 == 1):
             twin = synthesize_twin_item(conn, it["id"], variation_index=idx)
             if twin and twin["is_valid"]:
-                # Inherit shamsi_year and session for display provenance
                 twin["shamsi_year"] = it.get("shamsi_year", 1403)
                 twin["session"] = it.get("session", "Khordad")
                 processed.append(twin)
             else:
                 processed.append(it)
-        elif sourcing == "hybrid":
-            if idx % 2 == 1:
-                twin = synthesize_twin_item(conn, it["id"], variation_index=idx)
-                if twin and twin["is_valid"]:
-                    twin["shamsi_year"] = it.get("shamsi_year", 1403)
-                    twin["session"] = it.get("session", "Khordad")
-                    processed.append(twin)
-                else:
-                    processed.append(it)
-            else:
-                processed.append(it)
-        else:  # past_papers
+        else:
             processed.append(it)
     return processed
 
@@ -116,21 +136,22 @@ def _render_composed_markdown(
             if it.get("options_json"):
                 try:
                     opts = json.loads(it["options_json"])
-                    for opt in opts:
-                        lines.append(f"- {opt}")
-                except Exception:
+                    if isinstance(opts, list):
+                        for opt in opts:
+                            lines.append(f"- {opt}")
+                except (ValueError, TypeError):
                     pass
 
             lines.append("")
 
-            # Answer key line with 0.25 rubric breakdown
             rubric_str = ""
             if it.get("rubric_breakdown_json"):
                 try:
                     r_dict = json.loads(it["rubric_breakdown_json"])
-                    r_parts = [f"{k}: {v:.2f}" for k, v in r_dict.items()]
-                    rubric_str = f" [ریزبارم: {', '.join(r_parts)}]"
-                except Exception:
+                    if isinstance(r_dict, dict):
+                        r_parts = [f"{k}: {v:.2f}" for k, v in r_dict.items()]
+                        rubric_str = f" [ریزبارم: {', '.join(r_parts)}]"
+                except (ValueError, TypeError):
                     pass
 
             answer_key_lines.append(
@@ -169,8 +190,6 @@ def compose_exam(
     composed_sections: list[dict[str, Any]] = []
 
     if mode == "full_mock":
-        # Official Blueprint 28.0 Points Distribution:
-        # Vocabulary (6.0), Grammar (5.0), Writing (6.0), Cloze (3.0), Reading (8.0)
         blueprint_slots: list[tuple[str, float]] = [
             ("vocabulary", 6.0),
             ("grammar", 5.0),
@@ -178,12 +197,10 @@ def compose_exam(
             ("cloze", 3.0),
             ("reading", 8.0),
         ]
-
         scale = target_points / 28.0
 
         for sec_code, base_pts in blueprint_slots:
             slot_target = round(base_pts * scale, 2)
-            # Find pool items
             pool = retrieve_exam_items(
                 conn,
                 grade=grade,
@@ -192,28 +209,14 @@ def compose_exam(
                 sessions=sessions,
                 year_min=year_min,
                 year_max=year_max,
-                top_k=20,
+                top_k=25,
             )
-
-            # Select items greedily to reach slot_target
-            selected: list[dict[str, Any]] = []
-            curr_pts = 0.0
-            for it in pool:
-                if curr_pts + it["points"] <= slot_target + 1e-4:
-                    selected.append(it)
-                    curr_pts += it["points"]
-                if abs(curr_pts - slot_target) < 1e-4:
-                    break
-
-            if not selected and pool:
-                selected = pool[:4]
-                curr_pts = sum(x["points"] for x in selected)
-
+            selected, curr_pts = _select_items_for_target_points(pool, slot_target)
             processed_items = _apply_sourcing(conn, selected, sourcing)
             composed_sections.append(
                 {
                     "section_code": sec_code,
-                    "section_points": round(curr_pts, 2),
+                    "section_points": curr_pts,
                     "items": processed_items,
                 }
             )
@@ -230,24 +233,12 @@ def compose_exam(
             year_max=year_max,
             top_k=30,
         )
-        selected = []
-        curr_pts = 0.0
-        for it in pool:
-            if curr_pts + it["points"] <= target_points + 1e-4:
-                selected.append(it)
-                curr_pts += it["points"]
-            if abs(curr_pts - target_points) < 1e-4:
-                break
-
-        if not selected and pool:
-            selected = pool[:3]
-            curr_pts = sum(x["points"] for x in selected)
-
+        selected, curr_pts = _select_items_for_target_points(pool, target_points)
         processed_items = _apply_sourcing(conn, selected, sourcing)
         composed_sections.append(
             {
                 "section_code": target_sec,
-                "section_points": round(curr_pts, 2),
+                "section_points": curr_pts,
                 "items": processed_items,
             }
         )
@@ -297,16 +288,14 @@ def compose_exam(
         for sec_dict in composed_sections:
             sec_dict["items"] = _apply_sourcing(conn, sec_dict["items"], sourcing)
 
-    # Compute exact total points
     actual_total_pts = sum(sec["section_points"] for sec in composed_sections)
 
     exam_title = f"آزمون استاندارد نهایی کشوری ({mode})"
     if mode == "skill_worksheet":
         exam_title = f"کاربرگ تخصصی مهارت {OFFICIAL_SECTION_TITLES_FA.get(section or 'writing', '')}"
     elif mode == "custom_quiz":
-        exam_title = f"کوئیز کلاسی درس {', '.join(str(l) for l in (lessons or [1]))}"
+        exam_title = f"کوئیز کلاسی درس {', '.join(str(x) for x in (lessons or [1]))}"
 
-    # Render Markdown
     md_content = _render_composed_markdown(
         title=exam_title,
         grade=grade,
@@ -320,7 +309,6 @@ def compose_exam(
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(md_content)
 
-    # Generate PDF, DOCX, HTML, and Answer Key PDF
     student_pdf = os.path.join(target_out_dir, "student_sheet.pdf")
     student_docx = os.path.join(target_out_dir, "student_sheet.docx")
     student_html = os.path.join(target_out_dir, "student_sheet.html")
@@ -354,7 +342,6 @@ def swap_slot_item(
     composed_exam: dict[str, Any],
     slot_id: str,
 ) -> dict[str, Any]:
-    # Locate target section and item
     target_sec = None
     target_item = None
     target_idx = -1
@@ -371,7 +358,6 @@ def swap_slot_item(
     if not target_sec or not target_item:
         return composed_exam
 
-    # Retrieve candidate items matching same points, grade, and section
     candidates = retrieve_exam_items(
         conn,
         grade=target_item["grade"],
@@ -390,18 +376,13 @@ def swap_slot_item(
             break
 
     if not new_item:
-        # Fallback to synthesizing a fresh twin
         twin = synthesize_twin_item(conn, target_item["id"], variation_index=2)
         if twin and twin["is_valid"]:
             new_item = twin
         else:
             return composed_exam
 
-    # Replace item in section
     target_sec["items"][target_idx] = new_item
-
-    # Re-render and re-export
-    out_dir = os.path.dirname(composed_exam["markdown_path"])
     actual_total_pts = sum(sec["section_points"] for sec in composed_exam["sections"])
 
     md_content = _render_composed_markdown(

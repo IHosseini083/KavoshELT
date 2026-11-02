@@ -5,7 +5,7 @@ import unittest
 
 from sqlalchemy import select
 
-from models import (
+from kavosh.models import (
     ConceptEdge,
     ConceptNode,
     ExamQuestionItem,
@@ -13,9 +13,9 @@ from models import (
     NationalExamPaper,
     session_scope,
 )
-from schema import init_db
-from seed_all_grades import seed_curriculum
-from verify_exam_bank import audit_national_exam_bank
+from kavosh.schema import init_db
+from kavosh.seeder import seed_curriculum
+from kavosh.verifier import audit_national_exam_bank
 
 
 class TestNationalExamSeed(unittest.TestCase):

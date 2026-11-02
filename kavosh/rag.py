@@ -9,7 +9,7 @@ from typing import Any
 
 from sqlalchemy import and_, or_, select, text
 
-from models import DbTarget, Lesson, Passage, Vocabulary, session_scope
+from kavosh.models import DbTarget, Lesson, Passage, Vocabulary, session_scope
 
 EMBEDDING_DIM = 64
 
@@ -588,12 +588,12 @@ def retrieve_rag_context(
         lessons = list(session.scalars(stmt).all())
         grammar_rules = [
             {
-                "lesson_num": l.lesson_num,
-                "title": l.title,
-                "allowed_grammar": json.loads(l.allowed_grammar),
-                "forbidden_grammar": json.loads(l.forbidden_grammar),
+                "lesson_num": les.lesson_num,
+                "title": les.title,
+                "allowed_grammar": json.loads(les.allowed_grammar),
+                "forbidden_grammar": json.loads(les.forbidden_grammar),
             }
-            for l in lessons
+            for les in lessons
         ]
 
     vocab_list_str = ", ".join(f"{v['word']} ({v['pos']})" for v in vocab)

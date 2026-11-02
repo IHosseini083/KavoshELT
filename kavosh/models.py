@@ -3,7 +3,6 @@ from __future__ import annotations
 import sqlite3
 from collections.abc import Iterator
 from contextlib import contextmanager
-from typing import Union
 
 from sqlalchemy import (
     Boolean,
@@ -81,9 +80,6 @@ class Rubric(Base):
     structure_json: Mapped[str] = mapped_column(Text, nullable=False)
 
 
-# --- Unified Relational Graph-RAG Models ---
-
-
 class ConceptNode(Base):
     __tablename__ = "concept_nodes"
     __table_args__ = (
@@ -94,9 +90,7 @@ class ConceptNode(Base):
     id: Mapped[str] = mapped_column(String(128), primary_key=True)
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
     lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
-    category: Mapped[str] = mapped_column(
-        String(64), nullable=False
-    )  # grammar, vocabulary, writing, reading, pronunciation
+    category: Mapped[str] = mapped_column(String(64), nullable=False)
     title_en: Mapped[str] = mapped_column(String(255), nullable=False)
     title_fa: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=False)
@@ -118,9 +112,7 @@ class ConceptEdge(Base):
     target_id: Mapped[str] = mapped_column(
         String(128), ForeignKey("concept_nodes.id", ondelete="CASCADE"), nullable=False
     )
-    relation_type: Mapped[str] = mapped_column(
-        String(64), nullable=False
-    )  # prerequisite_of, contrasts_with, l1_interference_with, co_occurs_with
+    relation_type: Mapped[str] = mapped_column(String(64), nullable=False)
     weight: Mapped[float] = mapped_column(Float, default=1.0)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
@@ -132,13 +124,9 @@ class NationalExamPaper(Base):
     id: Mapped[str] = mapped_column(String(128), primary_key=True)
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
     shamsi_year: Mapped[int] = mapped_column(Integer, nullable=False)
-    session: Mapped[str] = mapped_column(
-        String(32), nullable=False
-    )  # Khordad, Shahrivar, Dey
+    session: Mapped[str] = mapped_column(String(32), nullable=False)
     total_written_points: Mapped[float] = mapped_column(Float, nullable=False)
-    blueprint_version: Mapped[str] = mapped_column(
-        String(64), nullable=False
-    )  # 1397-1401_classic, 1402-1405_conceptual
+    blueprint_version: Mapped[str] = mapped_column(String(64), nullable=False)
     source_origin: Mapped[str] = mapped_column(String(128), default="Markaz-e-Sanjesh")
     is_verified: Mapped[bool] = mapped_column(Boolean, default=True)
 
@@ -158,23 +146,13 @@ class ExamQuestionItem(Base):
         ForeignKey("national_exam_papers.id", ondelete="CASCADE"),
         nullable=False,
     )
-    section_code: Mapped[str] = mapped_column(
-        String(32), nullable=False
-    )  # vocabulary, grammar, writing, cloze, reading, pronunciation
-    item_type: Mapped[str] = mapped_column(
-        String(32), nullable=False
-    )  # multiple_choice, fill_blank, unscramble, sentence_completion, paragraph_writing, matching, true_false, open_ended
+    section_code: Mapped[str] = mapped_column(String(32), nullable=False)
+    item_type: Mapped[str] = mapped_column(String(32), nullable=False)
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
     lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
-    bloom_level: Mapped[str] = mapped_column(
-        String(32), default="apply"
-    )  # remember, understand, apply, analyze, evaluate, create
-    difficulty: Mapped[str] = mapped_column(
-        String(16), default="medium"
-    )  # easy, medium, hard
-    points: Mapped[float] = mapped_column(
-        Float, nullable=False
-    )  # exact multiple of 0.25
+    bloom_level: Mapped[str] = mapped_column(String(32), default="apply")
+    difficulty: Mapped[str] = mapped_column(String(16), default="medium")
+    points: Mapped[float] = mapped_column(Float, nullable=False)
     instruction_en: Mapped[str] = mapped_column(Text, nullable=False)
     stem_text: Mapped[str] = mapped_column(Text, nullable=False)
     passage_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -204,17 +182,27 @@ class L1ErrorPattern(Base):
     remedial_drill_template: Mapped[str] = mapped_column(Text, nullable=False)
 
 
-DbTarget = Union[str, Engine, Session, sqlite3.Connection]
+DbTarget = str | Engine | Session | sqlite3.Connection
+
+_CONN_ENGINE_CACHE: dict[int, tuple[sqlite3.Connection, Engine]] = {}
 
 
 def create_engine_for_target(target: str | sqlite3.Connection) -> Engine:
     if isinstance(target, sqlite3.Connection):
-        return create_engine(
+        conn_id = id(target)
+        cached = _CONN_ENGINE_CACHE.get(conn_id)
+        if cached is not None and cached[0] is target:
+            return cached[1]
+        engine = create_engine(
             "sqlite://",
             creator=lambda: target,
             poolclass=StaticPool,
             connect_args={"check_same_thread": False},
         )
+        if len(_CONN_ENGINE_CACHE) > 32:
+            _CONN_ENGINE_CACHE.clear()
+        _CONN_ENGINE_CACHE[conn_id] = (target, engine)
+        return engine
     if target == ":memory:":
         return create_engine(
             "sqlite:///:memory:",
@@ -240,12 +228,7 @@ def session_scope(target: DbTarget) -> Iterator[Session]:
         return
 
     if isinstance(target, sqlite3.Connection):
-        engine = create_engine(
-            "sqlite://",
-            creator=lambda: target,
-            poolclass=StaticPool,
-            connect_args={"check_same_thread": False},
-        )
+        engine = create_engine_for_target(target)
         factory = sessionmaker(bind=engine, expire_on_commit=False)
         sess = factory()
         try:

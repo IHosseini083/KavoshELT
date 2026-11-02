@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kavosh-elt"
+version = "2.0.0"
+description = "Unified Knowledge-Graph RAG and National Exam Studio for the Iranian Secondary English Curriculum"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = [
+    "sqlalchemy>=2.0.0",
+    "reportlab>=4.0.0",
+    "python-docx>=1.1.0",
+    "arabic-reshaper>=3.0.0",
+    "python-bidi>=0.4.2",
+]
+
+[project.scripts]
+kavosh = "kavosh.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["kavosh*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+strict = false

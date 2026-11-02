@@ -6,7 +6,7 @@ import os
 
 from sqlalchemy import delete, text
 
-from models import (
+from kavosh.models import (
     ConceptEdge,
     ConceptNode,
     DbTarget,
@@ -19,15 +19,27 @@ from models import (
     Vocabulary,
     session_scope,
 )
-from rag import compute_embedding
-from schema import init_db
-from seed_vision1 import PROSPECT_BASE_LEMMAS
+from kavosh.rag import compute_embedding
+from kavosh.schema import init_db
 
-DEFAULT_DATASETS_DIR = os.path.join(os.path.dirname(__file__), "datasets")
-DEFAULT_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum.db")
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+DEFAULT_DATASETS_DIR = os.path.join(ROOT_DIR, "datasets")
+DEFAULT_DB_PATH = os.path.join(ROOT_DIR, "data", "curriculum.db")
+
+
+def _load_base_lemmas(datasets_dir: str) -> list[str]:
+    base_path = os.path.join(datasets_dir, "base_lemmas.json")
+    if not os.path.exists(base_path):
+        base_path = os.path.join(DEFAULT_DATASETS_DIR, "base_lemmas.json")
+    if os.path.exists(base_path):
+        with open(base_path, encoding="utf-8") as f:
+            return [str(w) for w in json.load(f)]
+    return []
 
 
 def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) -> None:
+    base_lemmas = _load_base_lemmas(datasets_dir)
+
     with session_scope(target) as session:
         session.execute(delete(ExamQuestionItem))
         session.execute(delete(NationalExamPaper))
@@ -43,7 +55,7 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
 
         seen_vocab: set[tuple[str, int, int]] = set()
 
-        for word in PROSPECT_BASE_LEMMAS:
+        for word in base_lemmas:
             key = (word.lower(), 6, 0)
             if key in seen_vocab:
                 continue
@@ -63,7 +75,7 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
 
         json_files = sorted(glob.glob(os.path.join(datasets_dir, "grade*.json")))
         for jf in json_files:
-            with open(jf, "r", encoding="utf-8") as f:
+            with open(jf, encoding="utf-8") as f:
                 data = json.load(f)
 
             grade = int(data["grade"])
@@ -148,10 +160,9 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                     )
                 )
 
-        # Seed Pedagogical Knowledge Graph
         graph_file = os.path.join(datasets_dir, "concept_graph_grade12.json")
         if os.path.exists(graph_file):
-            with open(graph_file, "r", encoding="utf-8") as f:
+            with open(graph_file, encoding="utf-8") as f:
                 gdata = json.load(f)
 
             for n in gdata.get("nodes", []):
@@ -196,10 +207,9 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                     )
                 )
 
-        # Seed National Exams Bank
         exams_file = os.path.join(datasets_dir, "national_exams_grade12_1397_1405.json")
         if os.path.exists(exams_file):
-            with open(exams_file, "r", encoding="utf-8") as f:
+            with open(exams_file, encoding="utf-8") as f:
                 edata = json.load(f)
 
             for p in edata.get("papers", []):

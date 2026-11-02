@@ -6,14 +6,14 @@ from typing import Any
 
 from sqlalchemy import select
 
-from models import (
+from kavosh.models import (
     ConceptNode,
     DbTarget,
     ExamQuestionItem,
     NationalExamPaper,
     session_scope,
 )
-from validator import validate_exam_text
+from kavosh.validator import validate_exam_text
 
 
 def verify_item(conn: DbTarget, item: ExamQuestionItem) -> dict[str, Any]:

@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import os
 from typing import Any
 
 from sqlalchemy import func, select
 
-from models import DbTarget, Lesson, Passage, session_scope
-from validator import validate_exam_text
+from kavosh.models import DbTarget, Lesson, Passage, session_scope
+from kavosh.validator import validate_exam_text
 
 
 def run_curriculum_audit(conn: DbTarget) -> dict[str, Any]:
@@ -44,10 +43,3 @@ def run_curriculum_audit(conn: DbTarget) -> dict[str, Any]:
         "passage_validation_failures": failures,
         "audit_passed": passed,
     }
-
-
-if __name__ == "__main__":
-    db_path = os.path.join(os.path.dirname(__file__), "data", "curriculum.db")
-    if os.path.exists(db_path):
-        report = run_curriculum_audit(db_path)
-        print("Audit report:", report)
