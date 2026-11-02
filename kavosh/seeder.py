@@ -3,9 +3,11 @@ from __future__ import annotations
 import glob
 import json
 import os
+from pathlib import Path
 
 from sqlalchemy import delete, text
 
+from kavosh import paths
 from kavosh.models import (
     ConceptEdge,
     ConceptNode,
@@ -20,24 +22,30 @@ from kavosh.models import (
     session_scope,
 )
 from kavosh.rag import compute_embedding
-from kavosh.schema import init_db
 
-ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-DEFAULT_DATASETS_DIR = os.path.join(ROOT_DIR, "datasets")
-DEFAULT_DB_PATH = os.path.join(ROOT_DIR, "data", "curriculum.db")
+
+def __getattr__(name: str) -> str:
+    """Lazily expose ``DEFAULT_DATASETS_DIR`` / ``DEFAULT_DB_PATH`` (backward compatible)."""
+    if name == "DEFAULT_DATASETS_DIR":
+        return str(paths.datasets_dir())
+    if name == "DEFAULT_DB_PATH":
+        return str(paths.default_db_path())
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
 def _load_base_lemmas(datasets_dir: str) -> list[str]:
     base_path = os.path.join(datasets_dir, "base_lemmas.json")
     if not os.path.exists(base_path):
-        base_path = os.path.join(DEFAULT_DATASETS_DIR, "base_lemmas.json")
+        base_path = os.path.join(str(paths.datasets_dir()), "base_lemmas.json")
     if os.path.exists(base_path):
         with open(base_path, encoding="utf-8") as f:
             return [str(w) for w in json.load(f)]
     return []
 
 
-def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) -> None:
+def seed_curriculum(target: DbTarget, datasets_dir: str | None = None) -> None:
+    """(Re)seed ``target`` from the JSON datasets (bundled or in-repo by default)."""
+    datasets_dir = datasets_dir or str(paths.datasets_dir())
     base_lemmas = _load_base_lemmas(datasets_dir)
 
     with session_scope(target) as session:
@@ -344,11 +352,11 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
         session.commit()
 
 
-def build_database(db_path: str = DEFAULT_DB_PATH) -> None:
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
-    init_db(db_path)
-    seed_curriculum(db_path)
-    print(f"Full 6-grade curriculum and national exams database seeded at: {db_path}")
+def build_database(db_path: str | None = None) -> None:
+    """Build the database at ``db_path`` (default: the per-user cache location)."""
+    target = Path(db_path) if db_path else paths.cache_dir() / "curriculum.db"
+    paths.build_database_file(target)
+    print(f"Full 6-grade curriculum and national exams database seeded at: {target}")
 
 
 if __name__ == "__main__":
