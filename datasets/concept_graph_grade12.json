@@ -1,6 +1,42 @@
 {
   "nodes": [
     {
+      "id": "g9.l5.grammar.simple_past",
+      "grade": 9,
+      "lesson_num": 5,
+      "category": "grammar",
+      "title_en": "Simple Past (Regular & Irregular Verbs)",
+      "title_fa": "گذشته ساده (فعل‌های باقاعده و بی‌قاعده)",
+      "description": "Past actions completed at a definite time: Subject + past verb (watched, went); questions with Did + Subject + base verb; Wh- questions in the past."
+    },
+    {
+      "id": "g10.l4.grammar.modals",
+      "grade": 10,
+      "lesson_num": 4,
+      "category": "grammar",
+      "title_en": "Modal Auxiliaries (can, may, must, should)",
+      "title_fa": "افعال کمکی وجهی (can، may، must، should)",
+      "description": "Subject + modal + base verb to express ability or possibility (can), polite permission (may), obligation (must) and advice (should)."
+    },
+    {
+      "id": "g11.l1.grammar.present_perfect",
+      "grade": 11,
+      "lesson_num": 1,
+      "category": "grammar",
+      "title_en": "Present Perfect Tense",
+      "title_fa": "زمان حال کامل",
+      "description": "Subject + have/has + past participle (V3) for actions at an unspecified time before now or continuing up to now, used with for (duration) and since (starting point)."
+    },
+    {
+      "id": "g11.l2.grammar.conditional_type_1",
+      "grade": 11,
+      "lesson_num": 2,
+      "category": "grammar",
+      "title_en": "Conditional Sentences Type 1",
+      "title_fa": "جمله‌های شرطی نوع اول",
+      "description": "Real or likely future conditions: If + simple present, Subject + will + base verb."
+    },
+    {
       "id": "g12.l1.grammar.passive_voice",
       "grade": 12,
       "lesson_num": 1,

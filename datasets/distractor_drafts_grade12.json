@@ -1,0 +1,75 @@
+{
+  "description": "Machine-drafted distractor analyses for grade-12 national-exam multiple-choice items whose source records have none. Each draft applies to every exam item with the same section_code, stem_text and canonical_answer (the exam bank repeats these items across sessions). Authored analyses are never overridden. Drafts are marked machine_drafted until a teacher reviews them; delete the field from a draft's entry (or the entry itself) once reviewed.",
+  "drafts": [
+    {
+      "section_code": "cloze",
+      "stem_text": "Choose the best word for blank (1):",
+      "canonical_answer": "a) definition",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "Blank (1) needs the thing an entry gives for each word. Option b (pronunciation) is grammatically possible, but the next sentence ('Also, you can find the correct pronunciation') presents pronunciation as the additional information, so the first blank must be 'definition'. Options c (devotion) and d (appreciation) are Lesson 1 family-respect nouns; they fit the noun slot but have no meaning link to dictionary entries."
+    },
+    {
+      "section_code": "cloze",
+      "stem_text": "Choose the best word for blank (2):",
+      "canonical_answer": "a) useful",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "All options are adjectives that fit after 'very', so only meaning separates them. Options b (dangerous), c (dirty) and d (cruel) have negative meanings that cannot describe a bilingual dictionary that helps students translate words easily."
+    },
+    {
+      "section_code": "cloze",
+      "stem_text": "Choose the best word for blank (3):",
+      "canonical_answer": "a) should be",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The sentence is passive ('respected by all family members'), so a form of 'be' is needed before the past participle. Option b (should) omits 'be', the typical Persian-L1 error of dropping the passive auxiliary. Option c (had) makes an active past-perfect form, which would need 'been' to be passive and does not fit 'by' + agent. Option d (will) is a modal that cannot be followed directly by a past participle and needs 'be'."
+    },
+    {
+      "section_code": "cloze",
+      "stem_text": "Choose the best word for blank (4):",
+      "canonical_answer": "a) replace",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The blank follows 'to' and needs a base verb meaning 'substitute' that takes 'X with Y' (replace fossil fuels with clean solar energy). Options b (forgive), c (respect) and d (hurt) are base verbs that fit the grammar slot, but none collocates with 'fuels ... with clean energy' or makes sense for cities, so only vocabulary meaning tests the answer."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "What do solar panels convert sunlight into?",
+      "canonical_answer": "a) clean electricity",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The text says solar panels and wind turbines 'convert sunlight and wind into clean electricity without dangerous smoke'. Option b (dangerous smoke) is a word-matching trap: the phrase is in the text, but as something clean energy avoids. Option c (fossil fuels) also appears in the text, but as what people replace, not a product. Option d (dirty water) is not mentioned."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "Why do people try to replace fossil fuels?",
+      "canonical_answer": "a) to protect nature",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The text says people replace fossil fuels with clean energy 'to protect nature'. Option b (to make more smoke) contradicts the passage, which presents clean energy as smoke-free. Options c (to destroy plains) and d (to cut down trees) are not in the text and contradict the stated aim of protecting the environment."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "What role do elders play in families according to the text?",
+      "canonical_answer": "a) an important role",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The first sentence says elders 'play an important role in every Iranian family'. Option b (no role at all) directly contradicts it. Option c (only doing homework) is not in the text and wrongly narrows the role the passage describes (teaching wisdom, patience, kindness). Option d (building bridges) is not in the text."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "What brings happiness to elderly family members?",
+      "canonical_answer": "a) visiting them with love",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The text ends 'Visiting grandparents brings happiness to the family', with care and love mentioned earlier. Option b (forgetting them) is the opposite of visiting. Options c (cutting down trees) and d (working in factories) are unrelated to the passage."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "What does each dictionary entry give to students?",
+      "canonical_answer": "a) definition and pronunciation",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The text says 'Each dictionary entry gives the exact definition and pronunciation'. Options b (only games), c (historical stories) and d (plane tickets) are not in the passage; 'only games' also adds an absolute restriction that the text never makes."
+    },
+    {
+      "section_code": "reading",
+      "stem_text": "Who can use bilingual dictionaries to learn English?",
+      "canonical_answer": "a) young students",
+      "distractor_status": "machine_drafted",
+      "distractor_analysis": "The text says bilingual dictionaries are 'very useful for young students'. Option b (scientists only) is not stated and adds an absolute restriction ('only'). Option c (elderly people) is not mentioned in this passage; it is a lure from the family-elders reading topic. Option d (hunters) is unrelated."
+    }
+  ]
+}

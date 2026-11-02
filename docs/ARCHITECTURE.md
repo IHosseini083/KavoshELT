@@ -59,6 +59,7 @@ The data layer models syllabus concepts, pedagogical prerequisites, historical e
   * `canonical_answer`: Official scoring key answer.
   * `rubric_breakdown_json`: Explicit sub-point distribution (e.g., `{"choice": 0.5}` or `{"word_order": 1.0, "syntax": 1.0}`).
   * `distractor_analysis`: Diagnostic explanation of common student errors.
+  * `distractor_status`: Provenance of the analysis. `NULL` means authored with the item; `machine_drafted` means drafted from the item and answer key and awaiting teacher review. Drafts are stored in `datasets/distractor_drafts_grade12.json` (keyed by section, stem and answer) and applied by the seeder only to items without an authored analysis; a draft that matches no item fails seeding.
   * `concept_ids_json`: JSON list of referenced `ConceptNode` identifiers.
 
 * **`L1ErrorPattern`:** First-language (Persian) negative transfer patterns.
