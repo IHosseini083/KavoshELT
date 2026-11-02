@@ -1,7 +1,7 @@
 # KavoshELT
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Tests](https://img.shields.io/badge/tests-53%20passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-91%20passed-brightgreen.svg)]()
 [![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![ORM: SQLAlchemy 2.0](https://img.shields.io/badge/ORM-SQLAlchemy%202.0-red.svg)](https://www.sqlalchemy.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -35,7 +35,7 @@ It serves as a ground-truth guardrail for English educators and AI systems—eli
 
 ## Key Features
 
-* **Complete 6-Grade Syllabus Database:** Covers all 31 lessons across *Prospect 1–3* (Grades 7–9) and *Vision 1–3* (Grades 10–12), including 1,600+ textbook vocabulary entries, progressive grammar boundaries, canonical passages, and official assessment rubrics.
+* **Complete 6-Grade Syllabus Database:** Covers all 31 lessons across *Prospect 1–3* (Grades 7–9) and *Vision 1–3* (Grades 10–12), including 1,695 textbook vocabulary entries, progressive grammar boundaries, canonical passages, and official assessment rubrics.
 * **Unified Relational Graph-RAG Engine:** Combines SQLAlchemy 2.0 relational constraints, directed prerequisite concept graphs (`ConceptNode` and `ConceptEdge`), Persian first-language interference patterns (`L1ErrorPattern`), and 64-dimensional semantic vectors with SQLite FTS5 indexing.
 * **Grade 12 National Exam Archive (1397–1405):** Includes 27 official national examination papers across Khordad, Shahrivar, and Dey sessions, decomposed into atomic question items with Bloom taxonomy levels, 0.25-point rubric breakdowns, and distractor diagnostics. 135 diagnostics are source-authored; the other 162 (cloze and reading) carry `"distractor_status": "machine_drafted"` and are awaiting teacher review. The drafts live in [`datasets/distractor_drafts_grade12.json`](datasets/distractor_drafts_grade12.json) and are merged in at seed time, so the authentic exam file stays untouched.
 * **4-Layer Verification Gate:** Validates every exam item against mathematical scoring rules (exact multiples of 0.25), 100% syllabus vocabulary/grammar compliance, concept graph integrity, and answer key completeness.
@@ -187,9 +187,26 @@ kavosh-mcp            # stdio transport; or: python -m kavosh.mcp_server
 ```
 Tools: `validate_text`, `suggest_synonyms`, `get_lesson_bounds`, `search_curriculum`, `retrieve_exam_questions`, `get_l1_interference`. Resources: `curriculum://grade/{grade}/lesson/{lesson}` and `curriculum://index`.
 
-Claude Desktop configuration (`claude_desktop_config.json`):
+**Claude Desktop Configuration (`claude_desktop_config.json`):**
 ```json
-{ "mcpServers": { "kavosh-elt": { "command": "kavosh-mcp" } } }
+{
+  "mcpServers": {
+    "kavosh-elt": {
+      "command": "kavosh-mcp"
+    }
+  }
+}
+```
+
+**Cursor Configuration (`.cursor/mcp.json`):**
+```json
+{
+  "mcpServers": {
+    "kavosh-elt": {
+      "command": "kavosh-mcp"
+    }
+  }
+}
 ```
 See [docs/MCP_SERVER.md](docs/MCP_SERVER.md) and [`examples/`](examples/) for all tool arguments, environment variables, and client setup.
 
@@ -209,6 +226,7 @@ KavoshELT/
 │   ├── schema.py            # Database schema and FTS5 virtual tables
 │   ├── seeder.py            # Dataset & exam archive database builder
 │   ├── validator.py         # Syllabus-bounds and grammar engine
+│   ├── validator_data.py    # Contraction mappings and irregular morphology data
 │   ├── morphology.py        # Irregular forms and suffix-candidate lemmatization
 │   ├── syllabus.py          # Cached per-grade/lesson vocabulary & grammar index
 │   ├── advisor.py           # In-syllabus synonym advisor
@@ -233,7 +251,7 @@ KavoshELT/
 │   ├── MCP_SERVER.md
 │   └── TEACHER_GUIDE.md
 ├── examples/                # Sample MCP client configurations
-├── tests/                   # Automated test suite (89 tests, incl. MCP stdio end-to-end)
+├── tests/                   # Automated test suite (91 tests, incl. MCP stdio end-to-end)
 ├── setup.py                 # Bundles datasets and a prebuilt database into wheels
 ├── pyproject.toml           # Package configuration & tool settings
 ├── requirements.txt         # Runtime and development dependencies

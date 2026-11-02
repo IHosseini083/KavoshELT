@@ -19,6 +19,9 @@ data/*.db
 data/*.sqlite
 !data/.gitkeep
 
+# Audio production & temporary scratch
+audio_production/
+
 # Environment and editor
 .env
 .venv/
