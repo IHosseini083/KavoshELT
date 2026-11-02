@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "kavosh-elt": {
+      "command": "kavosh-mcp"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "kavosh-elt": {
+      "command": "/absolute/path/to/venv/bin/python",
+      "args": ["-m", "kavosh.mcp_server"],
+      "env": {
+        "KAVOSH_DB": "/absolute/path/to/curriculum.db"
+      }
+    }
+  }
+}

@@ -5,14 +5,26 @@ import json
 import os
 import sqlite3
 import sys
+from typing import Any
+
+from sqlalchemy import func, select
 
 from kavosh.advisor import analyze_and_advise
 from kavosh.auditor import run_curriculum_audit
 from kavosh.composer import compose_exam
 from kavosh.exam_rag import traverse_prerequisites
+from kavosh.fts import FtsQueryError, count_passages, search_passages
+from kavosh.integrity import run_integrity_audit
+from kavosh.models import (
+    ExamQuestionItem,
+    Lesson,
+    NationalExamPaper,
+    Rubric,
+    Vocabulary,
+    session_scope,
+)
+from kavosh.paths import resolve_db_path
 from kavosh.rag import retrieve_rag_context
-from kavosh.schema import init_db
-from kavosh.seeder import DEFAULT_DB_PATH, seed_curriculum
 from kavosh.styler import (
     generate_answer_key_pdf,
     generate_exam_docx,
@@ -23,74 +35,73 @@ from kavosh.validator import validate_exam_text
 
 
 def get_connection(db_path: str | None = None) -> sqlite3.Connection:
-    target_path = db_path or DEFAULT_DB_PATH
-    if not os.path.exists(target_path):
-        os.makedirs(os.path.dirname(target_path), exist_ok=True)
-        conn = sqlite3.connect(target_path)
-        init_db(conn)
-        seed_curriculum(conn)
-        return conn
-    return sqlite3.connect(target_path)
+    """Open the curriculum database (building it on first use when missing)."""
+    return sqlite3.connect(str(resolve_db_path(db_path)))
+
+
+def _loads(raw: str | None) -> Any:
+    return json.loads(raw) if raw else {}
 
 
 def cmd_context(args: argparse.Namespace) -> None:
     conn = get_connection(args.db)
     lessons = [int(x.strip()) for x in args.lessons.split(",") if x.strip()]
-    cur = conn.cursor()
 
-    placeholders = ",".join("?" for _ in lessons)
-    cur.execute(
-        f"SELECT lesson_num, title, theme, allowed_grammar, forbidden_grammar, grammar_details_json, writing_skills_json, vocab_development_json, see_also_json FROM lessons WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num",
-        [args.grade, *lessons],
-    )
-    lessons_data = [
-        {
-            "lesson_num": row[0],
-            "title": row[1],
-            "theme": row[2],
-            "allowed_grammar": json.loads(row[3]) if row[3] else {},
-            "forbidden_grammar": json.loads(row[4]) if row[4] else {},
-            "grammar_details": json.loads(row[5]) if row[5] else {},
-            "writing_skills": json.loads(row[6]) if row[6] else {},
-            "vocab_development": json.loads(row[7]) if row[7] else {},
-            "see_also": json.loads(row[8]) if row[8] else {},
-        }
-        for row in cur.fetchall()
-    ]
+    with session_scope(conn) as session:
+        lesson_rows = session.scalars(
+            select(Lesson)
+            .where(Lesson.grade == args.grade, Lesson.lesson_num.in_(lessons))
+            .order_by(Lesson.lesson_num)
+        ).all()
+        lessons_data = [
+            {
+                "lesson_num": les.lesson_num,
+                "title": les.title,
+                "theme": les.theme,
+                "allowed_grammar": _loads(les.allowed_grammar),
+                "forbidden_grammar": _loads(les.forbidden_grammar),
+                "grammar_details": _loads(les.grammar_details_json),
+                "writing_skills": _loads(les.writing_skills_json),
+                "vocab_development": _loads(les.vocab_development_json),
+                "see_also": _loads(les.see_also_json),
+            }
+            for les in lesson_rows
+        ]
 
-    cur.execute(
-        f"SELECT word, lemma, pos, definition_fa, definition_en, example_en, section_source, lesson_num FROM vocabulary WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num, word",
-        [args.grade, *lessons],
-    )
-    vocab_data = [
-        {
-            "word": r[0],
-            "lemma": r[1],
-            "pos": r[2],
-            "definition_fa": r[3],
-            "definition_en": r[4],
-            "example_en": r[5],
-            "section_source": r[6],
-            "lesson_num": r[7],
-        }
-        for r in cur.fetchall()
-    ]
+        vocab_rows = session.scalars(
+            select(Vocabulary)
+            .where(Vocabulary.grade == args.grade, Vocabulary.lesson_num.in_(lessons))
+            .order_by(Vocabulary.lesson_num, Vocabulary.word)
+        ).all()
+        vocab_data = [
+            {
+                "word": v.word,
+                "lemma": v.lemma,
+                "pos": v.pos,
+                "definition_fa": v.definition_fa,
+                "definition_en": v.definition_en,
+                "example_en": v.example_en,
+                "section_source": v.section_source,
+                "lesson_num": v.lesson_num,
+            }
+            for v in vocab_rows
+        ]
 
-    term_cutoff = 4 if args.grade == 7 else (3 if args.grade in (8, 9) else 2)
-    term = 1 if max(lessons) <= term_cutoff else 2
-    cur.execute(
-        "SELECT id, exam_type, total_points, structure_json FROM rubrics WHERE grade = ? AND term = ?",
-        (args.grade, term),
-    )
-    rubric_row = cur.fetchone()
-    rubric_data = None
-    if rubric_row:
-        rubric_data = {
-            "id": rubric_row[0],
-            "exam_type": rubric_row[1],
-            "total_points": rubric_row[2],
-            "structure": json.loads(rubric_row[3]),
-        }
+        term_cutoff = 4 if args.grade == 7 else (3 if args.grade in (8, 9) else 2)
+        term = 1 if max(lessons) <= term_cutoff else 2
+        rubric_row = session.scalars(
+            select(Rubric).where(Rubric.grade == args.grade, Rubric.term == term)
+        ).first()
+        rubric_data = (
+            {
+                "id": rubric_row.id,
+                "exam_type": rubric_row.exam_type,
+                "total_points": rubric_row.total_points,
+                "structure": json.loads(rubric_row.structure_json),
+            }
+            if rubric_row
+            else None
+        )
 
     output = {
         "grade": args.grade,
@@ -106,23 +117,14 @@ def cmd_context(args: argparse.Namespace) -> None:
 
 def cmd_search(args: argparse.Namespace) -> None:
     conn = get_connection(args.db)
-    cur = conn.cursor()
-
     query = args.query.strip()
-    cur.execute(
-        "SELECT grade, lesson_num, section_type, title, content FROM passages_fts WHERE passages_fts MATCH ? ORDER BY rank LIMIT ?",
-        (query, args.limit),
-    )
-    results = [
-        {
-            "grade": r[0],
-            "lesson_num": r[1],
-            "section_type": r[2],
-            "title": r[3],
-            "content": r[4],
-        }
-        for r in cur.fetchall()
-    ]
+    try:
+        with session_scope(conn) as session:
+            results = search_passages(session, query, args.limit)
+    except FtsQueryError as exc:
+        conn.close()
+        print(json.dumps({"error": str(exc)}, ensure_ascii=False))
+        sys.exit(1)
     conn.close()
     print(
         json.dumps(
@@ -159,44 +161,58 @@ def cmd_validate(args: argparse.Namespace) -> None:
 
 def cmd_stats(args: argparse.Namespace) -> None:
     conn = get_connection(args.db)
-    cur = conn.cursor()
+    with session_scope(conn) as session:
+        grades_count = int(
+            session.scalar(select(func.count(func.distinct(Lesson.grade)))) or 0
+        )
+        lessons_count = int(
+            session.scalar(select(func.count()).select_from(Lesson)) or 0
+        )
+        total_vocab = int(
+            session.scalar(select(func.count()).select_from(Vocabulary)) or 0
+        )
+        total_passages = count_passages(session)
+        total_papers = int(
+            session.scalar(select(func.count()).select_from(NationalExamPaper)) or 0
+        )
+        total_items = int(
+            session.scalar(select(func.count()).select_from(ExamQuestionItem)) or 0
+        )
 
-    cur.execute("SELECT COUNT(DISTINCT grade), COUNT(*) FROM lessons")
-    grades_count, lessons_count = cur.fetchone()
+        print("=" * 72)
+        print(
+            "KavoshELT: Iranian Secondary English Curriculum & Exam Engine (Grades 7-12)"
+        )
+        print("=" * 72)
+        print(
+            f"Grades: {grades_count:2d} | Lessons: {lessons_count:2d} | Vocabulary: {total_vocab:4d} | Passages: {total_passages:2d} | Exam Papers: {total_papers:2d} | Exam Items: {total_items:3d}\n"
+        )
+        print(
+            f"{'Grade':<8} | {'Series':<10} | {'Lessons':<8} | {'Vocabulary':<12} | {'Passages':<8}"
+        )
+        print("-" * 56)
 
-    cur.execute("SELECT COUNT(*) FROM vocabulary")
-    total_vocab = cur.fetchone()[0]
-
-    cur.execute("SELECT COUNT(*) FROM passages_fts")
-    total_passages = cur.fetchone()[0]
-
-    cur.execute("SELECT COUNT(*) FROM national_exam_papers")
-    total_papers = cur.fetchone()[0]
-
-    cur.execute("SELECT COUNT(*) FROM exam_question_items")
-    total_items = cur.fetchone()[0]
-
-    print("=" * 72)
-    print("KavoshELT: Iranian Secondary English Curriculum & Exam Engine (Grades 7-12)")
-    print("=" * 72)
-    print(
-        f"Grades: {grades_count:2d} | Lessons: {lessons_count:2d} | Vocabulary: {total_vocab:4d} | Passages: {total_passages:2d} | Exam Papers: {total_papers:2d} | Exam Items: {total_items:3d}\n"
-    )
-    print(
-        f"{'Grade':<8} | {'Series':<10} | {'Lessons':<8} | {'Vocabulary':<12} | {'Passages':<8}"
-    )
-    print("-" * 56)
-
-    for g in range(7, 13):
-        series = f"Prospect {g - 6}" if g <= 9 else f"Vision {g - 9}"
-        cur.execute("SELECT COUNT(*) FROM lessons WHERE grade = ?", (g,))
-        l_cnt = cur.fetchone()[0]
-        cur.execute("SELECT COUNT(*) FROM vocabulary WHERE grade = ?", (g,))
-        v_cnt = cur.fetchone()[0]
-        cur.execute("SELECT COUNT(*) FROM passages_fts WHERE grade = ?", (str(g),))
-        p_cnt = cur.fetchone()[0]
-        print(f"Grade {g:<2} | {series:<10} | {l_cnt:<8} | {v_cnt:<12} | {p_cnt:<8}")
-    print("=" * 72)
+        for g in range(7, 13):
+            series = f"Prospect {g - 6}" if g <= 9 else f"Vision {g - 9}"
+            l_cnt = int(
+                session.scalar(
+                    select(func.count()).select_from(Lesson).where(Lesson.grade == g)
+                )
+                or 0
+            )
+            v_cnt = int(
+                session.scalar(
+                    select(func.count())
+                    .select_from(Vocabulary)
+                    .where(Vocabulary.grade == g)
+                )
+                or 0
+            )
+            p_cnt = count_passages(session, g)
+            print(
+                f"Grade {g:<2} | {series:<10} | {l_cnt:<8} | {v_cnt:<12} | {p_cnt:<8}"
+            )
+        print("=" * 72)
     conn.close()
 
 
@@ -205,6 +221,15 @@ def cmd_audit(args: argparse.Namespace) -> None:
     report = run_curriculum_audit(conn)
     conn.close()
     print(json.dumps(report, ensure_ascii=False, indent=2))
+
+
+def cmd_integrity(args: argparse.Namespace) -> None:
+    conn = get_connection(args.db)
+    report = run_integrity_audit(conn)
+    conn.close()
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    if not report["passed"] or (args.strict and report["warning_count"]):
+        sys.exit(1)
 
 
 def cmd_adapt(args: argparse.Namespace) -> None:
@@ -232,14 +257,12 @@ def cmd_adapt(args: argparse.Namespace) -> None:
 
 def cmd_blueprint(args: argparse.Namespace) -> None:
     conn = get_connection(args.db)
-    cur = conn.cursor()
-
-    cur.execute(
-        "SELECT id, exam_type, total_points, structure_json FROM rubrics WHERE grade = ? AND term = ?",
-        (args.grade, args.term),
-    )
-    r = cur.fetchone()
-    structure = json.loads(r[3]) if r else {}
+    with session_scope(conn) as session:
+        rubric = session.scalars(
+            select(Rubric).where(Rubric.grade == args.grade, Rubric.term == args.term)
+        ).first()
+        structure = json.loads(rubric.structure_json) if rubric else {}
+        total_points = rubric.total_points if rubric else 10.0
 
     series_name = (
         f"Prospect {args.grade - 6}" if args.grade <= 9 else f"Vision {args.grade - 9}"
@@ -250,7 +273,7 @@ def cmd_blueprint(args: argparse.Namespace) -> None:
         "grade": args.grade,
         "term": args.term,
         "exam_type": args.exam_type,
-        "total_points": r[2] if r else 10.0,
+        "total_points": total_points,
         "official_rubric": structure,
         "tts_template": {
             "model": "Gemini 3.8 Flash TTS",
@@ -351,6 +374,15 @@ def main() -> None:
         "audit", help="Run full self-consistency audit on all lessons"
     )
     p_aud.set_defaults(func=cmd_audit)
+
+    p_int = subparsers.add_parser(
+        "integrity",
+        help="Audit keys, orphans, rubrics and coverage gaps of the seeded data",
+    )
+    p_int.add_argument(
+        "--strict", action="store_true", help="Exit non-zero on warnings too"
+    )
+    p_int.set_defaults(func=cmd_integrity)
 
     p_ctx = subparsers.add_parser(
         "context", help="Extract curriculum bounds and vocabulary"
