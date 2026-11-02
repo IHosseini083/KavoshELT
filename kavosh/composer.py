@@ -6,6 +6,7 @@ import uuid
 from typing import Any
 
 from kavosh.exam_rag import retrieve_exam_items, synthesize_twin_item
+from kavosh.knapsack import select_items_for_target_points
 from kavosh.models import DbTarget
 from kavosh.styler import (
     generate_answer_key_pdf,
@@ -13,9 +14,6 @@ from kavosh.styler import (
     generate_exam_html,
     generate_exam_pdf,
 )
-
-ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-DEFAULT_EXPORTS_DIR = os.path.join(ROOT_DIR, "exports", "composed")
 
 OFFICIAL_SECTION_TITLES_FA: dict[str, str] = {
     "vocabulary": "بخش واژگان (Vocabulary)",
@@ -27,35 +25,18 @@ OFFICIAL_SECTION_TITLES_FA: dict[str, str] = {
 }
 
 
-def _select_items_for_target_points(
-    pool: list[dict[str, Any]],
-    target_points: float,
-) -> tuple[list[dict[str, Any]], float]:
-    """Select an exact subset of items summing to target_points via quarter-unit DP."""
-    target_units = int(round(target_points * 4))
-    if target_units <= 0 or not pool:
-        return [], 0.0
+_select_items_for_target_points = select_items_for_target_points
 
-    dp: dict[int, list[int]] = {0: []}
-    for idx, it in enumerate(pool):
-        item_units = int(round(float(it["points"]) * 4))
-        if item_units <= 0:
-            continue
-        for curr_u, chosen in list(dp.items()):
-            next_u = curr_u + item_units
-            if next_u <= target_units and next_u not in dp:
-                dp[next_u] = chosen + [idx]
-        if target_units in dp:
-            selected = [pool[i] for i in dp[target_units]]
-            return selected, round(target_units / 4.0, 2)
 
-    best_u = max(dp.keys())
-    if best_u > 0:
-        selected = [pool[i] for i in dp[best_u]]
-        return selected, round(best_u / 4.0, 2)
+def default_exports_dir() -> str:
+    """Output root for composed exams: ``$KAVOSH_EXPORTS_DIR`` or ``./exports/composed``.
 
-    fallback = pool[:4]
-    return fallback, round(sum(float(x["points"]) for x in fallback), 2)
+    Resolved against the current directory at call time so an installed wheel never
+    writes into ``site-packages``.
+    """
+    return os.environ.get("KAVOSH_EXPORTS_DIR") or os.path.join(
+        os.getcwd(), "exports", "composed"
+    )
 
 
 def _apply_sourcing(
@@ -184,7 +165,7 @@ def compose_exam(
     out_dir: str | None = None,
 ) -> dict[str, Any]:
     comp_id = uuid.uuid4().hex[:10]
-    target_out_dir = out_dir or os.path.join(DEFAULT_EXPORTS_DIR, comp_id)
+    target_out_dir = out_dir or os.path.join(default_exports_dir(), comp_id)
     os.makedirs(target_out_dir, exist_ok=True)
 
     composed_sections: list[dict[str, Any]] = []

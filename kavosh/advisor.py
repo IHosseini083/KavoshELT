@@ -2,10 +2,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from sqlalchemy import and_, func, or_, select
-
-from kavosh.models import DbTarget, Vocabulary, session_scope
-from kavosh.validator import get_allowed_vocabulary, validate_exam_text
+from kavosh.models import DbTarget
+from kavosh.syllabus import Bound, SyllabusIndex, VocabEntry, get_index
+from kavosh.validator import validate_with_index
 
 CURATED_SYNONYMS: dict[str, list[str]] = {
     "physician": ["doctor"],
@@ -39,69 +38,91 @@ CURATED_SYNONYMS: dict[str, list[str]] = {
     "dwelling": ["house", "home"],
 }
 
+MAX_ALTERNATIVES = 3
+
+
+def _persian_tokens(definition: str) -> frozenset[str]:
+    for sep in ("،", ",", "؛", ";", "/", "(", ")"):
+        definition = definition.replace(sep, " ")
+    return frozenset(definition.split())
+
+
+def _persian_overlap(a: str, b: str) -> bool:
+    """Whole-token containment (substring matching mis-links e.g. واکسن / سن)."""
+    ta, tb = _persian_tokens(a), _persian_tokens(b)
+    return bool(ta) and bool(tb) and (ta <= tb or tb <= ta)
+
+
+def rank_alternatives(
+    index: SyllabusIndex, word: str, bound: Bound, limit: int = MAX_ALTERNATIVES
+) -> list[dict[str, Any]]:
+    """Rank in-syllabus replacements for an out-of-bounds ``word``.
+
+    Ranking: curated synonyms (in curated order) > words sharing the exact Persian
+    definition > words whose Persian definition contains / is contained by it; ties
+    break towards words taught earlier (more familiar to students).
+    """
+    w = word.lower().strip()
+    allowed = index.allowed_words(bound)
+    ranked: list[dict[str, Any]] = []
+    seen: set[str] = {w}
+
+    def push(entry_word: str, basis: str, entry: VocabEntry | None) -> None:
+        key = entry_word.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        taught = entry or index.lookup(key)
+        ranked.append(
+            {
+                "word": entry_word,
+                "basis": basis,
+                "taught_in_grade": taught.grade if taught else None,
+                "taught_in_lesson": taught.lesson_num if taught else None,
+            }
+        )
+
+    for syn in CURATED_SYNONYMS.get(w, []):
+        if syn.lower() in allowed:
+            push(syn, "curated_synonym", None)
+
+    source = index.lookup(w)
+    def_fa = source.definition_fa if source else None
+    if def_fa:
+        for entry in index.same_definition(def_fa, bound):
+            push(entry.word, "same_definition", entry)
+        if len(ranked) < limit:
+            for other in index.definitions():
+                if other != def_fa and _persian_overlap(def_fa, other):
+                    for entry in index.same_definition(other, bound):
+                        push(entry.word, "related_definition", entry)
+    return ranked[:limit]
+
+
+def advise_words(
+    index: SyllabusIndex, words: list[str], bound: Bound
+) -> dict[str, Any]:
+    diagnostics: dict[str, Any] = {}
+    for word in words:
+        w = str(word).lower()
+        row = index.lookup(w)
+        alternatives = rank_alternatives(index, w, bound)
+        diagnostics[word] = {
+            "taught_in_grade": row.grade if row else None,
+            "taught_in_lesson": row.lesson_num if row else None,
+            "definition_fa": row.definition_fa if row else None,
+            "in_syllabus_alternatives": [a["word"] for a in alternatives],
+            "ranked_alternatives": alternatives,
+        }
+    return diagnostics
+
 
 def analyze_and_advise(
     conn: DbTarget, max_grade: int, max_lesson: int, text: str
 ) -> dict[str, Any]:
-    validation = validate_exam_text(conn, max_grade, max_lesson, text)
-    allowed_vocab = get_allowed_vocabulary(conn, max_grade, max_lesson)
-
-    word_diagnostics: dict[str, Any] = {}
-
-    with session_scope(conn) as session:
-        for word in validation["out_of_syllabus_words"]:
-            w = str(word).lower()
-            stmt = (
-                select(Vocabulary)
-                .where(
-                    or_(
-                        func.lower(Vocabulary.lemma) == w,
-                        func.lower(Vocabulary.word) == w,
-                    )
-                )
-                .order_by(Vocabulary.grade.asc(), Vocabulary.lesson_num.asc())
-                .limit(1)
-            )
-            vocab_row: Vocabulary | None = session.scalars(stmt).first()
-
-            taught_grade: int | None = vocab_row.grade if vocab_row else None
-            taught_lesson: int | None = vocab_row.lesson_num if vocab_row else None
-            def_fa: str | None = vocab_row.definition_fa if vocab_row else None
-
-            alternatives: list[str] = []
-            if w in CURATED_SYNONYMS:
-                for syn in CURATED_SYNONYMS[w]:
-                    if syn.lower() in allowed_vocab:
-                        alternatives.append(syn)
-
-            if not alternatives and def_fa:
-                alt_stmt = (
-                    select(Vocabulary.word)
-                    .distinct()
-                    .where(
-                        and_(
-                            Vocabulary.definition_fa.like(f"%{def_fa}%"),
-                            or_(
-                                Vocabulary.grade < max_grade,
-                                and_(
-                                    Vocabulary.grade == max_grade,
-                                    Vocabulary.lesson_num <= max_lesson,
-                                ),
-                            ),
-                        )
-                    )
-                    .limit(3)
-                )
-                for candidate_word in session.scalars(alt_stmt).all():
-                    if candidate_word.lower() != w:
-                        alternatives.append(candidate_word)
-
-            word_diagnostics[word] = {
-                "taught_in_grade": taught_grade,
-                "taught_in_lesson": taught_lesson,
-                "definition_fa": def_fa,
-                "in_syllabus_alternatives": alternatives,
-            }
-
-    validation["word_diagnostics"] = word_diagnostics
+    index = get_index(conn)
+    validation = validate_with_index(index, max_grade, max_lesson, text)
+    validation["word_diagnostics"] = advise_words(
+        index, validation["out_of_syllabus_words"], (max_grade, max_lesson)
+    )
     return validation
