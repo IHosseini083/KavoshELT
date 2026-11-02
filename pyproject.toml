@@ -1,27 +1,56 @@
 [build-system]
-requires = ["setuptools>=68.0"]
+requires = ["setuptools>=68.0", "wheel", "sqlalchemy>=2.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "kavosh-elt"
-version = "2.0.0"
-description = "Unified Knowledge-Graph RAG and National Exam Studio for the Iranian Secondary English Curriculum"
+version = "2.1.0"
+description = "Unified Knowledge-Graph RAG, National Exam Studio and MCP server for the Iranian Secondary English Curriculum (Grades 7-12)"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Seyed Iliya Hosseini" }]
+keywords = ["education", "english", "iran", "curriculum", "rag", "mcp", "exam"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Education",
+    "Typing :: Typed",
+]
 dependencies = [
     "sqlalchemy>=2.0.0",
     "reportlab>=4.0.0",
     "python-docx>=1.1.0",
     "arabic-reshaper>=3.0.0",
     "python-bidi>=0.4.2",
+    "mcp>=1.2.0",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.8.0", "mypy>=1.8.0"]
+
+[project.urls]
+Homepage = "https://github.com/IHosseini083/KavoshELT"
+Issues = "https://github.com/IHosseini083/KavoshELT/issues"
 
 [project.scripts]
 kavosh = "kavosh.cli:main"
+kavosh-mcp = "kavosh.mcp_server:main"
 
 [tool.setuptools.packages.find]
 include = ["kavosh*"]
+
+[tool.setuptools.package-data]
+kavosh = ["py.typed", "_datasets/*.json", "_data/*.db"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 88
@@ -34,4 +63,4 @@ ignore = ["E501"]
 [tool.mypy]
 python_version = "3.10"
 ignore_missing_imports = true
-strict = false
+strict = true
