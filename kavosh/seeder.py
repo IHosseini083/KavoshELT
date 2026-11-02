@@ -3,6 +3,7 @@ from __future__ import annotations
 import glob
 import json
 import os
+from collections.abc import Mapping
 from pathlib import Path
 
 from sqlalchemy import delete, text
@@ -41,6 +42,32 @@ def _load_base_lemmas(datasets_dir: str) -> list[str]:
         with open(base_path, encoding="utf-8") as f:
             return [str(w) for w in json.load(f)]
     return []
+
+
+def _draft_key(item: Mapping[str, object]) -> tuple[str, str, str]:
+    return (
+        str(item["section_code"]),
+        str(item["stem_text"]),
+        str(item["canonical_answer"]),
+    )
+
+
+def _load_distractor_drafts(
+    datasets_dir: str,
+) -> dict[tuple[str, str, str], dict[str, str]]:
+    """Machine-drafted distractor analyses keyed by (section, stem, answer)."""
+    path = os.path.join(datasets_dir, "distractor_drafts_grade12.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        doc = json.load(f)
+    return {
+        _draft_key(d): {
+            "distractor_analysis": str(d["distractor_analysis"]),
+            "distractor_status": str(d.get("distractor_status", "machine_drafted")),
+        }
+        for d in doc.get("drafts", [])
+    }
 
 
 def seed_curriculum(target: DbTarget, datasets_dir: str | None = None) -> None:
@@ -300,7 +327,17 @@ def seed_curriculum(target: DbTarget, datasets_dir: str | None = None) -> None:
                 )
             session.flush()
 
+            drafts = _load_distractor_drafts(datasets_dir)
+            applied: set[tuple[str, str, str]] = set()
+
             for it in edata.get("items", []):
+                if it.get("item_type") == "multiple_choice" and not it.get(
+                    "distractor_analysis"
+                ):
+                    draft_id = _draft_key(it)
+                    if draft_id in drafts:
+                        it = {**it, **drafts[draft_id]}
+                        applied.add(draft_id)
                 vec = compute_embedding(f"{it['stem_text']} {it['canonical_answer']}")
                 session.add(
                     ExamQuestionItem(
@@ -326,6 +363,7 @@ def seed_curriculum(target: DbTarget, datasets_dir: str | None = None) -> None:
                         ),
                         distractor_analysis=str(it.get("distractor_analysis", ""))
                         or None,
+                        distractor_status=str(it.get("distractor_status", "")) or None,
                         concept_ids_json=str(it.get("concept_ids_json", "[]")),
                         embedding_json=json.dumps(vec),
                         is_synthetic_twin=bool(it.get("is_synthetic_twin", False)),
@@ -347,6 +385,13 @@ def seed_curriculum(target: DbTarget, datasets_dir: str | None = None) -> None:
                         "ans": str(it["canonical_answer"]),
                         "kw": str(it.get("concept_ids_json", "")),
                     },
+                )
+
+            unused = set(drafts) - applied
+            if unused:
+                raise ValueError(
+                    f"{len(unused)} distractor draft(s) match no exam item "
+                    f"(or the item already has an authored analysis): {sorted(unused)}"
                 )
 
         session.commit()

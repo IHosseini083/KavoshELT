@@ -225,6 +225,7 @@ class KavoshService:
                 "acceptable_variants": _loads(r["acceptable_variants_json"], []),
                 "rubric": _loads(r["rubric_breakdown_json"], {}),
                 "distractor_rationale": r["distractor_analysis"],
+                "distractor_status": r["distractor_status"],
                 "concept_ids": r["concept_ids"],
                 "relevance": r["hybrid_score"],
             }
