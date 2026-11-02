@@ -43,6 +43,7 @@ class Vocabulary(Base):
         ),
         Index("idx_vocab_lemma", "lemma"),
         Index("idx_vocab_scope", "grade", "lesson_num"),
+        Index("idx_vocab_source", "section_source"),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -52,7 +53,9 @@ class Vocabulary(Base):
     grade: Mapped[int] = mapped_column(Integer, nullable=False)
     lesson_num: Mapped[int] = mapped_column(Integer, nullable=False)
     definition_fa: Mapped[str | None] = mapped_column(Text, nullable=True)
+    definition_en: Mapped[str | None] = mapped_column(Text, nullable=True)
     example_en: Mapped[str | None] = mapped_column(Text, nullable=True)
+    section_source: Mapped[str | None] = mapped_column(String(64), nullable=True)
     embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 

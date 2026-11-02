@@ -145,7 +145,9 @@
       "noun",
       1,
       "شخصیت",
-      "He has a great personality."
+      "He has a great personality.",
+      null,
+      "vocabulary"
     ],
     [
       "clever",
@@ -153,7 +155,9 @@
       "adj",
       1,
       "باهوش",
-      "Omid is a clever boy."
+      "Omid is a clever boy.",
+      null,
+      "vocabulary"
     ],
     [
       "kind",
@@ -161,7 +165,9 @@
       "adj",
       1,
       "مهربان",
-      "Our teacher is very kind."
+      "Our teacher is very kind.",
+      null,
+      "vocabulary"
     ],
     [
       "patient",
@@ -169,7 +175,9 @@
       "adj",
       1,
       "صبور",
-      "My mother is very patient."
+      "My mother is very patient.",
+      null,
+      "vocabulary"
     ],
     [
       "brave",
@@ -177,7 +185,9 @@
       "adj",
       1,
       "شجاع",
-      "Firefighters are brave."
+      "Firefighters are brave.",
+      null,
+      "vocabulary"
     ],
     [
       "neat",
@@ -185,7 +195,9 @@
       "adj",
       1,
       "مرتب، تمیز",
-      "Keep your room neat."
+      "Keep your room neat.",
+      null,
+      "vocabulary"
     ],
     [
       "messy",
@@ -193,7 +205,9 @@
       "adj",
       1,
       "نامرتب",
-      "His desk is messy."
+      "His desk is messy.",
+      null,
+      "vocabulary"
     ],
     [
       "careless",
@@ -201,7 +215,9 @@
       "adj",
       1,
       "بی‌دقت",
-      "Do not be careless."
+      "Do not be careless.",
+      null,
+      "vocabulary"
     ],
     [
       "hard-working",
@@ -209,7 +225,9 @@
       "adj",
       1,
       "سخت‌کوش",
-      "He is a hard-working student."
+      "He is a hard-working student.",
+      null,
+      "vocabulary"
     ],
     [
       "ticket",
@@ -217,7 +235,9 @@
       "noun",
       2,
       "بلیط",
-      "Buy a train ticket."
+      "Buy a train ticket.",
+      null,
+      "vocabulary"
     ],
     [
       "passport",
@@ -225,7 +245,9 @@
       "noun",
       2,
       "گذرنامه",
-      "Show your passport."
+      "Show your passport.",
+      null,
+      "vocabulary"
     ],
     [
       "timetable",
@@ -233,7 +255,9 @@
       "noun",
       2,
       "جدول زمان‌بندی",
-      "Check the train timetable."
+      "Check the train timetable.",
+      null,
+      "vocabulary"
     ],
     [
       "hotel",
@@ -241,7 +265,9 @@
       "noun",
       2,
       "هتل",
-      "We booked a clean hotel."
+      "We booked a clean hotel.",
+      null,
+      "vocabulary"
     ],
     [
       "receptionist",
@@ -249,7 +275,9 @@
       "noun",
       2,
       "مسئول پذیرش",
-      "Ask the hotel receptionist."
+      "Ask the hotel receptionist.",
+      null,
+      "vocabulary"
     ],
     [
       "nowruz",
@@ -257,7 +285,9 @@
       "noun",
       3,
       "نوروز",
-      "Nowruz is Iranian New Year."
+      "Nowruz is Iranian New Year.",
+      null,
+      "vocabulary"
     ],
     [
       "haft-seen",
@@ -265,7 +295,9 @@
       "noun",
       3,
       "هفت‌سین",
-      "Set the Haft-seen table."
+      "Set the Haft-seen table.",
+      null,
+      "vocabulary"
     ],
     [
       "samanu",
@@ -273,7 +305,9 @@
       "noun",
       3,
       "سمنو",
-      "Grandmother is baking samanu."
+      "Grandmother is baking samanu.",
+      null,
+      "vocabulary"
     ],
     [
       "yalda",
@@ -281,7 +315,9 @@
       "noun",
       3,
       "یلدا",
-      "We read Hafez poems on Yalda night."
+      "We read Hafez poems on Yalda night.",
+      null,
+      "vocabulary"
     ],
     [
       "festival",
@@ -289,7 +325,9 @@
       "noun",
       3,
       "جشنواره",
-      "Eid-e-Fitr is an Islamic festival."
+      "Eid-e-Fitr is an Islamic festival.",
+      null,
+      "vocabulary"
     ],
     [
       "generous",
@@ -297,7 +335,9 @@
       "adj",
       1,
       "بخشنده",
-      "He is very generous."
+      "He is very generous.",
+      null,
+      "vocabulary"
     ],
     [
       "helpful",
@@ -305,7 +345,9 @@
       "adj",
       1,
       "یاری‌رسان",
-      "Students are very helpful."
+      "Students are very helpful.",
+      null,
+      "vocabulary"
     ],
     [
       "polite",
@@ -313,7 +355,9 @@
       "adj",
       1,
       "مؤدب",
-      "Always speak politely."
+      "Always speak politely.",
+      null,
+      "vocabulary"
     ],
     [
       "rude",
@@ -321,7 +365,9 @@
       "adj",
       1,
       "بی‌ادب",
-      "Do not be rude to people."
+      "Do not be rude to people.",
+      null,
+      "vocabulary"
     ],
     [
       "nervous",
@@ -329,7 +375,9 @@
       "adj",
       1,
       "مضطرب، عصبی",
-      "She feels nervous before exams."
+      "She feels nervous before exams.",
+      null,
+      "vocabulary"
     ],
     [
       "quiet",
@@ -337,7 +385,9 @@
       "adj",
       1,
       "ساکت",
-      "Be quiet in the library."
+      "Be quiet in the library.",
+      null,
+      "vocabulary"
     ],
     [
       "talkative",
@@ -345,7 +395,9 @@
       "adj",
       1,
       "پر حرف",
-      "The boy is talkative."
+      "The boy is talkative.",
+      null,
+      "vocabulary"
     ],
     [
       "forgetful",
@@ -353,7 +405,9 @@
       "adj",
       1,
       "فراموشکار",
-      "Grandfather is a bit forgetful."
+      "Grandfather is a bit forgetful.",
+      null,
+      "vocabulary"
     ],
     [
       "funny",
@@ -361,7 +415,9 @@
       "adj",
       1,
       "خنده‌دار، شوخ",
-      "He tells funny jokes."
+      "He tells funny jokes.",
+      null,
+      "vocabulary"
     ],
     [
       "angry",
@@ -369,7 +425,9 @@
       "adj",
       1,
       "عصبانی",
-      "He never gets angry."
+      "He never gets angry.",
+      null,
+      "vocabulary"
     ],
     [
       "airport",
@@ -377,7 +435,9 @@
       "noun",
       2,
       "فرودگاه",
-      "Go to the airport early."
+      "Go to the airport early.",
+      null,
+      "vocabulary"
     ],
     [
       "airplane",
@@ -385,7 +445,9 @@
       "noun",
       2,
       "هواپیما",
-      "Board the airplane now."
+      "Board the airplane now.",
+      null,
+      "vocabulary"
     ],
     [
       "train station",
@@ -393,7 +455,9 @@
       "noun",
       2,
       "ایستگاه قطار",
-      "Wait at the train station."
+      "Wait at the train station.",
+      null,
+      "vocabulary"
     ],
     [
       "baggage",
@@ -401,7 +465,9 @@
       "noun",
       2,
       "چمدان، بار",
-      "Check your baggage."
+      "Check your baggage.",
+      null,
+      "vocabulary"
     ],
     [
       "pack",
@@ -409,7 +475,9 @@
       "verb",
       2,
       "بستن (چمدان)",
-      "Pack your bag for travel."
+      "Pack your bag for travel.",
+      null,
+      "vocabulary"
     ],
     [
       "fill out",
@@ -417,7 +485,9 @@
       "verb",
       2,
       "پر کردن (فرم)",
-      "Fill out the reservation form."
+      "Fill out the reservation form.",
+      null,
+      "vocabulary"
     ],
     [
       "information desk",
@@ -425,7 +495,9 @@
       "noun",
       2,
       "میز اطلاعات",
-      "Ask the information desk."
+      "Ask the information desk.",
+      null,
+      "vocabulary"
     ],
     [
       "ceremony",
@@ -433,7 +505,9 @@
       "noun",
       3,
       "مراسم",
-      "We hold wedding ceremonies."
+      "We hold wedding ceremonies.",
+      null,
+      "vocabulary"
     ],
     [
       "celebrate",
@@ -441,7 +515,9 @@
       "verb",
       3,
       "جشن گرفتن",
-      "People celebrate Nowruz."
+      "People celebrate Nowruz.",
+      null,
+      "vocabulary"
     ],
     [
       "relatives",
@@ -449,7 +525,9 @@
       "noun",
       3,
       "اقوام، خویشاوندان",
-      "We visit our relatives."
+      "We visit our relatives.",
+      null,
+      "vocabulary"
     ],
     [
       "watermelon",
@@ -457,7 +535,9 @@
       "noun",
       3,
       "هندوانه",
-      "Eat watermelon on Yalda night."
+      "Eat watermelon on Yalda night.",
+      null,
+      "vocabulary"
     ],
     [
       "nut",
@@ -465,7 +545,9 @@
       "noun",
       3,
       "آجیل",
-      "Yalda table has fresh nuts."
+      "Yalda table has fresh nuts.",
+      null,
+      "vocabulary"
     ],
     [
       "poem",
@@ -473,7 +555,9 @@
       "noun",
       3,
       "شعر",
-      "Read a Hafez poem."
+      "Read a Hafez poem.",
+      null,
+      "vocabulary"
     ],
     [
       "firework",
@@ -481,7 +565,9 @@
       "noun",
       3,
       "آتش‌بازی",
-      "Children watch fireworks."
+      "Children watch fireworks.",
+      null,
+      "vocabulary"
     ],
     [
       "post office",
@@ -489,7 +575,9 @@
       "noun",
       4,
       "اداره پست",
-      "Send letters at the post office."
+      "Send letters at the post office.",
+      null,
+      "vocabulary"
     ],
     [
       "postman",
@@ -497,7 +585,9 @@
       "noun",
       4,
       "پستچی",
-      "The postman delivered a parcel."
+      "The postman delivered a parcel.",
+      null,
+      "vocabulary"
     ],
     [
       "bank",
@@ -505,7 +595,9 @@
       "noun",
       4,
       "بانک",
-      "Deposit money in the bank."
+      "Deposit money in the bank.",
+      null,
+      "vocabulary"
     ],
     [
       "police station",
@@ -513,7 +605,9 @@
       "noun",
       4,
       "کلانتری",
-      "Report theft at the police station."
+      "Report theft at the police station.",
+      null,
+      "vocabulary"
     ],
     [
       "fire station",
@@ -521,7 +615,9 @@
       "noun",
       4,
       "ایستگاه آتش‌نشانی",
-      "Call the fire station."
+      "Call the fire station.",
+      null,
+      "vocabulary"
     ],
     [
       "firefighter",
@@ -529,7 +625,9 @@
       "noun",
       4,
       "آتش‌نشان",
-      "Firefighters extinguish fires."
+      "Firefighters extinguish fires.",
+      null,
+      "vocabulary"
     ],
     [
       "emergency",
@@ -537,7 +635,9 @@
       "noun",
       6,
       "اورژانس، فوریت",
-      "Call emergency immediately."
+      "Call emergency immediately.",
+      null,
+      "vocabulary"
     ],
     [
       "accident",
@@ -545,7 +645,9 @@
       "noun",
       6,
       "تصادف",
-      "Drive carefully to prevent an accident."
+      "Drive carefully to prevent an accident.",
+      null,
+      "vocabulary"
     ],
     [
       "bleed",
@@ -553,7 +655,9 @@
       "verb",
       6,
       "خونریزی کردن",
-      "The cut finger started to bleed."
+      "The cut finger started to bleed.",
+      null,
+      "vocabulary"
     ],
     [
       "bandage",
@@ -561,7 +665,9 @@
       "noun",
       6,
       "بانداژ",
-      "Put a bandage on the wound."
+      "Put a bandage on the wound.",
+      null,
+      "vocabulary"
     ],
     [
       "burn",
@@ -569,7 +675,9 @@
       "verb",
       6,
       "سوختن",
-      "Be careful not to burn your hand."
+      "Be careful not to burn your hand.",
+      null,
+      "vocabulary"
     ],
     [
       "homework",
@@ -577,7 +685,139 @@
       "noun",
       1,
       "تکلیف خانه",
-      "Do your English homework."
+      "Do your English homework.",
+      null,
+      "vocabulary"
+    ],
+    [
+      "boarding pass",
+      "boarding pass",
+      "noun",
+      2,
+      "کارت پرواز",
+      "Get your boarding pass at the check-in desk.",
+      "a pass for boarding an aircraft",
+      "photo_dictionary"
+    ],
+    [
+      "luggage",
+      "luggage",
+      "noun",
+      2,
+      "چمدان، بار سفر",
+      "Check in your heavy luggage at the airport counter.",
+      "suitcases or other bags in which to pack personal belongings",
+      "photo_dictionary"
+    ],
+    [
+      "fireworks",
+      "fireworks",
+      "noun",
+      3,
+      "آتش‌بازی",
+      "Children watched colorful fireworks in the sky.",
+      "devices containing gunpowder and other combustible chemicals",
+      "photo_dictionary"
+    ],
+    [
+      "anthem",
+      "anthem",
+      "noun",
+      3,
+      "سرود ملی",
+      "Students stand up and sing the national anthem.",
+      "an uplifting song or hymn associated with national identity",
+      "photo_dictionary"
+    ],
+    [
+      "fire department",
+      "fire department",
+      "noun",
+      4,
+      "سازمان آتش‌نشانی",
+      "Call the fire department immediately.",
+      "an organization that provides fire prevention and firefighting services",
+      "photo_dictionary"
+    ],
+    [
+      "emergency",
+      "emergency",
+      "noun",
+      4,
+      "اورژانس، فوریت",
+      "In case of emergency call 115.",
+      "a serious, unexpected, and often dangerous situation requiring immediate action",
+      "new_words"
+    ],
+    [
+      "interview",
+      "interview",
+      "noun",
+      5,
+      "مصاحبه",
+      "The journalist conducted an interview with the scientist.",
+      "a meeting of people face to face, especially for consultation",
+      "new_words"
+    ],
+    [
+      "news",
+      "news",
+      "noun",
+      5,
+      "اخبار",
+      "We watch the eight o'clock news on television.",
+      "newly received or noteworthy information",
+      "new_words"
+    ],
+    [
+      "website",
+      "website",
+      "noun",
+      5,
+      "وب‌سایت",
+      "Visit the Ministry of Education website.",
+      "a set of related web pages located under a single domain name",
+      "new_words"
+    ],
+    [
+      "text message",
+      "text message",
+      "noun",
+      5,
+      "پیامک",
+      "Send me a text message when you arrive.",
+      "an electronic communication sent and received by mobile phone",
+      "new_words"
+    ],
+    [
+      "injury",
+      "injury",
+      "noun",
+      6,
+      "آسیب، جراحت",
+      "The doctor treated the player's knee injury.",
+      "physical damage to the body caused by violence or accident",
+      "new_words"
+    ],
+    [
+      "plaster",
+      "plaster",
+      "noun",
+      6,
+      "چسب زخم، گچ‌گرفتگی",
+      "Put a plaster on your cut finger.",
+      "an adhesive strip of material for dressing minor wounds",
+      "photo_dictionary"
+    ],
+    [
+      "ambulance",
+      "ambulance",
+      "noun",
+      6,
+      "آمبولانس",
+      "An ambulance took the injured driver to hospital.",
+      "a vehicle equipped for taking sick or injured people to hospital",
+      "photo_dictionary"
     ]
   ],
   "passages": [

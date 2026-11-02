@@ -55,7 +55,7 @@ def cmd_context(args: argparse.Namespace) -> None:
     ]
 
     cur.execute(
-        f"SELECT word, lemma, pos, definition_fa, example_en, lesson_num FROM vocabulary WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num, word",
+        f"SELECT word, lemma, pos, definition_fa, definition_en, example_en, section_source, lesson_num FROM vocabulary WHERE grade = ? AND lesson_num IN ({placeholders}) ORDER BY lesson_num, word",
         [args.grade, *lessons],
     )
     vocab_data = [
@@ -64,8 +64,10 @@ def cmd_context(args: argparse.Namespace) -> None:
             "lemma": r[1],
             "pos": r[2],
             "definition_fa": r[3],
-            "example_en": r[4],
-            "lesson_num": r[5],
+            "definition_en": r[4],
+            "example_en": r[5],
+            "section_source": r[6],
+            "lesson_num": r[7],
         }
         for r in cur.fetchall()
     ]

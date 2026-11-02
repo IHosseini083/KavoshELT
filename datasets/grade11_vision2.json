@@ -80,7 +80,9 @@
       "noun",
       1,
       "زبان",
-      "Thousands of languages exist worldwide."
+      "Thousands of languages exist worldwide.",
+      null,
+      "reading"
     ],
     [
       "communicate",
@@ -88,7 +90,9 @@
       "verb",
       1,
       "ارتباط برقرار کردن",
-      "People communicate in different ways."
+      "People communicate in different ways.",
+      "to share or exchange information, news, or ideas",
+      "new_words"
     ],
     [
       "communication",
@@ -96,7 +100,9 @@
       "noun",
       1,
       "ارتباط",
-      "Language is a tool of communication."
+      "Language is a tool of communication.",
+      "the imparting or exchanging of information by speaking or writing",
+      "new_words"
     ],
     [
       "sign language",
@@ -104,7 +110,9 @@
       "noun",
       1,
       "زبان اشاره",
-      "Deaf people use sign language."
+      "Deaf people use sign language.",
+      "a system of communication using visual gestures and signs",
+      "new_words"
     ],
     [
       "deaf",
@@ -112,7 +120,9 @@
       "adj",
       1,
       "ناشنوا",
-      "He helps deaf children learn."
+      "He helps deaf children learn.",
+      "unable to hear anything or having impaired hearing",
+      "new_words"
     ],
     [
       "native speaker",
@@ -120,15 +130,19 @@
       "noun",
       1,
       "گویشور بومی",
-      "She is a native English speaker."
+      "She is a native English speaker.",
+      "someone who has spoken a particular language from earliest childhood",
+      "new_words"
     ],
     [
       "foreign",
       "foreign",
       "adj",
       1,
-      "خارجی",
-      "He studies foreign languages."
+      "خارجی، بیگانه",
+      "He studies foreign languages.",
+      "from or in a country other than your own",
+      "new_words"
     ],
     [
       "popular",
@@ -136,7 +150,9 @@
       "adj",
       1,
       "محبوب، پرطرفدار",
-      "English is a popular language."
+      "English is a popular language.",
+      "liked, admired, or enjoyed by many people",
+      "new_words"
     ],
     [
       "lifestyle",
@@ -144,7 +160,9 @@
       "noun",
       2,
       "سبک زندگی",
-      "Exercise leads to a healthy lifestyle."
+      "Exercise leads to a healthy lifestyle.",
+      "the way in which a person or group lives",
+      "new_words"
     ],
     [
       "diet",
@@ -152,7 +170,9 @@
       "noun",
       2,
       "رژیم غذایی",
-      "A balanced diet provides vitamins."
+      "A balanced diet provides vitamins.",
+      null,
+      "reading"
     ],
     [
       "prevent",
@@ -160,7 +180,9 @@
       "verb",
       2,
       "پیشگیری کردن",
-      "Vaccines prevent terrible diseases."
+      "Vaccines prevent terrible diseases.",
+      "to keep something from happening or arising",
+      "new_words"
     ],
     [
       "prevention",
@@ -168,15 +190,19 @@
       "noun",
       2,
       "پیشگیری",
-      "Prevention is better than cure."
+      "Prevention is better than cure.",
+      null,
+      "reading"
     ],
     [
       "stress",
       "stress",
       "noun",
       2,
-      "استرس، فشار روانی",
-      "Deep breathing reduces mental stress."
+      "استرس، اضطراب",
+      "Deep breathing reduces mental stress.",
+      "a state of mental or emotional strain or tension",
+      "new_words"
     ],
     [
       "habit",
@@ -184,7 +210,9 @@
       "noun",
       2,
       "عادت",
-      "Reading is a wonderful habit."
+      "Reading is a wonderful habit.",
+      "a settled or regular tendency or practice",
+      "new_words"
     ],
     [
       "energy",
@@ -192,15 +220,19 @@
       "noun",
       2,
       "انرژی",
-      "Healthy food gives you energy."
+      "Healthy food gives you energy.",
+      "the strength and vitality required for sustained activity",
+      "new_words"
     ],
     [
       "physical",
       "physical",
       "adj",
       2,
-      "جسمی، فیزیکی",
-      "Physical activity is essential."
+      "جسمی، بدنی",
+      "Physical activity is essential.",
+      "relating to the body as opposed to the mind",
+      "new_words"
     ],
     [
       "culture",
@@ -208,15 +240,19 @@
       "noun",
       3,
       "فرهنگ",
-      "Art reflects national culture."
+      "Art reflects national culture.",
+      null,
+      "reading"
     ],
     [
       "pottery",
       "pottery",
       "noun",
       3,
-      "سفالگری",
-      "Lalejin is famous for Persian pottery."
+      "سفالگری، ظروف سفالی",
+      "Lalejin is famous for Persian pottery.",
+      "pots, dishes, and other articles made of fired clay",
+      "new_words"
     ],
     [
       "calligraphy",
@@ -224,7 +260,9 @@
       "noun",
       3,
       "خوشنویسی",
-      "He practices Iranian calligraphy."
+      "He practices Iranian calligraphy.",
+      "decorative handwriting or handwritten lettering",
+      "new_words"
     ],
     [
       "carpet",
@@ -232,7 +270,9 @@
       "noun",
       3,
       "فرش",
-      "Persian handmade carpets are famous."
+      "Persian handmade carpets are famous.",
+      null,
+      "reading"
     ],
     [
       "rug",
@@ -240,7 +280,9 @@
       "noun",
       3,
       "قالیچه",
-      "The weaver made a silk rug."
+      "The weaver made a silk rug.",
+      null,
+      "reading"
     ],
     [
       "craft",
@@ -248,7 +290,9 @@
       "noun",
       3,
       "صنعت، هنر دستی",
-      "Persian crafts are admired globally."
+      "Persian crafts are admired globally.",
+      "an activity involving skill in making things by hand",
+      "new_words"
     ],
     [
       "artist",
@@ -256,7 +300,9 @@
       "noun",
       3,
       "هنرمند",
-      "The artist painted a masterpiece."
+      "The artist painted a masterpiece.",
+      null,
+      "reading"
     ],
     [
       "billion",
@@ -264,15 +310,19 @@
       "noun",
       1,
       "میلیارد",
-      "Billions of people live on Earth."
+      "Billions of people live on Earth.",
+      "the number equivalent to a thousand million (1,000,000,000)",
+      "new_words"
     ],
     [
       "century",
       "century",
       "noun",
       1,
-      "قرن",
-      "In the twenty-first century."
+      "قرن، سده",
+      "In the twenty-first century.",
+      "a period of one hundred years",
+      "new_words"
     ],
     [
       "society",
@@ -280,7 +330,9 @@
       "noun",
       1,
       "جامعه",
-      "Language is vital in society."
+      "Language is vital in society.",
+      null,
+      "reading"
     ],
     [
       "international",
@@ -288,7 +340,9 @@
       "adj",
       1,
       "بین‌المللی",
-      "English is an international language."
+      "English is an international language.",
+      null,
+      "reading"
     ],
     [
       "fluently",
@@ -296,7 +350,9 @@
       "adv",
       1,
       "به روانی",
-      "She speaks French fluently."
+      "She speaks French fluently.",
+      null,
+      "reading"
     ],
     [
       "experience",
@@ -304,15 +360,19 @@
       "noun",
       1,
       "تجربه",
-      "Teaching English requires experience."
+      "Teaching English requires experience.",
+      "practical contact with and observation of facts or events",
+      "new_words"
     ],
     [
       "region",
       "region",
       "noun",
       1,
-      "منطقه",
-      "Languages vary by region."
+      "منطقه، ناحیه",
+      "Languages vary by region.",
+      "an area or division, especially part of a country or the world",
+      "new_words"
     ],
     [
       "healthy",
@@ -320,7 +380,9 @@
       "adj",
       2,
       "سالم",
-      "Healthy habits protect your heart."
+      "Healthy habits protect your heart.",
+      null,
+      "reading"
     ],
     [
       "health",
@@ -328,7 +390,9 @@
       "noun",
       2,
       "سلامتی",
-      "Mental health is crucial."
+      "Mental health is crucial.",
+      null,
+      "reading"
     ],
     [
       "nutrient",
@@ -336,7 +400,9 @@
       "noun",
       2,
       "ماده مغذی",
-      "Vegetables contain vital nutrients."
+      "Vegetables contain vital nutrients.",
+      null,
+      "reading"
     ],
     [
       "vitamin",
@@ -344,7 +410,9 @@
       "noun",
       2,
       "ویتامین",
-      "Fruits are rich in vitamins."
+      "Fruits are rich in vitamins.",
+      null,
+      "reading"
     ],
     [
       "fat",
@@ -352,7 +420,9 @@
       "noun",
       2,
       "چربی",
-      "Avoid foods high in fat."
+      "Avoid foods high in fat.",
+      null,
+      "reading"
     ],
     [
       "sugar",
@@ -360,7 +430,9 @@
       "noun",
       2,
       "قند، شکر",
-      "Too much sugar harms teeth."
+      "Too much sugar harms teeth.",
+      null,
+      "reading"
     ],
     [
       "gain weight",
@@ -368,7 +440,9 @@
       "phrase",
       2,
       "وزن اضافه کردن",
-      "Exercising prevents gaining weight."
+      "Exercising prevents gaining weight.",
+      "to become heavier or put on extra body weight",
+      "new_words"
     ],
     [
       "lose weight",
@@ -376,7 +450,9 @@
       "phrase",
       2,
       "وزن کم کردن",
-      "A healthy diet helps lose weight."
+      "A healthy diet helps lose weight.",
+      null,
+      "reading"
     ],
     [
       "calm",
@@ -384,7 +460,9 @@
       "adj",
       2,
       "آرام",
-      "Stay calm during stressful times."
+      "Stay calm during stressful times.",
+      null,
+      "reading"
     ],
     [
       "artwork",
@@ -392,7 +470,9 @@
       "noun",
       3,
       "اثر هنری",
-      "The museum displays ancient artwork."
+      "The museum displays ancient artwork.",
+      null,
+      "reading"
     ],
     [
       "handicraft",
@@ -400,7 +480,9 @@
       "noun",
       3,
       "صنایع دستی",
-      "Shiraz is famous for handicrafts."
+      "Shiraz is famous for handicrafts.",
+      null,
+      "reading"
     ],
     [
       "mirrorwork",
@@ -408,7 +490,9 @@
       "noun",
       3,
       "آینه‌کاری",
-      "Shiraz shrines have exquisite mirrorwork."
+      "Shiraz shrines have exquisite mirrorwork.",
+      null,
+      "reading"
     ],
     [
       "metalwork",
@@ -416,7 +500,9 @@
       "noun",
       3,
       "فلزکاری",
-      "Isfahan metalwork is traditional."
+      "Isfahan metalwork is traditional.",
+      null,
+      "reading"
     ],
     [
       "tilework",
@@ -424,7 +510,9 @@
       "noun",
       3,
       "کاشی‌کاری",
-      "Mosques feature turquoise tilework."
+      "Mosques feature turquoise tilework.",
+      null,
+      "reading"
     ],
     [
       "monument",
@@ -432,7 +520,9 @@
       "noun",
       3,
       "بنای تاریخی",
-      "Historical monuments reflect heritage."
+      "Historical monuments reflect heritage.",
+      null,
+      "reading"
     ],
     [
       "weaving",
@@ -440,7 +530,9 @@
       "verb",
       3,
       "بافتن",
-      "Artisans weave fine Persian carpets."
+      "Artisans weave fine Persian carpets.",
+      "to form fabric or carpet by interlacing long threads",
+      "new_words"
     ],
     [
       "appreciate",
@@ -448,7 +540,9 @@
       "verb",
       3,
       "قدردانی کردن",
-      "We appreciate Iranian art."
+      "We appreciate Iranian art.",
+      "to recognize the full worth or value of something",
+      "new_words"
     ],
     [
       "heritage",
@@ -456,7 +550,9 @@
       "noun",
       3,
       "میراث فرهنگی",
-      "Preserve our national heritage."
+      "Preserve our national heritage.",
+      "property or cultural traditions that are passed down through generations",
+      "new_words"
     ],
     [
       "traditional",
@@ -464,7 +560,9 @@
       "adj",
       3,
       "سنتی",
-      "Traditional arts connect generations."
+      "Traditional arts connect generations.",
+      null,
+      "reading"
     ],
     [
       "creativity",
@@ -472,7 +570,9 @@
       "noun",
       3,
       "خلاقیت",
-      "Art requires boundless creativity."
+      "Art requires boundless creativity.",
+      null,
+      "reading"
     ],
     [
       "custom",
@@ -480,7 +580,9 @@
       "noun",
       3,
       "رسم و رسوم",
-      "Every nation has unique customs."
+      "Every nation has unique customs.",
+      "a traditional and widely accepted way of behaving in a society",
+      "new_words"
     ],
     [
       "world",
@@ -488,7 +590,9 @@
       "noun",
       1,
       "جهان",
-      "Languages around the world."
+      "Languages around the world.",
+      null,
+      "reading"
     ],
     [
       "visual",
@@ -496,7 +600,9 @@
       "adj",
       1,
       "دیداری، بصری",
-      "Sign language is visual."
+      "Sign language is visual.",
+      null,
+      "reading"
     ],
     [
       "community",
@@ -504,7 +610,9 @@
       "noun",
       1,
       "جامعه، اجتماع",
-      "Deaf communities."
+      "Deaf communities.",
+      null,
+      "reading"
     ],
     [
       "express",
@@ -512,7 +620,9 @@
       "verb",
       1,
       "بیان کردن",
-      "Express thoughts and feelings."
+      "Express thoughts and feelings.",
+      null,
+      "reading"
     ],
     [
       "thought",
@@ -520,7 +630,9 @@
       "noun",
       1,
       "فکر، اندیشه",
-      "Express deep thoughts."
+      "Express deep thoughts.",
+      null,
+      "reading"
     ],
     [
       "emotion",
@@ -528,7 +640,9 @@
       "noun",
       1,
       "احساس",
-      "Express human emotions."
+      "Express human emotions.",
+      null,
+      "reading"
     ],
     [
       "mean",
@@ -536,7 +650,9 @@
       "verb",
       2,
       "معنی داشتن",
-      "A healthy lifestyle means wellness."
+      "A healthy lifestyle means wellness.",
+      null,
+      "reading"
     ],
     [
       "mind",
@@ -544,7 +660,9 @@
       "noun",
       2,
       "ذهن",
-      "Care for mind and body."
+      "Care for mind and body.",
+      null,
+      "reading"
     ],
     [
       "fresh",
@@ -552,7 +670,9 @@
       "adj",
       2,
       "تازه",
-      "Eat fresh fruits."
+      "Eat fresh fruits.",
+      null,
+      "reading"
     ],
     [
       "fruit",
@@ -560,7 +680,9 @@
       "noun",
       2,
       "میوه",
-      "Fresh fruits and vegetables."
+      "Fresh fruits and vegetables.",
+      null,
+      "reading"
     ],
     [
       "vegetable",
@@ -568,7 +690,9 @@
       "noun",
       2,
       "سبزیجات",
-      "Eat green vegetables."
+      "Eat green vegetables.",
+      null,
+      "reading"
     ],
     [
       "whole",
@@ -576,7 +700,9 @@
       "adj",
       2,
       "کامل",
-      "Whole grains are healthy."
+      "Whole grains are healthy.",
+      null,
+      "reading"
     ],
     [
       "grain",
@@ -584,7 +710,9 @@
       "noun",
       2,
       "غلات",
-      "Eat whole grains."
+      "Eat whole grains.",
+      null,
+      "reading"
     ],
     [
       "energetic",
@@ -592,7 +720,9 @@
       "adj",
       2,
       "پرانرژی",
-      "It keeps you energetic."
+      "It keeps you energetic.",
+      null,
+      "reading"
     ],
     [
       "regular",
@@ -600,7 +730,9 @@
       "adj",
       2,
       "منظم",
-      "Regular physical exercise."
+      "Regular physical exercise.",
+      null,
+      "reading"
     ],
     [
       "problem",
@@ -608,7 +740,9 @@
       "noun",
       2,
       "مشکل",
-      "Prevents heart problems."
+      "Prevents heart problems.",
+      null,
+      "reading"
     ],
     [
       "enough",
@@ -616,7 +750,9 @@
       "adj",
       2,
       "کافی",
-      "Get enough sleep."
+      "Get enough sleep.",
+      null,
+      "reading"
     ],
     [
       "avoid",
@@ -624,7 +760,9 @@
       "verb",
       2,
       "اجتناب کردن",
-      "Avoiding stress."
+      "Avoiding stress.",
+      "to keep away from or stop oneself from doing something",
+      "new_words"
     ],
     [
       "maintain",
@@ -632,7 +770,9 @@
       "verb",
       2,
       "حفظ کردن",
-      "Maintain mental wellness."
+      "Maintain mental wellness.",
+      null,
+      "reading"
     ],
     [
       "mental",
@@ -640,7 +780,9 @@
       "adj",
       2,
       "روحی، روانی",
-      "Mental health is vital."
+      "Mental health is vital.",
+      null,
+      "reading"
     ],
     [
       "wellness",
@@ -648,7 +790,9 @@
       "noun",
       2,
       "سلامتی و تندرستی",
-      "Achieve wellness."
+      "Achieve wellness.",
+      null,
+      "reading"
     ],
     [
       "get",
@@ -656,7 +800,79 @@
       "verb",
       2,
       "به دست آوردن، شدن",
-      "Get enough sleep."
+      "Get enough sleep.",
+      null,
+      "reading"
+    ],
+    [
+      "body language",
+      "body language",
+      "noun",
+      1,
+      "زبان بدن",
+      "People express feelings through body language.",
+      "non-verbal communication through gestures",
+      "get_ready"
+    ],
+    [
+      "greeting",
+      "greeting",
+      "noun",
+      1,
+      "احوالپرسی",
+      "Shaking hands is a common greeting custom.",
+      "a polite word or sign of welcome",
+      "get_ready"
+    ],
+    [
+      "hearing",
+      "hearing",
+      "noun",
+      1,
+      "شنوایی",
+      "The old man has weak hearing.",
+      "the faculty of perceiving sounds",
+      "get_ready"
+    ],
+    [
+      "fast food",
+      "fast food",
+      "noun",
+      2,
+      "غذای آماده",
+      "Eating too much fast food harms your heart.",
+      "food that is prepared and served quickly",
+      "get_ready"
+    ],
+    [
+      "screen time",
+      "screen time",
+      "noun",
+      2,
+      "مدت زمان استفاده از مانیتور",
+      "Children should limit their daily screen time.",
+      "time spent using a screen device",
+      "get_ready"
+    ],
+    [
+      "carpet weaving",
+      "carpet weaving",
+      "noun",
+      3,
+      "فرش‌بافی",
+      "Carpet weaving is a valuable Persian art.",
+      "the craft of making carpets on a loom",
+      "get_ready"
+    ],
+    [
+      "tile",
+      "tile",
+      "noun",
+      3,
+      "کاشی",
+      "Blue tiles adorn the dome of the historical mosque.",
+      "a thin rectangular slab of baked clay",
+      "get_ready"
     ]
   ],
   "passages": [

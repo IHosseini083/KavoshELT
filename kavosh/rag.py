@@ -550,7 +550,9 @@ def hybrid_search_vocabulary(
                     "grade": v.grade,
                     "lesson_num": v.lesson_num,
                     "definition_fa": v.definition_fa,
+                    "definition_en": v.definition_en,
                     "example_en": v.example_en,
+                    "section_source": v.section_source,
                     "score": total_score,
                 }
             )

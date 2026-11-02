@@ -68,7 +68,9 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                     grade=6,
                     lesson_num=0,
                     definition_fa="واژگان پایه مشترک",
+                    definition_en="Common foundational vocabulary",
                     example_en=f"This is {word}.",
+                    section_source="word_bank",
                     embedding_json=None,
                 )
             )
@@ -93,19 +95,60 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                 )
 
             for v_item in data.get("vocabulary", []):
-                w_str, l_str, pos_str, l_num, def_fa, ex_en = (
-                    str(v_item[0]),
-                    str(v_item[1]),
-                    str(v_item[2]),
-                    int(v_item[3]),
-                    str(v_item[4]),
-                    str(v_item[5]),
-                )
+                if isinstance(v_item, dict):
+                    w_str = str(v_item.get("word", "")).strip()
+                    l_str = str(v_item.get("lemma", w_str)).strip()
+                    pos_str = str(v_item.get("pos", "noun")).strip()
+                    l_num = int(v_item.get("lesson_num", 1))
+                    def_fa = (
+                        str(v_item.get("definition_fa", ""))
+                        if v_item.get("definition_fa") is not None
+                        else None
+                    )
+                    ex_en = (
+                        str(v_item.get("example_en", ""))
+                        if v_item.get("example_en") is not None
+                        else None
+                    )
+                    def_en = (
+                        str(v_item.get("definition_en", ""))
+                        if v_item.get("definition_en") is not None
+                        else None
+                    )
+                    sec_src = str(v_item.get("section_source", "vocabulary")).strip()
+                else:
+                    w_str = str(v_item[0]).strip()
+                    l_str = str(v_item[1]).strip()
+                    pos_str = str(v_item[2]).strip()
+                    l_num = int(v_item[3])
+                    def_fa = (
+                        str(v_item[4])
+                        if len(v_item) > 4 and v_item[4] is not None
+                        else None
+                    )
+                    ex_en = (
+                        str(v_item[5])
+                        if len(v_item) > 5 and v_item[5] is not None
+                        else None
+                    )
+                    def_en = (
+                        str(v_item[6])
+                        if len(v_item) > 6 and v_item[6] is not None
+                        else None
+                    )
+                    sec_src = (
+                        str(v_item[7]).strip()
+                        if len(v_item) > 7 and v_item[7] is not None
+                        else "vocabulary"
+                    )
+
                 key = (l_str.lower(), grade, l_num)
                 if key in seen_vocab:
                     continue
                 seen_vocab.add(key)
-                vec = compute_embedding(f"{w_str} {l_str} {def_fa} {ex_en}")
+                vec = compute_embedding(
+                    f"{w_str} {l_str} {def_fa or ''} {def_en or ''} {ex_en or ''}"
+                )
                 session.add(
                     Vocabulary(
                         word=w_str,
@@ -114,7 +157,9 @@ def seed_curriculum(target: DbTarget, datasets_dir: str = DEFAULT_DATASETS_DIR) 
                         grade=grade,
                         lesson_num=l_num,
                         definition_fa=def_fa,
+                        definition_en=def_en,
                         example_en=ex_en,
+                        section_source=sec_src,
                         embedding_json=json.dumps(vec),
                     )
                 )

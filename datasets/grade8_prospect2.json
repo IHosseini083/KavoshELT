@@ -172,7 +172,9 @@
       "noun",
       1,
       "کشور",
-      "Iran is a beautiful country."
+      "Iran is a beautiful country.",
+      null,
+      "vocabulary"
     ],
     [
       "nationality",
@@ -180,7 +182,9 @@
       "noun",
       1,
       "ملیت",
-      "What is your nationality?"
+      "What is your nationality?",
+      null,
+      "vocabulary"
     ],
     [
       "iranian",
@@ -188,7 +192,9 @@
       "adj",
       1,
       "ایرانی",
-      "I am proud to be Iranian."
+      "I am proud to be Iranian.",
+      null,
+      "vocabulary"
     ],
     [
       "english",
@@ -196,7 +202,9 @@
       "noun",
       1,
       "انگلیسی",
-      "We study English at school."
+      "We study English at school.",
+      null,
+      "vocabulary"
     ],
     [
       "france",
@@ -204,7 +212,9 @@
       "noun",
       1,
       "فرانسه",
-      "Paris is in France."
+      "Paris is in France.",
+      null,
+      "vocabulary"
     ],
     [
       "week",
@@ -212,7 +222,9 @@
       "noun",
       2,
       "هفته",
-      "There are seven days in a week."
+      "There are seven days in a week.",
+      null,
+      "vocabulary"
     ],
     [
       "saturday",
@@ -220,7 +232,9 @@
       "noun",
       2,
       "شنبه",
-      "School starts on Saturday."
+      "School starts on Saturday.",
+      null,
+      "vocabulary"
     ],
     [
       "friday",
@@ -228,7 +242,9 @@
       "noun",
       2,
       "جمعه",
-      "We rest on Friday."
+      "We rest on Friday.",
+      null,
+      "vocabulary"
     ],
     [
       "study",
@@ -236,7 +252,9 @@
       "verb",
       2,
       "درس خواندن",
-      "I study English on Mondays."
+      "I study English on Mondays.",
+      null,
+      "vocabulary"
     ],
     [
       "go to the gym",
@@ -244,7 +262,9 @@
       "phrase",
       2,
       "باشگاه رفتن",
-      "He goes to the gym on Tuesdays."
+      "He goes to the gym on Tuesdays.",
+      null,
+      "vocabulary"
     ],
     [
       "ability",
@@ -252,7 +272,9 @@
       "noun",
       3,
       "توانایی",
-      "Everyone has different abilities."
+      "Everyone has different abilities.",
+      null,
+      "vocabulary"
     ],
     [
       "swim",
@@ -260,7 +282,9 @@
       "verb",
       3,
       "شنا کردن",
-      "Can you swim in the pool?"
+      "Can you swim in the pool?",
+      null,
+      "vocabulary"
     ],
     [
       "ride a bicycle",
@@ -268,7 +292,9 @@
       "phrase",
       3,
       "دوچرخه‌سواری کردن",
-      "I can ride a bicycle fast."
+      "I can ride a bicycle fast.",
+      null,
+      "vocabulary"
     ],
     [
       "draw",
@@ -276,7 +302,9 @@
       "verb",
       3,
       "نقاشی کشیدن",
-      "She can draw beautiful pictures."
+      "She can draw beautiful pictures.",
+      null,
+      "vocabulary"
     ],
     [
       "take photos",
@@ -284,7 +312,9 @@
       "phrase",
       3,
       "عکس گرفتن",
-      "He is good at taking photos."
+      "He is good at taking photos.",
+      null,
+      "vocabulary"
     ],
     [
       "health",
@@ -292,7 +322,9 @@
       "noun",
       4,
       "سلامت",
-      "Health is better than wealth."
+      "Health is better than wealth.",
+      null,
+      "vocabulary"
     ],
     [
       "headache",
@@ -300,7 +332,9 @@
       "noun",
       4,
       "سردرد",
-      "I have a bad headache."
+      "I have a bad headache.",
+      null,
+      "vocabulary"
     ],
     [
       "sore throat",
@@ -308,7 +342,9 @@
       "noun",
       4,
       "گلودرد",
-      "Drink warm milk for sore throat."
+      "Drink warm milk for sore throat.",
+      null,
+      "vocabulary"
     ],
     [
       "fever",
@@ -316,7 +352,9 @@
       "noun",
       4,
       "تب",
-      "The child has a high fever."
+      "The child has a high fever.",
+      null,
+      "vocabulary"
     ],
     [
       "doctor",
@@ -324,7 +362,9 @@
       "noun",
       4,
       "پزشک",
-      "See a doctor if you are sick."
+      "See a doctor if you are sick.",
+      null,
+      "vocabulary"
     ],
     [
       "city",
@@ -332,7 +372,9 @@
       "noun",
       5,
       "شهر",
-      "Isfahan is an ancient city."
+      "Isfahan is an ancient city.",
+      null,
+      "vocabulary"
     ],
     [
       "village",
@@ -340,7 +382,9 @@
       "noun",
       6,
       "روستا",
-      "My grandparents live in a village."
+      "My grandparents live in a village.",
+      null,
+      "vocabulary"
     ],
     [
       "farm",
@@ -348,7 +392,9 @@
       "noun",
       6,
       "مزرعه",
-      "They work on the green farm."
+      "They work on the green farm.",
+      null,
+      "vocabulary"
     ],
     [
       "hobby",
@@ -356,7 +402,9 @@
       "noun",
       7,
       "سرگرمی",
-      "Reading books is my hobby."
+      "Reading books is my hobby.",
+      null,
+      "vocabulary"
     ],
     [
       "spanish",
@@ -364,7 +412,9 @@
       "adj",
       1,
       "اسپانیایی",
-      "He speaks Spanish."
+      "He speaks Spanish.",
+      null,
+      "vocabulary"
     ],
     [
       "china",
@@ -372,7 +422,9 @@
       "noun",
       1,
       "چین",
-      "Beijing is in China."
+      "Beijing is in China.",
+      null,
+      "vocabulary"
     ],
     [
       "chinese",
@@ -380,7 +432,9 @@
       "adj",
       1,
       "چینی",
-      "Chinese food is popular."
+      "Chinese food is popular.",
+      null,
+      "vocabulary"
     ],
     [
       "germany",
@@ -388,7 +442,9 @@
       "noun",
       1,
       "آلمان",
-      "Berlin is in Germany."
+      "Berlin is in Germany.",
+      null,
+      "vocabulary"
     ],
     [
       "german",
@@ -396,7 +452,9 @@
       "adj",
       1,
       "آلمانی",
-      "He is studying German."
+      "He is studying German.",
+      null,
+      "vocabulary"
     ],
     [
       "japan",
@@ -404,7 +462,9 @@
       "noun",
       1,
       "ژاپن",
-      "Tokyo is in Japan."
+      "Tokyo is in Japan.",
+      null,
+      "vocabulary"
     ],
     [
       "japanese",
@@ -412,7 +472,9 @@
       "adj",
       1,
       "ژاپنی",
-      "Japanese trains are fast."
+      "Japanese trains are fast.",
+      null,
+      "vocabulary"
     ],
     [
       "weekend",
@@ -420,7 +482,9 @@
       "noun",
       2,
       "آخر هفته",
-      "What do you do on weekends?"
+      "What do you do on weekends?",
+      null,
+      "vocabulary"
     ],
     [
       "sunday",
@@ -428,7 +492,9 @@
       "noun",
       2,
       "یکشنبه",
-      "We play football on Sunday."
+      "We play football on Sunday.",
+      null,
+      "vocabulary"
     ],
     [
       "monday",
@@ -436,7 +502,9 @@
       "noun",
       2,
       "دوشنبه",
-      "School has English on Monday."
+      "School has English on Monday.",
+      null,
+      "vocabulary"
     ],
     [
       "tuesday",
@@ -444,7 +512,9 @@
       "noun",
       2,
       "سه‌شنبه",
-      "I visit my aunt on Tuesday."
+      "I visit my aunt on Tuesday.",
+      null,
+      "vocabulary"
     ],
     [
       "wednesday",
@@ -452,7 +522,9 @@
       "noun",
       2,
       "چهارشنبه",
-      "We have math on Wednesday."
+      "We have math on Wednesday.",
+      null,
+      "vocabulary"
     ],
     [
       "thursday",
@@ -460,7 +532,9 @@
       "noun",
       2,
       "پنجشنبه",
-      "We clean our house on Thursday."
+      "We clean our house on Thursday.",
+      null,
+      "vocabulary"
     ],
     [
       "afternoon",
@@ -468,7 +542,9 @@
       "noun",
       2,
       "بعدازظهر",
-      "In the afternoon, I do homework."
+      "In the afternoon, I do homework.",
+      null,
+      "vocabulary"
     ],
     [
       "football",
@@ -476,7 +552,9 @@
       "noun",
       3,
       "فوتبال",
-      "He can play football."
+      "He can play football.",
+      null,
+      "vocabulary"
     ],
     [
       "computer",
@@ -484,7 +562,9 @@
       "noun",
       3,
       "کامپیوتر",
-      "She can work with a computer."
+      "She can work with a computer.",
+      null,
+      "vocabulary"
     ],
     [
       "typing",
@@ -492,7 +572,9 @@
       "verb",
       3,
       "تایپ کردن",
-      "I am good at typing."
+      "I am good at typing.",
+      null,
+      "vocabulary"
     ],
     [
       "cooking",
@@ -500,7 +582,9 @@
       "verb",
       3,
       "آشپزی",
-      "My brother can cook delicious food."
+      "My brother can cook delicious food.",
+      null,
+      "vocabulary"
     ],
     [
       "running",
@@ -508,7 +592,9 @@
       "verb",
       3,
       "دویدن",
-      "He can run very fast."
+      "He can run very fast.",
+      null,
+      "vocabulary"
     ],
     [
       "cough",
@@ -516,7 +602,9 @@
       "noun",
       4,
       "سرفه",
-      "Take cough syrup."
+      "Take cough syrup.",
+      null,
+      "vocabulary"
     ],
     [
       "running nose",
@@ -524,7 +612,9 @@
       "noun",
       4,
       "آبریزش بینی",
-      "I have a cold and running nose."
+      "I have a cold and running nose.",
+      null,
+      "vocabulary"
     ],
     [
       "earache",
@@ -532,7 +622,9 @@
       "noun",
       4,
       "گوش‌درد",
-      "He has a painful earache."
+      "He has a painful earache.",
+      null,
+      "vocabulary"
     ],
     [
       "toothache",
@@ -540,7 +632,9 @@
       "noun",
       4,
       "دندان‌درد",
-      "Visit the dentist for toothache."
+      "Visit the dentist for toothache.",
+      null,
+      "vocabulary"
     ],
     [
       "stomachache",
@@ -548,7 +642,9 @@
       "noun",
       4,
       "دل‌درد",
-      "Eating too much causes stomachache."
+      "Eating too much causes stomachache.",
+      null,
+      "vocabulary"
     ],
     [
       "medicine",
@@ -556,7 +652,9 @@
       "noun",
       4,
       "دارو",
-      "Take your medicine on time."
+      "Take your medicine on time.",
+      null,
+      "vocabulary"
     ],
     [
       "rest",
@@ -564,7 +662,9 @@
       "verb",
       4,
       "استراحت کردن",
-      "You should rest in bed."
+      "You should rest in bed.",
+      null,
+      "vocabulary"
     ],
     [
       "hospital",
@@ -572,7 +672,9 @@
       "noun",
       4,
       "بیمارستان",
-      "Doctors work at the hospital."
+      "Doctors work at the hospital.",
+      null,
+      "vocabulary"
     ],
     [
       "patient",
@@ -580,7 +682,9 @@
       "noun",
       4,
       "بیمار",
-      "The patient is resting."
+      "The patient is resting.",
+      null,
+      "vocabulary"
     ],
     [
       "museum",
@@ -588,7 +692,9 @@
       "noun",
       5,
       "موزه",
-      "Visit the national museum."
+      "Visit the national museum.",
+      null,
+      "vocabulary"
     ],
     [
       "zoo",
@@ -596,7 +702,9 @@
       "noun",
       5,
       "باغ وحش",
-      "Children like the zoo."
+      "Children like the zoo.",
+      null,
+      "vocabulary"
     ],
     [
       "restaurant",
@@ -604,7 +712,9 @@
       "noun",
       5,
       "رستوران",
-      "We had lunch at a restaurant."
+      "We had lunch at a restaurant.",
+      null,
+      "vocabulary"
     ],
     [
       "mosque",
@@ -612,7 +722,9 @@
       "noun",
       5,
       "مسجد",
-      "The grand mosque is downtown."
+      "The grand mosque is downtown.",
+      null,
+      "vocabulary"
     ],
     [
       "bridge",
@@ -620,7 +732,9 @@
       "noun",
       5,
       "پل",
-      "There is a river under the bridge."
+      "There is a river under the bridge.",
+      null,
+      "vocabulary"
     ],
     [
       "search",
@@ -628,7 +742,9 @@
       "verb",
       3,
       "جستجو کردن",
-      "Search the web."
+      "Search the web.",
+      null,
+      "vocabulary"
     ],
     [
       "web",
@@ -636,7 +752,9 @@
       "noun",
       3,
       "وب، اینترنت",
-      "Search on the web."
+      "Search on the web.",
+      null,
+      "vocabulary"
     ],
     [
       "volleyball",
@@ -644,7 +762,139 @@
       "noun",
       3,
       "والیبال",
-      "He plays volleyball."
+      "He plays volleyball.",
+      null,
+      "vocabulary"
+    ],
+    [
+      "language",
+      "language",
+      "noun",
+      1,
+      "زبان",
+      "Persian and English are world languages.",
+      "the principal method of human communication",
+      "new_words"
+    ],
+    [
+      "capital",
+      "capital",
+      "noun",
+      1,
+      "پایتخت",
+      "Tehran is the capital city of Iran.",
+      "the most important city or town of a country",
+      "get_ready"
+    ],
+    [
+      "weekday",
+      "weekday",
+      "noun",
+      2,
+      "روز کاری هفته",
+      "Students go to school on weekdays.",
+      "any day of the week except weekend",
+      "get_ready"
+    ],
+    [
+      "schedule",
+      "schedule",
+      "noun",
+      2,
+      "برنامه زمانی",
+      "I have a busy weekly schedule.",
+      "a plan for carrying out process or events",
+      "new_words"
+    ],
+    [
+      "talent",
+      "talent",
+      "noun",
+      3,
+      "استعداد",
+      "He has great talent in drawing pictures.",
+      "natural aptitude or skill",
+      "get_ready"
+    ],
+    [
+      "bicycle",
+      "bicycle",
+      "noun",
+      3,
+      "دوچرخه",
+      "Can you ride a bicycle to school?",
+      "a vehicle consisting of two wheels held in a frame",
+      "photo_dictionary"
+    ],
+    [
+      "library",
+      "library",
+      "noun",
+      5,
+      "کتابخانه",
+      "Students read quietly in the school library.",
+      "a building containing collections of books",
+      "photo_dictionary"
+    ],
+    [
+      "stadium",
+      "stadium",
+      "noun",
+      5,
+      "ورزشگاه",
+      "Thousands of fans watched the match in the stadium.",
+      "a sports arena with tiers of seats for spectators",
+      "photo_dictionary"
+    ],
+    [
+      "cattle",
+      "cattle",
+      "noun",
+      6,
+      "گاو و دام",
+      "Farmers raise cattle and sheep in the village.",
+      "large ruminant animals with horns and cloven hoofs",
+      "photo_dictionary"
+    ],
+    [
+      "wheat",
+      "wheat",
+      "noun",
+      6,
+      "گندم",
+      "Golden wheat grows in wide agricultural fields.",
+      "a cereal plant that is the most important kind grown in temperate countries",
+      "photo_dictionary"
+    ],
+    [
+      "plow",
+      "plow",
+      "verb",
+      6,
+      "شخم زدن",
+      "The farmer plows the soil before planting seeds.",
+      "turn up the earth of with a plow",
+      "photo_dictionary"
+    ],
+    [
+      "jogging",
+      "jogging",
+      "noun",
+      7,
+      "دویدن آرام",
+      "Jogging every morning keeps you fit.",
+      "the activity of running at a steady gentle pace",
+      "get_ready"
+    ],
+    [
+      "surfing",
+      "surfing",
+      "noun",
+      7,
+      "وب‌گردی / موج‌سواری",
+      "He spends an hour surfing the net every night.",
+      "the activity of browsing internet or riding waves",
+      "get_ready"
     ]
   ],
   "passages": [

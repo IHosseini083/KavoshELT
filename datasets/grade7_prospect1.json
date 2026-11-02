@@ -202,7 +202,9 @@
       "noun",
       1,
       "نام",
-      "My name is Ali."
+      "My name is Ali.",
+      null,
+      "vocabulary"
     ],
     [
       "first name",
@@ -210,7 +212,9 @@
       "noun",
       1,
       "نام کوچک",
-      "What is your first name?"
+      "What is your first name?",
+      null,
+      "vocabulary"
     ],
     [
       "last name",
@@ -218,7 +222,9 @@
       "noun",
       1,
       "نام خانوادگی",
-      "My last name is Ahmadi."
+      "My last name is Ahmadi.",
+      null,
+      "vocabulary"
     ],
     [
       "hello",
@@ -226,7 +232,9 @@
       "interj",
       1,
       "سلام",
-      "Hello my friend."
+      "Hello my friend.",
+      null,
+      "vocabulary"
     ],
     [
       "hi",
@@ -234,7 +242,9 @@
       "interj",
       1,
       "سلام",
-      "Hi Reza."
+      "Hi Reza.",
+      null,
+      "vocabulary"
     ],
     [
       "good morning",
@@ -242,7 +252,9 @@
       "phrase",
       1,
       "صبح بخیر",
-      "Good morning teacher."
+      "Good morning teacher.",
+      null,
+      "vocabulary"
     ],
     [
       "good afternoon",
@@ -250,7 +262,9 @@
       "phrase",
       1,
       "عصر بخیر",
-      "Good afternoon students."
+      "Good afternoon students.",
+      null,
+      "vocabulary"
     ],
     [
       "classmate",
@@ -258,7 +272,9 @@
       "noun",
       2,
       "همکلاسی",
-      "This is my classmate."
+      "This is my classmate.",
+      null,
+      "vocabulary"
     ],
     [
       "friend",
@@ -266,7 +282,9 @@
       "noun",
       2,
       "دوست",
-      "He is my best friend."
+      "He is my best friend.",
+      null,
+      "vocabulary"
     ],
     [
       "teacher",
@@ -274,7 +292,9 @@
       "noun",
       2,
       "معلم",
-      "Our teacher is kind."
+      "Our teacher is kind.",
+      null,
+      "vocabulary"
     ],
     [
       "student",
@@ -282,7 +302,9 @@
       "noun",
       2,
       "دانش‌آموز",
-      "They are good students."
+      "They are good students.",
+      null,
+      "vocabulary"
     ],
     [
       "school",
@@ -290,7 +312,9 @@
       "noun",
       2,
       "مدرسه",
-      "Welcome to our school."
+      "Welcome to our school.",
+      null,
+      "vocabulary"
     ],
     [
       "boy",
@@ -298,7 +322,9 @@
       "noun",
       2,
       "پسر",
-      "He is a clever boy."
+      "He is a clever boy.",
+      null,
+      "vocabulary"
     ],
     [
       "girl",
@@ -306,7 +332,9 @@
       "noun",
       2,
       "دختر",
-      "She is a polite girl."
+      "She is a polite girl.",
+      null,
+      "vocabulary"
     ],
     [
       "age",
@@ -314,7 +342,9 @@
       "noun",
       3,
       "سن",
-      "What is your age?"
+      "What is your age?",
+      null,
+      "vocabulary"
     ],
     [
       "year",
@@ -322,7 +352,9 @@
       "noun",
       3,
       "سال",
-      "I am twelve years old."
+      "I am twelve years old.",
+      null,
+      "vocabulary"
     ],
     [
       "month",
@@ -330,7 +362,9 @@
       "noun",
       3,
       "ماه",
-      "My birthday is in Mehr."
+      "My birthday is in Mehr.",
+      null,
+      "vocabulary"
     ],
     [
       "birthday",
@@ -338,7 +372,9 @@
       "noun",
       3,
       "روز تولد",
-      "Happy birthday to you."
+      "Happy birthday to you.",
+      null,
+      "vocabulary"
     ],
     [
       "number",
@@ -346,7 +382,9 @@
       "noun",
       3,
       "شماره، عدد",
-      "What is your phone number?"
+      "What is your phone number?",
+      null,
+      "vocabulary"
     ],
     [
       "family",
@@ -354,7 +392,9 @@
       "noun",
       4,
       "خانواده",
-      "I love my family."
+      "I love my family.",
+      null,
+      "vocabulary"
     ],
     [
       "father",
@@ -362,7 +402,9 @@
       "noun",
       4,
       "پدر",
-      "My father is a teacher."
+      "My father is a teacher.",
+      null,
+      "vocabulary"
     ],
     [
       "mother",
@@ -370,7 +412,9 @@
       "noun",
       4,
       "مادر",
-      "My mother is a nurse."
+      "My mother is a nurse.",
+      null,
+      "vocabulary"
     ],
     [
       "brother",
@@ -378,7 +422,9 @@
       "noun",
       4,
       "برادر",
-      "He has one brother."
+      "He has one brother.",
+      null,
+      "vocabulary"
     ],
     [
       "sister",
@@ -386,7 +432,9 @@
       "noun",
       4,
       "خواهر",
-      "My sister is a student."
+      "My sister is a student.",
+      null,
+      "vocabulary"
     ],
     [
       "uncle",
@@ -394,7 +442,9 @@
       "noun",
       4,
       "عمو، دایی",
-      "His uncle is a driver."
+      "His uncle is a driver.",
+      null,
+      "vocabulary"
     ],
     [
       "aunt",
@@ -402,7 +452,9 @@
       "noun",
       4,
       "عمه، خاله",
-      "Her aunt is a doctor."
+      "Her aunt is a doctor.",
+      null,
+      "vocabulary"
     ],
     [
       "job",
@@ -410,7 +462,9 @@
       "noun",
       4,
       "شغل",
-      "What is his job?"
+      "What is his job?",
+      null,
+      "vocabulary"
     ],
     [
       "dentist",
@@ -418,7 +472,9 @@
       "noun",
       4,
       "دندانپزشک",
-      "The dentist helps patients."
+      "The dentist helps patients.",
+      null,
+      "vocabulary"
     ],
     [
       "pilot",
@@ -426,7 +482,9 @@
       "noun",
       4,
       "خلبان",
-      "A pilot flies planes."
+      "A pilot flies planes.",
+      null,
+      "vocabulary"
     ],
     [
       "appearance",
@@ -434,7 +492,9 @@
       "noun",
       5,
       "ظاهر",
-      "Describe his appearance."
+      "Describe his appearance.",
+      null,
+      "vocabulary"
     ],
     [
       "tall",
@@ -442,7 +502,9 @@
       "adj",
       5,
       "قدبلند",
-      "He is a tall boy."
+      "He is a tall boy.",
+      null,
+      "vocabulary"
     ],
     [
       "short",
@@ -450,7 +512,9 @@
       "adj",
       5,
       "کوتاه",
-      "She has short hair."
+      "She has short hair.",
+      null,
+      "vocabulary"
     ],
     [
       "young",
@@ -458,7 +522,9 @@
       "adj",
       5,
       "جوان",
-      "Our teacher is young."
+      "Our teacher is young.",
+      null,
+      "vocabulary"
     ],
     [
       "old",
@@ -466,7 +532,9 @@
       "adj",
       5,
       "پیر، قدیمی",
-      "My grandfather is old."
+      "My grandfather is old.",
+      null,
+      "vocabulary"
     ],
     [
       "shirt",
@@ -474,7 +542,9 @@
       "noun",
       5,
       "پیراهن",
-      "He wears a white shirt."
+      "He wears a white shirt.",
+      null,
+      "vocabulary"
     ],
     [
       "jacket",
@@ -482,7 +552,9 @@
       "noun",
       5,
       "ژاکت، کاپشن",
-      "Put on your warm jacket."
+      "Put on your warm jacket.",
+      null,
+      "vocabulary"
     ],
     [
       "shoes",
@@ -490,7 +562,9 @@
       "noun",
       5,
       "کفش",
-      "These black shoes are nice."
+      "These black shoes are nice.",
+      null,
+      "vocabulary"
     ],
     [
       "color",
@@ -498,7 +572,9 @@
       "noun",
       5,
       "رنگ",
-      "What color is your bag?"
+      "What color is your bag?",
+      null,
+      "vocabulary"
     ],
     [
       "house",
@@ -506,7 +582,9 @@
       "noun",
       6,
       "خانه",
-      "Their house is big."
+      "Their house is big.",
+      null,
+      "vocabulary"
     ],
     [
       "room",
@@ -514,7 +592,9 @@
       "noun",
       6,
       "اتاق",
-      "This is my bedroom."
+      "This is my bedroom.",
+      null,
+      "vocabulary"
     ],
     [
       "kitchen",
@@ -522,7 +602,9 @@
       "noun",
       6,
       "آشپزخانه",
-      "Mom is in the kitchen."
+      "Mom is in the kitchen.",
+      null,
+      "vocabulary"
     ],
     [
       "living room",
@@ -530,7 +612,9 @@
       "noun",
       6,
       "اتاق نشیمن",
-      "We watch TV in the living room."
+      "We watch TV in the living room.",
+      null,
+      "vocabulary"
     ],
     [
       "bedroom",
@@ -538,7 +622,9 @@
       "noun",
       6,
       "اتاق خواب",
-      "Go to your bedroom."
+      "Go to your bedroom.",
+      null,
+      "vocabulary"
     ],
     [
       "garage",
@@ -546,7 +632,9 @@
       "noun",
       6,
       "پارکینگ، گاراژ",
-      "The car is in the garage."
+      "The car is in the garage.",
+      null,
+      "vocabulary"
     ],
     [
       "cooking",
@@ -554,7 +642,9 @@
       "verb",
       6,
       "آشپزی کردن",
-      "Grandmother is cooking lunch."
+      "Grandmother is cooking lunch.",
+      null,
+      "vocabulary"
     ],
     [
       "eating",
@@ -562,7 +652,9 @@
       "verb",
       6,
       "غذا خوردن",
-      "He is eating dinner."
+      "He is eating dinner.",
+      null,
+      "vocabulary"
     ],
     [
       "drinking",
@@ -570,7 +662,9 @@
       "verb",
       6,
       "نوشیدن",
-      "She is drinking tea."
+      "She is drinking tea.",
+      null,
+      "vocabulary"
     ],
     [
       "sleeping",
@@ -578,7 +672,9 @@
       "verb",
       6,
       "خوابیدن",
-      "The baby is sleeping now."
+      "The baby is sleeping now.",
+      null,
+      "vocabulary"
     ],
     [
       "washing",
@@ -586,7 +682,9 @@
       "verb",
       6,
       "شستن",
-      "Father is washing the car."
+      "Father is washing the car.",
+      null,
+      "vocabulary"
     ],
     [
       "address",
@@ -594,7 +692,9 @@
       "noun",
       7,
       "آدرس",
-      "What is your home address?"
+      "What is your home address?",
+      null,
+      "vocabulary"
     ],
     [
       "street",
@@ -602,7 +702,9 @@
       "noun",
       7,
       "خیابان",
-      "We live on Bahar street."
+      "We live on Bahar street.",
+      null,
+      "vocabulary"
     ],
     [
       "alley",
@@ -610,7 +712,9 @@
       "noun",
       7,
       "کوچه",
-      "Turn into the next alley."
+      "Turn into the next alley.",
+      null,
+      "vocabulary"
     ],
     [
       "clock",
@@ -618,7 +722,9 @@
       "noun",
       7,
       "ساعت دیواری",
-      "Look at the wall clock."
+      "Look at the wall clock.",
+      null,
+      "vocabulary"
     ],
     [
       "time",
@@ -626,7 +732,9 @@
       "noun",
       7,
       "زمان، وقت",
-      "What time is it now?"
+      "What time is it now?",
+      null,
+      "vocabulary"
     ],
     [
       "food",
@@ -634,7 +742,9 @@
       "noun",
       8,
       "غذا",
-      "Rice and kebab is Iranian food."
+      "Rice and kebab is Iranian food.",
+      null,
+      "vocabulary"
     ],
     [
       "rice",
@@ -642,7 +752,9 @@
       "noun",
       8,
       "برنج",
-      "We eat rice every day."
+      "We eat rice every day.",
+      null,
+      "vocabulary"
     ],
     [
       "bread",
@@ -650,7 +762,9 @@
       "noun",
       8,
       "نان",
-      "Fresh bread smells good."
+      "Fresh bread smells good.",
+      null,
+      "vocabulary"
     ],
     [
       "water",
@@ -658,7 +772,9 @@
       "noun",
       8,
       "آب",
-      "Drink clean water."
+      "Drink clean water.",
+      null,
+      "vocabulary"
     ],
     [
       "tea",
@@ -666,7 +782,9 @@
       "noun",
       8,
       "چای",
-      "Would you like hot tea?"
+      "Would you like hot tea?",
+      null,
+      "vocabulary"
     ],
     [
       "chicken",
@@ -674,7 +792,9 @@
       "noun",
       8,
       "مرغ",
-      "I like roast chicken."
+      "I like roast chicken.",
+      null,
+      "vocabulary"
     ],
     [
       "engineer",
@@ -682,7 +802,199 @@
       "noun",
       4,
       "مهندس",
-      "My father is an engineer."
+      "My father is an engineer.",
+      null,
+      "vocabulary"
+    ],
+    [
+      "pencil",
+      "pencil",
+      "noun",
+      1,
+      "مداد",
+      "Write your name with a pencil.",
+      "an instrument for writing or drawing",
+      "photo_dictionary"
+    ],
+    [
+      "eraser",
+      "eraser",
+      "noun",
+      1,
+      "پاک‌کن",
+      "Use an eraser to correct mistakes.",
+      "a piece of rubber used to rub out marks",
+      "photo_dictionary"
+    ],
+    [
+      "sharpener",
+      "sharpener",
+      "noun",
+      1,
+      "تراش",
+      "I need a sharpener for my pencil.",
+      "a device for sharpening pencils",
+      "photo_dictionary"
+    ],
+    [
+      "ruler",
+      "ruler",
+      "noun",
+      1,
+      "خط‌کش",
+      "Draw a straight line with a ruler.",
+      "a strip of wood or plastic used to draw straight lines",
+      "photo_dictionary"
+    ],
+    [
+      "desk",
+      "desk",
+      "noun",
+      1,
+      "میز تحریر",
+      "Put your book on the desk.",
+      "a piece of furniture with a flat top for working",
+      "photo_dictionary"
+    ],
+    [
+      "chair",
+      "chair",
+      "noun",
+      1,
+      "صندلی",
+      "Please sit down on the chair.",
+      "a separate seat for one person",
+      "photo_dictionary"
+    ],
+    [
+      "whiteboard",
+      "whiteboard",
+      "noun",
+      1,
+      "تخته وایت‌برد",
+      "The teacher wrote the alphabet on the whiteboard.",
+      "a wipeable board with a white surface",
+      "photo_dictionary"
+    ],
+    [
+      "marker",
+      "marker",
+      "noun",
+      1,
+      "ماژیک",
+      "Use a blue marker to write on the board.",
+      "a felt-tip pen with a broad tip",
+      "photo_dictionary"
+    ],
+    [
+      "notebook",
+      "notebook",
+      "noun",
+      1,
+      "دفترچه یادداشت",
+      "Write the new words in your notebook.",
+      "a book with blank pages for notes",
+      "photo_dictionary"
+    ],
+    [
+      "welcome",
+      "welcome",
+      "verb",
+      2,
+      "خوش‌آمد گفتن",
+      "Welcome to our English class.",
+      "gladly received or greeted",
+      "get_ready"
+    ],
+    [
+      "driver",
+      "driver",
+      "noun",
+      4,
+      "راننده",
+      "The bus driver drove carefully.",
+      "a person who drives a vehicle",
+      "photo_dictionary"
+    ],
+    [
+      "firefighter",
+      "firefighter",
+      "noun",
+      4,
+      "آتش‌نشان",
+      "Firefighters put out building fires.",
+      "a person whose job is to extinguish fires",
+      "photo_dictionary"
+    ],
+    [
+      "farmer",
+      "farmer",
+      "noun",
+      4,
+      "کشاورز",
+      "The farmer grows wheat and vegetables.",
+      "a person who owns or manages a farm",
+      "photo_dictionary"
+    ],
+    [
+      "pants",
+      "pants",
+      "noun",
+      5,
+      "شلوار",
+      "My brother bought black pants.",
+      "trousers",
+      "photo_dictionary"
+    ],
+    [
+      "chador",
+      "chador",
+      "noun",
+      5,
+      "چادر",
+      "Iranian women wear traditional chador.",
+      "a large piece of cloth worn by Muslim women",
+      "photo_dictionary"
+    ],
+    [
+      "scarf",
+      "scarf",
+      "noun",
+      5,
+      "روسری",
+      "She wears a colorful silk scarf.",
+      "a piece of fabric worn around the head or neck",
+      "photo_dictionary"
+    ],
+    [
+      "telephone",
+      "telephone",
+      "noun",
+      7,
+      "تلفن",
+      "Our telephone number is on the card.",
+      "a system for transmitting voices over a distance",
+      "new_words"
+    ],
+    [
+      "cheese",
+      "cheese",
+      "noun",
+      8,
+      "پنیر",
+      "Persian feta cheese is delicious.",
+      "a food made from the pressed curds of milk",
+      "photo_dictionary"
+    ],
+    [
+      "salad",
+      "salad",
+      "noun",
+      8,
+      "سالاد",
+      "Mother made a fresh green salad with tomatoes.",
+      "a cold dish of various mixtures of raw or cooked vegetables",
+      "photo_dictionary"
     ]
   ],
   "passages": [

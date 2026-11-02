@@ -119,7 +119,9 @@
       "adj",
       1,
       "در معرض خطر انقراض",
-      "The cheetah is an endangered animal."
+      "The cheetah is an endangered animal.",
+      "a type of animal or plant that may soon not exist",
+      "new_words"
     ],
     [
       "alive",
@@ -127,7 +129,9 @@
       "adj",
       1,
       "زنده",
-      "Few cheetahs are still alive."
+      "Few cheetahs are still alive.",
+      null,
+      "reading"
     ],
     [
       "cheetah",
@@ -135,7 +139,9 @@
       "noun",
       1,
       "یوزپلنگ",
-      "Iranian cheetahs live in the plains."
+      "Iranian cheetahs live in the plains.",
+      null,
+      "reading"
     ],
     [
       "die out",
@@ -143,7 +149,9 @@
       "verb",
       1,
       "منقرض شدن",
-      "Many animals will die out soon."
+      "Many animals will die out soon.",
+      "to stop existing",
+      "new_words"
     ],
     [
       "protect",
@@ -151,7 +159,9 @@
       "verb",
       1,
       "محافظت کردن",
-      "We must protect wildlife."
+      "We must protect wildlife.",
+      "to keep someone or something safe from harm",
+      "new_words"
     ],
     [
       "hunter",
@@ -159,7 +169,9 @@
       "noun",
       1,
       "شکارچی",
-      "Hunters hunt animals for skins."
+      "Hunters hunt animals for skins.",
+      "someone who chases and kills wild animals",
+      "new_words"
     ],
     [
       "hunt",
@@ -167,7 +179,9 @@
       "verb",
       1,
       "شکار کردن",
-      "Humans should not hunt endangered species."
+      "Humans should not hunt endangered species.",
+      null,
+      "reading"
     ],
     [
       "nature",
@@ -175,7 +189,9 @@
       "noun",
       1,
       "طبیعت",
-      "We should take care of nature."
+      "We should take care of nature.",
+      null,
+      "reading"
     ],
     [
       "natural",
@@ -183,7 +199,9 @@
       "adj",
       1,
       "طبیعی",
-      "Forests are their natural homes."
+      "Forests are their natural homes.",
+      "normal or usual, as found in nature",
+      "new_words"
     ],
     [
       "habitat",
@@ -191,7 +209,9 @@
       "noun",
       1,
       "زیستگاه",
-      "Cutting down trees destroys animal habitats."
+      "Cutting down trees destroys animal habitats.",
+      null,
+      "reading"
     ],
     [
       "cut down",
@@ -199,7 +219,9 @@
       "verb",
       1,
       "قطع کردن (درخت)",
-      "People cut down trees to build roads."
+      "People cut down trees to build roads.",
+      "to fell or chop down trees",
+      "get_ready"
     ],
     [
       "destroy",
@@ -207,7 +229,9 @@
       "verb",
       1,
       "نابود کردن",
-      "Pollution will destroy the environment."
+      "Pollution will destroy the environment.",
+      null,
+      "reading"
     ],
     [
       "wildlife",
@@ -215,7 +239,9 @@
       "noun",
       1,
       "حیات وحش",
-      "Iran has a diverse wildlife."
+      "Iran has a diverse wildlife.",
+      "wild animals and plants living in nature",
+      "new_words"
     ],
     [
       "injure",
@@ -223,15 +249,19 @@
       "verb",
       1,
       "زخمی کردن",
-      "The trap can injure wild animals."
+      "The trap can injure wild animals.",
+      null,
+      "reading"
     ],
     [
       "injured",
       "injured",
       "adj",
       1,
-      "مصدوم، زخمی",
-      "Rangers helped the injured wolf."
+      "زخمی، آسیب‌دیده",
+      "Rangers helped the injured wolf.",
+      "hurt or physically harmed",
+      "new_words"
     ],
     [
       "ranger",
@@ -239,7 +269,9 @@
       "noun",
       1,
       "محیط‌بان",
-      "The park ranger protects the park."
+      "The park ranger protects the park.",
+      null,
+      "reading"
     ],
     [
       "plain",
@@ -247,7 +279,9 @@
       "noun",
       1,
       "دشت",
-      "Gazelles live in the open plains."
+      "Gazelles live in the open plains.",
+      "a large flat area of land",
+      "new_words"
     ],
     [
       "lake",
@@ -255,7 +289,9 @@
       "noun",
       1,
       "دریاچه",
-      "Lake Urmia is in northwestern Iran."
+      "Lake Urmia is in northwestern Iran.",
+      null,
+      "reading"
     ],
     [
       "forest",
@@ -263,7 +299,9 @@
       "noun",
       1,
       "جنگل",
-      "Golestan forest is rich in wildlife."
+      "Golestan forest is rich in wildlife.",
+      null,
+      "reading"
     ],
     [
       "future",
@@ -271,7 +309,9 @@
       "noun",
       1,
       "آینده",
-      "We hope they will have a better future."
+      "We hope they will have a better future.",
+      "the time that will come after the present",
+      "new_words"
     ],
     [
       "hope",
@@ -279,7 +319,9 @@
       "verb",
       1,
       "امید داشتن",
-      "We hope to save our planet."
+      "We hope to save our planet.",
+      null,
+      "reading"
     ],
     [
       "human",
@@ -287,7 +329,9 @@
       "noun",
       1,
       "انسان",
-      "Humans harm the environment."
+      "Humans harm the environment.",
+      "a person rather than an animal or machine",
+      "new_words"
     ],
     [
       "pay attention",
@@ -295,7 +339,9 @@
       "verb",
       1,
       "توجه کردن",
-      "Please pay attention to wild animals."
+      "Please pay attention to wild animals.",
+      "to listen, watch, or consider carefully",
+      "new_words"
     ],
     [
       "save",
@@ -303,7 +349,9 @@
       "verb",
       1,
       "نجات دادن",
-      "Volunteers try to save endangered animals."
+      "Volunteers try to save endangered animals.",
+      null,
+      "reading"
     ],
     [
       "increase",
@@ -311,7 +359,9 @@
       "verb",
       1,
       "افزایش یافتن",
-      "Their population will increase with care."
+      "Their population will increase with care.",
+      "to make or become greater in size or amount",
+      "new_words"
     ],
     [
       "decrease",
@@ -319,7 +369,9 @@
       "verb",
       1,
       "کاهش یافتن",
-      "The number of lions decreased rapidly."
+      "The number of lions decreased rapidly.",
+      null,
+      "reading"
     ],
     [
       "hear",
@@ -327,7 +379,9 @@
       "verb",
       1,
       "شنیدن",
-      "Did you hear about the cheetah?"
+      "Did you hear about the cheetah?",
+      null,
+      "reading"
     ],
     [
       "skin",
@@ -335,7 +389,9 @@
       "noun",
       1,
       "پوست",
-      "Hunters kill animals for their skin."
+      "Hunters kill animals for their skin.",
+      null,
+      "reading"
     ],
     [
       "earth",
@@ -343,7 +399,9 @@
       "noun",
       1,
       "کره زمین",
-      "Earth is our common home."
+      "Earth is our common home.",
+      null,
+      "reading"
     ],
     [
       "plant",
@@ -351,7 +409,9 @@
       "verb",
       1,
       "کاشتن",
-      "Students will plant new trees."
+      "Students will plant new trees.",
+      null,
+      "reading"
     ],
     [
       "put out",
@@ -359,7 +419,9 @@
       "verb",
       1,
       "خاموش کردن (آتش)",
-      "Campers must put out fires."
+      "Campers must put out fires.",
+      "to extinguish a fire",
+      "get_ready"
     ],
     [
       "thousand",
@@ -367,7 +429,9 @@
       "noun",
       1,
       "هزار",
-      "Thousands of people visit the park."
+      "Thousands of people visit the park.",
+      null,
+      "reading"
     ],
     [
       "million",
@@ -375,7 +439,9 @@
       "noun",
       1,
       "میلیون",
-      "Millions of creatures live on Earth."
+      "Millions of creatures live on Earth.",
+      null,
+      "reading"
     ],
     [
       "animal",
@@ -383,7 +449,9 @@
       "noun",
       1,
       "حیوان",
-      "The cheetah is a fast wild animal."
+      "The cheetah is a fast wild animal.",
+      null,
+      "reading"
     ],
     [
       "dolphin",
@@ -391,7 +459,9 @@
       "noun",
       1,
       "دلفین",
-      "Dolphins are intelligent mammals."
+      "Dolphins are intelligent mammals.",
+      "a small gregarious toothed whale",
+      "get_ready"
     ],
     [
       "whale",
@@ -399,7 +469,9 @@
       "noun",
       1,
       "نهنگ",
-      "Blue whales are the largest creatures."
+      "Blue whales are the largest creatures.",
+      "a very large marine mammal",
+      "get_ready"
     ],
     [
       "leopard",
@@ -407,7 +479,9 @@
       "noun",
       1,
       "پلنگ",
-      "The Persian leopard is endangered."
+      "The Persian leopard is endangered.",
+      "a large wild cat with spotted coat",
+      "get_ready"
     ],
     [
       "wolf",
@@ -415,7 +489,9 @@
       "noun",
       1,
       "گرگ",
-      "Wolves live in packs."
+      "Wolves live in packs.",
+      "a wild carnivorous mammal",
+      "get_ready"
     ],
     [
       "duck",
@@ -423,7 +499,9 @@
       "noun",
       1,
       "اردک",
-      "Wild ducks swim in the wetlands."
+      "Wild ducks swim in the wetlands.",
+      "a waterbird with webbed feet",
+      "get_ready"
     ],
     [
       "panda",
@@ -431,7 +509,9 @@
       "noun",
       1,
       "پاندا",
-      "Pandas eat bamboo leaves."
+      "Pandas eat bamboo leaves.",
+      null,
+      "reading"
     ],
     [
       "wonder",
@@ -439,7 +519,9 @@
       "noun",
       2,
       "شگفتی",
-      "The human body is a wonder of creation."
+      "The human body is a wonder of creation.",
+      "a feeling of surprise and admiration, or a remarkable thing",
+      "new_words"
     ],
     [
       "wonderful",
@@ -447,7 +529,9 @@
       "adj",
       2,
       "شگفت‌انگیز",
-      "Saturn has wonderful rings."
+      "Saturn has wonderful rings.",
+      null,
+      "reading"
     ],
     [
       "creation",
@@ -455,7 +539,9 @@
       "noun",
       2,
       "خلقت، آفرینش",
-      "We appreciate Allah's great creation."
+      "We appreciate Allah's great creation.",
+      null,
+      "reading"
     ],
     [
       "heart",
@@ -463,15 +549,19 @@
       "noun",
       2,
       "قلب",
-      "The heart pumps blood continuously."
+      "The heart pumps blood continuously.",
+      "the organ in the chest that pumps blood",
+      "new_words"
     ],
     [
       "pump",
       "pump",
       "verb",
       2,
-      "پمپ کردن",
-      "The heart pumps blood through vessels."
+      "پمپاژ کردن",
+      "The heart pumps blood through vessels.",
+      "to force liquid or gas to move in a particular direction",
+      "new_words"
     ],
     [
       "blood",
@@ -479,7 +569,9 @@
       "noun",
       2,
       "خون",
-      "Blood carries oxygen and food."
+      "Blood carries oxygen and food.",
+      "the red liquid that circulates in the arteries and veins",
+      "new_words"
     ],
     [
       "vessel",
@@ -487,7 +579,9 @@
       "noun",
       2,
       "رگ",
-      "Blood vessels carry blood to organs."
+      "Blood vessels carry blood to organs.",
+      null,
+      "reading"
     ],
     [
       "cell",
@@ -495,7 +589,9 @@
       "noun",
       2,
       "سلول",
-      "Cells are building blocks of life."
+      "Cells are building blocks of life.",
+      "the smallest unit of living matter that can exist on its own",
+      "new_words"
     ],
     [
       "red cell",
@@ -503,7 +599,9 @@
       "noun",
       2,
       "گلبول قرمز",
-      "Red cells carry oxygen."
+      "Red cells carry oxygen.",
+      null,
+      "reading"
     ],
     [
       "white cell",
@@ -511,7 +609,9 @@
       "noun",
       2,
       "گلبول سفید",
-      "White cells defend our body."
+      "White cells defend our body.",
+      null,
+      "reading"
     ],
     [
       "defend",
@@ -519,7 +619,9 @@
       "verb",
       2,
       "دفاع کردن",
-      "Antibodies defend against disease."
+      "Antibodies defend against disease.",
+      "to protect against attack or harm",
+      "new_words"
     ],
     [
       "microbe",
@@ -527,7 +629,9 @@
       "noun",
       2,
       "میکروب",
-      "Microbes can make us sick."
+      "Microbes can make us sick.",
+      "an extremely small living thing that can cause disease",
+      "new_words"
     ],
     [
       "liquid",
@@ -535,7 +639,9 @@
       "noun",
       2,
       "مایع",
-      "Water and blood are vital liquids."
+      "Water and blood are vital liquids.",
+      "a substance that flows freely like water or oil",
+      "new_words"
     ],
     [
       "drop",
@@ -543,7 +649,9 @@
       "noun",
       2,
       "قطره",
-      "A drop of blood contains millions of cells."
+      "A drop of blood contains millions of cells.",
+      "a small round quantity of liquid",
+      "new_words"
     ],
     [
       "oxygen",
@@ -551,7 +659,9 @@
       "noun",
       2,
       "اکسیژن",
-      "We need oxygen to breathe."
+      "We need oxygen to breathe.",
+      null,
+      "reading"
     ],
     [
       "brain",
@@ -559,7 +669,9 @@
       "noun",
       2,
       "مغز",
-      "The human brain controls all functions."
+      "The human brain controls all functions.",
+      "an organ of soft nervous tissue",
+      "get_ready"
     ],
     [
       "planet",
@@ -567,7 +679,9 @@
       "noun",
       2,
       "سیاره",
-      "Mars is known as the red planet."
+      "Mars is known as the red planet.",
+      null,
+      "reading"
     ],
     [
       "solar system",
@@ -575,7 +689,9 @@
       "noun",
       2,
       "منظومه شمسی",
-      "Earth is in the solar system."
+      "Earth is in the solar system.",
+      "the collection of eight planets and their moons in orbit around the sun",
+      "get_ready"
     ],
     [
       "telescope",
@@ -583,7 +699,9 @@
       "noun",
       2,
       "تلسکوپ",
-      "We looked at stars through a telescope."
+      "We looked at stars through a telescope.",
+      "an instrument used to see distant objects clearly",
+      "new_words"
     ],
     [
       "observatory",
@@ -591,7 +709,9 @@
       "noun",
       2,
       "رصدخانه",
-      "Scientists work at the observatory."
+      "Scientists work at the observatory.",
+      "a building from which scientists study stars and weather",
+      "new_words"
     ],
     [
       "ring",
@@ -599,7 +719,9 @@
       "noun",
       2,
       "حلقه",
-      "Saturn is famous for its rings."
+      "Saturn is famous for its rings.",
+      "a circular band around a planet",
+      "get_ready"
     ],
     [
       "moon",
@@ -607,7 +729,9 @@
       "noun",
       2,
       "ماه",
-      "The moon revolves around Earth."
+      "The moon revolves around Earth.",
+      "the natural satellite of the earth",
+      "get_ready"
     ],
     [
       "star",
@@ -615,7 +739,9 @@
       "noun",
       2,
       "ستاره",
-      "Stars shine bright in the night sky."
+      "Stars shine bright in the night sky.",
+      "a fixed luminous point in the night sky",
+      "get_ready"
     ],
     [
       "distance",
@@ -623,7 +749,9 @@
       "noun",
       2,
       "فاصله",
-      "The distance between stars is vast."
+      "The distance between stars is vast.",
+      null,
+      "reading"
     ],
     [
       "near",
@@ -631,7 +759,9 @@
       "adj",
       2,
       "نزدیک",
-      "Mercury is near the sun."
+      "Mercury is near the sun.",
+      null,
+      "reading"
     ],
     [
       "far",
@@ -639,7 +769,9 @@
       "adj",
       2,
       "دور",
-      "Neptune is far from the sun."
+      "Neptune is far from the sun.",
+      null,
+      "reading"
     ],
     [
       "powerful",
@@ -647,7 +779,9 @@
       "adj",
       2,
       "قدرتمند",
-      "They used a powerful microscope."
+      "They used a powerful microscope.",
+      "having great power or strength",
+      "new_words"
     ],
     [
       "microscope",
@@ -655,7 +789,9 @@
       "noun",
       2,
       "میکروسکوپ",
-      "We examine cells under a microscope."
+      "We examine cells under a microscope.",
+      null,
+      "reading"
     ],
     [
       "carry",
@@ -663,7 +799,9 @@
       "verb",
       2,
       "حمل کردن",
-      "Red blood cells carry oxygen."
+      "Red blood cells carry oxygen.",
+      null,
+      "reading"
     ],
     [
       "collect",
@@ -671,7 +809,9 @@
       "verb",
       2,
       "جمع‌آوری کردن",
-      "Veins collect blood from organs."
+      "Veins collect blood from organs.",
+      null,
+      "reading"
     ],
     [
       "healthy",
@@ -679,7 +819,9 @@
       "adj",
       2,
       "سالم",
-      "Regular exercise keeps your heart healthy."
+      "Regular exercise keeps your heart healthy.",
+      "in good physical or mental condition",
+      "new_words"
     ],
     [
       "exercise",
@@ -687,7 +829,9 @@
       "verb",
       2,
       "ورزش کردن",
-      "When you exercise, heart beats faster."
+      "When you exercise, heart beats faster.",
+      null,
+      "reading"
     ],
     [
       "body",
@@ -695,7 +839,9 @@
       "noun",
       2,
       "بدن",
-      "Take care of your physical body."
+      "Take care of your physical body.",
+      null,
+      "reading"
     ],
     [
       "organ",
@@ -703,7 +849,9 @@
       "noun",
       2,
       "اندام، عضو",
-      "The heart is a vital organ."
+      "The heart is a vital organ.",
+      null,
+      "reading"
     ],
     [
       "beat",
@@ -711,7 +859,9 @@
       "verb",
       2,
       "تپیدن",
-      "A healthy heart beats regularly."
+      "A healthy heart beats regularly.",
+      null,
+      "reading"
     ],
     [
       "tiny",
@@ -719,7 +869,9 @@
       "adj",
       2,
       "بسیار ریز",
-      "Microbes are tiny living things."
+      "Microbes are tiny living things.",
+      null,
+      "reading"
     ],
     [
       "fact",
@@ -727,7 +879,9 @@
       "noun",
       2,
       "حقیقت، واقعیت",
-      "These are interesting scientific facts."
+      "These are interesting scientific facts.",
+      null,
+      "reading"
     ],
     [
       "scientist",
@@ -735,7 +889,9 @@
       "noun",
       3,
       "دانشمند",
-      "Great scientists worked tirelessly."
+      "Great scientists worked tirelessly.",
+      null,
+      "reading"
     ],
     [
       "inventor",
@@ -743,7 +899,9 @@
       "noun",
       3,
       "مخترع",
-      "Edison was a brilliant inventor."
+      "Edison was a brilliant inventor.",
+      null,
+      "reading"
     ],
     [
       "physician",
@@ -751,7 +909,9 @@
       "noun",
       3,
       "پزشک",
-      "Dr. Gharib was a kind physician."
+      "Dr. Gharib was a kind physician.",
+      "a medical doctor who treats sick people",
+      "new_words"
     ],
     [
       "pediatrics",
@@ -759,7 +919,9 @@
       "noun",
       3,
       "طب اطفال",
-      "Dr. Gharib was father of pediatrics."
+      "Dr. Gharib was father of pediatrics.",
+      null,
+      "reading"
     ],
     [
       "knowledge",
@@ -767,7 +929,9 @@
       "noun",
       3,
       "دانش",
-      "Knowledge is valuable for mankind."
+      "Knowledge is valuable for mankind.",
+      null,
+      "reading"
     ],
     [
       "laboratory",
@@ -775,7 +939,9 @@
       "noun",
       3,
       "آزمایشگاه",
-      "Pasteur worked inside his laboratory."
+      "Pasteur worked inside his laboratory.",
+      "a room equipped for scientific experiments and research",
+      "new_words"
     ],
     [
       "experiment",
@@ -783,7 +949,9 @@
       "noun",
       3,
       "آزمایش",
-      "He conducted scientific experiments."
+      "He conducted scientific experiments.",
+      "a scientific procedure undertaken to make a discovery",
+      "get_ready"
     ],
     [
       "medicine",
@@ -791,7 +959,9 @@
       "noun",
       3,
       "دارو، پزشکی",
-      "He dedicated his life to medicine."
+      "He dedicated his life to medicine.",
+      null,
+      "reading"
     ],
     [
       "cure",
@@ -799,7 +969,9 @@
       "verb",
       3,
       "درمان کردن",
-      "Doctors work hard to cure diseases."
+      "Doctors work hard to cure diseases.",
+      "to make an illness or sickness go away",
+      "new_words"
     ],
     [
       "patient",
@@ -807,15 +979,19 @@
       "noun",
       3,
       "بیمار",
-      "He treated poor patients for free."
+      "He treated poor patients for free.",
+      "a person receiving medical treatment",
+      "new_words"
     ],
     [
       "generous",
       "generous",
       "adj",
       3,
-      "بخشنده، دست‌ودلباز",
-      "He was very kind and generous."
+      "بخشنده",
+      "He was very kind and generous.",
+      "willing to give money, help, or kindness freely",
+      "new_words"
     ],
     [
       "free",
@@ -823,7 +999,9 @@
       "adj",
       3,
       "رایگان",
-      "He examined sick children for free."
+      "He examined sick children for free.",
+      null,
+      "reading"
     ],
     [
       "discover",
@@ -831,7 +1009,9 @@
       "verb",
       3,
       "کشف کردن",
-      "Pasteur discovered microbes in air."
+      "Pasteur discovered microbes in air.",
+      null,
+      "reading"
     ],
     [
       "vaccine",
@@ -839,7 +1019,9 @@
       "noun",
       3,
       "واکسن",
-      "Vaccines save millions of lives."
+      "Vaccines save millions of lives.",
+      null,
+      "reading"
     ],
     [
       "rabies",
@@ -847,7 +1029,9 @@
       "noun",
       3,
       "هاری (بیماری)",
-      "He invented a vaccine against rabies."
+      "He invented a vaccine against rabies.",
+      null,
+      "reading"
     ],
     [
       "success",
@@ -855,7 +1039,9 @@
       "noun",
       3,
       "موفقیت",
-      "Hard work brings genuine success."
+      "Hard work brings genuine success.",
+      null,
+      "reading"
     ],
     [
       "successful",
@@ -863,7 +1049,9 @@
       "adj",
       3,
       "موفق",
-      "She became a successful researcher."
+      "She became a successful researcher.",
+      null,
+      "reading"
     ],
     [
       "patience",
@@ -871,7 +1059,9 @@
       "noun",
       3,
       "صبر، شکیبایی",
-      "Patience is needed in science."
+      "Patience is needed in science.",
+      null,
+      "reading"
     ],
     [
       "humanity",
@@ -879,7 +1069,9 @@
       "noun",
       3,
       "انسانیت، بشریت",
-      "Serving humanity is our duty."
+      "Serving humanity is our duty.",
+      null,
+      "reading"
     ],
     [
       "tirelessly",
@@ -887,15 +1079,19 @@
       "adv",
       3,
       "خستگی‌ناپذیر",
-      "Scientists worked tirelessly."
+      "Scientists worked tirelessly.",
+      null,
+      "reading"
     ],
     [
       "research",
       "research",
       "noun",
       3,
-      "تحقیق، پژوهش",
-      "He published medical research."
+      "پژوهش، تحقیق",
+      "He published medical research.",
+      "the systematic investigation into and study of materials",
+      "new_words"
     ],
     [
       "devote",
@@ -903,7 +1099,9 @@
       "verb",
       3,
       "وقف کردن",
-      "They devoted their lives to others."
+      "They devoted their lives to others.",
+      null,
+      "reading"
     ],
     [
       "famous",
@@ -911,7 +1109,9 @@
       "adj",
       3,
       "مشهور",
-      "Hafez is a famous Persian poet."
+      "Hafez is a famous Persian poet.",
+      null,
+      "reading"
     ],
     [
       "build",
@@ -919,7 +1119,9 @@
       "verb",
       3,
       "ساختن",
-      "They built a new children's hospital."
+      "They built a new children's hospital.",
+      null,
+      "reading"
     ],
     [
       "hospital",
@@ -927,7 +1129,9 @@
       "noun",
       3,
       "بیمارستان",
-      "Sick people visit the hospital."
+      "Sick people visit the hospital.",
+      null,
+      "reading"
     ],
     [
       "child",
@@ -935,7 +1139,9 @@
       "noun",
       3,
       "کودک",
-      "Dr. Gharib loved every sick child."
+      "Dr. Gharib loved every sick child.",
+      null,
+      "reading"
     ],
     [
       "children",
@@ -943,7 +1149,9 @@
       "noun",
       3,
       "کودکان",
-      "He treated poor children kindly."
+      "He treated poor children kindly.",
+      null,
+      "reading"
     ],
     [
       "illness",
@@ -951,7 +1159,9 @@
       "noun",
       3,
       "بیماری",
-      "Vaccines prevent deadly illness."
+      "Vaccines prevent deadly illness.",
+      null,
+      "reading"
     ],
     [
       "disease",
@@ -959,7 +1169,9 @@
       "noun",
       3,
       "بیماری",
-      "Doctors fight dangerous diseases."
+      "Doctors fight dangerous diseases.",
+      null,
+      "reading"
     ],
     [
       "grow up",
@@ -967,7 +1179,9 @@
       "verb",
       3,
       "بزرگ شدن، رشد کردن",
-      "He grew up in a noble family."
+      "He grew up in a noble family.",
+      null,
+      "reading"
     ],
     [
       "find",
@@ -975,7 +1189,9 @@
       "verb",
       3,
       "پیدا کردن",
-      "Pasteur found cures for diseases."
+      "Pasteur found cures for diseases.",
+      null,
+      "reading"
     ],
     [
       "invent",
@@ -983,7 +1199,9 @@
       "verb",
       3,
       "اختراع کردن",
-      "Who invented the telephone?"
+      "Who invented the telephone?",
+      "to create or design something that has not existed before",
+      "new_words"
     ],
     [
       "travel",
@@ -991,7 +1209,9 @@
       "verb",
       4,
       "سفر کردن",
-      "They travel around Iran in spring."
+      "They travel around Iran in spring.",
+      null,
+      "reading"
     ],
     [
       "tourist",
@@ -999,7 +1219,9 @@
       "noun",
       4,
       "گردشگر",
-      "Tourists enjoy historical sites."
+      "Tourists enjoy historical sites.",
+      null,
+      "reading"
     ],
     [
       "tourism",
@@ -1007,7 +1229,9 @@
       "noun",
       4,
       "گردشگری",
-      "Eco-tourism protects nature."
+      "Eco-tourism protects nature.",
+      null,
+      "reading"
     ],
     [
       "vacation",
@@ -1015,7 +1239,9 @@
       "noun",
       4,
       "تعطیلات",
-      "We took a vacation to Shiraz."
+      "We took a vacation to Shiraz.",
+      "a period of time spent away from home or work in recreation",
+      "new_words"
     ],
     [
       "trip",
@@ -1023,7 +1249,9 @@
       "noun",
       4,
       "سفر",
-      "Have a safe and pleasant trip."
+      "Have a safe and pleasant trip.",
+      null,
+      "reading"
     ],
     [
       "destination",
@@ -1031,15 +1259,19 @@
       "noun",
       4,
       "مقصد",
-      "Isfahan is a top tourist destination."
+      "Isfahan is a top tourist destination.",
+      "the place to which someone or something is going",
+      "new_words"
     ],
     [
       "attraction",
       "attraction",
       "noun",
       4,
-      "جاذبه دیدنی",
-      "Persepolis is an ancient attraction."
+      "جاذبه گردشگری",
+      "Persepolis is an ancient attraction.",
+      "an interesting or enjoyable place that people visit",
+      "new_words"
     ],
     [
       "historical",
@@ -1047,7 +1279,9 @@
       "adj",
       4,
       "تاریخی",
-      "Iran has many historical monuments."
+      "Iran has many historical monuments.",
+      "connected with history or past events",
+      "new_words"
     ],
     [
       "ancient",
@@ -1055,7 +1289,9 @@
       "adj",
       4,
       "باستانی",
-      "Persepolis is an ancient city."
+      "Persepolis is an ancient city.",
+      "belonging to the very distant past",
+      "new_words"
     ],
     [
       "monument",
@@ -1063,7 +1299,9 @@
       "noun",
       4,
       "بنای یادبود",
-      "They visited historical monuments."
+      "They visited historical monuments.",
+      "a building or structure of historical importance",
+      "get_ready"
     ],
     [
       "handicraft",
@@ -1071,7 +1309,9 @@
       "noun",
       4,
       "صنایع دستی",
-      "Tourists buy Persian handicrafts."
+      "Tourists buy Persian handicrafts.",
+      "an activity involving making decorative objects by hand",
+      "new_words"
     ],
     [
       "handmade",
@@ -1079,15 +1319,19 @@
       "adj",
       4,
       "دست‌ساز",
-      "Isfahan produces handmade rugs."
+      "Isfahan produces handmade rugs.",
+      null,
+      "reading"
     ],
     [
       "souvenir",
       "souvenir",
       "noun",
       4,
-      "سوغات",
-      "Buy local sweets as a souvenir."
+      "سوغات، یادگاری",
+      "Buy local sweets as a souvenir.",
+      "a thing that is kept as a reminder of a person, place, or event",
+      "new_words"
     ],
     [
       "bazaar",
@@ -1095,7 +1339,9 @@
       "noun",
       4,
       "بازار سنتی",
-      "We walked in the old bazaar."
+      "We walked in the old bazaar.",
+      null,
+      "reading"
     ],
     [
       "mosque",
@@ -1103,7 +1349,9 @@
       "noun",
       4,
       "مسجد",
-      "The blue mosque is magnificent."
+      "The blue mosque is magnificent.",
+      null,
+      "reading"
     ],
     [
       "tomb",
@@ -1111,7 +1359,9 @@
       "noun",
       4,
       "آرامگاه",
-      "We visited the tomb of Hafez."
+      "We visited the tomb of Hafez.",
+      null,
+      "reading"
     ],
     [
       "poet",
@@ -1119,7 +1369,9 @@
       "noun",
       4,
       "شاعر",
-      "Saadi was a wise Persian poet."
+      "Saadi was a wise Persian poet.",
+      null,
+      "reading"
     ],
     [
       "culture",
@@ -1127,7 +1379,9 @@
       "noun",
       4,
       "فرهنگ",
-      "Iran has a rich cultural heritage."
+      "Iran has a rich cultural heritage.",
+      "the customs, arts, and social institutions of a nation",
+      "new_words"
     ],
     [
       "hospitable",
@@ -1135,7 +1389,9 @@
       "adj",
       4,
       "مهمان‌نواز",
-      "Iranian people are very hospitable."
+      "Iranian people are very hospitable.",
+      "friendly and welcoming to visitors or guests",
+      "new_words"
     ],
     [
       "hospitality",
@@ -1143,7 +1399,9 @@
       "noun",
       4,
       "مهمان‌نوازی",
-      "Their hospitality impressed tourists."
+      "Their hospitality impressed tourists.",
+      null,
+      "reading"
     ],
     [
       "pilgrim",
@@ -1151,7 +1409,9 @@
       "noun",
       4,
       "زائر",
-      "Pilgrims visit the holy shrine."
+      "Pilgrims visit the holy shrine.",
+      "a person who journeys to a sacred place for religious reasons",
+      "get_ready"
     ],
     [
       "holy",
@@ -1159,7 +1419,9 @@
       "adj",
       4,
       "مقدس",
-      "Mashhad is a holy city in Iran."
+      "Mashhad is a holy city in Iran.",
+      null,
+      "reading"
     ],
     [
       "shrine",
@@ -1167,7 +1429,9 @@
       "noun",
       4,
       "حرم، زیارتگاه",
-      "Pilgrims pray at the holy shrine."
+      "Pilgrims pray at the holy shrine.",
+      null,
+      "reading"
     ],
     [
       "guesthouse",
@@ -1175,7 +1439,9 @@
       "noun",
       4,
       "مهمان‌پذیر",
-      "We stayed in a traditional guesthouse."
+      "We stayed in a traditional guesthouse.",
+      null,
+      "reading"
     ],
     [
       "hotel",
@@ -1183,7 +1449,9 @@
       "noun",
       4,
       "هتل",
-      "The hotel receptionist was polite."
+      "The hotel receptionist was polite.",
+      "an establishment providing accommodation and meals",
+      "get_ready"
     ],
     [
       "receptionist",
@@ -1191,7 +1459,9 @@
       "noun",
       4,
       "مسئول پذیرش",
-      "The receptionist checked our passport."
+      "The receptionist checked our passport.",
+      null,
+      "reading"
     ],
     [
       "passport",
@@ -1199,7 +1469,9 @@
       "noun",
       4,
       "گذرنامه",
-      "Show your passport at immigration."
+      "Show your passport at immigration.",
+      null,
+      "reading"
     ],
     [
       "ticket",
@@ -1207,7 +1479,9 @@
       "noun",
       4,
       "بلیط",
-      "We bought a train ticket to Shiraz."
+      "We bought a train ticket to Shiraz.",
+      null,
+      "reading"
     ],
     [
       "train",
@@ -1215,7 +1489,9 @@
       "noun",
       4,
       "قطار",
-      "Traveling by train is comfortable."
+      "Traveling by train is comfortable.",
+      null,
+      "reading"
     ],
     [
       "plane",
@@ -1223,7 +1499,9 @@
       "noun",
       4,
       "هواپیما",
-      "Planes are faster than buses."
+      "Planes are faster than buses.",
+      null,
+      "reading"
     ],
     [
       "scenery",
@@ -1231,7 +1509,9 @@
       "noun",
       4,
       "منظره",
-      "Enjoy the green mountain scenery."
+      "Enjoy the green mountain scenery.",
+      null,
+      "reading"
     ],
     [
       "bridge",
@@ -1239,7 +1519,9 @@
       "noun",
       4,
       "پل",
-      "Si-o-se-pol is an ancient bridge."
+      "Si-o-se-pol is an ancient bridge.",
+      null,
+      "reading"
     ],
     [
       "tile",
@@ -1247,7 +1529,9 @@
       "noun",
       4,
       "کاشی",
-      "Blue tiles decorate the mosques."
+      "Blue tiles decorate the mosques.",
+      null,
+      "reading"
     ],
     [
       "recommend",
@@ -1255,7 +1539,9 @@
       "verb",
       4,
       "توصیه کردن",
-      "I recommend visiting Isfahan."
+      "I recommend visiting Isfahan.",
+      null,
+      "reading"
     ],
     [
       "suggestion",
@@ -1263,7 +1549,9 @@
       "noun",
       4,
       "پیشنهاد",
-      "That was a great suggestion."
+      "That was a great suggestion.",
+      null,
+      "reading"
     ],
     [
       "suggest",
@@ -1271,7 +1559,9 @@
       "verb",
       4,
       "پیشنهاد دادن",
-      "Guides suggest visiting Persepolis."
+      "Guides suggest visiting Persepolis.",
+      null,
+      "reading"
     ],
     [
       "mean",
@@ -1279,7 +1569,9 @@
       "verb",
       1,
       "معنی دادن",
-      "What does this mean?"
+      "What does this mean?",
+      "to have something as a meaning",
+      "new_words"
     ],
     [
       "place",
@@ -1287,7 +1579,9 @@
       "noun",
       1,
       "مکان، جا",
-      "Animals need places to live."
+      "Animals need places to live.",
+      null,
+      "reading"
     ],
     [
       "instead",
@@ -1295,7 +1589,9 @@
       "adv",
       1,
       "به جای آن",
-      "They built roads instead."
+      "They built roads instead.",
+      null,
+      "reading"
     ],
     [
       "then",
@@ -1303,7 +1599,9 @@
       "adv",
       1,
       "سپس، آنگاه",
-      "Then the animals won't have homes."
+      "Then the animals won't have homes.",
+      null,
+      "reading"
     ],
     [
       "meat",
@@ -1311,7 +1609,9 @@
       "noun",
       1,
       "گوشت",
-      "Hunters kill animals for meat."
+      "Hunters kill animals for meat.",
+      null,
+      "reading"
     ],
     [
       "problem",
@@ -1319,7 +1619,9 @@
       "noun",
       1,
       "مشکل",
-      "What is the main problem?"
+      "What is the main problem?",
+      null,
+      "reading"
     ],
     [
       "nutrient",
@@ -1327,7 +1629,9 @@
       "noun",
       2,
       "ماده مغذی",
-      "Blood carries nutrients."
+      "Blood carries nutrients.",
+      null,
+      "reading"
     ],
     [
       "soldier",
@@ -1335,7 +1639,9 @@
       "noun",
       2,
       "سرباز",
-      "White cells are like soldiers."
+      "White cells are like soldiers.",
+      null,
+      "reading"
     ],
     [
       "virus",
@@ -1343,7 +1649,9 @@
       "noun",
       2,
       "ویروس",
-      "Cells defend against viruses."
+      "Cells defend against viruses.",
+      null,
+      "reading"
     ],
     [
       "jump",
@@ -1351,7 +1659,9 @@
       "verb",
       2,
       "پریدن",
-      "When you jump and run."
+      "When you jump and run.",
+      null,
+      "reading"
     ],
     [
       "energy",
@@ -1359,7 +1669,9 @@
       "noun",
       2,
       "انرژی",
-      "Muscles need more energy."
+      "Muscles need more energy.",
+      null,
+      "reading"
     ],
     [
       "deliver",
@@ -1367,7 +1679,9 @@
       "verb",
       2,
       "تحویل دادن، رساندن",
-      "Deliver oxygen quickly."
+      "Deliver oxygen quickly.",
+      null,
+      "reading"
     ],
     [
       "quickly",
@@ -1375,7 +1689,9 @@
       "adv",
       2,
       "به سرعت",
-      "Deliver blood quickly."
+      "Deliver blood quickly.",
+      null,
+      "reading"
     ],
     [
       "regular",
@@ -1383,7 +1699,9 @@
       "adj",
       2,
       "منظم",
-      "Regular exercise is good."
+      "Regular exercise is good.",
+      null,
+      "reading"
     ],
     [
       "keep",
@@ -1391,7 +1709,9 @@
       "verb",
       2,
       "نگه داشتن",
-      "Keep your heart strong."
+      "Keep your heart strong.",
+      null,
+      "reading"
     ],
     [
       "strong",
@@ -1399,7 +1719,9 @@
       "adj",
       2,
       "قوی",
-      "Exercise keeps muscles strong."
+      "Exercise keeps muscles strong.",
+      null,
+      "reading"
     ],
     [
       "full",
@@ -1407,7 +1729,9 @@
       "adj",
       2,
       "پر",
-      "The sky is full of stars."
+      "The sky is full of stars.",
+      null,
+      "reading"
     ],
     [
       "born",
@@ -1415,7 +1739,9 @@
       "verb",
       3,
       "متولد شدن",
-      "He was born in Tehran."
+      "He was born in Tehran.",
+      null,
+      "reading"
     ],
     [
       "modern",
@@ -1423,7 +1749,9 @@
       "adj",
       3,
       "مدرن",
-      "Father of modern pediatrics."
+      "Father of modern pediatrics.",
+      null,
+      "reading"
     ],
     [
       "return",
@@ -1431,7 +1759,9 @@
       "verb",
       3,
       "بازگشتن",
-      "He returned home to help."
+      "He returned home to help.",
+      null,
+      "reading"
     ],
     [
       "compassionate",
@@ -1439,7 +1769,9 @@
       "adj",
       3,
       "مهربان، دلسوز",
-      "He was compassionate."
+      "He was compassionate.",
+      null,
+      "reading"
     ],
     [
       "treat",
@@ -1447,7 +1779,9 @@
       "verb",
       3,
       "درمان کردن، رفتار کردن",
-      "He treated sick children."
+      "He treated sick children.",
+      null,
+      "reading"
     ],
     [
       "accept",
@@ -1455,7 +1789,9 @@
       "verb",
       3,
       "پذیرفتن",
-      "He never accepted money."
+      "He never accepted money.",
+      null,
+      "reading"
     ],
     [
       "money",
@@ -1463,7 +1799,9 @@
       "noun",
       3,
       "پول",
-      "He never took money from the poor."
+      "He never took money from the poor.",
+      null,
+      "reading"
     ],
     [
       "specialized",
@@ -1471,7 +1809,9 @@
       "adj",
       3,
       "تخصصی",
-      "A specialized children's hospital."
+      "A specialized children's hospital.",
+      null,
+      "reading"
     ],
     [
       "medical",
@@ -1479,7 +1819,9 @@
       "adj",
       3,
       "پزشکی",
-      "Trained medical students."
+      "Trained medical students.",
+      "related to medicine and treatment of disease",
+      "new_words"
     ],
     [
       "serve",
@@ -1487,7 +1829,9 @@
       "verb",
       3,
       "خدمت کردن",
-      "Serving humanity is noble."
+      "Serving humanity is noble.",
+      null,
+      "reading"
     ],
     [
       "history",
@@ -1495,7 +1839,9 @@
       "noun",
       4,
       "تاریخ",
-      "Iran has a rich history."
+      "Iran has a rich history.",
+      null,
+      "reading"
     ],
     [
       "beautiful",
@@ -1503,7 +1849,9 @@
       "adj",
       4,
       "زیبا",
-      "Beautiful Persian gardens."
+      "Beautiful Persian gardens.",
+      null,
+      "reading"
     ],
     [
       "architecture",
@@ -1511,7 +1859,9 @@
       "noun",
       4,
       "معماری",
-      "Admire Islamic architecture."
+      "Admire Islamic architecture.",
+      null,
+      "reading"
     ],
     [
       "world",
@@ -1519,7 +1869,9 @@
       "noun",
       4,
       "جهان",
-      "World-famous destinations."
+      "World-famous destinations.",
+      null,
+      "reading"
     ],
     [
       "visitor",
@@ -1527,7 +1879,9 @@
       "noun",
       4,
       "بازدیدکننده",
-      "Visitors admire the mosques."
+      "Visitors admire the mosques.",
+      null,
+      "reading"
     ],
     [
       "admire",
@@ -1535,7 +1889,9 @@
       "verb",
       4,
       "تحسین کردن",
-      "Visitors admire ancient bridges."
+      "Visitors admire ancient bridges.",
+      null,
+      "reading"
     ],
     [
       "delicious",
@@ -1543,7 +1899,9 @@
       "adj",
       4,
       "خوشمزه",
-      "Delicious local sweets."
+      "Delicious local sweets.",
+      null,
+      "reading"
     ],
     [
       "local",
@@ -1551,7 +1909,9 @@
       "adj",
       4,
       "محلی",
-      "Buy local sweets and crafts."
+      "Buy local sweets and crafts.",
+      null,
+      "reading"
     ],
     [
       "traditional",
@@ -1559,7 +1919,9 @@
       "adj",
       4,
       "سنتی",
-      "Walk in traditional bazaars."
+      "Walk in traditional bazaars.",
+      null,
+      "reading"
     ],
     [
       "find",
@@ -1567,7 +1929,9 @@
       "verb",
       1,
       "یافتن، پیدا کردن",
-      "We can find wild animals."
+      "We can find wild animals.",
+      null,
+      "reading"
     ],
     [
       "build",
@@ -1575,7 +1939,9 @@
       "verb",
       1,
       "ساختن",
-      "They build roads."
+      "They build roads.",
+      null,
+      "reading"
     ],
     [
       "continuous",
@@ -1583,7 +1949,9 @@
       "adj",
       2,
       "پیوسته، مداوم",
-      "Continuous pumping of blood."
+      "Continuous pumping of blood.",
+      null,
+      "reading"
     ],
     [
       "continuously",
@@ -1591,7 +1959,9 @@
       "adv",
       2,
       "به طور مداوم",
-      "The heart pumps continuously."
+      "The heart pumps continuously.",
+      null,
+      "reading"
     ],
     [
       "kilometer",
@@ -1599,7 +1969,9 @@
       "noun",
       2,
       "کیلومتر",
-      "Thousands of kilometers."
+      "Thousands of kilometers.",
+      null,
+      "reading"
     ],
     [
       "illness",
@@ -1607,7 +1979,9 @@
       "noun",
       2,
       "بیماری",
-      "Defend against illnesses."
+      "Defend against illnesses.",
+      null,
+      "reading"
     ],
     [
       "disease",
@@ -1615,7 +1989,9 @@
       "noun",
       2,
       "بیماری",
-      "Fight against diseases."
+      "Fight against diseases.",
+      null,
+      "reading"
     ],
     [
       "garden",
@@ -1623,7 +1999,119 @@
       "noun",
       4,
       "باغ",
-      "Beautiful Persian gardens."
+      "Beautiful Persian gardens.",
+      null,
+      "reading"
+    ],
+    [
+      "hurt",
+      "hurt",
+      "verb",
+      1,
+      "صدمه زدن",
+      "Hunters hurt wild animals in nature.",
+      "to cause pain or injury to someone",
+      "get_ready"
+    ],
+    [
+      "donate",
+      "donate",
+      "verb",
+      1,
+      "اهدا کردن، کمک مالی کردن",
+      "Kind people donate money to protect cheetahs.",
+      "to give money or goods to help",
+      "get_ready"
+    ],
+    [
+      "take care of",
+      "take care of",
+      "phrase",
+      1,
+      "مراقبت کردن از",
+      "Volunteers take care of injured leopards.",
+      "to look after and keep safe",
+      "get_ready"
+    ],
+    [
+      "vein",
+      "vein",
+      "noun",
+      2,
+      "سیاهرگ، رگ",
+      "Veins carry blood back to the heart.",
+      "tubes forming part of the blood circulation",
+      "get_ready"
+    ],
+    [
+      "artery",
+      "artery",
+      "noun",
+      2,
+      "سرخرگ",
+      "Arteries carry oxygen-rich blood from the heart.",
+      "muscular-walled tubes carrying oxygenated blood",
+      "get_ready"
+    ],
+    [
+      "stethoscope",
+      "stethoscope",
+      "noun",
+      3,
+      "گوشی پزشکی",
+      "The doctor listens to heartbeats with a stethoscope.",
+      "a medical instrument for listening to the action of heart or lungs",
+      "get_ready"
+    ],
+    [
+      "syringe",
+      "syringe",
+      "noun",
+      3,
+      "سرنگ",
+      "The nurse used a syringe to give medicine.",
+      "a tube with a nozzle and piston for sucking in and ejecting liquid",
+      "get_ready"
+    ],
+    [
+      "microscope",
+      "microscope",
+      "noun",
+      3,
+      "میکروسکوپ",
+      "We looked at plant cells through a microscope.",
+      "an optical instrument used for viewing very small objects",
+      "get_ready"
+    ],
+    [
+      "tilework",
+      "tilework",
+      "noun",
+      4,
+      "کاشی‌کاری",
+      "The mosque is decorated with beautiful blue tilework.",
+      "work consisting of decorative tiles",
+      "get_ready"
+    ],
+    [
+      "carpet",
+      "carpet",
+      "noun",
+      4,
+      "فرش",
+      "Persian carpets are famous for their artistic patterns.",
+      "a floor covering made from thick woven fabric",
+      "get_ready"
+    ],
+    [
+      "flight",
+      "flight",
+      "noun",
+      4,
+      "پرواز",
+      "Our flight to Shiraz leaves at eight in the morning.",
+      "an act of flying through the air by airplane",
+      "get_ready"
     ]
   ],
   "passages": [

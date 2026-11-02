@@ -72,7 +72,9 @@
       "noun",
       1,
       "قدردانی، سپاس",
-      "Show appreciation to your parents."
+      "Show appreciation to your parents.",
+      "recognition and enjoyment of the good qualities of someone or something",
+      "new_words"
     ],
     [
       "respect",
@@ -80,7 +82,9 @@
       "verb",
       1,
       "احترام گذاشتن",
-      "We must respect elderly people."
+      "We must respect elderly people.",
+      "a feeling of deep admiration for someone or something",
+      "new_words"
     ],
     [
       "elderly",
@@ -88,7 +92,9 @@
       "adj",
       1,
       "سالمند",
-      "Visit the elderly in nursing homes."
+      "Visit the elderly in nursing homes.",
+      "of a person, polite term for old or aging",
+      "new_words"
     ],
     [
       "nursing home",
@@ -96,7 +102,9 @@
       "noun",
       1,
       "خانه سالمندان",
-      "Volunteers visit the nursing home."
+      "Volunteers visit the nursing home.",
+      "a private home for people who need continuous care, especially the elderly",
+      "new_words"
     ],
     [
       "forgive",
@@ -104,15 +112,19 @@
       "verb",
       1,
       "بخشیدن",
-      "Forgive others to find peace."
+      "Forgive others to find peace.",
+      "to stop feeling angry or resentful toward someone for an offense",
+      "new_words"
     ],
     [
       "devotion",
       "devotion",
       "noun",
       1,
-      "فداکاری",
-      "Parents show endless devotion."
+      "فداکاری، ازخودگذشتگی",
+      "Parents show endless devotion.",
+      "love, loyalty, or enthusiasm for a person, activity, or cause",
+      "new_words"
     ],
     [
       "dictionary",
@@ -120,7 +132,9 @@
       "noun",
       2,
       "فرهنگ لغت",
-      "Look up new words in a dictionary."
+      "Look up new words in a dictionary.",
+      null,
+      "reading"
     ],
     [
       "definition",
@@ -128,15 +142,19 @@
       "noun",
       2,
       "تعریف",
-      "Read the definition carefully."
+      "Read the definition carefully.",
+      "an exact statement of the meaning of a word",
+      "new_words"
     ],
     [
       "entry",
       "entry",
       "noun",
       2,
-      "مدخل واژه‌نامه",
-      "Each dictionary entry has examples."
+      "مدخل لغت‌نامه",
+      "Each dictionary entry has examples.",
+      "an item, word, or heading written in a reference work or dictionary",
+      "new_words"
     ],
     [
       "pronunciation",
@@ -144,7 +162,9 @@
       "noun",
       2,
       "تلفظ",
-      "Check the phonetic pronunciation."
+      "Check the phonetic pronunciation.",
+      "the way in which a word is pronounced",
+      "new_words"
     ],
     [
       "symbol",
@@ -152,31 +172,39 @@
       "noun",
       2,
       "نماد",
-      "Phonetic symbols show sounds."
+      "Phonetic symbols show sounds.",
+      null,
+      "reading"
     ],
     [
       "effective",
       "effective",
       "adj",
       2,
-      "مؤثر",
-      "Use effective study techniques."
+      "مؤثر، کارآمد",
+      "Use effective study techniques.",
+      "successful in producing a desired or intended result",
+      "new_words"
     ],
     [
       "bilingual",
       "bilingual",
       "adj",
       2,
-      "دوزبانه",
-      "A bilingual dictionary translates between two languages."
+      "دو زبانه",
+      "A bilingual dictionary translates between two languages.",
+      "using or expressed in two languages",
+      "new_words"
     ],
     [
       "monolingual",
       "monolingual",
       "adj",
       2,
-      "تک‌زبانه",
-      "Advanced students use a monolingual dictionary."
+      "تک زبانه",
+      "Advanced students use a monolingual dictionary.",
+      "using or expressed in only one language",
+      "new_words"
     ],
     [
       "renewable",
@@ -184,7 +212,9 @@
       "adj",
       3,
       "تجدیدپذیر",
-      "Solar power is renewable energy."
+      "Solar power is renewable energy.",
+      null,
+      "reading"
     ],
     [
       "fossil fuel",
@@ -192,7 +222,9 @@
       "noun",
       3,
       "سوخت فسیلی",
-      "Fossil fuels pollute the atmosphere."
+      "Fossil fuels pollute the atmosphere.",
+      "a natural fuel such as coal or gas, formed from remains of living organisms",
+      "new_words"
     ],
     [
       "solar power",
@@ -200,7 +232,9 @@
       "noun",
       3,
       "انرژی خورشیدی",
-      "Solar power is clean and infinite."
+      "Solar power is clean and infinite.",
+      null,
+      "reading"
     ],
     [
       "wind turbine",
@@ -208,7 +242,9 @@
       "noun",
       3,
       "توربین بادی",
-      "Wind turbines generate green electricity."
+      "Wind turbines generate green electricity.",
+      null,
+      "reading"
     ],
     [
       "generate",
@@ -216,7 +252,9 @@
       "verb",
       3,
       "تولید کردن",
-      "Clean energy generates electricity."
+      "Clean energy generates electricity.",
+      "to produce or create something, especially electricity or heat",
+      "new_words"
     ],
     [
       "electricity",
@@ -224,7 +262,9 @@
       "noun",
       3,
       "برق، الکتریسیته",
-      "Turbines produce clean electricity."
+      "Turbines produce clean electricity.",
+      "a form of energy resulting from existence of charged particles",
+      "new_words"
     ],
     [
       "pollution",
@@ -232,7 +272,9 @@
       "noun",
       3,
       "آلودگی",
-      "Renewable energy cuts air pollution."
+      "Renewable energy cuts air pollution.",
+      "the presence in or introduction into environment of harmful substances",
+      "new_words"
     ],
     [
       "environment",
@@ -240,7 +282,9 @@
       "noun",
       3,
       "محیط زیست",
-      "Save our natural environment."
+      "Save our natural environment.",
+      null,
+      "reading"
     ],
     [
       "elder",
@@ -248,7 +292,9 @@
       "noun",
       1,
       "بزرگتر، سالمند",
-      "Show deference to family elders."
+      "Show deference to family elders.",
+      null,
+      "reading"
     ],
     [
       "gratitude",
@@ -256,7 +302,9 @@
       "noun",
       1,
       "سپاسگزاری",
-      "Express gratitude to teachers."
+      "Express gratitude to teachers.",
+      null,
+      "reading"
     ],
     [
       "kindness",
@@ -264,7 +312,9 @@
       "noun",
       1,
       "مهربانی",
-      "Kindness brightens lives."
+      "Kindness brightens lives.",
+      null,
+      "reading"
     ],
     [
       "patient",
@@ -272,7 +322,9 @@
       "adj",
       1,
       "صبور",
-      "Be patient with old parents."
+      "Be patient with old parents.",
+      null,
+      "reading"
     ],
     [
       "compassion",
@@ -280,7 +332,9 @@
       "noun",
       1,
       "دلسوزی",
-      "Treat patients with compassion."
+      "Treat patients with compassion.",
+      null,
+      "reading"
     ],
     [
       "generation",
@@ -288,7 +342,9 @@
       "noun",
       1,
       "نسل",
-      "Each generation learns from the past."
+      "Each generation learns from the past.",
+      "all of the people born and living at about the same time",
+      "new_words"
     ],
     [
       "honor",
@@ -296,7 +352,9 @@
       "verb",
       1,
       "تکریم کردن",
-      "We honor national heroes."
+      "We honor national heroes.",
+      null,
+      "reading"
     ],
     [
       "guidance",
@@ -304,7 +362,9 @@
       "noun",
       1,
       "راهنمایی",
-      "Follow wise parental guidance."
+      "Follow wise parental guidance.",
+      null,
+      "reading"
     ],
     [
       "alphabetical",
@@ -312,7 +372,9 @@
       "adj",
       2,
       "الفبایی",
-      "Entries appear in alphabetical order."
+      "Entries appear in alphabetical order.",
+      null,
+      "reading"
     ],
     [
       "synonym",
@@ -320,7 +382,9 @@
       "noun",
       2,
       "مترادف",
-      "Find synonyms in a thesaurus."
+      "Find synonyms in a thesaurus.",
+      null,
+      "reading"
     ],
     [
       "antonym",
@@ -328,7 +392,9 @@
       "noun",
       2,
       "متضاد",
-      "Good is the antonym of bad."
+      "Good is the antonym of bad.",
+      null,
+      "reading"
     ],
     [
       "etymology",
@@ -336,15 +402,19 @@
       "noun",
       2,
       "ریشه‌شناسی",
-      "Study word etymology."
+      "Study word etymology.",
+      null,
+      "reading"
     ],
     [
       "collocation",
       "collocation",
       "noun",
       2,
-      "هم‌آیی کلمات",
-      "Learn English collocations."
+      "هم‌آیی، هم‌نشینی کلمات",
+      "Learn English collocations.",
+      "the habitual juxtaposition of a particular word with another word",
+      "new_words"
     ],
     [
       "context",
@@ -352,7 +422,9 @@
       "noun",
       2,
       "زمینه متن",
-      "Guess word meanings from context."
+      "Guess word meanings from context.",
+      null,
+      "reading"
     ],
     [
       "idiom",
@@ -360,15 +432,19 @@
       "noun",
       2,
       "اصطلاح",
-      "Idioms enrich speech."
+      "Idioms enrich speech.",
+      null,
+      "reading"
     ],
     [
       "abbreviation",
       "abbreviation",
       "noun",
       2,
-      "مخفف",
-      "UNESCO is an abbreviation."
+      "علامت اختصاری، مخفف",
+      "UNESCO is an abbreviation.",
+      "a shortened form of a word or phrase",
+      "new_words"
     ],
     [
       "reference",
@@ -376,7 +452,9 @@
       "noun",
       2,
       "مرجع",
-      "Use reference books."
+      "Use reference books.",
+      null,
+      "reading"
     ],
     [
       "source",
@@ -384,7 +462,9 @@
       "noun",
       3,
       "منبع",
-      "Solar energy is a clean source."
+      "Solar energy is a clean source.",
+      null,
+      "reading"
     ],
     [
       "pollution",
@@ -392,7 +472,9 @@
       "noun",
       3,
       "آلودگی",
-      "Air pollution harms health."
+      "Air pollution harms health.",
+      "the presence in or introduction into environment of harmful substances",
+      "new_words"
     ],
     [
       "pollute",
@@ -400,7 +482,9 @@
       "verb",
       3,
       "آلوده کردن",
-      "Vehicles pollute city air."
+      "Vehicles pollute city air.",
+      null,
+      "reading"
     ],
     [
       "clean",
@@ -408,7 +492,9 @@
       "adj",
       3,
       "پاک",
-      "Solar panels provide clean power."
+      "Solar panels provide clean power.",
+      null,
+      "reading"
     ],
     [
       "absorb",
@@ -416,7 +502,9 @@
       "verb",
       3,
       "جذب کردن",
-      "Panels absorb solar radiation."
+      "Panels absorb solar radiation.",
+      null,
+      "reading"
     ],
     [
       "hydropower",
@@ -424,7 +512,9 @@
       "noun",
       3,
       "برق‌آبی",
-      "Dams produce hydropower."
+      "Dams produce hydropower.",
+      null,
+      "reading"
     ],
     [
       "infinite",
@@ -432,7 +522,9 @@
       "adj",
       3,
       "بی‌پایان",
-      "Sunlight is infinite energy."
+      "Sunlight is infinite energy.",
+      null,
+      "reading"
     ],
     [
       "emission",
@@ -440,7 +532,9 @@
       "noun",
       3,
       "انتشار گازها",
-      "Green energy lowers carbon emissions."
+      "Green energy lowers carbon emissions.",
+      null,
+      "reading"
     ],
     [
       "radiation",
@@ -448,7 +542,9 @@
       "noun",
       3,
       "تابش",
-      "Solar radiation reaches Earth."
+      "Solar radiation reaches Earth.",
+      null,
+      "reading"
     ],
     [
       "atmosphere",
@@ -456,7 +552,9 @@
       "noun",
       3,
       "جو، اتمسفر",
-      "Gases trap heat in the atmosphere."
+      "Gases trap heat in the atmosphere.",
+      null,
+      "reading"
     ],
     [
       "global warming",
@@ -464,7 +562,9 @@
       "noun",
       3,
       "گرمایش جهانی",
-      "Renewables combat global warming."
+      "Renewables combat global warming.",
+      null,
+      "reading"
     ],
     [
       "sustainable",
@@ -472,7 +572,9 @@
       "adj",
       3,
       "پایدار",
-      "Build a sustainable future."
+      "Build a sustainable future.",
+      null,
+      "reading"
     ],
     [
       "conserve",
@@ -480,7 +582,9 @@
       "verb",
       3,
       "صرفه‌جویی کردن",
-      "Conserve natural resources."
+      "Conserve natural resources.",
+      null,
+      "reading"
     ],
     [
       "efficient",
@@ -488,7 +592,9 @@
       "adj",
       3,
       "کارآمد",
-      "Renewable energy is efficient."
+      "Renewable energy is efficient.",
+      null,
+      "reading"
     ],
     [
       "resource",
@@ -496,7 +602,9 @@
       "noun",
       3,
       "منبع",
-      "Water is a precious natural resource."
+      "Water is a precious natural resource.",
+      "a stock or supply of money, materials, or energy",
+      "new_words"
     ],
     [
       "dedicated",
@@ -504,7 +612,9 @@
       "verb",
       1,
       "وقف کردن",
-      "They have dedicated their lives."
+      "They have dedicated their lives.",
+      null,
+      "reading"
     ],
     [
       "raise",
@@ -512,7 +622,9 @@
       "verb",
       1,
       "بزرگ کردن (فرزند)",
-      "Raising children."
+      "Raising children.",
+      null,
+      "reading"
     ],
     [
       "serve",
@@ -520,7 +632,9 @@
       "verb",
       1,
       "خدمت کردن",
-      "Serving society."
+      "Serving society.",
+      null,
+      "reading"
     ],
     [
       "parent",
@@ -528,7 +642,9 @@
       "noun",
       1,
       "والدین",
-      "Respect your parents."
+      "Respect your parents.",
+      null,
+      "reading"
     ],
     [
       "grandparent",
@@ -536,7 +652,9 @@
       "noun",
       1,
       "پدربزرگ و مادربزرگ",
-      "Love your grandparents."
+      "Love your grandparents.",
+      null,
+      "reading"
     ],
     [
       "deep",
@@ -544,7 +662,9 @@
       "adj",
       1,
       "عمیق",
-      "Deeply rooted in culture."
+      "Deeply rooted in culture.",
+      null,
+      "reading"
     ],
     [
       "deeply",
@@ -552,7 +672,9 @@
       "adv",
       1,
       "به طور عمیق",
-      "Deeply rooted."
+      "Deeply rooted.",
+      null,
+      "reading"
     ],
     [
       "root",
@@ -560,7 +682,9 @@
       "noun",
       1,
       "ریشه",
-      "Rooted in our tradition."
+      "Rooted in our tradition.",
+      null,
+      "reading"
     ],
     [
       "treat",
@@ -568,7 +692,9 @@
       "verb",
       1,
       "رفتار کردن",
-      "Treat with kindness."
+      "Treat with kindness.",
+      null,
+      "reading"
     ],
     [
       "coal",
@@ -576,7 +702,9 @@
       "noun",
       3,
       "زغال‌سنگ",
-      "Fossil fuels like coal."
+      "Fossil fuels like coal.",
+      null,
+      "reading"
     ],
     [
       "oil",
@@ -584,7 +712,9 @@
       "noun",
       3,
       "نفت",
-      "Coal and oil cause pollution."
+      "Coal and oil cause pollution.",
+      null,
+      "reading"
     ],
     [
       "cause",
@@ -592,7 +722,9 @@
       "verb",
       3,
       "باعث شدن",
-      "Fossil fuels cause global warming."
+      "Fossil fuels cause global warming.",
+      null,
+      "reading"
     ],
     [
       "severe",
@@ -600,7 +732,9 @@
       "adj",
       3,
       "شدید",
-      "Severe air pollution."
+      "Severe air pollution.",
+      null,
+      "reading"
     ],
     [
       "such",
@@ -608,7 +742,9 @@
       "adj",
       3,
       "چنین",
-      "Such as solar power."
+      "Such as solar power.",
+      null,
+      "reading"
     ],
     [
       "develop",
@@ -616,7 +752,9 @@
       "verb",
       3,
       "توسعه دادن",
-      "Clean energy must be developed."
+      "Clean energy must be developed.",
+      null,
+      "reading"
     ],
     [
       "panel",
@@ -624,7 +762,9 @@
       "noun",
       3,
       "پنل، صفحه",
-      "Solar panels absorb light."
+      "Solar panels absorb light.",
+      null,
+      "reading"
     ],
     [
       "sunlight",
@@ -632,7 +772,9 @@
       "noun",
       3,
       "نور خورشید",
-      "Panels absorb sunlight."
+      "Panels absorb sunlight.",
+      null,
+      "reading"
     ],
     [
       "convert",
@@ -640,7 +782,9 @@
       "verb",
       3,
       "تبدیل کردن",
-      "Convert sunlight into electricity."
+      "Convert sunlight into electricity.",
+      "to change the form, character, or function of something",
+      "new_words"
     ],
     [
       "harm",
@@ -648,7 +792,9 @@
       "verb",
       3,
       "آسیب زدن",
-      "Without harmful emissions."
+      "Without harmful emissions.",
+      null,
+      "reading"
     ],
     [
       "harmful",
@@ -656,7 +802,39 @@
       "adj",
       3,
       "مضر، آسیب‌رسان",
-      "Harmful emissions."
+      "Harmful emissions.",
+      null,
+      "reading"
+    ],
+    [
+      "caregiver",
+      "caregiver",
+      "noun",
+      1,
+      "مراقب",
+      "A dedicated caregiver helps disabled elders with love.",
+      "a person who gives care to people who need help",
+      "get_ready"
+    ],
+    [
+      "wind farm",
+      "wind farm",
+      "noun",
+      3,
+      "مزرعه بادی",
+      "Manjil is famous for its giant wind farm.",
+      "an area of land with a group of energy-producing wind turbines",
+      "get_ready"
+    ],
+    [
+      "dam",
+      "dam",
+      "noun",
+      3,
+      "سد",
+      "Water stored behind the dam drives electric turbines.",
+      "a barrier constructed to hold back water",
+      "get_ready"
     ]
   ],
   "passages": [
