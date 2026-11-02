@@ -11,21 +11,64 @@
           "simple_present_be"
         ],
         "structures": [
-          "wh_questions_what",
-          "possessive_adjectives_my_your"
+          "subject_pronouns_i_you",
+          "possessive_adjectives_my_your",
+          "what_questions_be"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "present_continuous",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect",
+          "past_progressive"
         ],
         "forbidden_structures": [
-          "modals",
-          "passive",
-          "perfect"
+          "passive_voice",
+          "conditionals",
+          "relative_clauses"
         ]
+      },
+      "grammar_details": {
+        "focus": "To Be (am, is, are) & Possessive Adjectives (my, your)",
+        "rules": [
+          {
+            "structure": "What is your name?",
+            "formula": "What + is + possessive adjective + name?",
+            "examples": [
+              "What's your name? My name is Ali.",
+              "What is his name? His name is Reza."
+            ]
+          },
+          {
+            "structure": "To Be with Subject Pronouns",
+            "formula": "I am / You are / He is / She is",
+            "examples": [
+              "I am fine, thank you.",
+              "This is my friend, Nima."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "English Alphabet Letters (A-H) & Capitalization of Names",
+        "rules": [
+          "English words are written from left to right.",
+          "The first letter of a name or surname is always capitalized (Ali Ahmadi).",
+          "Names at the beginning of a sentence must start with a capital letter."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Formal and Informal Greetings",
+        "rules": "Good morning (before 12 PM), Good afternoon (12-5 PM), Good evening (after 5 PM), Hello, Hi.",
+        "examples": [
+          "Good morning, Mr. Karimi.",
+          "Hi, Mina!"
+        ]
+      },
+      "see_also": {
+        "topic": "Alphabet Spelling & Letter Names",
+        "rules": "Spell your first and last name clearly letter by letter: A-L-I."
       }
     },
     {
@@ -37,20 +80,61 @@
           "simple_present_be"
         ],
         "structures": [
-          "wh_questions_who",
-          "this_that_these_those"
+          "demonstratives_this_that",
+          "who_questions_be",
+          "plural_pronouns_we_they"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "present_continuous",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "modals",
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Who is ...? & Demonstratives (This / That)",
+        "rules": [
+          {
+            "structure": "Who is questions",
+            "formula": "Who is + demonstrative / noun phrase?",
+            "examples": [
+              "Who is that boy? He is my classmate.",
+              "Who is this girl? She is Sara."
+            ]
+          },
+          {
+            "structure": "Demonstratives (This / That)",
+            "formula": "This (near) / That (far) + singular noun",
+            "examples": [
+              "This is our classroom.",
+              "That is my desk."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "English Alphabet Letters (I-P) & Classroom Labels",
+        "rules": [
+          "Print uppercase and lowercase letters carefully on four-line notebooks.",
+          "Place a full stop (period) at the end of affirmative sentences."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Classroom Objects",
+        "rules": "Names of tools used in class: pen, pencil, eraser, sharpener, ruler, desk, chair, notebook, board.",
+        "examples": [
+          "pencil and eraser",
+          "ruler and sharpener"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Initial Consonants",
+        "rules": "Clear articulation of /p/ vs /b/ and /t/ vs /d/."
       }
     },
     {
@@ -63,17 +147,60 @@
         ],
         "structures": [
           "how_old_questions",
-          "numbers_1_to_100"
+          "numbers_1_to_100",
+          "preposition_in_for_months"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "How old are you? & Numbers 1–100",
+        "rules": [
+          {
+            "structure": "Asking about age",
+            "formula": "How old are you? / How old is he/she?",
+            "examples": [
+              "How old are you? I am twelve years old.",
+              "How old is your brother? He is fifteen."
+            ]
+          },
+          {
+            "structure": "Months of the year with preposition in",
+            "formula": "in + Month name",
+            "examples": [
+              "My birthday is in Mehr.",
+              "School starts in autumn."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "English Alphabet Letters (Q-Z) & Writing Numbers",
+        "rules": [
+          "Months of the year always start with a capital letter (Farvardin, Mehr, Bahman).",
+          "Writing English digits from left to right (1, 2, 3 ... 100)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Tens and Teens Numbers",
+        "rules": "Notice the suffix -teen for 13-19 and -ty for tens (twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred).",
+        "examples": [
+          "thirteen vs thirty",
+          "fourteen vs forty"
+        ]
+      },
+      "see_also": {
+        "topic": "Number Stress",
+        "rules": "Thir'teen vs 'Thirty; four'teen vs 'Forty."
       }
     },
     {
@@ -85,18 +212,61 @@
           "simple_present_be"
         ],
         "structures": [
-          "wh_questions_what_job",
-          "family_relations"
+          "what_is_job_questions",
+          "indefinite_articles_a_an",
+          "he_she_is_profession"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Asking About Professions (What's his/her job?) & Articles a/an",
+        "rules": [
+          {
+            "structure": "Asking about jobs",
+            "formula": "What is your/his/her job?",
+            "examples": [
+              "What's your father's job? He is a teacher.",
+              "What's her job? She is a doctor."
+            ]
+          },
+          {
+            "structure": "Articles a vs an",
+            "formula": "a + consonant sound (a pilot, a dentist)  |  an + vowel sound (an engineer, an uncle)",
+            "examples": [
+              "He is an English teacher.",
+              "My uncle is a pilot."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Writing Family Profiles & Job Descriptions",
+        "rules": [
+          "Capitalize the pronoun 'I' wherever it appears in a sentence.",
+          "Use 'He is a ...' for male and 'She is a ...' for female jobs."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Family Tree & Professions",
+        "rules": "father, mother, brother, sister, grandfather, grandmother, uncle, aunt. Jobs: teacher, doctor, nurse, pilot, driver, firefighter, farmer, dentist.",
+        "examples": [
+          "father -> teacher",
+          "mother -> nurse"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Possessive 's",
+        "rules": "My father's job, Ali's brother."
       }
     },
     {
@@ -105,22 +275,66 @@
       "theme": "Colors, clothes, height, hair, physical looks",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_be"
+          "simple_present_be",
+          "present_continuous_wearing"
         ],
         "structures": [
-          "descriptive_adjectives",
-          "colors"
+          "descriptive_adjectives_before_noun",
+          "who_is_wearing_questions"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "comparatives",
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Describing Appearance & Present Continuous with 'wearing'",
+        "rules": [
+          {
+            "structure": "Asking about appearance",
+            "formula": "What is he/she wearing? / What does he/she look like?",
+            "examples": [
+              "He is wearing a white shirt and black pants.",
+              "Who is the tall boy with brown hair?"
+            ]
+          },
+          {
+            "structure": "Color + Clothing Noun",
+            "formula": "Color adjective + Clothes noun",
+            "examples": [
+              "a blue jacket",
+              "black shoes",
+              "a green scarf"
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Descriptive Paragraph on Appearance",
+        "rules": [
+          "Color adjectives sit directly before the clothes noun (a red shirt).",
+          "Adjectives do not take plural -s in English (brown shoes, not browns shoes)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Colors & Clothes",
+        "rules": "Colors: white, black, red, blue, green, yellow, brown, orange. Clothes: shirt, pants, jacket, shoes, scarf, chador, suit.",
+        "examples": [
+          "tall vs short",
+          "black shoes",
+          "white shirt"
+        ]
+      },
+      "see_also": {
+        "topic": "Compound Word Stress in Clothing",
+        "rules": "Stress is on the first word in compound clothing: 'raincoat, 'sunglasses."
       }
     },
     {
@@ -129,22 +343,66 @@
       "theme": "Rooms, furniture, household activities",
       "allowed_grammar": {
         "tenses": [
-          "present_continuous"
+          "simple_present_be",
+          "present_continuous_actions"
         ],
         "structures": [
           "there_is_there_are",
+          "where_questions",
           "prepositions_in_on_under"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "perfect",
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "There is / There are & Present Continuous Actions",
+        "rules": [
+          {
+            "structure": "There is vs There are",
+            "formula": "There is + singular noun (There is a table in the kitchen)  |  There are + plural noun (There are two chairs)",
+            "examples": [
+              "There is a bed in my bedroom.",
+              "There are books on the desk."
+            ]
+          },
+          {
+            "structure": "Present Continuous in House",
+            "formula": "Subject + am/is/are + V-ing",
+            "examples": [
+              "Where is mother? She is cooking in the kitchen.",
+              "Father is reading a newspaper in the living room."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Prepositions of Place (in, on, under, next to)",
+        "rules": [
+          "Use 'in' for rooms (in the kitchen, in the bedroom).",
+          "Use 'on' for surfaces (on the table, on the wall)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "House Rooms & Common Furniture",
+        "rules": "kitchen, bedroom, living room, bathroom, garage, garden, table, chair, bed, door, window.",
+        "examples": [
+          "living room",
+          "kitchen",
+          "garage"
+        ]
+      },
+      "see_also": {
+        "topic": "Contraction of There is (There's)",
+        "rules": "There's a chair in the room. Note: There are is not contracted as There're in formal English."
       }
     },
     {
@@ -156,19 +414,61 @@
           "simple_present_be"
         ],
         "structures": [
+          "what_time_is_it",
           "telling_time",
-          "days_of_the_week",
-          "prepositions_at_on"
+          "preposition_at_for_time_address"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Telling the Time & Asking for Addresses and Phone Numbers",
+        "rules": [
+          {
+            "structure": "Asking the time",
+            "formula": "What time is it? / What's the time? -> It is + number + o'clock",
+            "examples": [
+              "What time is it? It is seven o'clock.",
+              "It is eight thirty."
+            ]
+          },
+          {
+            "structure": "Asking for address and phone number",
+            "formula": "What's your address? / What's your telephone number?",
+            "examples": [
+              "What is your address? It's 15 Azadi Street.",
+              "What's your phone number? It's 3824567."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Writing Addresses & Days of the Week",
+        "rules": [
+          "Days of the week are always capitalized (Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday).",
+          "In English addresses, the house number comes before the street name (15 Karimi Street)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Days of the Week & Clock Expressions",
+        "rules": "Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday. Time: morning, afternoon, evening, night, o'clock.",
+        "examples": [
+          "on Saturday",
+          "at seven o'clock"
+        ]
+      },
+      "see_also": {
+        "topic": "Preposition 'at' with Time and Specific Address",
+        "rules": "at 8 o'clock, at 15 Azadi Street, on Azadi Street, in Shiraz."
       }
     },
     {
@@ -177,21 +477,63 @@
       "theme": "Food, drinks, meals, preferences",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_like_want"
+          "simple_present"
         ],
         "structures": [
-          "food_nouns",
-          "polite_requests_please"
+          "expressing_likes_like_want",
+          "what_is_favorite_food",
+          "would_you_like_requests"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Expressing Food Preferences (like, want) & Polite Requests",
+        "rules": [
+          {
+            "structure": "What's your favorite food/drink?",
+            "formula": "My favorite food is + noun  |  I like + food",
+            "examples": [
+              "What is your favorite food? I like rice and kebab.",
+              "My favorite drink is water."
+            ]
+          },
+          {
+            "structure": "Polite offers with Would you like",
+            "formula": "Would you like some + food/drink? -> Yes, please. / No, thanks.",
+            "examples": [
+              "Would you like some tea? Yes, please.",
+              "Would you like an apple? No, thanks."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Food Menus & Personal Preference Sentences",
+        "rules": [
+          "Separate items in a list with commas, using 'and' before the last item (rice, kebab, salad, and tea)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Meals, Food, and Traditional Drinks",
+        "rules": "Meals: breakfast, lunch, dinner. Food: bread, cheese, milk, tea, rice, kebab, chicken, salad, cake, fruit, water.",
+        "examples": [
+          "rice and kebab",
+          "bread and cheese"
+        ]
+      },
+      "see_also": {
+        "topic": "Polite Responses with 'please' and 'thank you'",
+        "rules": "Always add 'please' for polite requests and 'thank you' for accepted offers."
       }
     }
   ],
@@ -995,6 +1337,186 @@
       "Mother made a fresh green salad with tomatoes.",
       "a cold dish of various mixtures of raw or cooked vegetables",
       "photo_dictionary"
+    ],
+    [
+      "let",
+      "let",
+      "verb",
+      2,
+      "اجازه دادن، بیا تا",
+      "Let's help our classmate.",
+      "allow or enable",
+      "conversation"
+    ],
+    [
+      "party",
+      "party",
+      "noun",
+      3,
+      "مهمانی، جشن",
+      "We have a birthday party.",
+      "a social gathering of invited guests",
+      "reading"
+    ],
+    [
+      "cake",
+      "cake",
+      "noun",
+      3,
+      "کیک",
+      "Eat a slice of birthday cake.",
+      "an item of soft sweet food",
+      "reading"
+    ],
+    [
+      "photo",
+      "photo",
+      "noun",
+      4,
+      "عکس",
+      "This is our family photo.",
+      "a photograph",
+      "conversation"
+    ],
+    [
+      "wear",
+      "wear",
+      "verb",
+      5,
+      "پوشیدن",
+      "She is wearing a green scarf.",
+      "have on one's body as clothing",
+      "conversation"
+    ],
+    [
+      "coat",
+      "coat",
+      "noun",
+      5,
+      "کت، پالتو",
+      "He wears a warm coat.",
+      "an outer garment with sleeves",
+      "reading"
+    ],
+    [
+      "garden",
+      "garden",
+      "noun",
+      6,
+      "باغچه، حیاط",
+      "Flowers grow in the garden.",
+      "a piece of ground for growing flowers",
+      "reading"
+    ],
+    [
+      "phone",
+      "phone",
+      "noun",
+      7,
+      "تلفن",
+      "What is your home phone number?",
+      "telephone",
+      "conversation"
+    ],
+    [
+      "attend",
+      "attend",
+      "verb",
+      7,
+      "حضور داشتن، رفتن به (مدرسه)",
+      "Students attend classes every day.",
+      "be present at an event or school",
+      "reading"
+    ],
+    [
+      "breakfast",
+      "breakfast",
+      "noun",
+      8,
+      "صبحانه",
+      "We eat bread and cheese for breakfast.",
+      "the first meal of the day",
+      "reading"
+    ],
+    [
+      "lunch",
+      "lunch",
+      "noun",
+      8,
+      "ناهار",
+      "They eat lunch at school.",
+      "a meal eaten in the middle of the day",
+      "reading"
+    ],
+    [
+      "meal",
+      "meal",
+      "noun",
+      8,
+      "وعده غذایی",
+      "Breakfast is an important meal.",
+      "any of the regular occasions on which food is eaten",
+      "reading"
+    ],
+    [
+      "favorite",
+      "favorite",
+      "adj",
+      8,
+      "مورد علاقه",
+      "My favorite food is rice and kebab.",
+      "preferred before all others",
+      "reading"
+    ],
+    [
+      "delicious",
+      "delicious",
+      "adj",
+      8,
+      "خوشمزه",
+      "Persian food is delicious.",
+      "highly pleasant to the taste",
+      "reading"
+    ],
+    [
+      "fresh",
+      "fresh",
+      "adj",
+      8,
+      "تازه",
+      "We buy fresh bread every morning.",
+      "recently made or obtained",
+      "reading"
+    ],
+    [
+      "bottle",
+      "bottle",
+      "noun",
+      8,
+      "بطری",
+      "Bring a bottle of water.",
+      "a glass or plastic container with a narrow neck",
+      "conversation"
+    ],
+    [
+      "waiter",
+      "waiter",
+      "noun",
+      8,
+      "پیشخدمت",
+      "The waiter brought our tea.",
+      "a person whose job is to serve customers in restaurant",
+      "conversation"
+    ],
+    [
+      "certainly",
+      "certainly",
+      "adv",
+      8,
+      "البته، حتماً",
+      "Certainly, I will help you.",
+      "undoubtedly; definitely",
+      "conversation"
     ]
   ],
   "passages": [
@@ -1002,13 +1524,97 @@
       "lesson_num": 1,
       "section_type": "Conversation",
       "title": "Talking about Names",
-      "content": "Teacher: Hello class! My name is Mr. Rezaei. What is your name?\nAli: Hello teacher. My name is Ali Moradi.\nTeacher: Nice to meet you, Ali.\nAli: Nice to meet you too, sir."
+      "content": "Teacher: 'Good morning, students.' Students: 'Good morning, teacher.' Teacher: 'I am your English teacher. My name is Ali Moradi.' Student: 'Excuse me, sir. What is your last name?' Teacher: 'Moradi. And what is your name?' Student: 'My name is Nima Ahmadi.' Teacher: 'Nice to meet you, Nima.'"
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "Introducing Myself",
+      "content": "Hello, my name is Ali. I am a student in Grade 7. My English teacher is Mr. Moradi. He is very kind. Welcome to our English class!"
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "Talking about Classmates",
+      "content": "Reza: 'Who is that boy over there, Kian?' Kian: 'He is my friend and new classmate, Erfan.' Reza: 'Let's go and talk to him.' Kian: 'Hello Erfan, this is Reza.' Erfan: 'Nice to meet you, Reza. Welcome to our school.'"
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "My Classroom Friends",
+      "content": "This is our classroom. There are thirty students in our class. Reza and Kian are my best classmates. We help each other with our school lessons every day."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Talking about Age and Birthdays",
+      "content": "Sara: 'How old are you, Maryam?' Maryam: 'I am twelve years old. And you?' Sara: 'I am twelve, too. When is your birthday?' Maryam: 'My birthday is in Mehr. And your birthday?' Sara: 'My birthday is in Bahman.'"
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Birthdays in Autumn",
+      "content": "My name is Maryam and I am twelve years old. My birthday is in the month of Mehr. Mehr is the first month of autumn in Iran. We have a birthday party with my family."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Conversation",
+      "title": "Talking about Family Members and Jobs",
+      "content": "Farhad: 'Is that your family photo, Omid?' Omid: 'Yes, this is my family.' Farhad: 'What is your father's job?' Omid: 'He is a school teacher.' Farhad: 'And what is your mother's job?' Omid: 'She is a nurse in a hospital.'"
     },
     {
       "lesson_num": 4,
       "section_type": "Reading",
       "title": "My Family",
-      "content": "My name is Mina. I live in a warm family. My father is an engineer and my mother is a kind teacher. I have one brother, Nima. He is a young student. We love our grandfather and grandmother."
+      "content": "My name is Omid. I live with my family in Shiraz. My father is an English teacher and my mother is a kind nurse. My uncle is a pilot. We are a happy Iranian family."
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Conversation",
+      "title": "Describing Appearance and Clothes",
+      "content": "Zahra: 'Who is that tall girl over there?' Mina: 'Which one? What is she wearing?' Zahra: 'She is wearing a green scarf and a black chador.' Mina: 'That is our new teacher, Mrs. Tehrani. She is very kind and polite.'"
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Reading",
+      "title": "My Classmate's Appearance",
+      "content": "My friend Zahra is tall and has brown eyes. Today she is wearing a blue coat, a gray scarf, and black shoes. She looks neat in her school clothes."
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Conversation",
+      "title": "Asking about Rooms in the House",
+      "content": "Amir: 'Where are you, Hossein?' Hossein: 'I am in the kitchen.' Amir: 'What are you doing?' Hossein: 'I am drinking water. Where is father?' Amir: 'He is in the living room reading a book.'"
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Reading",
+      "title": "Our Cozy House",
+      "content": "We live in a nice house with a small garden. There is a living room, two bedrooms, and a clean kitchen. In the afternoon, mother cooks food in the kitchen and father rests in the living room."
+    },
+    {
+      "lesson_num": 7,
+      "section_type": "Conversation",
+      "title": "Asking for Addresses and Time",
+      "content": "Police officer: 'What is your address, boy?' Boy: 'My address is 24 Hafez Street.' Police officer: 'And what is your phone number?' Boy: 'It is 3224567.' Police officer: 'What time is it now?' Boy: 'It is four thirty in the afternoon.'"
+    },
+    {
+      "lesson_num": 7,
+      "section_type": "Reading",
+      "title": "My School Address",
+      "content": "My school is on Saadi Street, near the library. We attend school from Saturday to Wednesday. Classes start at eight in the morning and finish at one in the afternoon."
+    },
+    {
+      "lesson_num": 8,
+      "section_type": "Conversation",
+      "title": "Ordering Food at an Iranian Restaurant",
+      "content": "Waiter: 'Good afternoon. Can I help you?' Mehdi: 'Yes, please. What is your food today?' Waiter: 'We have delicious rice and kebab with salad.' Mehdi: 'Please bring me a bottle of water and a cup of tea, too.' Waiter: 'Certainly!'"
+    },
+    {
+      "lesson_num": 8,
+      "section_type": "Reading",
+      "title": "My Favorite Meals",
+      "content": "In Iran, people eat three meals every day: breakfast, lunch, and dinner. For breakfast, my family eats fresh bread, cheese, and hot tea. For lunch, my favorite food is rice with chicken and salad. It is healthy and delicious."
     }
   ],
   "rubrics": [

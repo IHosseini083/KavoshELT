@@ -8,21 +8,62 @@
       "theme": "Personality traits, character, to be adjectives",
       "allowed_grammar": {
         "tenses": [
-          "simple_present"
+          "simple_present_be"
         ],
         "structures": [
-          "personality_adjectives",
-          "to_be_questions"
+          "to_be_plus_personality_adjective",
+          "what_is_he_she_like_questions",
+          "subject_pronouns"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
           "future_will",
-          "past_continuous"
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Personality Adjectives & Asking What is someone like?",
+        "rules": [
+          {
+            "structure": "What is he/she like?",
+            "formula": "What is + Subject + like? -> Subject + be + personality adjective",
+            "examples": [
+              "What is your friend like? He is very kind and patient.",
+              "What are they like? They are brave and helpful."
+            ]
+          },
+          {
+            "structure": "Negative descriptions with not",
+            "formula": "Subject + be + not + adjective",
+            "examples": [
+              "He is not selfish or rude.",
+              "She is never careless."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Character Description Paragraph",
+        "rules": [
+          "Combine personality adjectives with 'and' or 'but' (kind and patient, clever but a little quiet)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Personality Adjective Antonyms",
+        "rules": "kind vs cruel, brave vs coward, generous vs selfish, patient vs impatient, neat vs messy, quiet vs talkative, hard-working vs lazy.",
+        "examples": [
+          "patient vs impatient",
+          "neat vs messy"
+        ]
+      },
+      "see_also": {
+        "topic": "Prefix im- and in- in Personality Adjectives",
+        "rules": "patient -> impatient, polite -> impolite, active -> inactive."
       }
     },
     {
@@ -31,21 +72,62 @@
       "theme": "Travel, airport, train station, booking hotel",
       "allowed_grammar": {
         "tenses": [
-          "present_continuous_for_future"
+          "present_continuous_for_future",
+          "simple_present"
         ],
         "structures": [
-          "by_plane_train",
-          "travel_actions"
+          "are_you_traveling_questions",
+          "modals_can_must",
+          "travel_phrases"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "future_will",
-          "past_perfect"
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Present Continuous for Arranged Future & Travel Routines",
+        "rules": [
+          {
+            "structure": "Present Continuous for Future Plans",
+            "formula": "Subject + am/is/are + V-ing + future time expression",
+            "examples": [
+              "We are traveling to Isfahan next Monday.",
+              "He is taking the train tomorrow morning."
+            ]
+          },
+          {
+            "structure": "Travel questions",
+            "formula": "Where are you going? / How are you traveling?",
+            "examples": [
+              "How are you traveling? We are traveling by plane.",
+              "Are you booking a hotel online? Yes, I am."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Writing Travel Itineraries & Postcards",
+        "rules": [
+          "State departure point, destination, transport mode, and travel companion clearly."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Airport and Travel Terms",
+        "rules": "ticket, passport, boarding pass, luggage, baggage, flight, terminal, train station, booking, passenger, timetable.",
+        "examples": [
+          "boarding pass",
+          "train ticket"
+        ]
+      },
+      "see_also": {
+        "topic": "Prepositions with Transport: by vs on/in",
+        "rules": "by train, by plane, by bus, by car, on foot, on the plane, in the car."
       }
     },
     {
@@ -54,21 +136,61 @@
       "theme": "Nowruz, Yalda, religious events, rituals",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_routines"
+          "simple_present"
         ],
         "structures": [
-          "cultural_festivals",
-          "family_rituals"
+          "what_do_people_do_during_festivals",
+          "before_after_time_clauses",
+          "adverbs_of_frequency"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "future_will",
-          "passive"
+          "present_perfect"
         ],
         "forbidden_structures": [
+          "passive_voice",
           "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Describing Cultural Ceremonies & Time Clauses",
+        "rules": [
+          {
+            "structure": "Describing rituals",
+            "formula": "During + festival, people + simple present verb",
+            "examples": [
+              "During Nowruz, Iranians wear clean clothes and visit relatives.",
+              "On Yalda Night, families eat pomegranates and read Hafez poems."
+            ]
+          },
+          {
+            "structure": "Time clauses with before and after",
+            "formula": "Before / After + clause / noun",
+            "examples": [
+              "Before the New Year, we clean our houses.",
+              "After the ceremony, people recite the national anthem."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Cultural Festival Report",
+        "rules": [
+          "Order events chronologically: preparation before the event, main celebration rituals, and concluding activities."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Celebration Collocations",
+        "rules": "bake special cookies, set the Haft-Seen table, watch fireworks, sing the national anthem, exchange gifts, hold a ceremony.",
+        "examples": [
+          "set the table",
+          "sing the anthem"
+        ]
+      },
+      "see_also": {
+        "topic": "Capitalization in National and Religious Holidays",
+        "rules": "Nowruz, Yalda Night, Eid-e-Fitr, Islamic New Year."
       }
     },
     {
@@ -77,20 +199,61 @@
       "theme": "Public services, post office, police, bank",
       "allowed_grammar": {
         "tenses": [
-          "simple_present"
+          "simple_present",
+          "modal_can_for_requests"
         ],
         "structures": [
-          "public_places",
-          "requesting_services"
+          "where_can_i_find_services",
+          "giving_directions",
+          "prepositions_of_place_near_next_to"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_continuous"
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Asking for Public Services & Location Directions",
+        "rules": [
+          {
+            "structure": "Where can I find a ...?",
+            "formula": "Where can I + verb? -> You can go to + facility",
+            "examples": [
+              "Where can I send this letter? You can go to the post office.",
+              "Where can I get emergency help? Call the police or fire station."
+            ]
+          },
+          {
+            "structure": "Giving directions",
+            "formula": "Go straight, turn left, turn right, it's next to / opposite to...",
+            "examples": [
+              "Turn right on Azadi Street. The bank is on your left."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Form Filling and Direction Writing",
+        "rules": [
+          "Filling out postal forms: Sender name, Receiver name, Postal code, Address."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Public Service Departments",
+        "rules": "post office, police station, fire department, central bank, hospital, emergency room, library, city hall.",
+        "examples": [
+          "post office",
+          "fire department"
+        ]
+      },
+      "see_also": {
+        "topic": "Emergency Numbers in Iran",
+        "rules": "Police (110), Fire Department (125), Ambulance Emergency (115)."
       }
     },
     {
@@ -99,11 +262,12 @@
       "theme": "TV, internet, newspaper, reports",
       "allowed_grammar": {
         "tenses": [
-          "simple_past"
+          "simple_past_regular_and_irregular"
         ],
         "structures": [
-          "past_simple_regular_irregular",
-          "did_questions"
+          "did_you_questions",
+          "simple_past_affirmative_negative",
+          "wh_questions_in_past"
         ]
       },
       "forbidden_grammar": {
@@ -111,8 +275,56 @@
           "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Simple Past Tense (Regular -ed & Irregular Verbs)",
+        "rules": [
+          {
+            "structure": "Simple Past Affirmative",
+            "formula": "Subject + past verb (watched, listened, went, saw)",
+            "examples": [
+              "I watched the news last night.",
+              "He sent an email to his teacher yesterday."
+            ]
+          },
+          {
+            "structure": "Simple Past Questions with Did",
+            "formula": "Did + Subject + base verb? -> Yes, Subject did. / No, Subject didn't.",
+            "examples": [
+              "Did you surf the internet yesterday? Yes, I did.",
+              "Did he read the morning newspaper? No, he didn't."
+            ]
+          },
+          {
+            "structure": "Wh- Questions in Simple Past",
+            "formula": "What did you watch? / When did you send it?",
+            "examples": [
+              "What did you watch on TV? I watched a documentary about nature."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Past Narrative Paragraph (What I Did Yesterday)",
+        "rules": [
+          "Use past time markers: yesterday, last night, two days ago, last week, in 1399.",
+          "Ensure all verbs in the past narrative maintain past tense consistency."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Media and Digital Communication",
+        "rules": "newspaper, magazine, television, interview, website, internet, text message, report, journalist, program.",
+        "examples": [
+          "watch the news",
+          "send a text message"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Regular Past -ed Endings",
+        "rules": "/t/ after voiceless sounds (watched, worked), /d/ after voiced sounds (played, listened), /id/ after /t/ and /d/ (visited, needed)."
       }
     },
     {
@@ -124,8 +336,9 @@
           "simple_past"
         ],
         "structures": [
-          "hurting_oneself",
-          "emergency_actions"
+          "what_happened_questions",
+          "hurt_cut_injured_past",
+          "medical_narrative"
         ]
       },
       "forbidden_grammar": {
@@ -133,8 +346,48 @@
           "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Talking About Past Accidents & Physical Injuries",
+        "rules": [
+          {
+            "structure": "What happened to you?",
+            "formula": "What happened? / How did you hurt your ...?",
+            "examples": [
+              "What happened? I fell down and hurt my knee.",
+              "How did he break his arm? He fell off his bicycle yesterday."
+            ]
+          },
+          {
+            "structure": "First aid and treatment in the past",
+            "formula": "Subject + went / called / put + treatment noun",
+            "examples": [
+              "The paramedic bandaged his wound.",
+              "The ambulance arrived five minutes after the accident."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Accident and Emergency Report",
+        "rules": [
+          "Structure: 1) What occurred and where; 2) Injury description; 3) First aid treatment and medical recovery."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Accidents, Body Injuries, and First Aid",
+        "rules": "accident, injury, crash, hurt, cut, break, wound, bandage, plaster, emergency, paramedic, ambulance, treatment.",
+        "examples": [
+          "hurt a knee",
+          "call an ambulance"
+        ]
+      },
+      "see_also": {
+        "topic": "Irregular Past Forms of Injury Verbs",
+        "rules": "hurt -> hurt (no change), cut -> cut (no change), break -> broke, fall -> fell, bleed -> bled."
       }
     }
   ],
@@ -818,6 +1071,356 @@
       "An ambulance took the injured driver to hospital.",
       "a vehicle equipped for taking sick or injured people to hospital",
       "photo_dictionary"
+    ],
+    [
+      "problem",
+      "problem",
+      "noun",
+      1,
+      "مشکل، مسأله",
+      "He solves difficult problems.",
+      "a matter difficult to deal with",
+      "reading"
+    ],
+    [
+      "whenever",
+      "whenever",
+      "adv",
+      1,
+      "هر زمان که",
+      "Whenever classmates need help.",
+      "at whatever time",
+      "reading"
+    ],
+    [
+      "face",
+      "face",
+      "verb",
+      1,
+      "مواجه شدن",
+      "Face hard questions.",
+      "confront and deal with",
+      "reading"
+    ],
+    [
+      "loyal",
+      "loyal",
+      "adj",
+      1,
+      "وفادار",
+      "A loyal and honest friend.",
+      "giving firm and constant support",
+      "reading"
+    ],
+    [
+      "honest",
+      "honest",
+      "adj",
+      1,
+      "صادق",
+      "Be honest with everyone.",
+      "free of deceit and truthful",
+      "reading"
+    ],
+    [
+      "enjoyable",
+      "enjoyable",
+      "adj",
+      1,
+      "لذت‌بخش",
+      "School life is enjoyable.",
+      "giving delight",
+      "reading"
+    ],
+    [
+      "agent",
+      "agent",
+      "noun",
+      2,
+      "نماینده، متصدی",
+      "The travel agent booked our trip.",
+      "a person acting for others",
+      "conversation"
+    ],
+    [
+      "different",
+      "different",
+      "adj",
+      2,
+      "متفاوت",
+      "Learn about different cultures.",
+      "not the same",
+      "reading"
+    ],
+    [
+      "million",
+      "million",
+      "noun",
+      2,
+      "میلیون",
+      "Millions of people travel.",
+      "a thousand thousand",
+      "reading"
+    ],
+    [
+      "holiday",
+      "holiday",
+      "noun",
+      2,
+      "تعطیلات",
+      "Travel during holidays.",
+      "an extended period of leisure",
+      "reading"
+    ],
+    [
+      "plain",
+      "plain",
+      "noun",
+      2,
+      "دشت",
+      "Trains cross wide plains.",
+      "large flat land",
+      "reading"
+    ],
+    [
+      "connect",
+      "connect",
+      "verb",
+      2,
+      "وصل کردن",
+      "Travel connects families.",
+      "join together",
+      "reading"
+    ],
+    [
+      "create",
+      "create",
+      "verb",
+      2,
+      "خلق کردن، ساختن",
+      "Create sweet memories.",
+      "bring into existence",
+      "reading"
+    ],
+    [
+      "beautiful",
+      "beautiful",
+      "adj",
+      3,
+      "زیبا",
+      "The beautiful Haft-Seen table.",
+      "pleasing to senses",
+      "conversation"
+    ],
+    [
+      "send",
+      "send",
+      "verb",
+      4,
+      "فرستادن",
+      "Send postcards to relatives.",
+      "cause to go or be taken",
+      "conversation"
+    ],
+    [
+      "postcard",
+      "postcard",
+      "noun",
+      4,
+      "کارت‌پستال",
+      "Buy a scenic postcard.",
+      "a card for sending message by post",
+      "conversation"
+    ],
+    [
+      "until",
+      "until",
+      "prep",
+      4,
+      "تا (زمان)",
+      "Open until four o'clock.",
+      "up to the point in time",
+      "conversation"
+    ],
+    [
+      "service",
+      "service",
+      "noun",
+      4,
+      "خدمت",
+      "Public services help citizens.",
+      "work done for others",
+      "reading"
+    ],
+    [
+      "protect",
+      "protect",
+      "verb",
+      4,
+      "محافظت کردن",
+      "Firefighters protect buildings.",
+      "keep safe from harm",
+      "reading"
+    ],
+    [
+      "building",
+      "building",
+      "noun",
+      4,
+      "ساختمان",
+      "Modern public buildings.",
+      "a structure with a roof and walls",
+      "reading"
+    ],
+    [
+      "respect",
+      "respect",
+      "verb",
+      4,
+      "احترام گذاشتن",
+      "Respect service workers.",
+      "have high regard for",
+      "reading"
+    ],
+    [
+      "television",
+      "television",
+      "noun",
+      5,
+      "تلویزیون",
+      "Watch the news on television.",
+      "a device with a screen for programs",
+      "conversation"
+    ],
+    [
+      "dad",
+      "dad",
+      "noun",
+      5,
+      "پدر",
+      "Talk to Dad about the news.",
+      "father",
+      "conversation"
+    ],
+    [
+      "report",
+      "report",
+      "noun",
+      5,
+      "گزارش",
+      "A fascinating news report.",
+      "an account given of a matter",
+      "conversation"
+    ],
+    [
+      "scientist",
+      "scientist",
+      "noun",
+      5,
+      "دانشمند",
+      "Young Iranian scientists.",
+      "a person studying sciences",
+      "conversation"
+    ],
+    [
+      "invent",
+      "invent",
+      "verb",
+      5,
+      "اختراع کردن",
+      "Scientists invent useful devices.",
+      "create something new",
+      "conversation"
+    ],
+    [
+      "education",
+      "education",
+      "noun",
+      5,
+      "آموزش",
+      "Media provides education.",
+      "systematic instruction",
+      "reading"
+    ],
+    [
+      "past",
+      "past",
+      "noun",
+      5,
+      "گذشته",
+      "In the past, people read papers.",
+      "the time gone by",
+      "reading"
+    ],
+    [
+      "newspaper",
+      "newspaper",
+      "noun",
+      5,
+      "روزنامه",
+      "Read the morning newspaper.",
+      "a printed publication",
+      "reading"
+    ],
+    [
+      "radio",
+      "radio",
+      "noun",
+      5,
+      "رادیو",
+      "Listen to radio news.",
+      "the transmission and reception of sound",
+      "reading"
+    ],
+    [
+      "internet",
+      "internet",
+      "noun",
+      5,
+      "اینترنت",
+      "Browse news on the internet.",
+      "a global computer network",
+      "reading"
+    ],
+    [
+      "world",
+      "world",
+      "noun",
+      5,
+      "جهان",
+      "News from around the world.",
+      "the earth and all peoples",
+      "reading"
+    ],
+    [
+      "event",
+      "event",
+      "noun",
+      5,
+      "رویداد",
+      "Report global events.",
+      "a thing that happens",
+      "reading"
+    ],
+    [
+      "cultural",
+      "cultural",
+      "adj",
+      5,
+      "فرهنگی",
+      "Cultural achievements.",
+      "relating to culture",
+      "reading"
+    ],
+    [
+      "apply",
+      "apply",
+      "verb",
+      6,
+      "به‌کار بستن، مالیدن",
+      "Applying a plaster prevents infection.",
+      "put or spread on a surface",
+      "reading"
     ]
   ],
   "passages": [
@@ -825,7 +1428,73 @@
       "lesson_num": 1,
       "section_type": "Conversation",
       "title": "Talking about Personalities",
-      "content": "Mina: Tell me about your new classmate, Omid. What is he like?\nReza: He is very quiet, but he is clever and kind. He always helps his friends with English homework."
+      "content": "Nima: 'Who is your new English teacher, Ali?' Ali: 'His name is Mr. Karimi. He is very patient and knowledgeable.' Nima: 'What about your classmates?' Ali: 'Most of them are kind and helpful. Reza is very clever and hardworking, and Omid is brave and cheerful.'"
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "A Great Friend",
+      "content": "My best friend is Reza. He has a wonderful personality. He is generous, patient, and polite to everyone. Whenever classmates face difficult homework problems, Reza helps them kindly. Having loyal and honest friends makes school life enjoyable."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "Booking a Trip to Mashhad",
+      "content": "Travel Agent: 'Good morning, can I help you?' Customer: 'Yes, please. We are traveling to Mashhad next Thursday.' Travel Agent: 'How many passengers are traveling?' Customer: 'Four passengers. We prefer to travel by train.' Travel Agent: 'Here are your train tickets. Have a safe and pleasant journey!'"
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "Traveling Around Iran",
+      "content": "Traveling is an exciting way to learn about different cultures and historical cities. Every year, millions of Iranian families travel during Nowruz and summer holidays. Some travelers prefer airplanes for speed, while others enjoy scenic train journeys across mountains and plains. Traveling connects families and creates sweet memories."
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Conversation",
+      "title": "Talking about Nowruz Rituals",
+      "content": "Carlos: 'What festival are Iranians celebrating in spring, Sina?' Sina: 'We are celebrating Nowruz, the ancient Iranian New Year.' Carlos: 'What do families do during Nowruz?' Sina: 'We clean our homes, set the beautiful Haft-Seen table, wear clean clothes, and visit our grandparents and relatives.'"
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Iranian Festivals and Traditions",
+      "content": "Iran has ancient festivals that celebrate nature, friendship, and family bonds. Nowruz marks the beginning of spring and the renewal of nature. Families gather around the Haft-Seen table to wish for health, happiness, and peace. Another celebrated festival is Yalda Night, where families stay together on the longest night of winter, eating watermelon and reciting poems of Hafez."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Conversation",
+      "title": "Inquiring about Public Services",
+      "content": "Tourist: 'Excuse me, where can I send these postcards to my family?' Citizen: 'There is a central post office two blocks down on Hafez Street, next to the national bank.' Tourist: 'Thank you! Is it open in the afternoon?' Citizen: 'Yes, it is open until four o'clock. You can buy stamps there easily.'"
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Reading",
+      "title": "Services in Our City",
+      "content": "Every modern city provides essential public services for its citizens. Fire departments protect buildings from dangerous fires. Police stations ensure safety in streets and neighborhoods. Post offices deliver letters and packages to all parts of the country. Knowing emergency numbers and respecting public service workers is important for all citizens."
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Conversation",
+      "title": "Discussing the Evening News",
+      "content": "Father: 'Did you watch the eight o'clock news on television last night, Ali?' Ali: 'Yes, Dad. I watched a fascinating report about Iranian young scientists.' Father: 'What did they invent?' Ali: 'They designed a solar water pump for farms in dry desert areas. It was very interesting!'"
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Reading",
+      "title": "The Role of Media in Daily Life",
+      "content": "Media plays a significant role in modern society by providing news, education, and entertainment. In the past, people only read printed newspapers and listened to the radio. Today, the internet and television deliver immediate news from around the world. We can learn about scientific discoveries, global events, and cultural achievements through reliable media."
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Conversation",
+      "title": "After a Minor Bicycle Accident",
+      "content": "Mother: 'What happened to your knee, Farhad?' Farhad: 'I rode my bicycle in the park and slipped on wet leaves.' Mother: 'Did you hurt your arm, too?' Farhad: 'No, but my knee bled a little. The park paramedic washed the cut and put a clean bandage on it.' Mother: 'You should always wear a helmet and knee pads when cycling.'"
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Reading",
+      "title": "First Aid and Safety Rules",
+      "content": "Accidents happen unexpectedly, so learning basic first aid rules is essential for everyone. When a minor injury occurs, washing the cut with clean water and applying an adhesive plaster prevents infection. In serious emergencies, bystanders should remain calm and immediately call an ambulance on 115. Observing road safety rules and wearing protective gear saves human lives."
     }
   ],
   "rubrics": [

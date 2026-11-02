@@ -12,17 +12,59 @@
         ],
         "structures": [
           "where_are_you_from",
-          "nationalities"
+          "nationality_adjectives",
+          "are_you_from_questions"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Where are you from? & Nationalities",
+        "rules": [
+          {
+            "structure": "Asking about origin",
+            "formula": "Where are you from? -> I am from + Country",
+            "examples": [
+              "Where are you from? I am from Iran.",
+              "Where is he from? He is from France."
+            ]
+          },
+          {
+            "structure": "Nationality adjectives",
+            "formula": "Subject + be + Nationality",
+            "examples": [
+              "Are you Iranian? Yes, I am.",
+              "Is she French? No, she is Spanish."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Capitalization of Countries and Nationalities",
+        "rules": [
+          "Names of countries, nationalities, and languages are always capitalized (Iran, Iranian, Persian, English, France, French)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Country to Nationality Suffixes (-ian, -ish, -ese)",
+        "rules": "Iran -> Iranian, Spain -> Spanish, China -> Chinese, Japan -> Japanese, England -> English.",
+        "examples": [
+          "Iran -> Iranian",
+          "Spain -> Spanish"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Nationality Endings",
+        "rules": "Notice stress shift: 'China vs Chi'nese; 'Japan vs Japa'nese."
       }
     },
     {
@@ -31,21 +73,65 @@
       "theme": "Weekly schedule, days, routine activities",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_do_does"
+          "simple_present_action"
         ],
         "structures": [
-          "days_of_the_week",
-          "everyday_activities"
+          "what_do_you_do_on_days",
+          "do_does_questions",
+          "frequency_adverbs_every_on"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Simple Present (do / does) & Routine Actions",
+        "rules": [
+          {
+            "structure": "Simple Present Questions with do/does",
+            "formula": "Do you / Does he + base verb?",
+            "examples": [
+              "Do you go to school on Saturdays? Yes, I do.",
+              "Does your brother play football on weekends? No, he doesn't."
+            ]
+          },
+          {
+            "structure": "Preposition 'on' with days",
+            "formula": "on + day(s) of week",
+            "examples": [
+              "on Monday morning",
+              "on Friday afternoon"
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Third Person Singular -s and -es Spelling Rules",
+        "rules": [
+          "Add -s for most verbs (reads, plays, listens).",
+          "Add -es after -ch, -sh, -s, -x, -o (watches, washes, goes, does).",
+          "Consonant + y changes to -ies (studies, copies)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Weekday Routines and Activities",
+        "rules": "go to school, study English, visit relatives, play sports, help parents, stay home.",
+        "examples": [
+          "go to the gym",
+          "visit grandparents"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Third Person -s/-es",
+        "rules": "/s/ after voiceless stops (helps, writes), /z/ after voiced (plays, studies), /iz/ after sibilants (watches, washes)."
       }
     },
     {
@@ -58,17 +144,60 @@
         ],
         "structures": [
           "modal_can_ability",
-          "can_questions"
+          "can_you_questions",
+          "short_answers_can"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Modal Auxiliary Can / Can't for Abilities",
+        "rules": [
+          {
+            "structure": "Asking about ability",
+            "formula": "Can you / he / she + base verb?",
+            "examples": [
+              "Can you swim? Yes, I can.",
+              "Can he drive a car? No, he can't."
+            ]
+          },
+          {
+            "structure": "Expressing talents",
+            "formula": "I can + base verb + very well",
+            "examples": [
+              "I can speak English well.",
+              "She can draw beautiful pictures."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Listing Abilities with 'and' and 'but'",
+        "rules": [
+          "Use 'and' to connect similar abilities: 'I can swim and play football.'",
+          "Use 'but' to contrast abilities: 'I can ride a bicycle, but I can't drive a car.'"
+        ]
+      },
+      "vocab_development": {
+        "topic": "Action Verbs & Sports Talents",
+        "rules": "swim, ride a bicycle, play chess, cook food, recite the Holy Quran, make a cake, paint pictures.",
+        "examples": [
+          "ride a bike",
+          "play chess"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of can /kən/ vs can't /kænt/",
+        "rules": "'Can' in statements is typically unstressed /kən/, whereas 'can't' is stressed with a clear open vowel /kænt/."
       }
     },
     {
@@ -77,21 +206,64 @@
       "theme": "Health problems, illnesses, advice with should",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_have_has"
+          "simple_present"
         ],
         "structures": [
-          "have_headache_cold",
-          "giving_advice"
+          "what_is_the_matter",
+          "have_a_health_problem",
+          "giving_advice_with_should"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Health Complaints (have a ...) & Giving Advice with Should",
+        "rules": [
+          {
+            "structure": "Asking what is wrong",
+            "formula": "What is the matter? / What's wrong?",
+            "examples": [
+              "What is the matter? I have a headache.",
+              "What's wrong with Ali? He has a sore throat."
+            ]
+          },
+          {
+            "structure": "Giving health advice",
+            "formula": "You should / shouldn't + base verb",
+            "examples": [
+              "You should see a doctor.",
+              "You shouldn't drink cold water."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Doctor-Patient Advice Notes",
+        "rules": [
+          "Use the modal 'should' for recommendations: 'You should rest in bed.'",
+          "Compound health nouns are written as one word (headache, toothache, stomachache) or two words (sore throat, runny nose)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Common Ailments and Treatments",
+        "rules": "headache, toothache, stomachache, earache, sore throat, cough, fever, rest, take medicine, see a doctor.",
+        "examples": [
+          "have a headache",
+          "take medicine"
+        ]
+      },
+      "see_also": {
+        "topic": "Silent 'l' in should and shouldn't",
+        "rules": "The letter 'l' in should /ʃʊd/ is completely silent."
       }
     },
     {
@@ -100,22 +272,64 @@
       "theme": "City places, weather, location",
       "allowed_grammar": {
         "tenses": [
-          "simple_present"
+          "simple_present_be"
         ],
         "structures": [
-          "there_is_are",
-          "weather_adjectives",
-          "location_prepositions"
+          "where_is_location",
+          "what_is_it_famous_for",
+          "weather_adjectives"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Geographical Locations & Describing Cities",
+        "rules": [
+          {
+            "structure": "Asking about location",
+            "formula": "Where is + City? -> It is in the north / south / center of Iran.",
+            "examples": [
+              "Where is Isfahan? It is in the center of Iran.",
+              "Where is Rasht? It is in the north."
+            ]
+          },
+          {
+            "structure": "What is it famous for?",
+            "formula": "It is famous for + noun / V-ing",
+            "examples": [
+              "Shiraz is famous for Hafez tomb and beautiful gardens.",
+              "Tabriz is famous for historic bazaars."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "City Guide Descriptions",
+        "rules": [
+          "Capitalize cardinal directions when naming specific regions (North of Iran, West of Iran).",
+          "Use commas when listing city attractions."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Points of the Compass & City Facilities",
+        "rules": "north, south, east, west, center. Facilities: mosque, museum, stadium, library, airport, shrine, bridge.",
+        "examples": [
+          "in the north",
+          "famous for"
+        ]
+      },
+      "see_also": {
+        "topic": "Adjective Weather Forms (sun -> sunny, rain -> rainy)",
+        "rules": "Add suffix -y to make weather adjectives: wind -> windy, cloud -> cloudy, rain -> rainy."
       }
     },
     {
@@ -127,18 +341,59 @@
           "simple_present"
         ],
         "structures": [
-          "raising_animals",
-          "farming_activities"
+          "there_is_there_are_village",
+          "what_do_people_do",
+          "rural_descriptions"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Describing Rural Places & Farming Routines",
+        "rules": [
+          {
+            "structure": "Are there ... in the village?",
+            "formula": "Is there a river? / Are there many farms?",
+            "examples": [
+              "Is there a river in your village? Yes, there is.",
+              "What do farmers grow? They grow wheat and rice."
+            ]
+          },
+          {
+            "structure": "Raising animals",
+            "formula": "Villagers raise + livestock",
+            "examples": [
+              "They raise cattle and sheep in the green fields."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Contrast Paragraph (City vs Village)",
+        "rules": [
+          "Describe peace, clean air, and nature in villages compared to busy traffic in cities."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Farming, Crops, and Livestock",
+        "rules": "farm, field, river, tree, flower, cattle, cow, sheep, horse, plow, wheat, rice, fruit, tractor.",
+        "examples": [
+          "raise cattle",
+          "grow wheat"
+        ]
+      },
+      "see_also": {
+        "topic": "Pronunciation of Vowel Sounds in Rural Words",
+        "rules": "Distinguish between /i:/ in field and /ɪ/ in village."
       }
     },
     {
@@ -147,21 +402,63 @@
       "theme": "Free time activities, sports, reading, hobbies",
       "allowed_grammar": {
         "tenses": [
-          "simple_present_free_time"
+          "simple_present"
         ],
         "structures": [
-          "play_sports",
-          "reading_books"
+          "what_do_you_do_in_free_time",
+          "like_plus_gerund",
+          "how_often_questions"
         ]
       },
       "forbidden_grammar": {
         "forbidden_tenses": [
-          "past_simple",
-          "future"
+          "simple_past",
+          "future_will",
+          "present_perfect"
         ],
         "forbidden_structures": [
-          "passive"
+          "passive_voice",
+          "conditionals"
         ]
+      },
+      "grammar_details": {
+        "focus": "Talking about Free Time & Verbs of Preference (like + V-ing)",
+        "rules": [
+          {
+            "structure": "What do you do in your free time?",
+            "formula": "In my free time, I + verb phrase",
+            "examples": [
+              "What do you do in your free time? I read books.",
+              "What is your hobby? My hobby is playing chess."
+            ]
+          },
+          {
+            "structure": "Like + Gerund",
+            "formula": "Subject + like / enjoy + V-ing",
+            "examples": [
+              "I like playing tennis.",
+              "She enjoys listening to music."
+            ]
+          }
+        ]
+      },
+      "writing_skills": {
+        "topic": "Hobby Survey & Personal Profile",
+        "rules": [
+          "Organize free-time activities into indoor hobbies (reading, drawing) and outdoor sports (cycling, swimming)."
+        ]
+      },
+      "vocab_development": {
+        "topic": "Hobby Gerunds (-ing forms)",
+        "rules": "reading books, watching movies, riding a bike, walking in the park, playing computer games, surfing the net.",
+        "examples": [
+          "play tennis -> playing tennis",
+          "read -> reading"
+        ]
+      },
+      "see_also": {
+        "topic": "Compound Word Stress in Sports",
+        "rules": "'football, 'basketball, 'volleyball, 'table tennis."
       }
     }
   ],
@@ -895,14 +1192,672 @@
       "He spends an hour surfing the net every night.",
       "the activity of browsing internet or riding waves",
       "get_ready"
+    ],
+    [
+      "million",
+      "million",
+      "noun",
+      1,
+      "میلیون",
+      "Millions of people live in Iran.",
+      "a thousand thousand",
+      "reading"
+    ],
+    [
+      "tourist",
+      "tourist",
+      "noun",
+      1,
+      "گردشگر",
+      "Many tourists visit Shiraz.",
+      "a person traveling for pleasure",
+      "reading"
+    ],
+    [
+      "historical",
+      "historical",
+      "adj",
+      1,
+      "تاریخی",
+      "Isfahan has historical bridges.",
+      "belonging to history",
+      "reading"
+    ],
+    [
+      "place",
+      "place",
+      "noun",
+      1,
+      "مکان، جا",
+      "Iran has beautiful places.",
+      "a particular position or area",
+      "reading"
+    ],
+    [
+      "culture",
+      "culture",
+      "noun",
+      1,
+      "فرهنگ",
+      "Persian culture is ancient.",
+      "customs and arts of a nation",
+      "reading"
+    ],
+    [
+      "ancient",
+      "ancient",
+      "adj",
+      1,
+      "باستانی",
+      "Persepolis is an ancient city.",
+      "belonging to distant past",
+      "reading"
+    ],
+    [
+      "volleyball",
+      "volleyball",
+      "noun",
+      2,
+      "والیبال",
+      "We play volleyball on Thursday.",
+      "a team ball game",
+      "conversation"
+    ],
+    [
+      "attend",
+      "attend",
+      "verb",
+      2,
+      "رفتن به، حضور داشتن",
+      "Children attend school on weekdays.",
+      "be present at",
+      "reading"
+    ],
+    [
+      "breakfast",
+      "breakfast",
+      "noun",
+      2,
+      "صبحانه",
+      "Eat breakfast before school.",
+      "first meal of the day",
+      "reading"
+    ],
+    [
+      "lunch",
+      "lunch",
+      "noun",
+      2,
+      "ناهار",
+      "We eat lunch together.",
+      "midday meal",
+      "reading"
+    ],
+    [
+      "gather",
+      "gather",
+      "verb",
+      2,
+      "جمع شدن",
+      "Families gather on weekends.",
+      "come together",
+      "reading"
+    ],
+    [
+      "up",
+      "up",
+      "adv",
+      2,
+      "بیدار شدن",
+      "Wake up early in the morning.",
+      "out of bed",
+      "reading"
+    ],
+    [
+      "different",
+      "different",
+      "adj",
+      3,
+      "متفاوت",
+      "People have different talents.",
+      "not the same",
+      "reading"
+    ],
+    [
+      "colorful",
+      "colorful",
+      "adj",
+      3,
+      "رنگارنگ",
+      "She paints colorful pictures.",
+      "having bright colors",
+      "reading"
+    ],
+    [
+      "chess",
+      "chess",
+      "noun",
+      3,
+      "شطرنج",
+      "Can you play chess?",
+      "a board game for two players",
+      "reading"
+    ],
+    [
+      "recite",
+      "recite",
+      "verb",
+      3,
+      "قرائت کردن",
+      "Recite the Holy Quran.",
+      "repeat aloud from memory",
+      "conversation"
+    ],
+    [
+      "holy",
+      "holy",
+      "adj",
+      3,
+      "مقدس",
+      "The Holy Quran.",
+      "dedicated to God",
+      "conversation"
+    ],
+    [
+      "confident",
+      "confident",
+      "adj",
+      3,
+      "بااعتمادبه‌نفس",
+      "Sports make students confident.",
+      "feeling sure about one's abilities",
+      "reading"
+    ],
+    [
+      "develop",
+      "develop",
+      "verb",
+      3,
+      "پرورش دادن",
+      "Develop your natural talents.",
+      "grow or cause to grow",
+      "reading"
+    ],
+    [
+      "matter",
+      "matter",
+      "noun",
+      4,
+      "موضوع، مسأله",
+      "What's the matter with you?",
+      "a subject or situation",
+      "conversation"
+    ],
+    [
+      "then",
+      "then",
+      "adv",
+      4,
+      "سپس، بعد",
+      "Rest, then see a doctor.",
+      "after that",
+      "conversation"
+    ],
+    [
+      "terrible",
+      "terrible",
+      "adj",
+      4,
+      "وحشتناک، شدید",
+      "I have a terrible toothache.",
+      "extremely bad or serious",
+      "conversation"
+    ],
+    [
+      "clinic",
+      "clinic",
+      "noun",
+      4,
+      "درمانگاه",
+      "Go to the school clinic.",
+      "an establishment for medical treatment",
+      "conversation"
+    ],
+    [
+      "hour",
+      "hour",
+      "noun",
+      4,
+      "ساعت",
+      "Rest for an hour.",
+      "sixty minutes",
+      "conversation"
+    ],
+    [
+      "vegetable",
+      "vegetable",
+      "noun",
+      4,
+      "سبزیجات",
+      "Eat fresh vegetables.",
+      "a plant used as food",
+      "reading"
+    ],
+    [
+      "prevent",
+      "prevent",
+      "verb",
+      4,
+      "پیشگیری کردن",
+      "Healthy food prevents illnesses.",
+      "keep something from happening",
+      "reading"
+    ],
+    [
+      "illness",
+      "illness",
+      "noun",
+      4,
+      "بیماری",
+      "Prevent common illnesses.",
+      "a disease or sickness",
+      "reading"
+    ],
+    [
+      "exercise",
+      "exercise",
+      "verb",
+      4,
+      "ورزش کردن",
+      "Exercising keeps you healthy.",
+      "engage in physical activity",
+      "reading"
+    ],
+    [
+      "famous",
+      "famous",
+      "adj",
+      5,
+      "مشهور",
+      "Shiraz is famous for gardens.",
+      "known by many",
+      "reading"
+    ],
+    [
+      "center",
+      "center",
+      "noun",
+      5,
+      "مرکز",
+      "In the center of Iran.",
+      "the middle point",
+      "reading"
+    ],
+    [
+      "historic",
+      "historic",
+      "adj",
+      5,
+      "تاریخی",
+      "Historic mosques and bazaars.",
+      "famous in history",
+      "reading"
+    ],
+    [
+      "south",
+      "south",
+      "noun",
+      5,
+      "جنوب",
+      "Shiraz is in the south.",
+      "the direction opposite north",
+      "reading"
+    ],
+    [
+      "attract",
+      "attract",
+      "verb",
+      5,
+      "جذب کردن",
+      "It attracts many tourists.",
+      "draw to a place",
+      "reading"
+    ],
+    [
+      "locate",
+      "locate",
+      "verb",
+      5,
+      "قرار داشتن",
+      "Isfahan is located in center.",
+      "situate in a place",
+      "conversation"
+    ],
+    [
+      "hospitable",
+      "hospitable",
+      "adj",
+      5,
+      "مهمان‌نواز",
+      "People are warm and hospitable.",
+      "welcoming to visitors",
+      "conversation"
+    ],
+    [
+      "beautiful",
+      "beautiful",
+      "adj",
+      6,
+      "زیبا",
+      "The village has a beautiful river.",
+      "pleasing to senses",
+      "conversation"
+    ],
+    [
+      "far",
+      "far",
+      "adj",
+      6,
+      "دور",
+      "The village is not far.",
+      "at a great distance",
+      "conversation"
+    ],
+    [
+      "raise",
+      "raise",
+      "verb",
+      6,
+      "پرورش دادن",
+      "Farmers raise cattle.",
+      "breed and grow animals",
+      "reading"
+    ],
+    [
+      "domestic",
+      "domestic",
+      "adj",
+      6,
+      "اهلی",
+      "Domestic animals live on farms.",
+      "tame animal kept by humans",
+      "reading"
+    ],
+    [
+      "animal",
+      "animal",
+      "noun",
+      6,
+      "حیوان",
+      "Cows and sheep are animals.",
+      "a living creature",
+      "reading"
+    ],
+    [
+      "peaceful",
+      "peaceful",
+      "adj",
+      6,
+      "آرام",
+      "Village life is peaceful.",
+      "free from disturbance",
+      "reading"
+    ],
+    [
+      "pollution",
+      "pollution",
+      "noun",
+      6,
+      "آلودگی",
+      "There is no air pollution.",
+      "harmful substances in air",
+      "reading"
+    ],
+    [
+      "traffic",
+      "traffic",
+      "noun",
+      6,
+      "ترافیک",
+      "Cities have heavy traffic.",
+      "vehicles moving on roads",
+      "reading"
+    ],
+    [
+      "sunrise",
+      "sunrise",
+      "noun",
+      6,
+      "طلوع خورشید",
+      "Farmers wake up at sunrise.",
+      "the time in morning when sun appears",
+      "reading"
+    ],
+    [
+      "field",
+      "field",
+      "noun",
+      6,
+      "مزرعه، دشت",
+      "Green agricultural fields.",
+      "an area of land for farming",
+      "reading"
+    ],
+    [
+      "sport",
+      "sport",
+      "noun",
+      7,
+      "ورزش",
+      "Playing sports keeps us fit.",
+      "an activity involving physical exertion",
+      "reading"
+    ],
+    [
+      "free",
+      "free",
+      "adj",
+      7,
+      "آزاد (زمان)",
+      "In my free time.",
+      "not busy",
+      "conversation"
+    ],
+    [
+      "tennis",
+      "tennis",
+      "noun",
+      7,
+      "تنیس",
+      "He plays tennis on Fridays.",
+      "a racket sport",
+      "conversation"
+    ],
+    [
+      "prefer",
+      "prefer",
+      "verb",
+      7,
+      "ترجیح دادن",
+      "I prefer outdoor sports.",
+      "like one thing better",
+      "conversation"
+    ],
+    [
+      "outdoor",
+      "outdoor",
+      "adj",
+      7,
+      "بیرونی، در هوای آزاد",
+      "Enjoy outdoor activities.",
+      "taking place in open air",
+      "conversation"
+    ],
+    [
+      "enjoyable",
+      "enjoyable",
+      "adj",
+      7,
+      "لذت‌بخش",
+      "An enjoyable hobby.",
+      "giving pleasure",
+      "reading"
+    ],
+    [
+      "reduce",
+      "reduce",
+      "verb",
+      7,
+      "کاهش دادن",
+      "Reduce daily stress.",
+      "make smaller or less",
+      "reading"
+    ],
+    [
+      "stress",
+      "stress",
+      "noun",
+      7,
+      "استرس",
+      "Hobbies reduce mental stress.",
+      "mental strain",
+      "reading"
+    ],
+    [
+      "mind",
+      "mind",
+      "noun",
+      7,
+      "ذهن",
+      "Books open our minds.",
+      "the element of a person that enables them to be aware",
+      "reading"
+    ],
+    [
+      "knowledge",
+      "knowledge",
+      "noun",
+      7,
+      "دانش",
+      "Gain new knowledge.",
+      "facts and information",
+      "reading"
+    ],
+    [
+      "fit",
+      "fit",
+      "adj",
+      7,
+      "سالم، متناسب",
+      "Keep your body fit.",
+      "in good health",
+      "reading"
+    ],
+    [
+      "spend",
+      "spend",
+      "verb",
+      7,
+      "صرف کردن",
+      "Spend time on hobbies.",
+      "pass time",
+      "reading"
+    ],
+    [
+      "constructive",
+      "constructive",
+      "adj",
+      7,
+      "سازنده، مفید",
+      "Constructive activities.",
+      "serving a useful purpose",
+      "reading"
     ]
   ],
   "passages": [
     {
+      "lesson_num": 1,
+      "section_type": "Conversation",
+      "title": "Meeting a Foreign Student",
+      "content": "Ali: 'Hello! What is your name?' Jean: 'My name is Jean.' Ali: 'Are you from France?' Jean: 'Yes, I am French, but I live in Spain now. Where are you from?' Ali: 'I am from Iran. I live in Shiraz. Welcome to our country!'"
+    },
+    {
+      "lesson_num": 1,
+      "section_type": "Reading",
+      "title": "My Homeland Iran",
+      "content": "Iran is a wonderful country in Asia. It has an ancient culture and friendly people. Millions of people speak Persian. Many tourists visit Iranian cities every year to see historical places."
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Conversation",
+      "title": "Weekly School Routine",
+      "content": "Nima: 'What do you do on Saturday mornings, Reza?' Reza: 'I go to school and have English and science classes.' Nima: 'Do you study on Thursdays?' Reza: 'No, on Thursday afternoons I go to the gym and play volleyball with my classmates.'"
+    },
+    {
+      "lesson_num": 2,
+      "section_type": "Reading",
+      "title": "A Busy Weekday",
+      "content": "In Iran, students attend school from Saturday to Wednesday. Thursday and Friday are the weekend. On weekdays, children wake up early, eat breakfast, and study their school lessons. On Friday, families gather together for lunch."
+    },
+    {
       "lesson_num": 3,
       "section_type": "Conversation",
-      "title": "Talking about Abilities",
-      "content": "Reza: Can you speak English, Mehrad?\nMehrad: Yes, I can speak English and I can search the web in English.\nReza: That is great! Can you swim too?\nMehrad: No, I can't swim, but I can play volleyball very well."
+      "title": "Talking about Talents and Abilities",
+      "content": "Teacher: 'Who can recite the Holy Quran beautifully in our class?' Sara: 'Maryam can recite it very well, teacher.' Teacher: 'That is wonderful! Can you speak English, Maryam?' Maryam: 'Yes, I can speak English and I can write short stories, too.'"
+    },
+    {
+      "lesson_num": 3,
+      "section_type": "Reading",
+      "title": "Sports and Talents",
+      "content": "Every student has different talents. Some students can swim and ride bicycles fast. Others can draw colorful pictures or play chess. Developing healthy abilities makes young students confident."
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Conversation",
+      "title": "At the School Clinic",
+      "content": "Health Teacher: 'What is the matter, Sina? You look pale.' Sina: 'I have a terrible toothache and a headache.' Health Teacher: 'You should rest in the clinic for an hour. Then you should see a dentist this afternoon.' Sina: 'Thank you, teacher.'"
+    },
+    {
+      "lesson_num": 4,
+      "section_type": "Reading",
+      "title": "Taking Care of Your Health",
+      "content": "Good health is very important for all people. When you have a cold, cough, or fever, you should drink warm tea and rest in bed. Eating fresh vegetables and exercising every day helps prevent illnesses."
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Conversation",
+      "title": "Describing Shiraz",
+      "content": "Tourist: 'Excuse me, where is Shiraz located?' Guide: 'It is located in the south of Iran.' Tourist: 'What is it famous for?' Guide: 'It is famous for the tombs of Hafez and Saadi, magnificent gardens, and hospitable people.'"
+    },
+    {
+      "lesson_num": 5,
+      "section_type": "Reading",
+      "title": "Historical Cities of Iran",
+      "content": "Iran has many famous cities. Isfahan is in the center of Iran and is famous for historic bridges and mosques. Mashhad is a holy city in the northeast. Shiraz is in the south and attracts lovers of Persian culture."
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Conversation",
+      "title": "Visiting a Green Village",
+      "content": "Babak: 'Is your grandfather's village far from here, Omid?' Omid: 'No, it is near the mountain. It has clean air and a beautiful river.' Babak: 'What do villagers do?' Omid: 'Most villagers are farmers. They raise cattle and grow wheat and rice.'"
+    },
+    {
+      "lesson_num": 6,
+      "section_type": "Reading",
+      "title": "Life in an Iranian Village",
+      "content": "Life in a village is quiet and peaceful. There is no traffic or air pollution. Farmers wake up at sunrise to work in the green fields. They raise domestic animals and produce fresh milk, butter, and bread."
+    },
+    {
+      "lesson_num": 7,
+      "section_type": "Conversation",
+      "title": "Talking about Weekend Hobbies",
+      "content": "Farhad: 'What do you do in your free time, Kian?' Kian: 'I enjoy reading books and playing tennis.' Farhad: 'Do you play computer games, too?' Kian: 'Sometimes on weekends, but I prefer outdoor sports in the park.'"
+    },
+    {
+      "lesson_num": 7,
+      "section_type": "Reading",
+      "title": "Healthy Hobbies",
+      "content": "Having an enjoyable hobby helps reduce daily stress. Reading books opens our minds to new knowledge. Playing sports like football keeps our bodies fit. Spending time on constructive hobbies makes life happy."
     }
   ],
   "rubrics": [
