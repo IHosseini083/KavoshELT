@@ -64,3 +64,19 @@ ignore = ["E501"]
 python_version = "3.10"
 ignore_missing_imports = true
 strict = true
+
+# Pre-existing test modules predate strict typing; new modules are fully typed.
+[[tool.mypy.overrides]]
+module = [
+    "tests.test_advisor",
+    "tests.test_all_grades_seed",
+    "tests.test_auditor",
+    "tests.test_rag",
+    "tests.test_schema",
+    "test_advisor",
+    "test_all_grades_seed",
+    "test_auditor",
+    "test_rag",
+    "test_schema",
+]
+ignore_errors = true

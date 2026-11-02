@@ -25,6 +25,7 @@ It serves as a ground-truth guardrail for English educators and AI systems—eli
   - [5. Hybrid Semantic & Lexical RAG Retrieval](#5-hybrid-semantic--lexical-rag-retrieval)
   - [6. Export Markdown to PDF, Word DOCX, and HTML](#6-export-markdown-to-pdf-word-docx-and-html)
   - [7. Database Statistics & Self-Consistency Audit](#7-database-statistics--self-consistency-audit)
+  - [8. MCP Server for AI Agents](#8-mcp-server-for-ai-agents)
 - [Project Architecture](#project-architecture)
 - [Testing & Quality Assurance](#testing--quality-assurance)
 - [Documentation](#documentation)
@@ -34,12 +35,13 @@ It serves as a ground-truth guardrail for English educators and AI systems—eli
 
 ## Key Features
 
-* **Complete 6-Grade Syllabus Database:** Covers all 31 lessons across *Prospect 1–3* (Grades 7–9) and *Vision 1–3* (Grades 10–12), including 1,050+ textbook vocabulary entries, progressive grammar boundaries, canonical passages, and official assessment rubrics.
+* **Complete 6-Grade Syllabus Database:** Covers all 31 lessons across *Prospect 1–3* (Grades 7–9) and *Vision 1–3* (Grades 10–12), including 1,600+ textbook vocabulary entries, progressive grammar boundaries, canonical passages, and official assessment rubrics.
 * **Unified Relational Graph-RAG Engine:** Combines SQLAlchemy 2.0 relational constraints, directed prerequisite concept graphs (`ConceptNode` and `ConceptEdge`), Persian first-language interference patterns (`L1ErrorPattern`), and 64-dimensional semantic vectors with SQLite FTS5 indexing.
 * **Grade 12 National Exam Archive (1397–1405):** Includes 27 official national examination papers across Khordad, Shahrivar, and Dey sessions, decomposed into atomic question items with Bloom taxonomy levels, 0.25-point rubric breakdowns, and distractor diagnostics.
 * **4-Layer Verification Gate:** Validates every exam item against mathematical scoring rules (exact multiples of 0.25), 100% syllabus vocabulary/grammar compliance, concept graph integrity, and answer key completeness.
 * **4-Mode Exam Composer (Exact DP Score Solver):** Assembles full 28.0-point mock exams (`full_mock`), single-skill worksheets (`skill_worksheet`), custom classroom quizzes (`custom_quiz`), and interactive item slot swaps (`swap_slot_item`) using dynamic programming over quarter-point units.
 * **3 Question Sourcing Modes:** Supports authentic past exam items (`past_papers`), deterministic syllabus-compliant parallel items (`ai_twins`), and interleaved combinations (`hybrid`).
+* **MCP Server (`kavosh-mcp`):** Exposes syllabus validation, in-syllabus synonyms, lesson bounds, curriculum search, national-exam retrieval, and Persian L1-interference patterns as [Model Context Protocol](https://modelcontextprotocol.io) tools for Claude Desktop, Cursor, and other agents.
 * **Print-Ready RTL Document Exporter:** Generates editable Microsoft Word (`.docx`) files with native OpenXML right-to-left table metadata (`w:bidiVisual`), PDFs with embedded Persian Vazirmatn typography, printable HTML sheets, and standalone teacher answer keys.
 
 ---
@@ -78,10 +80,12 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-The SQLite database (`data/curriculum.db`) is automatically initialized and seeded on first run, or can be built explicitly via:
+No manual database setup is needed. The SQLite database is resolved in this order: `--db` / `KAVOSH_DB`, a database packaged inside the installed wheel, then a cached build (in the user cache directory, or `KAVOSH_CACHE_DIR`) that is rebuilt automatically whenever the dataset files change. To build one explicitly:
 ```bash
 python -m kavosh.seeder
 ```
+
+Install the development tools (pytest, ruff, mypy) with `pip install -e ".[dev]"`. Composed exams are written to `./exports/composed` unless `KAVOSH_EXPORTS_DIR` is set.
 
 ---
 
@@ -170,7 +174,23 @@ python -m kavosh stats
 
 # Verify that 100% of canonical passages pass their own grade boundary
 python -m kavosh audit
+
+# Audit dataset integrity (schema, duplicate IDs, answer keys, concept edges,
+# missing distractor analyses, lessons without Listening scripts)
+python -m kavosh integrity          # add --strict to fail on warnings too
 ```
+
+### 8. MCP Server for AI Agents
+```bash
+kavosh-mcp            # stdio transport; or: python -m kavosh.mcp_server
+```
+Tools: `validate_text`, `suggest_synonyms`, `get_lesson_bounds`, `search_curriculum`, `retrieve_exam_questions`, `get_l1_interference`. Resources: `curriculum://grade/{grade}/lesson/{lesson}` and `curriculum://index`.
+
+Claude Desktop configuration (`claude_desktop_config.json`):
+```json
+{ "mcpServers": { "kavosh-elt": { "command": "kavosh-mcp" } } }
+```
+See [docs/MCP_SERVER.md](docs/MCP_SERVER.md) and [`examples/`](examples/) for all tool arguments, environment variables, and client setup.
 
 ---
 
@@ -187,13 +207,21 @@ KavoshELT/
 │   ├── models.py            # SQLAlchemy 2.0 ORM declarative models
 │   ├── schema.py            # Database schema and FTS5 virtual tables
 │   ├── seeder.py            # Dataset & exam archive database builder
-│   ├── validator.py         # Morphological lemmatizer and grammar engine
+│   ├── validator.py         # Syllabus-bounds and grammar engine
+│   ├── morphology.py        # Irregular forms and suffix-candidate lemmatization
+│   ├── syllabus.py          # Cached per-grade/lesson vocabulary & grammar index
 │   ├── advisor.py           # In-syllabus synonym advisor
 │   ├── auditor.py           # Curriculum self-consistency auditor
 │   ├── rag.py               # Hybrid vector + FTS5 RAG retrieval engine
 │   ├── exam_rag.py          # Multi-criteria exam retrieval, graph traversal & twin synthesis
 │   ├── verifier.py          # 4-layer national exam verification gate
-│   ├── composer.py          # 4-mode exam composer with DP score solver
+│   ├── composer.py          # 4-mode exam composer
+│   ├── knapsack.py          # Exact quarter-point subset-sum solver
+│   ├── paths.py             # Portable database/cache path resolution
+│   ├── fts.py               # Typed SQLite FTS5 access
+│   ├── integrity.py         # Dataset integrity audit (`kavosh integrity`)
+│   ├── service.py           # Shared tool logic used by the MCP server
+│   ├── mcp_server.py        # `kavosh-mcp` stdio MCP server
 │   └── styler.py            # RTL Word DOCX, Vazirmatn PDF, and HTML exporter
 ├── assets/
 │   └── fonts/               # Embedded Vazirmatn Persian/Latin fonts
@@ -201,8 +229,11 @@ KavoshELT/
 ├── docs/                    # Technical and pedagogical documentation
 │   ├── ARCHITECTURE.md
 │   ├── CURRICULUM_MAP.md
+│   ├── MCP_SERVER.md
 │   └── TEACHER_GUIDE.md
-├── tests/                   # Automated unit test suite (53 tests)
+├── examples/                # Sample MCP client configurations
+├── tests/                   # Automated test suite (82 tests, incl. MCP stdio end-to-end)
+├── setup.py                 # Bundles datasets and a prebuilt database into wheels
 ├── pyproject.toml           # Package configuration & tool settings
 ├── requirements.txt         # Runtime and development dependencies
 └── LICENSE                  # MIT License
@@ -214,8 +245,9 @@ KavoshELT/
 
 Run the full unit test suite:
 ```bash
-python -m unittest discover -s tests
+pytest
 ```
+(`python -m unittest discover -s tests` also works.)
 
 Run static type checking and code formatting:
 ```bash
@@ -231,6 +263,7 @@ ruff format --check .
 * [Architecture & Technical Specification](docs/ARCHITECTURE.md)
 * [Complete Curriculum Map (Grades 7–12)](docs/CURRICULUM_MAP.md)
 * [Teacher & Educator Guide](docs/TEACHER_GUIDE.md)
+* [MCP Server Guide](docs/MCP_SERVER.md)
 
 ---
 
