@@ -142,6 +142,7 @@ def retrieve_exam_items(
                     "acceptable_variants_json": item.acceptable_variants_json,
                     "rubric_breakdown_json": item.rubric_breakdown_json,
                     "distractor_analysis": item.distractor_analysis,
+                    "distractor_status": item.distractor_status,
                     "concept_ids": c_ids,
                     "is_synthetic_twin": item.is_synthetic_twin,
                     "semantic_score": round(sem_score, 4),
@@ -371,6 +372,9 @@ def synthesize_twin_item(
                 )
             )
             twin_distractor = var_data.get("distractor", base_item.distractor_analysis)
+            twin_distractor_status = (
+                base_item.distractor_status if "distractor" not in var_data else None
+            )
         else:
             # Parallel fallback variation: replace nouns while preserving syntax
             twin_stem = base_item.stem_text.replace("palace", "hospital").replace(
@@ -381,6 +385,7 @@ def synthesize_twin_item(
                 base_item.options_json if base_item.options_json != "None" else None
             )
             twin_distractor = base_item.distractor_analysis
+            twin_distractor_status = base_item.distractor_status
 
         twin_item = ExamQuestionItem(
             id=twin_id,
@@ -400,6 +405,7 @@ def synthesize_twin_item(
             acceptable_variants_json=base_item.acceptable_variants_json,
             rubric_breakdown_json=base_item.rubric_breakdown_json,
             distractor_analysis=twin_distractor,
+            distractor_status=twin_distractor_status,
             concept_ids_json=base_item.concept_ids_json,
             embedding_json=None,
             is_synthetic_twin=True,
@@ -424,6 +430,7 @@ def synthesize_twin_item(
             "canonical_answer": twin_item.canonical_answer,
             "rubric_breakdown_json": twin_item.rubric_breakdown_json,
             "distractor_analysis": twin_item.distractor_analysis,
+            "distractor_status": twin_item.distractor_status,
             "concept_ids": concept_ids,
             "is_synthetic_twin": True,
             "is_valid": rep["is_valid"],

@@ -168,6 +168,9 @@ class ExamQuestionItem(Base):
     acceptable_variants_json: Mapped[str] = mapped_column(Text, default="[]")
     rubric_breakdown_json: Mapped[str] = mapped_column(Text, default="{}")
     distractor_analysis: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # Provenance of ``distractor_analysis``: NULL = authored with the item,
+    # "machine_drafted" = drafted from the item and key, awaiting teacher review.
+    distractor_status: Mapped[str | None] = mapped_column(String(32), nullable=True)
     concept_ids_json: Mapped[str] = mapped_column(Text, default="[]")
     embedding_json: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_synthetic_twin: Mapped[bool] = mapped_column(Boolean, default=False)

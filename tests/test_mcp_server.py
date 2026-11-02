@@ -194,6 +194,20 @@ class TestMcpServerOverStdio(unittest.TestCase):
 
         self._run(scenario)
 
+    def test_exam_questions_flag_machine_drafted_distractors(self) -> None:
+        async def scenario(session: ClientSession) -> None:
+            items = await self._call(
+                session,
+                "retrieve_exam_questions",
+                {"section": "cloze", "topic": "dictionary", "limit": 5},
+            )
+            self.assertTrue(items)
+            for item in items:
+                self.assertTrue(item["distractor_rationale"])
+                self.assertEqual(item["distractor_status"], "machine_drafted")
+
+        self._run(scenario)
+
     def test_get_l1_interference(self) -> None:
         async def scenario(session: ClientSession) -> None:
             rows = await self._call(session, "get_l1_interference", {})

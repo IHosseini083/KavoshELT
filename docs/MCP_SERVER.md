@@ -23,7 +23,7 @@ Supports both MCP Python SDK majors (`mcp>=1.2`, including 2.x).
 | `suggest_synonyms` | `text`, `target_grade` | per out-of-bounds word, ranked in-syllabus replacements |
 | `get_lesson_bounds` | `grade`, `lesson` | vocabulary, grammar formulas, functions, forbidden structures |
 | `search_curriculum` | `query`, `grade?`, `limit=5` | hybrid semantic + FTS5 hits over readings and conversations |
-| `retrieve_exam_questions` | `section?`, `topic?`, `limit=5` | authentic national-exam items (grade 12) with keys, rubrics, distractor notes |
+| `retrieve_exam_questions` | `section?`, `topic?`, `limit=5` | authentic national-exam items (grade 12) with keys, rubrics, distractor notes (`distractor_rationale`, plus `distractor_status`: `machine_drafted` until a teacher reviews it) |
 | `get_l1_interference` | `category?` | Persian-to-English negative-transfer patterns |
 
 Invalid input (e.g. grade outside 7-12) is reported as an MCP tool error.
@@ -61,6 +61,9 @@ clients take the same `command` / `args` / `env` fields.
 ## Data integrity
 
 `kavosh integrity [--strict]` audits the curriculum dataset (schema, duplicate
-IDs, answer keys, concept edges, missing distractor analyses, lessons without
+IDs, answer keys, concept edges, distractor provenance, lessons without
 listening scripts). `tests/test_curriculum_integrity.py` fails on any *error*;
-warnings are reported but not fatal.
+warnings are reported but not fatal. The JSON report also contains a `coverage`
+section (per-lesson vocabulary, conversation, reading, listening, passage words
+and grammar rules, plus exam-bank and concept-graph totals); `--coverage`
+prints it as a Markdown table.

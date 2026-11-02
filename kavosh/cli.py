@@ -14,7 +14,7 @@ from kavosh.auditor import run_curriculum_audit
 from kavosh.composer import compose_exam
 from kavosh.exam_rag import traverse_prerequisites
 from kavosh.fts import FtsQueryError, count_passages, search_passages
-from kavosh.integrity import run_integrity_audit
+from kavosh.integrity import format_coverage_table, run_integrity_audit
 from kavosh.models import (
     ExamQuestionItem,
     Lesson,
@@ -227,7 +227,10 @@ def cmd_integrity(args: argparse.Namespace) -> None:
     conn = get_connection(args.db)
     report = run_integrity_audit(conn)
     conn.close()
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+    if args.coverage:
+        print(format_coverage_table(report))
+    else:
+        print(json.dumps(report, ensure_ascii=False, indent=2))
     if not report["passed"] or (args.strict and report["warning_count"]):
         sys.exit(1)
 
@@ -381,6 +384,11 @@ def main() -> None:
     )
     p_int.add_argument(
         "--strict", action="store_true", help="Exit non-zero on warnings too"
+    )
+    p_int.add_argument(
+        "--coverage",
+        action="store_true",
+        help="Print the per-lesson inventory/coverage report as a Markdown table",
     )
     p_int.set_defaults(func=cmd_integrity)
 

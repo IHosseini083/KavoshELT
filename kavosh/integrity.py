@@ -33,6 +33,10 @@ EXPECTED_YEARS = range(1397, 1406)
 BLOOM_LEVELS = frozenset(
     {"remember", "understand", "apply", "analyze", "evaluate", "create"}
 )
+DISTRACTOR_STATUSES = frozenset({"machine_drafted"})
+# A lesson is flagged "thin" when its vocabulary is below this share of the
+# median lesson in the same grade.
+THIN_VOCAB_RATIO = 0.5
 QUARTER = 0.25
 _TOL = 1e-6
 
@@ -207,12 +211,23 @@ def run_integrity_audit(target: DbTarget) -> dict[str, Any]:
                 )
         if it.bloom_level not in BLOOM_LEVELS:
             warn("bloom_tag", f"Unknown Bloom level {it.bloom_level!r}", **where)
-        if (
-            it.item_type == "multiple_choice"
-            and not (it.distractor_analysis or "").strip()
-        ):
+        has_notes = bool((it.distractor_analysis or "").strip())
+        if it.item_type == "multiple_choice" and not has_notes:
             warn(
                 "missing_distractor_notes", "MCQ lacks distractor diagnostics", **where
+            )
+        status = it.distractor_status
+        if status is not None and status not in DISTRACTOR_STATUSES:
+            err(
+                "distractor_status",
+                f"Unknown distractor_status {status!r}",
+                **where,
+            )
+        elif status is not None and not has_notes:
+            err(
+                "distractor_status",
+                "distractor_status is set but distractor_analysis is empty",
+                **where,
             )
 
     for pid, paper in papers.items():
@@ -228,6 +243,7 @@ def run_integrity_audit(target: DbTarget) -> dict[str, Any]:
             warn("empty_paper", f"Paper {pid} has no items")
 
     summary = Counter(w["code"] for w in warnings)
+    coverage = _coverage(lessons, vocab, passages, nodes, edges, l1, items)
     return {
         "passed": not errors,
         "error_count": len(errors),
@@ -235,6 +251,7 @@ def run_integrity_audit(target: DbTarget) -> dict[str, Any]:
         "errors": errors,
         "warnings": warnings,
         "warning_summary": dict(sorted(summary.items())),
+        "coverage": coverage,
         "counts": {
             "lessons": len(lessons),
             "vocabulary": len(vocab),
@@ -246,3 +263,132 @@ def run_integrity_audit(target: DbTarget) -> dict[str, Any]:
             "exam_items": len(items),
         },
     }
+
+
+def _count_rules(raw: str | None) -> int:
+    details, ok = _parse(raw, dict)
+    if not ok or not details:
+        return 0
+    rules = details.get("rules")
+    return len(rules) if isinstance(rules, list) else 0
+
+
+def _coverage(
+    lessons: list[Lesson],
+    vocab: list[Vocabulary],
+    passages: list[Passage],
+    nodes: dict[str, ConceptNode],
+    edges: list[ConceptEdge],
+    l1: list[L1ErrorPattern],
+    items: list[ExamQuestionItem],
+) -> dict[str, Any]:
+    """Per-lesson inventory plus exam-bank / concept-graph provenance totals."""
+    vocab_count = Counter((v.grade, v.lesson_num) for v in vocab if v.grade >= 7)
+    kinds: dict[tuple[int, int], Counter[str]] = {}
+    words: Counter[tuple[int, int]] = Counter()
+    for p in passages:
+        key = (p.grade, p.lesson_num)
+        kinds.setdefault(key, Counter())[p.section_type.lower()] += 1
+        words[key] += len(p.content.split())
+
+    by_grade: dict[int, list[int]] = {}
+    for les in lessons:
+        by_grade.setdefault(les.grade, []).append(
+            vocab_count[(les.grade, les.lesson_num)]
+        )
+    medians = {g: sorted(c)[len(c) // 2] for g, c in by_grade.items()}
+
+    rows: list[dict[str, Any]] = []
+    for les in sorted(lessons, key=lambda x: (x.grade, x.lesson_num)):
+        key = (les.grade, les.lesson_num)
+        k = kinds.get(key, Counter())
+        flags: list[str] = []
+        if k["conversation"] == 0:
+            flags.append("no_conversation")
+        if k["reading"] == 0:
+            flags.append("no_reading")
+        if k["listening"] == 0:
+            flags.append("no_listening_script")
+        if vocab_count[key] == 0:
+            flags.append("no_vocabulary")
+        elif vocab_count[key] < THIN_VOCAB_RATIO * medians[les.grade]:
+            flags.append("thin_vocabulary")
+        rules = _count_rules(les.grammar_details_json)
+        if rules == 0:
+            flags.append("no_grammar_rules")
+        rows.append(
+            {
+                "grade": les.grade,
+                "lesson": les.lesson_num,
+                "title": les.title,
+                "vocabulary": vocab_count[key],
+                "conversation": k["conversation"],
+                "reading": k["reading"],
+                "listening": k["listening"],
+                "passage_words": words[key],
+                "grammar_rules": rules,
+                "writing_skills": les.writing_skills_json is not None,
+                "flags": flags,
+            }
+        )
+
+    mcq = [i for i in items if i.item_type == "multiple_choice"]
+    status_counts = Counter(
+        i.distractor_status or "authored"
+        for i in mcq
+        if (i.distractor_analysis or "").strip()
+    )
+    exam_bank = {
+        "items": len(items),
+        "by_section": dict(sorted(Counter(i.section_code for i in items).items())),
+        "multiple_choice": len(mcq),
+        "multiple_choice_with_distractor_notes": sum(status_counts.values()),
+        "distractor_notes_by_status": dict(sorted(status_counts.items())),
+    }
+    external = sum(1 for e in edges if e.target_id not in nodes)
+    graph = {
+        "nodes": len(nodes),
+        "nodes_by_grade": dict(
+            sorted(Counter(n.grade for n in nodes.values()).items())
+        ),
+        "edges": len(edges),
+        "edges_to_unseeded_nodes": external,
+        "l1_patterns": len(l1),
+    }
+    return {
+        "lessons": rows,
+        "lessons_with_flags": sum(1 for r in rows if r["flags"]),
+        "flag_summary": dict(
+            sorted(Counter(f for r in rows for f in r["flags"]).items())
+        ),
+        "exam_bank": exam_bank,
+        "concept_graph": graph,
+    }
+
+
+def format_coverage_table(report: dict[str, Any]) -> str:
+    """Render the coverage section as Markdown tables for humans."""
+    cov = report["coverage"]
+    lines = [
+        "| Grade | Lesson | Title | Vocab | Conv | Read | Listen | Words | Rules | Flags |",
+        "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    for r in cov["lessons"]:
+        lines.append(
+            f"| {r['grade']} | {r['lesson']} | {r['title']} | {r['vocabulary']} "
+            f"| {r['conversation']} | {r['reading']} | {r['listening']} "
+            f"| {r['passage_words']} | {r['grammar_rules']} | {', '.join(r['flags'])} |"
+        )
+    bank, graph = cov["exam_bank"], cov["concept_graph"]
+    lines += [
+        "",
+        f"Exam bank: {bank['items']} items; {bank['multiple_choice_with_distractor_notes']}"
+        f"/{bank['multiple_choice']} MCQs have distractor notes "
+        f"{bank['distractor_notes_by_status']}",
+        f"Concept graph: {graph['nodes']} nodes, {graph['edges']} edges "
+        f"({graph['edges_to_unseeded_nodes']} to unseeded nodes), "
+        f"{graph['l1_patterns']} L1 patterns",
+        f"Lessons with coverage flags: {cov['lessons_with_flags']}/{len(cov['lessons'])} "
+        f"{cov['flag_summary']}",
+    ]
+    return "\n".join(lines)
